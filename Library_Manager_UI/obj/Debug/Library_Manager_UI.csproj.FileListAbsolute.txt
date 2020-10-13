@@ -1,0 +1,12 @@
+H:\Hoc_Hanh\LTTQ\Thuc_Hanh\Library_Manager_UI\bin\Debug\Library_Manager_UI.exe.config
+H:\Hoc_Hanh\LTTQ\Thuc_Hanh\Library_Manager_UI\bin\Debug\Library_Manager_UI.exe
+H:\Hoc_Hanh\LTTQ\Thuc_Hanh\Library_Manager_UI\bin\Debug\Library_Manager_UI.pdb
+H:\Hoc_Hanh\LTTQ\Thuc_Hanh\Library_Manager_UI\obj\Debug\Library_Manager_UI.csprojAssemblyReference.cache
+H:\Hoc_Hanh\LTTQ\Thuc_Hanh\Library_Manager_UI\obj\Debug\Library_Manager_UI.Login_Menu.resources
+H:\Hoc_Hanh\LTTQ\Thuc_Hanh\Library_Manager_UI\obj\Debug\Library_Manager_UI.Properties.Resources.resources
+H:\Hoc_Hanh\LTTQ\Thuc_Hanh\Library_Manager_UI\obj\Debug\Library_Manager_UI.csproj.GenerateResource.cache
+H:\Hoc_Hanh\LTTQ\Thuc_Hanh\Library_Manager_UI\obj\Debug\Library_Manager_UI.csproj.CoreCompileInputs.cache
+H:\Hoc_Hanh\LTTQ\Thuc_Hanh\Library_Manager_UI\obj\Debug\Library_Manager_UI.exe
+H:\Hoc_Hanh\LTTQ\Thuc_Hanh\Library_Manager_UI\obj\Debug\Library_Manager_UI.pdb
+H:\Hoc_Hanh\LTTQ\Thuc_Hanh\Library_Manager_UI\obj\Debug\Library_Manager_UI.Reset_Password.resources
+H:\Hoc_Hanh\LTTQ\Thuc_Hanh\Library_Manager_UI\obj\Debug\Library_Manager_UI.Main.resources
