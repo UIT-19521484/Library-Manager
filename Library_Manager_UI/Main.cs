@@ -10,19 +10,32 @@ using System.Windows.Forms;
 
 namespace Library_Manager_UI
 {
-    public partial class Main : Form
+    public partial class frmMain : Form
     {
-        public Main()
+        public frmMain()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogoff_Click(object sender, EventArgs e)
         {
-                this.Hide();
-                Login_Menu obj1 = new Login_Menu();
-                obj1.ShowDialog();
-                this.Close();
+            this.Owner.Show();
+            this.Close();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

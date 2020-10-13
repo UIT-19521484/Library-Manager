@@ -10,51 +10,14 @@ using System.Windows.Forms;
 
 namespace Library_Manager_UI
 {
-    public partial class Login_Menu : Form
+    public partial class frmLogin : Form
     {
-        public Login_Menu()
+        public frmLogin()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //chuyển form bằng khối lệnh bên dưới.
-                this.Hide();
-                Main obj1 = new Main();
-                obj1.ShowDialog();
-                this.Close();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            this.Hide();
-            Reset_Password obj1 = new Reset_Password();
-            obj1.ShowDialog();
-            this.Close();
-        }
-
-        private void Login_Menu_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_Menu_FormClosing(object sender, FormClosingEventArgs e)
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult box = MessageBox.Show("Do you really want to exit?", "Exit", MessageBoxButtons.YesNo);
 
@@ -64,8 +27,25 @@ namespace Library_Manager_UI
                 e.Cancel = true;
         }
 
-        private void Username_Text_TextChanged(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
+            frmMain frmMain = new frmMain();
+            frmMain.Owner = this;
+            frmMain.Show();
+            this.Hide();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            frmResetPassword frmResetPassword = new frmResetPassword();
+            frmResetPassword.Owner = this;
+            frmResetPassword.Show();
+            this.Hide();
         }
     }
 }

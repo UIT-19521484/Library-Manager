@@ -1,6 +1,6 @@
 ﻿namespace Library_Manager_UI
 {
-    partial class Login_Menu
+    partial class frmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,111 +28,123 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Login_Button = new System.Windows.Forms.Button();
-            this.Exit_Button = new System.Windows.Forms.Button();
-            this.Username_Text = new System.Windows.Forms.TextBox();
-            this.Password_Text = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Reset_Password = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.btnResetPassword = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Login_Button
+            // btnLogin
             // 
-            this.Login_Button.Location = new System.Drawing.Point(22, 223);
-            this.Login_Button.Name = "Login_Button";
-            this.Login_Button.Size = new System.Drawing.Size(87, 36);
-            this.Login_Button.TabIndex = 0;
-            this.Login_Button.Text = "Login";
-            this.Login_Button.UseVisualStyleBackColor = true;
-            this.Login_Button.UseWaitCursor = true;
-            this.Login_Button.Click += new System.EventHandler(this.button1_Click);
+            this.btnLogin.Location = new System.Drawing.Point(16, 181);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(65, 29);
+            this.btnLogin.TabIndex = 3;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseWaitCursor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // Exit_Button
+            // btnExit
             // 
-            this.Exit_Button.Location = new System.Drawing.Point(144, 223);
-            this.Exit_Button.Name = "Exit_Button";
-            this.Exit_Button.Size = new System.Drawing.Size(85, 36);
-            this.Exit_Button.TabIndex = 1;
-            this.Exit_Button.Text = "Exit";
-            this.Exit_Button.UseVisualStyleBackColor = true;
-            this.Exit_Button.UseWaitCursor = true;
-            this.Exit_Button.Click += new System.EventHandler(this.button2_Click);
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnExit.Location = new System.Drawing.Point(258, 181);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(64, 29);
+            this.btnExit.TabIndex = 5;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseWaitCursor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // Username_Text
+            // txtUsername
             // 
-            this.Username_Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Username_Text.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.Username_Text.Location = new System.Drawing.Point(207, 67);
-            this.Username_Text.Name = "Username_Text";
-            this.Username_Text.Size = new System.Drawing.Size(187, 30);
-            this.Username_Text.TabIndex = 2;
-            this.Username_Text.UseWaitCursor = true;
-            this.Username_Text.TextChanged += new System.EventHandler(this.Username_Text_TextChanged);
+            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtUsername.Location = new System.Drawing.Point(155, 54);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(141, 26);
+            this.txtUsername.TabIndex = 1;
+            this.txtUsername.UseWaitCursor = true;
             // 
-            // Password_Text
+            // txtPassword
             // 
-            this.Password_Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Password_Text.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.Password_Text.Location = new System.Drawing.Point(207, 127);
-            this.Password_Text.Name = "Password_Text";
-            this.Password_Text.PasswordChar = '*';
-            this.Password_Text.Size = new System.Drawing.Size(187, 30);
-            this.Password_Text.TabIndex = 3;
-            this.Password_Text.Text = "password";
-            this.Password_Text.UseWaitCursor = true;
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtPassword.Location = new System.Drawing.Point(155, 103);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(141, 26);
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.UseWaitCursor = true;
             // 
-            // label1
+            // lblUsername
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(55, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Username:";
-            this.label1.UseWaitCursor = true;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(41, 57);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(96, 20);
+            this.lblUsername.TabIndex = 4;
+            this.lblUsername.Text = "Username:";
+            this.lblUsername.UseWaitCursor = true;
             // 
-            // label2
+            // lblPassword
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(55, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 25);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Password:";
-            this.label2.UseWaitCursor = true;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(41, 106);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(91, 20);
+            this.lblPassword.TabIndex = 5;
+            this.lblPassword.Text = "Password:";
+            this.lblPassword.UseWaitCursor = true;
             // 
-            // Reset_Password
+            // btnResetPassword
             // 
-            this.Reset_Password.Location = new System.Drawing.Point(261, 224);
-            this.Reset_Password.Name = "Reset_Password";
-            this.Reset_Password.Size = new System.Drawing.Size(158, 35);
-            this.Reset_Password.TabIndex = 6;
-            this.Reset_Password.Text = "Reset Password";
-            this.Reset_Password.UseVisualStyleBackColor = true;
-            this.Reset_Password.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnResetPassword.Location = new System.Drawing.Point(116, 182);
+            this.btnResetPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.btnResetPassword.Name = "btnResetPassword";
+            this.btnResetPassword.Size = new System.Drawing.Size(118, 28);
+            this.btnResetPassword.TabIndex = 4;
+            this.btnResetPassword.Text = "Reset Password";
+            this.btnResetPassword.UseVisualStyleBackColor = true;
+            this.btnResetPassword.UseWaitCursor = true;
+            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
-            // Login_Menu
+            // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AcceptButton = this.btnLogin;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 322);
-            this.Controls.Add(this.Reset_Password);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.Password_Text);
-            this.Controls.Add(this.Username_Text);
-            this.Controls.Add(this.Exit_Button);
-            this.Controls.Add(this.Login_Button);
-            this.Name = "Login_Menu";
+            this.CancelButton = this.btnExit;
+            this.ClientSize = new System.Drawing.Size(343, 262);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnResetPassword);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Menu";
             this.UseWaitCursor = true;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_Menu_FormClosing);
-            this.Load += new System.EventHandler(this.Login_Menu_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,13 +152,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Login_Button;
-        private System.Windows.Forms.Button Exit_Button;
-        private System.Windows.Forms.TextBox Username_Text;
-        private System.Windows.Forms.TextBox Password_Text;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button Reset_Password;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Button btnResetPassword;
     }
 }
 

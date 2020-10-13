@@ -16,7 +16,7 @@ namespace Library_Manager_UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login_Menu());
+            Application.Run(new frmLogin());
         }
     }
 }

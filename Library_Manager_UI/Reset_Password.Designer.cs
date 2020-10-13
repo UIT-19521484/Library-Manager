@@ -1,6 +1,6 @@
 ﻿namespace Library_Manager_UI
 {
-    partial class Reset_Password
+    partial class frmResetPassword
     {
         /// <summary>
         /// Required designer variable.
@@ -28,107 +28,119 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Username_Text = new System.Windows.Forms.TextBox();
-            this.New_Password_Text = new System.Windows.Forms.TextBox();
-            this.Confirm_Password_Text = new System.Windows.Forms.TextBox();
-            this.OK_Button = new System.Windows.Forms.Button();
-            this.Cancel_Button = new System.Windows.Forms.Button();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblNewPassword = new System.Windows.Forms.Label();
+            this.lblConfirmPassword = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtNewPassword = new System.Windows.Forms.TextBox();
+            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblUsername
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(50, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Enter username:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(9, 41);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(127, 20);
+            this.lblUsername.TabIndex = 0;
+            this.lblUsername.Text = "Enter username:";
             // 
-            // label2
+            // lblNewPassword
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 90);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 25);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Enter new password:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.lblNewPassword.AutoSize = true;
+            this.lblNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewPassword.Location = new System.Drawing.Point(9, 73);
+            this.lblNewPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNewPassword.Name = "lblNewPassword";
+            this.lblNewPassword.Size = new System.Drawing.Size(157, 20);
+            this.lblNewPassword.TabIndex = 1;
+            this.lblNewPassword.Text = "Enter new password:";
             // 
-            // label3
+            // lblConfirmPassword
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(31, 130);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(175, 25);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Confirm password:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.lblConfirmPassword.AutoSize = true;
+            this.lblConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirmPassword.Location = new System.Drawing.Point(9, 107);
+            this.lblConfirmPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblConfirmPassword.Name = "lblConfirmPassword";
+            this.lblConfirmPassword.Size = new System.Drawing.Size(140, 20);
+            this.lblConfirmPassword.TabIndex = 2;
+            this.lblConfirmPassword.Text = "Confirm password:";
             // 
-            // Username_Text
+            // txtUsername
             // 
-            this.Username_Text.Location = new System.Drawing.Point(221, 53);
-            this.Username_Text.Name = "Username_Text";
-            this.Username_Text.Size = new System.Drawing.Size(183, 22);
-            this.Username_Text.TabIndex = 3;
+            this.txtUsername.Location = new System.Drawing.Point(166, 43);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(138, 20);
+            this.txtUsername.TabIndex = 1;
             // 
-            // New_Password_Text
+            // txtNewPassword
             // 
-            this.New_Password_Text.Location = new System.Drawing.Point(221, 94);
-            this.New_Password_Text.Name = "New_Password_Text";
-            this.New_Password_Text.PasswordChar = '*';
-            this.New_Password_Text.Size = new System.Drawing.Size(183, 22);
-            this.New_Password_Text.TabIndex = 4;
+            this.txtNewPassword.Location = new System.Drawing.Point(166, 76);
+            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.PasswordChar = '*';
+            this.txtNewPassword.Size = new System.Drawing.Size(138, 20);
+            this.txtNewPassword.TabIndex = 2;
             // 
-            // Confirm_Password_Text
+            // txtConfirmPassword
             // 
-            this.Confirm_Password_Text.Location = new System.Drawing.Point(221, 134);
-            this.Confirm_Password_Text.Name = "Confirm_Password_Text";
-            this.Confirm_Password_Text.PasswordChar = '*';
-            this.Confirm_Password_Text.Size = new System.Drawing.Size(183, 22);
-            this.Confirm_Password_Text.TabIndex = 5;
+            this.txtConfirmPassword.Location = new System.Drawing.Point(166, 109);
+            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.PasswordChar = '*';
+            this.txtConfirmPassword.Size = new System.Drawing.Size(138, 20);
+            this.txtConfirmPassword.TabIndex = 3;
             // 
-            // OK_Button
+            // btnOk
             // 
-            this.OK_Button.Location = new System.Drawing.Point(88, 197);
-            this.OK_Button.Name = "OK_Button";
-            this.OK_Button.Size = new System.Drawing.Size(86, 40);
-            this.OK_Button.TabIndex = 6;
-            this.OK_Button.Text = "OK";
-            this.OK_Button.UseVisualStyleBackColor = true;
-            this.OK_Button.Click += new System.EventHandler(this.button1_Click);
+            this.btnOk.Location = new System.Drawing.Point(61, 173);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(64, 32);
+            this.btnOk.TabIndex = 4;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = true;
             // 
-            // Cancel_Button
+            // btnCancel
             // 
-            this.Cancel_Button.Location = new System.Drawing.Point(243, 197);
-            this.Cancel_Button.Name = "Cancel_Button";
-            this.Cancel_Button.Size = new System.Drawing.Size(86, 40);
-            this.Cancel_Button.TabIndex = 7;
-            this.Cancel_Button.Text = "Cancel";
-            this.Cancel_Button.UseVisualStyleBackColor = true;
-            this.Cancel_Button.Click += new System.EventHandler(this.Cancel_Button_Click);
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(227, 173);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(64, 32);
+            this.btnCancel.TabIndex = 5;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // Reset_Password
+            // frmResetPassword
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AcceptButton = this.btnOk;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 292);
-            this.Controls.Add(this.Cancel_Button);
-            this.Controls.Add(this.OK_Button);
-            this.Controls.Add(this.Confirm_Password_Text);
-            this.Controls.Add(this.New_Password_Text);
-            this.Controls.Add(this.Username_Text);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "Reset_Password";
-            this.Text = "Reset_Password";
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(337, 237);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnOk);
+            this.Controls.Add(this.txtConfirmPassword);
+            this.Controls.Add(this.txtNewPassword);
+            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.lblConfirmPassword);
+            this.Controls.Add(this.lblNewPassword);
+            this.Controls.Add(this.lblUsername);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "frmResetPassword";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Reset Password";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,13 +148,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Username_Text;
-        private System.Windows.Forms.TextBox New_Password_Text;
-        private System.Windows.Forms.TextBox Confirm_Password_Text;
-        private System.Windows.Forms.Button OK_Button;
-        private System.Windows.Forms.Button Cancel_Button;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label lblNewPassword;
+        private System.Windows.Forms.Label lblConfirmPassword;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtNewPassword;
+        private System.Windows.Forms.TextBox txtConfirmPassword;
+        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
