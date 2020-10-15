@@ -42,7 +42,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(9, 41);
+            this.lblUsername.Location = new System.Drawing.Point(9, 30);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(127, 20);
@@ -64,7 +64,7 @@
             // 
             this.lblConfirmPassword.AutoSize = true;
             this.lblConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmPassword.Location = new System.Drawing.Point(9, 107);
+            this.lblConfirmPassword.Location = new System.Drawing.Point(9, 118);
             this.lblConfirmPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblConfirmPassword.Name = "lblConfirmPassword";
             this.lblConfirmPassword.Size = new System.Drawing.Size(140, 20);
@@ -73,10 +73,10 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(166, 43);
+            this.txtUsername.Location = new System.Drawing.Point(166, 32);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(138, 20);
+            this.txtUsername.Size = new System.Drawing.Size(149, 20);
             this.txtUsername.TabIndex = 1;
             // 
             // txtNewPassword
@@ -85,16 +85,16 @@
             this.txtNewPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.PasswordChar = '*';
-            this.txtNewPassword.Size = new System.Drawing.Size(138, 20);
+            this.txtNewPassword.Size = new System.Drawing.Size(149, 20);
             this.txtNewPassword.TabIndex = 2;
             // 
             // txtConfirmPassword
             // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(166, 109);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(166, 120);
             this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.PasswordChar = '*';
-            this.txtConfirmPassword.Size = new System.Drawing.Size(138, 20);
+            this.txtConfirmPassword.Size = new System.Drawing.Size(149, 20);
             this.txtConfirmPassword.TabIndex = 3;
             // 
             // btnOk
@@ -110,7 +110,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(227, 173);
+            this.btnCancel.Location = new System.Drawing.Point(213, 173);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(64, 32);

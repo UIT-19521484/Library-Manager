@@ -31,8 +31,8 @@ namespace Library_Manager_UI
         {
             frmMain frmMain = new frmMain();
             frmMain.Owner = this;
-            frmMain.ShowDialog();
-            this.Show();
+            frmMain.Show();
+            this.Hide();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
