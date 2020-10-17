@@ -15,12 +15,22 @@ namespace Library_Manager_UI
         public frmMain()
         {
             InitializeComponent();
+            LoadDataTableReaders();
+            LoadDataTableBooks();
         }
 
-        private void btnLogoff_Click(object sender, EventArgs e)
+        void LoadDataTableReaders()
         {
-            this.Owner.Show();
-            this.Close();
+            string str = @"select * from DocGia";
+            DataTable dt = data_testConnection.GetDataTable(str);
+            dgvReaders.DataSource = dt;
+        }
+
+        void LoadDataTableBooks()
+        {
+            string str = @"select * from Sach";
+            DataTable dt = data_testConnection.GetDataTable(str);
+            dgvBooks.DataSource = dt;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -37,5 +47,7 @@ namespace Library_Manager_UI
         {
 
         }
+
+        
     }
 }
