@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Library_Manager_UI
 {
-    class data_testConnection
+    class DataConnection
     {
         private static string connectionString;
         private static SqlConnection con;
@@ -23,7 +23,7 @@ namespace Library_Manager_UI
             //
             //Nhập connection string của server database
             //
-            connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=QLThuVien;User ID=sa;Password=Huy123456";
+            connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLyThuVien;User ID=sa;Password=Huy123456";
 
             con = new SqlConnection(connectionString);
 
@@ -57,7 +57,7 @@ namespace Library_Manager_UI
                 con.Close();
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 con.Close();
                 MessageBox.Show("Không thể thực thi lệnh này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);

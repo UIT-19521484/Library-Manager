@@ -12,20 +12,12 @@ namespace Library_Manager_UI
 {
     public partial class frmLogin : Form
     {
+        string username;
+        string password;
         public frmLogin()
         {
             InitializeComponent();
             txtUsername.Focus();
-        }
-
-        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult box = MessageBox.Show("Bạn có muốn thoát chương trình ?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-
-            if (box == DialogResult.Yes)
-                Application.Exit();
-            else if (box == DialogResult.No)
-                e.Cancel = true;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -35,40 +27,34 @@ namespace Library_Manager_UI
                 MessageBox.Show("Bạn chưa nhập tên đăng nhập hoặc mật khẩu!", "Thông báo");
                 return;
             }
-            DataTable dt = data_testConnection.GetDataTable("Select * from Users where ID = '" + txtUsername.Text + "' and PassWord = '" + CreateMD5(txtPassword.Text) + "'");
+            DataTable dt = DataConnection.GetDataTable("Select * from Users where Username = '" + txtUsername.Text + "' and Password = '" + CreateMD5(txtPassword.Text) + "'");
             if (dt.Rows.Count > 0)
             {
+                username = txtUsername.Text;
+                password = txtPassword.Text;
                 MessageBox.Show("Xin chào " + txtUsername.Text + "! Bạn đã đăng nhập thành công!", "Thông báo");
-                this.Hide();
-                frmMain frmMain = new frmMain();
+                txtUsername.Text = "";
+                txtPassword.Text = "";
+                txtUsername.Focus();
+                frmMain frmMain = new frmMain(username, password);
                 frmMain.Owner = this;
                 frmMain.Show();
                 this.Hide();
             }
             else
             {
-                MessageBox.Show("Đăng nhập không thành công!", "Thông báo");
-                txtUsername.Clear();
-                txtPassword.Clear();
+                MessageBox.Show("Tài khoản hoặc mật khẩu không đúng!", "Thông báo");
+                txtUsername.Text = "";
+                txtPassword.Text = "";
                 txtUsername.Focus();
             }
         }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
         
-        private void lblResetPassword_Click(object sender, EventArgs e)
-        {
-            frmChangePassword frmResetPassword = new frmChangePassword();
-            frmResetPassword.Owner = this;
-            frmResetPassword.Show();
-            this.Hide();
-        }
-
         private void lblSignup_Click(object sender, EventArgs e)
         {
+            txtUsername.Text = "";
+            txtPassword.Text = "";
+            txtUsername.Focus();
             frmSignup frmSignup = new frmSignup();
             frmSignup.Owner = this;
             frmSignup.Show();
@@ -90,6 +76,30 @@ namespace Library_Manager_UI
                 }
                 return sb.ToString();
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn thoát chương trình ?", "Thoát", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.OK)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void lblResetPassword_Click(object sender, EventArgs e)
+        {
+            txtUsername.Text = "";
+            txtPassword.Text = "";
+            txtUsername.Focus();
+            frmResetPassword frmResetPW= new frmResetPassword();
+            frmResetPW.Owner = this;
+            frmResetPW.Show();
+            this.Hide();
         }
     }
 }

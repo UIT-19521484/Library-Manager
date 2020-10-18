@@ -63,23 +63,23 @@
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtPassword.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtPassword.Location = new System.Drawing.Point(161, 71);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(242, 26);
-            this.txtPassword.TabIndex = 9;
+            this.txtPassword.TabIndex = 2;
             // 
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtUsername.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtUsername.Location = new System.Drawing.Point(161, 29);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(242, 26);
-            this.txtUsername.TabIndex = 8;
+            this.txtUsername.TabIndex = 1;
             // 
             // btnCancel
             // 
@@ -89,7 +89,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(82, 29);
-            this.btnCancel.TabIndex = 13;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -101,7 +101,7 @@
             this.btnSignup.Margin = new System.Windows.Forms.Padding(2);
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(82, 29);
-            this.btnSignup.TabIndex = 10;
+            this.btnSignup.TabIndex = 4;
             this.btnSignup.Text = "Đăng ký";
             this.btnSignup.UseVisualStyleBackColor = true;
             this.btnSignup.Click += new System.EventHandler(this.btnSignup_Click);
@@ -120,18 +120,20 @@
             // txtConfirmPassword
             // 
             this.txtConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmPassword.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtConfirmPassword.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtConfirmPassword.Location = new System.Drawing.Point(161, 116);
             this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(242, 26);
-            this.txtConfirmPassword.TabIndex = 16;
+            this.txtConfirmPassword.TabIndex = 3;
             // 
             // frmSignup
             // 
+            this.AcceptButton = this.btnSignup;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(445, 232);
             this.Controls.Add(this.lblConfirmPassword);
             this.Controls.Add(this.txtConfirmPassword);
@@ -141,8 +143,11 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSignup);
+            this.MaximizeBox = false;
             this.Name = "frmSignup";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng ký tài khoản";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSignup_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

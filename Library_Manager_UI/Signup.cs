@@ -41,9 +41,9 @@ namespace Library_Manager_UI
             }
             else
             {
-                string Adduser = @"insert into Users VALUES('" + txtUsername.Text + "','" + CreateMD5(txtPassword.Text) + "','3')";
-                data_testConnection.ExecuteQuery(Adduser);
-                MessageBox.Show("Thay đổi mật khẩu thành công! Mời bạn đăng nhập.", "Thông báo", MessageBoxButtons.OK);
+                string Adduser = @"insert into Users VALUES('" + txtUsername.Text + "','" + CreateMD5(txtPassword.Text) + "','1')";
+                DataConnection.ExecuteQuery(Adduser);
+                MessageBox.Show("Đăng ký thành công! Mời bạn đăng nhập.", "Thông báo", MessageBoxButtons.OK);
                 this.Owner.Show();
                 this.Close();
             }
@@ -64,6 +64,11 @@ namespace Library_Manager_UI
                 }
                 return sb.ToString();
             }
+        }
+
+        private void frmSignup_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Owner.Show();
         }
     }
 }

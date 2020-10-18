@@ -34,8 +34,8 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.lblResetPassword = new System.Windows.Forms.Label();
             this.lblSignup = new System.Windows.Forms.Label();
+            this.lblResetPassword = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -66,7 +66,7 @@
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtUsername.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtUsername.Location = new System.Drawing.Point(155, 31);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsername.Name = "txtUsername";
@@ -76,7 +76,7 @@
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtPassword.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtPassword.Location = new System.Drawing.Point(155, 82);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
@@ -106,31 +106,31 @@
             this.lblPassword.TabIndex = 5;
             this.lblPassword.Text = "Mật khẩu:";
             // 
-            // lblResetPassword
-            // 
-            this.lblResetPassword.AutoSize = true;
-            this.lblResetPassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblResetPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResetPassword.ForeColor = System.Drawing.Color.Blue;
-            this.lblResetPassword.Location = new System.Drawing.Point(57, 134);
-            this.lblResetPassword.Name = "lblResetPassword";
-            this.lblResetPassword.Size = new System.Drawing.Size(139, 15);
-            this.lblResetPassword.TabIndex = 6;
-            this.lblResetPassword.Text = "Tôi không nhớ mật khẩu";
-            this.lblResetPassword.Click += new System.EventHandler(this.lblResetPassword_Click);
-            // 
             // lblSignup
             // 
             this.lblSignup.AutoSize = true;
             this.lblSignup.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblSignup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSignup.ForeColor = System.Drawing.Color.Blue;
-            this.lblSignup.Location = new System.Drawing.Point(257, 134);
+            this.lblSignup.Location = new System.Drawing.Point(80, 134);
             this.lblSignup.Name = "lblSignup";
             this.lblSignup.Size = new System.Drawing.Size(105, 15);
             this.lblSignup.TabIndex = 7;
             this.lblSignup.Text = "Tạo tài khoản mới";
             this.lblSignup.Click += new System.EventHandler(this.lblSignup_Click);
+            // 
+            // lblResetPassword
+            // 
+            this.lblResetPassword.AutoSize = true;
+            this.lblResetPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblResetPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResetPassword.ForeColor = System.Drawing.Color.Blue;
+            this.lblResetPassword.Location = new System.Drawing.Point(278, 134);
+            this.lblResetPassword.Name = "lblResetPassword";
+            this.lblResetPassword.Size = new System.Drawing.Size(91, 15);
+            this.lblResetPassword.TabIndex = 8;
+            this.lblResetPassword.Text = "Quên mật khẩu";
+            this.lblResetPassword.Click += new System.EventHandler(this.lblResetPassword_Click);
             // 
             // frmLogin
             // 
@@ -139,8 +139,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(423, 238);
-            this.Controls.Add(this.lblSignup);
             this.Controls.Add(this.lblResetPassword);
+            this.Controls.Add(this.lblSignup);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.txtPassword);
@@ -168,8 +168,8 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.Label lblResetPassword;
         private System.Windows.Forms.Label lblSignup;
+        private System.Windows.Forms.Label lblResetPassword;
     }
 }
 

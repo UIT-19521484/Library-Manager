@@ -12,24 +12,27 @@ namespace Library_Manager_UI
 {
     public partial class frmChangePassword : Form
     {
+        string username;
+        string password;
         public frmChangePassword()
         {
             InitializeComponent();
         }
-
+        public frmChangePassword(string user, string pass)
+        {
+            username = user;
+            password = pass;
+            InitializeComponent();
+        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialog == DialogResult.Yes)
-            {
-                this.Owner.Show();
-                this.Close();
-            }
+            this.Owner.Show();
+            this.Close();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            string update = "update Users set PassWord='" + CreateMD5(txtNewPassword.Text) + "' where(ID=N'" + txtUsername.Text + "' and PassWord='" + CreateMD5(txtPassword.Text) + "')";
+            string update = "update Users set Password='" + CreateMD5(txtNewPassword.Text) + "' where(Username=N'" + txtUsername.Text + "' and Password='" + CreateMD5(txtPassword.Text) + "')";
             string ten = txtUsername.Text;
             if (ten == "")
             {
@@ -57,14 +60,22 @@ namespace Library_Manager_UI
                         {
                             if ((txtNewPassword.Text == txtConfirmPassword.Text))
                             {
-                                data_testConnection.ExecuteQuery(update);
-                                MessageBox.Show("Thay đổi mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK);
-                                this.Owner.Show();
-                                this.Close();
+                                DataTable dt = DataConnection.GetDataTable("Select * from Users where Username = '" + txtUsername.Text + "' and Password='" + CreateMD5(txtPassword.Text) + "'");
+                                if (dt.Rows.Count > 0)
+                                {
+                                    DataConnection.ExecuteQuery(update);
+                                    MessageBox.Show("Thay đổi mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK);
+                                    this.Owner.Show();
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Mật khẩu cũ không đúng");
+                                }    
                             }
                             else
                             {
-                                MessageBox.Show("Bạn nhập lại mật khẩu không đúng");
+                                MessageBox.Show("Hai mật khẩu không khớp");
                             }
                         }
                     }
@@ -87,6 +98,11 @@ namespace Library_Manager_UI
                 }
                 return sb.ToString();
             }
+        }
+
+        private void frmChangePassword_Load(object sender, EventArgs e)
+        {
+            txtUsername.Text = username;
         }
     }
 }

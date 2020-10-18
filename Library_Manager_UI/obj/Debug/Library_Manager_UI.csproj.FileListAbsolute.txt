@@ -27,7 +27,6 @@ D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Proje
 D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\bin\Debug\Library_Manager_UI.pdb
 D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.csprojAssemblyReference.cache
 D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmLogin.resources
-D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmMain.resources
 D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.Properties.Resources.resources
 D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.csproj.GenerateResource.cache
 D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.csproj.CoreCompileInputs.cache
@@ -35,3 +34,9 @@ D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Proje
 D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.pdb
 D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmSignup.resources
 D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmChangePassword.resources
+D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmInformation.resources
+D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmResetPassword.resources
+D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmMain.resources
+D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmBooks.resources
+D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmGenres.resources
+D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmReaders.resources
