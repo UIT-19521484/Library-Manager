@@ -68,5 +68,20 @@ namespace Library_Manager_UI
             frmReaders.Show();
             this.Hide();
         }
+
+        private void tsmiBooks_Click(object sender, EventArgs e)
+        {
+            picBooks_Click(sender, e);
+        }
+
+        private void tsmiGenres_Click(object sender, EventArgs e)
+        {
+            picGenres_Click(sender, e);
+        }
+
+        private void tsmiReaders_Click(object sender, EventArgs e)
+        {
+            picReaders_Click(sender, e);
+        }
     }
 }

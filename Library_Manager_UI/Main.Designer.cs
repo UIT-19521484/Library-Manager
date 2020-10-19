@@ -161,12 +161,14 @@
             this.tsmiBooks.Name = "tsmiBooks";
             this.tsmiBooks.Size = new System.Drawing.Size(180, 22);
             this.tsmiBooks.Text = "Sách";
+            this.tsmiBooks.Click += new System.EventHandler(this.tsmiBooks_Click);
             // 
             // tsmiGenres
             // 
             this.tsmiGenres.Name = "tsmiGenres";
             this.tsmiGenres.Size = new System.Drawing.Size(180, 22);
             this.tsmiGenres.Text = "Thể Loại Sách";
+            this.tsmiGenres.Click += new System.EventHandler(this.tsmiGenres_Click);
             // 
             // toolStripSeparator2
             // 
@@ -178,6 +180,7 @@
             this.tsmiReaders.Name = "tsmiReaders";
             this.tsmiReaders.Size = new System.Drawing.Size(180, 22);
             this.tsmiReaders.Text = "Độc Giả";
+            this.tsmiReaders.Click += new System.EventHandler(this.tsmiReaders_Click);
             // 
             // tsmiManagement
             // 
@@ -193,24 +196,24 @@
             // tsmiBorrowedBooks
             // 
             this.tsmiBorrowedBooks.Name = "tsmiBorrowedBooks";
-            this.tsmiBorrowedBooks.Size = new System.Drawing.Size(180, 22);
+            this.tsmiBorrowedBooks.Size = new System.Drawing.Size(134, 22);
             this.tsmiBorrowedBooks.Text = "Mượn Sách";
             // 
             // tsmiReturnedBooks
             // 
             this.tsmiReturnedBooks.Name = "tsmiReturnedBooks";
-            this.tsmiReturnedBooks.Size = new System.Drawing.Size(180, 22);
+            this.tsmiReturnedBooks.Size = new System.Drawing.Size(134, 22);
             this.tsmiReturnedBooks.Text = "Trả Sách";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(131, 6);
             // 
             // tsmiPersonel
             // 
             this.tsmiPersonel.Name = "tsmiPersonel";
-            this.tsmiPersonel.Size = new System.Drawing.Size(180, 22);
+            this.tsmiPersonel.Size = new System.Drawing.Size(134, 22);
             this.tsmiPersonel.Text = "Nhân Viên";
             // 
             // tsmiHelp
@@ -225,7 +228,7 @@
             // 
             this.tsmiIntroduction.Name = "tsmiIntroduction";
             this.tsmiIntroduction.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this.tsmiIntroduction.Size = new System.Drawing.Size(180, 22);
+            this.tsmiIntroduction.Size = new System.Drawing.Size(173, 22);
             this.tsmiIntroduction.Text = "Giới Thiệu";
             // 
             // picGenres

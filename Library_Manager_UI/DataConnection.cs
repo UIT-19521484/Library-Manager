@@ -60,7 +60,8 @@ namespace Library_Manager_UI
             catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show("Không thể thực thi lệnh này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.Message);
+                //MessageBox.Show("Không thể thực thi lệnh này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

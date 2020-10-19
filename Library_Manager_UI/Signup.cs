@@ -41,11 +41,19 @@ namespace Library_Manager_UI
             }
             else
             {
-                string Adduser = @"insert into Users VALUES('" + txtUsername.Text + "','" + CreateMD5(txtPassword.Text) + "','1')";
-                DataConnection.ExecuteQuery(Adduser);
-                MessageBox.Show("Đăng ký thành công! Mời bạn đăng nhập.", "Thông báo", MessageBoxButtons.OK);
-                this.Owner.Show();
-                this.Close();
+                DataTable dt = DataConnection.GetDataTable("Select * from Users where Username = '" + txtUsername.Text + "'");
+                if (dt.Rows.Count <= 0)
+                {
+                    string Adduser = @"insert into Users VALUES('" + txtUsername.Text + "','" + CreateMD5(txtPassword.Text) + "','2')";
+                    DataConnection.ExecuteQuery(Adduser);
+                    MessageBox.Show("Đăng ký thành công! Mời bạn đăng nhập.", "Thông báo", MessageBoxButtons.OK);
+                    this.Owner.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản đã tồn tại!", "Thông báo", MessageBoxButtons.OK);
+                }
             }
         }
         private string CreateMD5(string passWord)

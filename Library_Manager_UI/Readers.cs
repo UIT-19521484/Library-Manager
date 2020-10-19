@@ -35,20 +35,23 @@ namespace Library_Manager_UI
                 {
                     try
                     {
-                        string GioiTinh;
+                        string GioiTinh = "";
                         if (rdoMale.Checked == true)
                             GioiTinh = "Nam"; 
-                        else
+                        else if (rdoFemale.Checked == true)
                             GioiTinh = "Nữ"; 
 
                         string them = @"insert into DocGia(MaDG, HoTen, GioiTinh, NgaySinh ,DiaChi, DienThoai, Email) values ('" + txtReaderCode.Text + "', N'" + txtFullName.Text + "',N'"
-                            + GioiTinh + "',N'" + dtpBirthday.Text + "',N'" + txtAddress.Text + "','" + txtPhone.Text + "', '" + txtEmail.Text + "')";
+                            + GioiTinh + "', CONVERT(date, '" + dtpBirthday.Text + "', 103), N'" + txtAddress.Text + "','" + txtPhone.Text + "', '" + txtEmail.Text + "')";
 
                         DataConnection.ExecuteQuery(them);
                         MessageBox.Show("Thêm độc giả thành công!!");
                         LoadData_Readers();
                     }
-                    catch (Exception) { }
+                    catch (Exception ex) 
+                    {
+                        //MessageBox.Show(ex.Message);
+                    }
                 }
                 else
                 {
@@ -61,7 +64,7 @@ namespace Library_Manager_UI
         {
             string xoa = @"delete from DocGia where MaDG='" + txtReaderCode.Text + "'";
             if (txtReaderCode.Text == "")
-                MessageBox.Show("Mã sách không được trống!");
+                MessageBox.Show("Mã độc giả không được trống!");
             else
             {
                 DataTable dt = DataConnection.GetDataTable("Select * from DocGia where MaDG = '" + txtReaderCode.Text + "'");
@@ -101,8 +104,8 @@ namespace Library_Manager_UI
                 else
                     GioiTinh = "Nữ"; 
 
-                string capnhat = @"update DocGia set MaDG='" + txtReaderCode.Text + "',HoTen=N'" + txtFullName.Text + "',GioiTinh=N'" + GioiTinh + "',NgaySinh='" 
-                                + dtpBirthday.Text + "',DiaChi=N'" + txtAddress.Text + "',DienThoai='" + txtPhone.Text + "',Email='" + txtEmail.Text + "' where MaDG='" + txtReaderCode.Text + "'";
+                string capnhat = @"update DocGia set MaDG='" + txtReaderCode.Text + "',HoTen=N'" + txtFullName.Text + "',GioiTinh=N'" + GioiTinh + "',NgaySinh= CAST('" 
+                                + dtpBirthday.Text + "' AS date), DiaChi=N'" + txtAddress.Text + "',DienThoai='" + txtPhone.Text + "',Email='" + txtEmail.Text + "' where MaDG='" + txtReaderCode.Text + "'";
                 DataConnection.ExecuteQuery(capnhat);
                 MessageBox.Show("Cập nhật độc giả thành công!!");
                 LoadData_Readers();

@@ -53,7 +53,7 @@ namespace Library_Manager_UI
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string them = @"insert into Sach(MaSach,MaTL,TenSach,TacGia,NhaXuatBan,TonTai,SoLanMuon) values ('" + txtBookCode.Text + "','" + cboGenreCode.Text + "',N'" 
-                            + txtBookName.Text + "',N'" + txtAuthor.Text + "',N'" + txtPublisher.Text + "'," + txtAvailable.Text + "," + txtBorrowTimes.Text + ")";
+                            + txtBookName.Text + "',N'" + txtAuthor.Text + "',N'" + txtPublisher.Text + "', CAST('" + txtAvailable.Text + "' AS int), CAST('" + txtBorrowTimes.Text + "' AS int))";
 
             if (txtBookCode.Text == "")
                 MessageBox.Show("Mã sách không được trống!");
@@ -132,7 +132,7 @@ namespace Library_Manager_UI
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             string str = @"select * from Sach where MaSach LIKE N'%" + txtSearch.Text + "%' or TenSach LIKE N'%" + txtSearch.Text + "%' or TacGia LIKE N'%" 
-                        + txtSearch.Text + "%' or NhaXuatBan LIKE N'%" + txtSearch.Text + "%'";
+                        + txtSearch.Text + "%' or NhaXuatBan LIKE N'%" + txtSearch.Text + "%' or MaTL LIKE '%" + txtSearch.Text + "%'";
             DataTable dt = DataConnection.GetDataTable(str);
             dgvBooks.DataSource = dt;
         }
@@ -141,5 +141,7 @@ namespace Library_Manager_UI
         {
             this.Owner.Show();
         }
+
+        
     }
 }
