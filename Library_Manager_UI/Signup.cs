@@ -44,7 +44,7 @@ namespace Library_Manager_UI
                 DataTable dt = DataConnection.GetDataTable("Select * from Users where Username = '" + txtUsername.Text + "'");
                 if (dt.Rows.Count <= 0)
                 {
-                    string Adduser = @"insert into Users VALUES('" + txtUsername.Text + "','" + CreateMD5(txtPassword.Text) + "','2')";
+                    string Adduser = @"insert into Users VALUES('" + txtUsername.Text + "','" + CreateMD5(txtPassword.Text) + "','1')";
                     DataConnection.ExecuteQuery(Adduser);
                     MessageBox.Show("Đăng ký thành công! Mời bạn đăng nhập.", "Thông báo", MessageBoxButtons.OK);
                     this.Owner.Show();

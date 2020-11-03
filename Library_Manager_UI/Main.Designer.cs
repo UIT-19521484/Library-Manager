@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmiSystem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiChangePassword = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,36 +105,36 @@
             // tsmiChangePassword
             // 
             this.tsmiChangePassword.Name = "tsmiChangePassword";
-            this.tsmiChangePassword.Size = new System.Drawing.Size(180, 22);
+            this.tsmiChangePassword.Size = new System.Drawing.Size(146, 22);
             this.tsmiChangePassword.Text = "Đổi Mật Khẩu";
             this.tsmiChangePassword.Click += new System.EventHandler(this.tsmiChangePassword_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
             // 
             // tsmiBackup
             // 
             this.tsmiBackup.Name = "tsmiBackup";
-            this.tsmiBackup.Size = new System.Drawing.Size(180, 22);
+            this.tsmiBackup.Size = new System.Drawing.Size(146, 22);
             this.tsmiBackup.Text = "Backup";
             // 
             // tsmiRestore
             // 
             this.tsmiRestore.Name = "tsmiRestore";
-            this.tsmiRestore.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRestore.Size = new System.Drawing.Size(146, 22);
             this.tsmiRestore.Text = "Restore";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(143, 6);
             // 
             // tsmiLogout
             // 
             this.tsmiLogout.Name = "tsmiLogout";
-            this.tsmiLogout.Size = new System.Drawing.Size(180, 22);
+            this.tsmiLogout.Size = new System.Drawing.Size(146, 22);
             this.tsmiLogout.Text = "Đăng Xuất";
             this.tsmiLogout.Click += new System.EventHandler(this.tsmiLogout_Click);
             // 
@@ -141,7 +142,7 @@
             // 
             this.tsmiExit.Name = "tsmiExit";
             this.tsmiExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.tsmiExit.Size = new System.Drawing.Size(180, 22);
+            this.tsmiExit.Size = new System.Drawing.Size(146, 22);
             this.tsmiExit.Text = "Thoát";
             this.tsmiExit.Click += new System.EventHandler(this.tsmiExit_Click);
             // 
@@ -159,26 +160,26 @@
             // tsmiBooks
             // 
             this.tsmiBooks.Name = "tsmiBooks";
-            this.tsmiBooks.Size = new System.Drawing.Size(180, 22);
+            this.tsmiBooks.Size = new System.Drawing.Size(146, 22);
             this.tsmiBooks.Text = "Sách";
             this.tsmiBooks.Click += new System.EventHandler(this.tsmiBooks_Click);
             // 
             // tsmiGenres
             // 
             this.tsmiGenres.Name = "tsmiGenres";
-            this.tsmiGenres.Size = new System.Drawing.Size(180, 22);
+            this.tsmiGenres.Size = new System.Drawing.Size(146, 22);
             this.tsmiGenres.Text = "Thể Loại Sách";
             this.tsmiGenres.Click += new System.EventHandler(this.tsmiGenres_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(143, 6);
             // 
             // tsmiReaders
             // 
             this.tsmiReaders.Name = "tsmiReaders";
-            this.tsmiReaders.Size = new System.Drawing.Size(180, 22);
+            this.tsmiReaders.Size = new System.Drawing.Size(146, 22);
             this.tsmiReaders.Text = "Độc Giả";
             this.tsmiReaders.Click += new System.EventHandler(this.tsmiReaders_Click);
             // 
@@ -233,6 +234,8 @@
             // 
             // picGenres
             // 
+            this.picGenres.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picGenres.BackgroundImage")));
+            this.picGenres.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picGenres.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picGenres.Location = new System.Drawing.Point(183, 19);
             this.picGenres.Name = "picGenres";
@@ -243,6 +246,8 @@
             // 
             // picReaders
             // 
+            this.picReaders.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picReaders.BackgroundImage")));
+            this.picReaders.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picReaders.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picReaders.Location = new System.Drawing.Point(361, 19);
             this.picReaders.Name = "picReaders";
@@ -253,6 +258,8 @@
             // 
             // picBooks
             // 
+            this.picBooks.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBooks.BackgroundImage")));
+            this.picBooks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picBooks.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBooks.Location = new System.Drawing.Point(6, 19);
             this.picBooks.Name = "picBooks";
@@ -387,7 +394,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(564, 509);
-            this.ControlBox = false;
             this.Controls.Add(this.grpManagement);
             this.Controls.Add(this.grpInformation);
             this.Controls.Add(this.menuStrip1);
@@ -396,6 +402,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý Thư viện";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGenres)).EndInit();

@@ -27,7 +27,7 @@ namespace Library_Manager_UI
         {
 
             if (txtReaderCode.Text == "")
-                MessageBox.Show("Mã sách không được trống!");
+                MessageBox.Show("Mã độc giả không được trống!");
             else
             {
                 DataTable dt = DataConnection.GetDataTable("Select * from Sach where MaSach = '" + txtReaderCode.Text + "'");
@@ -107,7 +107,7 @@ namespace Library_Manager_UI
                 string capnhat = @"update DocGia set MaDG='" + txtReaderCode.Text + "',HoTen=N'" + txtFullName.Text + "',GioiTinh=N'" + GioiTinh + "',NgaySinh= CAST('" 
                                 + dtpBirthday.Text + "' AS date), DiaChi=N'" + txtAddress.Text + "',DienThoai='" + txtPhone.Text + "',Email='" + txtEmail.Text + "' where MaDG='" + txtReaderCode.Text + "'";
                 DataConnection.ExecuteQuery(capnhat);
-                MessageBox.Show("Cập nhật độc giả thành công!!");
+                MessageBox.Show("Cập nhật độc giả thành công!");
                 LoadData_Readers();
             }
         }

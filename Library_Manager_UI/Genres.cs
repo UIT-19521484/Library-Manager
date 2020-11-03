@@ -85,9 +85,19 @@ namespace Library_Manager_UI
                 DataTable dt = DataConnection.GetDataTable(@"select * from TheLoaiSach");
                 if (dt.Rows.Count > 0)
                 {
-                    DataConnection.ExecuteQuery(xoa);
-                    MessageBox.Show("Xóa thể loại sách thành công!");
-                    LoadDataGridView_Genres();
+                    DialogResult dialog = MessageBox.Show("Bạn có muốn xóa thể loại " + txtGenreName.Text + " không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialog == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            DataConnection.ExecuteQuery(xoa);
+                            MessageBox.Show("Xóa thể loại sách thành công!");
+                            LoadDataGridView_Genres();
+                        }
+                        catch (Exception)
+                        {
+                        }
+                    }
                 }
                 else
                 {

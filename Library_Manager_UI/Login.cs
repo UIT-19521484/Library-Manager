@@ -14,6 +14,7 @@ namespace Library_Manager_UI
     {
         string username;
         string password;
+        int permission;
         public frmLogin()
         {
             InitializeComponent();
@@ -32,11 +33,13 @@ namespace Library_Manager_UI
             {
                 username = txtUsername.Text;
                 password = txtPassword.Text;
+                permission = Int32.Parse(dt.Rows[0][2].ToString());
+
                 MessageBox.Show("Xin chào " + txtUsername.Text + "! Bạn đã đăng nhập thành công!", "Thông báo");
                 txtUsername.Text = "";
                 txtPassword.Text = "";
                 txtUsername.Focus();
-                frmMain frmMain = new frmMain(username, password);
+                frmMain frmMain = new frmMain(username, password, permission);
                 frmMain.Owner = this;
                 frmMain.Show();
                 this.Hide();

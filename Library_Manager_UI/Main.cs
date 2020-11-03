@@ -14,19 +14,25 @@ namespace Library_Manager_UI
     {
         string username;
         string password;
+        int permission;
         public frmMain()
         {
             InitializeComponent();
         }
 
-        public frmMain(string user, string pass)
+        public frmMain(string username, string password, int permission)
         {
-            username = user;
-            password = pass;
+            this.username = username;
+            this.password = password;
+            this.permission = permission;
             InitializeComponent();
+            if (this.permission == 0)
+            {
+                picPersonel.Enabled = true;
+                lblPersonel.Enabled = true;
+            }
         }
         
-
         private void tsmiChangePassword_Click(object sender, EventArgs e)
         {
             frmChangePassword frmChangePW = new frmChangePassword(username, password);
@@ -82,6 +88,11 @@ namespace Library_Manager_UI
         private void tsmiReaders_Click(object sender, EventArgs e)
         {
             picReaders_Click(sender, e);
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //this.Owner.Show();
         }
     }
 }
