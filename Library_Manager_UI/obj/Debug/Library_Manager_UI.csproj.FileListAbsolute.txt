@@ -40,3 +40,9 @@ D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Proje
 D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmBooks.resources
 D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmGenres.resources
 D:\UIT_Documentary\HỌC KÌ 3\Lập trình trực quan - IT008.L11\GitHub_Project\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmReaders.resources
+C:\Users\HLTH\Desktop\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmBooks.resources
+C:\Users\HLTH\Desktop\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmGenres.resources
+C:\Users\HLTH\Desktop\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmInformation.resources
+C:\Users\HLTH\Desktop\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmChangePassword.resources
+C:\Users\HLTH\Desktop\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmReaders.resources
+C:\Users\HLTH\Desktop\Library-Manager\Library_Manager_UI\obj\Debug\Library_Manager_UI.frmSignup.resources
