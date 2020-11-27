@@ -287,7 +287,7 @@ namespace WindowsFormsApp1
             this.pnlChildForm.Location = new System.Drawing.Point(230, 30);
             this.pnlChildForm.Name = "pnlChildForm";
             this.pnlChildForm.ShadowDecoration.Parent = this.pnlChildForm;
-            this.pnlChildForm.Size = new System.Drawing.Size(970, 665);
+            this.pnlChildForm.Size = new System.Drawing.Size(1070, 665);
             this.pnlChildForm.TabIndex = 4;
             // 
             // rsboxBottom
@@ -298,7 +298,7 @@ namespace WindowsFormsApp1
             this.rsboxBottom.ForeColor = System.Drawing.Color.Empty;
             this.rsboxBottom.Location = new System.Drawing.Point(220, 695);
             this.rsboxBottom.Name = "rsboxBottom";
-            this.rsboxBottom.Size = new System.Drawing.Size(980, 5);
+            this.rsboxBottom.Size = new System.Drawing.Size(1080, 5);
             this.rsboxBottom.TabIndex = 0;
             this.rsboxBottom.TargetControl = this;
             // 
@@ -308,7 +308,7 @@ namespace WindowsFormsApp1
             this.rsboxRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.rsboxRight.FillColor = System.Drawing.Color.Transparent;
             this.rsboxRight.ForeColor = System.Drawing.Color.Empty;
-            this.rsboxRight.Location = new System.Drawing.Point(1195, 30);
+            this.rsboxRight.Location = new System.Drawing.Point(1295, 30);
             this.rsboxRight.Name = "rsboxRight";
             this.rsboxRight.Size = new System.Drawing.Size(5, 665);
             this.rsboxRight.TabIndex = 1;
@@ -320,7 +320,7 @@ namespace WindowsFormsApp1
             this.rsboxBR.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
             this.rsboxBR.FillColor = System.Drawing.Color.Transparent;
             this.rsboxBR.ForeColor = System.Drawing.Color.Empty;
-            this.rsboxBR.Location = new System.Drawing.Point(1190, 689);
+            this.rsboxBR.Location = new System.Drawing.Point(1290, 689);
             this.rsboxBR.Name = "rsboxBR";
             this.rsboxBR.Size = new System.Drawing.Size(10, 10);
             this.rsboxBR.TabIndex = 0;
@@ -335,7 +335,7 @@ namespace WindowsFormsApp1
             this.ctrboxExit.HoverState.FillColor = System.Drawing.Color.Red;
             this.ctrboxExit.HoverState.Parent = this.ctrboxExit;
             this.ctrboxExit.IconColor = System.Drawing.Color.Black;
-            this.ctrboxExit.Location = new System.Drawing.Point(925, 0);
+            this.ctrboxExit.Location = new System.Drawing.Point(1025, 0);
             this.ctrboxExit.Name = "ctrboxExit";
             this.ctrboxExit.ShadowDecoration.Parent = this.ctrboxExit;
             this.ctrboxExit.Size = new System.Drawing.Size(45, 30);
@@ -350,7 +350,7 @@ namespace WindowsFormsApp1
             this.ctrboxMaximize.FillColor = System.Drawing.Color.Transparent;
             this.ctrboxMaximize.HoverState.Parent = this.ctrboxMaximize;
             this.ctrboxMaximize.IconColor = System.Drawing.Color.Black;
-            this.ctrboxMaximize.Location = new System.Drawing.Point(880, 0);
+            this.ctrboxMaximize.Location = new System.Drawing.Point(980, 0);
             this.ctrboxMaximize.Name = "ctrboxMaximize";
             this.ctrboxMaximize.ShadowDecoration.Parent = this.ctrboxMaximize;
             this.ctrboxMaximize.Size = new System.Drawing.Size(45, 30);
@@ -365,7 +365,7 @@ namespace WindowsFormsApp1
             this.ctrboxMinimize.FillColor = System.Drawing.Color.Transparent;
             this.ctrboxMinimize.HoverState.Parent = this.ctrboxMinimize;
             this.ctrboxMinimize.IconColor = System.Drawing.Color.Black;
-            this.ctrboxMinimize.Location = new System.Drawing.Point(835, 0);
+            this.ctrboxMinimize.Location = new System.Drawing.Point(935, 0);
             this.ctrboxMinimize.Name = "ctrboxMinimize";
             this.ctrboxMinimize.ShadowDecoration.Parent = this.ctrboxMinimize;
             this.ctrboxMinimize.Size = new System.Drawing.Size(45, 30);
@@ -385,7 +385,7 @@ namespace WindowsFormsApp1
             this.pnlTopBar.Location = new System.Drawing.Point(230, 0);
             this.pnlTopBar.Name = "pnlTopBar";
             this.pnlTopBar.ShadowDecoration.Parent = this.pnlTopBar;
-            this.pnlTopBar.Size = new System.Drawing.Size(970, 30);
+            this.pnlTopBar.Size = new System.Drawing.Size(1070, 30);
             this.pnlTopBar.TabIndex = 6;
             // 
             // guna2VSeparator1
@@ -404,7 +404,7 @@ namespace WindowsFormsApp1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.ClientSize = new System.Drawing.Size(1300, 700);
             this.Controls.Add(this.rsboxRight);
             this.Controls.Add(this.pnlChildForm);
             this.Controls.Add(this.pnlTopBar);
