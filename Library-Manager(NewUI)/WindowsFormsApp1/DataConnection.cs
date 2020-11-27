@@ -14,7 +14,6 @@ namespace WindowsFormsApp1
         private static string connectionString;
         private static SqlConnection con;
         private static DataSet ds;
-        private static SqlCommand cmd;
         private static SqlDataAdapter da;
         private static SqlDataReader rdr;
 
@@ -23,8 +22,7 @@ namespace WindowsFormsApp1
             //
             //Nhập connection string của server database
             //
-            connectionString = @"Data Source=DESKTOP-60EFUQD;Initial Catalog=QLThuVien;Persist Security Info=True;User ID=sa;Password=123456";
-            //connectionString = @"Data Source=DESKTOP-60EFUQD;Initial Catalog=QLGV;User ID=sa;Password=123456";
+            connectionString = @"Data Source=DESKTOP-60EFUQD;Initial Catalog=QLThuVien;Persist Security Info=True;User ID=sa;Password=123456;";
 
             con = new SqlConnection(connectionString);
 
@@ -42,7 +40,7 @@ namespace WindowsFormsApp1
         //
         //Sử dụng khi thay đổi dữ liệu trong database
         //
-        public static bool ExecuteQuery(string sqlCommand)
+        public static bool ExecuteQuery(SqlCommand cmd)
         {
             cmd = new SqlCommand();
 
@@ -51,8 +49,7 @@ namespace WindowsFormsApp1
                 OpenConnection();
 
                 cmd.Connection = con;
-                cmd.CommandText = sqlCommand;
-                cmd.CommandType = CommandType.Text;
+                //cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
 
                 con.Close();
@@ -70,15 +67,13 @@ namespace WindowsFormsApp1
         //
         //Sử dụng khi đọc dữ liệu từ database
         //
-        public static SqlDataReader ExecuteReader(string sqlCommand)
+        public static SqlDataReader ExecuteReader(SqlCommand cmd)
         {
             try
             {
-                cmd = new SqlCommand();
                 OpenConnection();
 
                 cmd.Connection = con;
-                cmd.CommandText = sqlCommand;
                 cmd.CommandType = CommandType.Text;
 
                 rdr = cmd.ExecuteReader();
@@ -94,11 +89,11 @@ namespace WindowsFormsApp1
             }
         }
 
-        public static DataSet GetDataSet(string sqlCommand)
+        public static DataSet GetDataSet(SqlCommand cmd)
         {
             OpenConnection();
 
-            da = new SqlDataAdapter(sqlCommand, con);
+            da = new SqlDataAdapter(cmd.ToString(), con);
             ds = new DataSet();
             da.Fill(ds);
 
@@ -109,23 +104,21 @@ namespace WindowsFormsApp1
         //
         //Sử dụng khi lấy dữ liệu từ một table
         //
-        public static DataTable GetDataTable(string sqlCommand)
+        public static DataTable GetDataTable(SqlCommand cmd)
         {
-            return GetDataSet(sqlCommand).Tables[0];
+            return GetDataSet(cmd).Tables[0];
         }
 
         //
         //Sử dụng khi lấy số lượng records
         //
-        public static int ExecuteScalar(string sqlCommand)
+        public static int ExecuteScalar(SqlCommand cmd)
         {
             OpenConnection();
-            cmd = new SqlCommand();
 
             try
             {
                 cmd.Connection = con;
-                cmd.CommandText = sqlCommand;
                 cmd.CommandType = CommandType.Text;
 
                 int result = Convert.ToInt32(cmd.ExecuteScalar());
