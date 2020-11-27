@@ -118,28 +118,49 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="icons8_employee_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ico\icons8_employee_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_add_book_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\icons8_add_book_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_reading_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ico\icons8_reading_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_borrow_book_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\icons8_borrow_book_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_member_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ico\icons8_member_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8_book_stack_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ico\icons8_book_stack_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8_sign_out_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ico\icons8_sign_out_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_search_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\icons8_search_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_menu_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ico\icons8_menu_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_top_menu_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ico\icons8_top_menu_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_employee_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\icons8_employee_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_member_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\icons8_member_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_back_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ico\icons8_back_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_top_menu_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\icons8_top_menu_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_sign_out_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\icons8_sign_out_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_reading_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\icons8_reading_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_return_book_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\icons8_return_book_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_book_and_pencil_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\icons8_book_and_pencil_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_book_stack_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\icons8_book_stack_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_remove_book_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\icons8_remove_book_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_search_64px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\ico\icons8_search_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

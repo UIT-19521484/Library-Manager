@@ -13,6 +13,7 @@ namespace WindowsFormsApp1
     public partial class frmMain : Form
     {
         bool isMenuHiddenn;
+        frmBook book = new frmBook();
         public frmMain()
         {
             InitializeComponent();
@@ -21,6 +22,7 @@ namespace WindowsFormsApp1
             typeof(Guna.UI2.WinForms.Guna2Panel).InvokeMember("DoubleBuffered", System.Reflection.BindingFlags.SetProperty
             | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic, null,
             pnlMenu, new object[] { true });
+            btnInfo_Click(this, new EventArgs());
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -56,19 +58,29 @@ namespace WindowsFormsApp1
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            frmDashboard dashboard = new frmDashboard();
             if (pnlChildForm.HasChildren)
             {
                 pnlChildForm.Controls.Clear();
             }
-            else
+            frmDashboard dashboard = new frmDashboard();
+            dashboard.TopLevel = false;
+            dashboard.AutoSize = false;
+            pnlChildForm.Controls.Add(dashboard);
+            dashboard.Dock = DockStyle.Fill;
+            dashboard.Show();   
+        }
+
+        private void btnBooks_Click(object sender, EventArgs e)
+        {
+            if (pnlChildForm.HasChildren)
             {
-                dashboard.TopLevel = false;
-                dashboard.AutoSize = false;
-                pnlChildForm.Controls.Add(dashboard);
-                dashboard.Dock = DockStyle.Fill;
-                dashboard.Show();
+                pnlChildForm.Controls.Clear();
             }
+            book.TopLevel = false;
+            book.AutoSize = false;
+            pnlChildForm.Controls.Add(book);
+            book.Dock = DockStyle.Fill;
+            book.Show();
         }
     }
 }

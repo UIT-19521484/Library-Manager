@@ -41,7 +41,6 @@ namespace WindowsFormsApp1
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.BorderlessForm = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.tmrSideMenuAnimation = new System.Windows.Forms.Timer(this.components);
             this.DragControl_pnlMenu = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.pnlMenu = new Guna.UI2.WinForms.Guna2Panel();
@@ -60,19 +59,13 @@ namespace WindowsFormsApp1
             this.ctrboxExit = new Guna.UI2.WinForms.Guna2ControlBox();
             this.ctrboxMaximize = new Guna.UI2.WinForms.Guna2ControlBox();
             this.ctrboxMinimize = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
             this.DragControl_pnlTopBar = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.pnlMenu.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.pnlTopBar.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // BorderlessForm
-            // 
-            this.BorderlessForm.BorderRadius = 20;
-            this.BorderlessForm.ContainerControl = this;
-            this.BorderlessForm.DockIndicatorColor = System.Drawing.Color.Gainsboro;
-            this.BorderlessForm.TransparentWhileDrag = true;
             // 
             // tmrSideMenuAnimation
             // 
@@ -86,7 +79,7 @@ namespace WindowsFormsApp1
             // 
             // pnlMenu
             // 
-            this.pnlMenu.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(69)))), ((int)(((byte)(92)))));
             this.pnlMenu.BorderColor = System.Drawing.Color.Black;
             this.pnlMenu.Controls.Add(this.btnEmployee);
             this.pnlMenu.Controls.Add(this.btnReader);
@@ -96,7 +89,7 @@ namespace WindowsFormsApp1
             this.pnlMenu.Controls.Add(this.btnLogout);
             this.pnlMenu.Controls.Add(this.guna2Panel2);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlMenu.FillColor = System.Drawing.Color.DeepSkyBlue;
+            this.pnlMenu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(69)))), ((int)(((byte)(92)))));
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.MaximumSize = new System.Drawing.Size(220, 0);
             this.pnlMenu.MinimumSize = new System.Drawing.Size(60, 0);
@@ -114,7 +107,7 @@ namespace WindowsFormsApp1
             this.btnEmployee.FillColor = System.Drawing.Color.Transparent;
             this.btnEmployee.Font = new System.Drawing.Font("Arial", 14.25F);
             this.btnEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnEmployee.HoverState.FillColor = System.Drawing.Color.LightSkyBlue;
+            this.btnEmployee.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(97)))));
             this.btnEmployee.HoverState.Parent = this.btnEmployee;
             this.btnEmployee.Image = global::WindowsFormsApp1.Properties.Resources.icons8_employee_64px;
             this.btnEmployee.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -122,7 +115,8 @@ namespace WindowsFormsApp1
             this.btnEmployee.IndicateFocus = true;
             this.btnEmployee.Location = new System.Drawing.Point(0, 339);
             this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.PressedColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnEmployee.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(124)))), ((int)(((byte)(145)))));
+            this.btnEmployee.PressedDepth = 50;
             this.btnEmployee.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnEmployee.ShadowDecoration.Parent = this.btnEmployee;
             this.btnEmployee.Size = new System.Drawing.Size(220, 69);
@@ -140,7 +134,7 @@ namespace WindowsFormsApp1
             this.btnReader.FillColor = System.Drawing.Color.Transparent;
             this.btnReader.Font = new System.Drawing.Font("Arial", 14.25F);
             this.btnReader.ForeColor = System.Drawing.Color.White;
-            this.btnReader.HoverState.FillColor = System.Drawing.Color.LightSkyBlue;
+            this.btnReader.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(97)))));
             this.btnReader.HoverState.Parent = this.btnReader;
             this.btnReader.Image = global::WindowsFormsApp1.Properties.Resources.icons8_reading_64px;
             this.btnReader.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -148,7 +142,8 @@ namespace WindowsFormsApp1
             this.btnReader.IndicateFocus = true;
             this.btnReader.Location = new System.Drawing.Point(0, 270);
             this.btnReader.Name = "btnReader";
-            this.btnReader.PressedColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnReader.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(124)))), ((int)(((byte)(145)))));
+            this.btnReader.PressedDepth = 50;
             this.btnReader.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnReader.ShadowDecoration.Parent = this.btnReader;
             this.btnReader.Size = new System.Drawing.Size(220, 69);
@@ -166,7 +161,7 @@ namespace WindowsFormsApp1
             this.btnBooks.FillColor = System.Drawing.Color.Transparent;
             this.btnBooks.Font = new System.Drawing.Font("Arial", 14.25F);
             this.btnBooks.ForeColor = System.Drawing.Color.White;
-            this.btnBooks.HoverState.FillColor = System.Drawing.Color.LightSkyBlue;
+            this.btnBooks.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(97)))));
             this.btnBooks.HoverState.Parent = this.btnBooks;
             this.btnBooks.Image = global::WindowsFormsApp1.Properties.Resources.icons8_book_stack_64px;
             this.btnBooks.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -174,7 +169,8 @@ namespace WindowsFormsApp1
             this.btnBooks.IndicateFocus = true;
             this.btnBooks.Location = new System.Drawing.Point(0, 201);
             this.btnBooks.Name = "btnBooks";
-            this.btnBooks.PressedColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnBooks.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(124)))), ((int)(((byte)(145)))));
+            this.btnBooks.PressedDepth = 50;
             this.btnBooks.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnBooks.ShadowDecoration.Parent = this.btnBooks;
             this.btnBooks.Size = new System.Drawing.Size(220, 69);
@@ -182,6 +178,7 @@ namespace WindowsFormsApp1
             this.btnBooks.Text = "Sách";
             this.btnBooks.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnBooks.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnBooks.Click += new System.EventHandler(this.btnBooks_Click);
             // 
             // btnInfo
             // 
@@ -192,7 +189,7 @@ namespace WindowsFormsApp1
             this.btnInfo.FillColor = System.Drawing.Color.Transparent;
             this.btnInfo.Font = new System.Drawing.Font("Arial", 14.25F);
             this.btnInfo.ForeColor = System.Drawing.Color.White;
-            this.btnInfo.HoverState.FillColor = System.Drawing.Color.LightSkyBlue;
+            this.btnInfo.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(97)))));
             this.btnInfo.HoverState.Parent = this.btnInfo;
             this.btnInfo.Image = global::WindowsFormsApp1.Properties.Resources.icons8_top_menu_64px;
             this.btnInfo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -200,7 +197,8 @@ namespace WindowsFormsApp1
             this.btnInfo.IndicateFocus = true;
             this.btnInfo.Location = new System.Drawing.Point(0, 132);
             this.btnInfo.Name = "btnInfo";
-            this.btnInfo.PressedColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnInfo.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(124)))), ((int)(((byte)(145)))));
+            this.btnInfo.PressedDepth = 50;
             this.btnInfo.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnInfo.ShadowDecoration.Parent = this.btnInfo;
             this.btnInfo.Size = new System.Drawing.Size(220, 69);
@@ -212,6 +210,7 @@ namespace WindowsFormsApp1
             // 
             // guna2Separator1
             // 
+            this.guna2Separator1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Separator1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.guna2Separator1.FillColor = System.Drawing.Color.White;
             this.guna2Separator1.FillThickness = 2;
@@ -230,14 +229,15 @@ namespace WindowsFormsApp1
             this.btnLogout.FillColor = System.Drawing.Color.Transparent;
             this.btnLogout.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.HoverState.FillColor = System.Drawing.Color.LightSkyBlue;
+            this.btnLogout.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(97)))));
             this.btnLogout.HoverState.Parent = this.btnLogout;
             this.btnLogout.Image = global::WindowsFormsApp1.Properties.Resources.icons8_sign_out_64px;
             this.btnLogout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnLogout.ImageSize = new System.Drawing.Size(40, 40);
             this.btnLogout.Location = new System.Drawing.Point(0, 631);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.PressedColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnLogout.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(59)))), ((int)(((byte)(79)))));
+            this.btnLogout.PressedDepth = 100;
             this.btnLogout.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnLogout.ShadowDecoration.Parent = this.btnLogout;
             this.btnLogout.Size = new System.Drawing.Size(220, 69);
@@ -284,10 +284,10 @@ namespace WindowsFormsApp1
             // pnlChildForm
             // 
             this.pnlChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlChildForm.Location = new System.Drawing.Point(220, 30);
+            this.pnlChildForm.Location = new System.Drawing.Point(230, 30);
             this.pnlChildForm.Name = "pnlChildForm";
             this.pnlChildForm.ShadowDecoration.Parent = this.pnlChildForm;
-            this.pnlChildForm.Size = new System.Drawing.Size(980, 665);
+            this.pnlChildForm.Size = new System.Drawing.Size(970, 665);
             this.pnlChildForm.TabIndex = 4;
             // 
             // rsboxBottom
@@ -335,7 +335,7 @@ namespace WindowsFormsApp1
             this.ctrboxExit.HoverState.FillColor = System.Drawing.Color.Red;
             this.ctrboxExit.HoverState.Parent = this.ctrboxExit;
             this.ctrboxExit.IconColor = System.Drawing.Color.Black;
-            this.ctrboxExit.Location = new System.Drawing.Point(935, 0);
+            this.ctrboxExit.Location = new System.Drawing.Point(925, 0);
             this.ctrboxExit.Name = "ctrboxExit";
             this.ctrboxExit.ShadowDecoration.Parent = this.ctrboxExit;
             this.ctrboxExit.Size = new System.Drawing.Size(45, 30);
@@ -350,7 +350,7 @@ namespace WindowsFormsApp1
             this.ctrboxMaximize.FillColor = System.Drawing.Color.Transparent;
             this.ctrboxMaximize.HoverState.Parent = this.ctrboxMaximize;
             this.ctrboxMaximize.IconColor = System.Drawing.Color.Black;
-            this.ctrboxMaximize.Location = new System.Drawing.Point(890, 0);
+            this.ctrboxMaximize.Location = new System.Drawing.Point(880, 0);
             this.ctrboxMaximize.Name = "ctrboxMaximize";
             this.ctrboxMaximize.ShadowDecoration.Parent = this.ctrboxMaximize;
             this.ctrboxMaximize.Size = new System.Drawing.Size(45, 30);
@@ -365,11 +365,16 @@ namespace WindowsFormsApp1
             this.ctrboxMinimize.FillColor = System.Drawing.Color.Transparent;
             this.ctrboxMinimize.HoverState.Parent = this.ctrboxMinimize;
             this.ctrboxMinimize.IconColor = System.Drawing.Color.Black;
-            this.ctrboxMinimize.Location = new System.Drawing.Point(845, 0);
+            this.ctrboxMinimize.Location = new System.Drawing.Point(835, 0);
             this.ctrboxMinimize.Name = "ctrboxMinimize";
             this.ctrboxMinimize.ShadowDecoration.Parent = this.ctrboxMinimize;
             this.ctrboxMinimize.Size = new System.Drawing.Size(45, 30);
             this.ctrboxMinimize.TabIndex = 1;
+            // 
+            // DragControl_pnlTopBar
+            // 
+            this.DragControl_pnlTopBar.ContainerControl = this;
+            this.DragControl_pnlTopBar.TargetControl = this.pnlTopBar;
             // 
             // pnlTopBar
             // 
@@ -377,16 +382,22 @@ namespace WindowsFormsApp1
             this.pnlTopBar.Controls.Add(this.ctrboxMaximize);
             this.pnlTopBar.Controls.Add(this.ctrboxExit);
             this.pnlTopBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTopBar.Location = new System.Drawing.Point(220, 0);
+            this.pnlTopBar.Location = new System.Drawing.Point(230, 0);
             this.pnlTopBar.Name = "pnlTopBar";
             this.pnlTopBar.ShadowDecoration.Parent = this.pnlTopBar;
-            this.pnlTopBar.Size = new System.Drawing.Size(980, 30);
+            this.pnlTopBar.Size = new System.Drawing.Size(970, 30);
             this.pnlTopBar.TabIndex = 6;
             // 
-            // DragControl_pnlTopBar
+            // guna2VSeparator1
             // 
-            this.DragControl_pnlTopBar.ContainerControl = this;
-            this.DragControl_pnlTopBar.TargetControl = this.pnlTopBar;
+            this.guna2VSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2VSeparator1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2VSeparator1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2VSeparator1.Location = new System.Drawing.Point(220, 0);
+            this.guna2VSeparator1.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2VSeparator1.Name = "guna2VSeparator1";
+            this.guna2VSeparator1.Size = new System.Drawing.Size(10, 695);
+            this.guna2VSeparator1.TabIndex = 7;
             // 
             // frmMain
             // 
@@ -394,11 +405,12 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1200, 700);
-            this.Controls.Add(this.rsboxBR);
             this.Controls.Add(this.rsboxRight);
             this.Controls.Add(this.pnlChildForm);
-            this.Controls.Add(this.rsboxBottom);
             this.Controls.Add(this.pnlTopBar);
+            this.Controls.Add(this.guna2VSeparator1);
+            this.Controls.Add(this.rsboxBR);
+            this.Controls.Add(this.rsboxBottom);
             this.Controls.Add(this.pnlMenu);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -412,8 +424,6 @@ namespace WindowsFormsApp1
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2BorderlessForm BorderlessForm;
         private System.Windows.Forms.Timer tmrSideMenuAnimation;
         private Guna.UI2.WinForms.Guna2DragControl DragControl_pnlMenu;
         private Guna.UI2.WinForms.Guna2Panel pnlChildForm;
@@ -429,10 +439,11 @@ namespace WindowsFormsApp1
         private Guna.UI2.WinForms.Guna2ResizeBox rsboxRight;
         private Guna.UI2.WinForms.Guna2ResizeBox rsboxBottom;
         private Guna.UI2.WinForms.Guna2ResizeBox rsboxBR;
-        private Guna.UI2.WinForms.Guna2Panel pnlTopBar;
         private Guna.UI2.WinForms.Guna2ControlBox ctrboxMinimize;
         private Guna.UI2.WinForms.Guna2ControlBox ctrboxMaximize;
         private Guna.UI2.WinForms.Guna2ControlBox ctrboxExit;
         private Guna.UI2.WinForms.Guna2DragControl DragControl_pnlTopBar;
+        private Guna.UI2.WinForms.Guna2Panel pnlTopBar;
+        private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator1;
     }
 }
