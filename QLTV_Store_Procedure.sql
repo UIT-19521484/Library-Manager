@@ -160,6 +160,8 @@ as
 	where MaDG = @MaDG
 go
 
+--HÓA ĐƠN--
+
 --Lấy thông tin hóa đơn
 create procedure sp_get_employee
 as
@@ -167,8 +169,6 @@ select HOADON.MaHD, HoTen, NgayMuon, NgayTra, TenSach, TongSL, ChiPhi, TinhTrang
 from HOADON inner join DOCGIA on DOCGIA.MaDG = HOADON.MaDG
 			inner join (CTHD inner join SACH on SACH.MaSach = CTHD.MaSach) on CTHD.MaHD = HOADON.MaHD
 go
-
---HÓA ĐƠN--
 
 --Tạo hóa đơn
 create procedure sp_create_bill
@@ -189,6 +189,15 @@ create procedure sp_create_billinfo
 as
 	insert CTHD (MaHD, MaSach, SL)
 	values (@MaHD, @MaSach, @SL)
+
+	update SACH 
+	set TonTai = TonTai - @SL,
+		DaMuon = DaMuon + @SL
+	where MaSach = @MaSach
+
+	update HOADON
+	set TongSL = TongSL + @SL
+	where MaHD = @MaHD
 go
 
 --Cập nhật chi phí
@@ -196,13 +205,13 @@ create procedure sp_update_cost
 	@TienPhat INT
 as
 	update HOADON
-	set ChiPhi = 
+	set ChiPhi = (
 		case
 			when GETDATE() <= NgayTra and TinhTrang = 'Cho Mượn'
 			then 0
 			when GETDATE() > NgayTra and TinhTrang = 'Cho Mượn'
 			then DATEDIFF(DAY, NgayMuon, GETDATE()) * TongSL * @TienPhat
-		end
+		end)
 go
 
 --Xóa hóa đơn
@@ -239,3 +248,22 @@ as
 	where MaHD = @MaHD
 go
 
+--Tài khoản
+
+--Tạo tài khoản
+create procedure sp_create_account
+	@Username VARCHAR(100),
+	@Password VARCHAR(50)
+as
+	insert TAIKHOAN (TenTaiKhoan, MatKhau)
+	values (@Username, @Password)
+go
+
+--Đổi mật khẩu
+create procedure sp_change_password
+	@Username VARCHAR(100),
+	@NewPassword VARCHAR(50)
+as
+	update TAIKHOAN
+	set MatKhau = @NewPassword
+	where TenTaiKhoan = @Username
