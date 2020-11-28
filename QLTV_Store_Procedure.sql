@@ -62,7 +62,7 @@ AS
 	WHERE GETDATE() > NgayTra
 go
 
---SÁCH--
+--SÁCH
 
 --Lấy thông tin sách
 CREATE PROCEDURE sp_get_book
@@ -227,14 +227,12 @@ create procedure sp_edit_bill
 	@MaHD INT, 
 	@MaDG INT,
 	@NgayMuon DATE,
-	@NgayTra DATE,
-	@TinhTrang NVARCHAR(50)
+	@NgayTra DATE
 as
 	update HOADON 
 	set MaDG = @MaDG,
 		NgayMuon = @NgayMuon,
-		NgayTra = @NgayTra,
-		TinhTrang = @TinhTrang
+		NgayTra = @NgayTra
 	where MaHD = @MaHD
 go
 
@@ -246,9 +244,16 @@ as
 	update HOADON 
 	set TinhTrang = @TinhTrang
 	where MaHD = @MaHD
+
+	if (select TinhTrang from HOADON where MaHD = @MaHD) = 'Thu hồi'
+	begin
+		update SACH
+		set TonTai = TonTai + (select SL from CTHD where CTHD.MaSach = MaSach and CTHD.MaHD = @MaHD)
+		where MaSach = ANY (select MaSach from CTHD where CTHD.MaHD = @MaHD)
+	end
 go
 
---Tài khoản
+--TÀI KHOẢN
 
 --Tạo tài khoản
 create procedure sp_create_account
@@ -267,3 +272,80 @@ as
 	update TAIKHOAN
 	set MatKhau = @NewPassword
 	where TenTaiKhoan = @Username
+go
+
+--Chỉnh phân quyền
+create procedure sp_set_permission
+	@Username VARCHAR(100),
+	@Permisson NVARCHAR(20)
+as
+	update TAIKHOAN
+	set PhanQuyen = @Permisson
+	where TenTaiKhoan = @Username
+go
+
+--Xóa tài khoản
+create procedure sp_delete_password
+	@Username VARCHAR(100)
+as
+	delete from TAIKHOAN
+	where TenTaiKhoan = @Username
+go
+
+--Đăng nhập
+create procedure sp_login
+	@Username VARCHAR(100),
+	@Password VARCHAR(50)
+as
+	select count(*)
+	from TAIKHOAN
+	where TenTaiKhoan = @Username and MatKhau = @Password
+go
+
+--NHÂN VIÊN
+
+--Lấy thông tin nhân viên
+create procedure sp_get_employees
+as
+	select *
+	from NHANVIEN
+go
+
+--Thêm nhân viên
+create procedure sp_add_employee
+	@HoTen NVARCHAR(100),
+	@GioiTinh NVARCHAR(5),
+	@NgaySinh DATE,
+	@DiaChi NVARCHAR(200),
+	@SDT VARCHAR(20),
+	@TenTaiKhoan VARCHAR(100)
+as
+	insert NHANVIEN (HoTen, GioiTinh, NgaySinh, DiaChi, SDT, TenTaiKhoan)
+	values (@HoTen, @GioiTinh, @NgaySinh, @DiaChi, @SDT, @TenTaiKhoan)
+go
+
+--Sửa thông tin nhân viên
+create procedure sp_edit_employee
+	@MaNV INT,
+	@HoTen NVARCHAR(100),
+	@GioiTinh NVARCHAR(5),
+	@NgaySinh DATE,
+	@DiaChi NVARCHAR(200),
+	@SDT VARCHAR(20)
+as
+	update NHANVIEN
+	set	HoTen = @HoTen,
+		GioiTinh = @GioiTinh,
+		NgaySinh = @NgaySinh,
+		DiaChi = @DiaChi,
+		SDT = @SDT
+	where MaNV = @MaNV
+go
+
+--Xóa nhân viên
+create procedure sp_delete_employee
+	@MaNV INT
+as
+	delete from NHANVIEN
+	where MaNV = @MaNV
+go
