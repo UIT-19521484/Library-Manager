@@ -100,13 +100,25 @@ create procedure sp_edit_book
 	@NhaXuatBan NVARCHAR(200), 
 	@TonTai INT
 as
-update SACH 
-set TenSach = @TenSach, 
-	TacGia = @TacGia, 
-	MaTL = @MaTL, 
-	NhaXuatBan = @NhaXuatBan, 
-	TonTai = @TonTai 
-where MaSach = @MaSach
+	update SACH 
+	set TenSach = @TenSach, 
+		TacGia = @TacGia, 
+		MaTL = @MaTL, 
+		NhaXuatBan = @NhaXuatBan, 
+		TonTai = @TonTai 
+	where MaSach = @MaSach
+go
+
+--Kiểm tra sách đã tồn tại
+create procedure sp_check_book_is_exists
+	@TenSach NVARCHAR(100), 
+	@TacGia NVARCHAR(100), 
+	@MaTL INT, 
+	@NhaXuatBan NVARCHAR(200)
+as
+	select count(*)
+	from SACH
+	where TenSach = @TenSach and TacGia = @TacGia and MaTL = @MaTL and NhaXuatBan = @NhaXuatBan
 go
 
 --ĐỌC GIẢ--
@@ -158,6 +170,36 @@ as
 		SDT = @SDT, 
 		Email = @Email 
 	where MaDG = @MaDG
+go
+
+--Kiểm tra người đọc đã tồn tại
+create procedure sp_check_reader_exists
+	@HoTen NVARCHAR(100), 
+	@GioiTinh NVARCHAR(10), 
+	@SDT VARCHAR(20), 
+	@Email VARCHAR(100)
+as
+	select count(*)
+	from DOCGIA
+	where HoTen = @HoTen and GioiTinh = @GioiTinh and SDT = @SDT and Email = @Email
+go
+
+--Kiểm tra thông tin liên lạc email đã tồn tại
+create procedure sp_check_reader_email_exists 
+	@Email VARCHAR(100)
+as
+	select count(*)
+	from DOCGIA
+	where Email = @Email	
+go
+
+--Kiểm tra SĐT đã tồn tại
+create procedure sp_check_reader_phone_exist
+	@SDT VARCHAR(20)
+as
+	select count(*)
+	from DOCGIA
+	where SDT = @SDT
 go
 
 --HÓA ĐƠN--
@@ -349,3 +391,24 @@ as
 	delete from NHANVIEN
 	where MaNV = @MaNV
 go
+
+--THỂ LOẠI
+
+--Thêm thể loại
+create procedure sp_add_genre
+	@TenTL NVARCHAR(100)
+as
+	insert THELOAI (TenTL)
+	value (@TenTL)
+go
+
+--Chỉnh sửa tên thể loại
+create procedure sp_edit_genre
+	@MaTL INT,
+	@TenTLMoi NVARCHAR(100)
+as
+	update THELOAI
+	set TenTL = @TenTLMoi
+	where MaTL = @MaTL
+go
+
