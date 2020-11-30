@@ -36,9 +36,6 @@
 
 > - **Hoàng Lê Trung Hậu** (19521484)
 >
-> - **Nguyễn Trọng Phúc** (19522041)
+> - ~~**Nguyễn Trọng Phúc** (19522041)~~
 >
 > - **Văn Quốc Huy** (19520607)
-
-## Mockup UI
->- https://lucid.app/invitations/accept/05e68ef9-1f24-4755-8628-6063170d17df
