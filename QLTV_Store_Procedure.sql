@@ -411,4 +411,3 @@ as
 	set TenTL = @TenTLMoi
 	where MaTL = @MaTL
 go
-

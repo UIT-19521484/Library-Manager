@@ -42,26 +42,25 @@ namespace WindowsFormsApp1
         //
         public static bool ExecuteQuery(SqlCommand cmd)
         {
-            cmd = new SqlCommand();
-
-            try
-            {
+            //try
+            //{
                 OpenConnection();
 
                 cmd.Connection = con;
-                //cmd.CommandType = CommandType.Text;
-                cmd.ExecuteNonQuery();
-
-                con.Close();
-                return true;
-            }
-            catch (Exception e)
-            {
-                con.Close();
-                //MessageBox.Show(e.Message);
-                MessageBox.Show("Không thể hoàn thành lệnh!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+                if (cmd.ExecuteNonQuery() < 1)
+                {
+                    con.Close();
+                    return true;
+                }
+            return false;
+            //}
+            //catch (Exception e)
+            //{
+            //    con.Close();
+            //    //MessageBox.Show(e.Message);
+            //    MessageBox.Show("Không thể hoàn thành lệnh!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return false;
+            //}
         }
 
         //
@@ -69,31 +68,31 @@ namespace WindowsFormsApp1
         //
         public static SqlDataReader ExecuteReader(SqlCommand cmd)
         {
-            try
-            {
+            //try
+            //{
                 OpenConnection();
 
                 cmd.Connection = con;
-                cmd.CommandType = CommandType.Text;
 
                 rdr = cmd.ExecuteReader();
 
                 con.Close();
                 return rdr;
-            }
-            catch (Exception)
-            {
-                con.Close();
-                MessageBox.Show("Không thể hoàn thành lệnh!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    con.Close();
+            //    MessageBox.Show("Không thể hoàn thành lệnh!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return null;
+            //}
         }
 
         public static DataSet GetDataSet(SqlCommand cmd)
         {
             OpenConnection();
+            cmd.Connection = con;
 
-            da = new SqlDataAdapter(cmd.ToString(), con);
+            da = new SqlDataAdapter(cmd);
             ds = new DataSet();
             da.Fill(ds);
 
@@ -116,21 +115,20 @@ namespace WindowsFormsApp1
         {
             OpenConnection();
 
-            try
-            {
+            //try
+            //{
                 cmd.Connection = con;
-                cmd.CommandType = CommandType.Text;
 
                 int result = Convert.ToInt32(cmd.ExecuteScalar());
                 con.Close();
                 return result;
-            }
-            catch (Exception)
-            {
-                con.Close();
-                MessageBox.Show("Không thể hoàn thành lệnh!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return 0;
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    con.Close();
+            //    MessageBox.Show("Không thể hoàn thành lệnh!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return 0;
+            //}
         }
     }
 }

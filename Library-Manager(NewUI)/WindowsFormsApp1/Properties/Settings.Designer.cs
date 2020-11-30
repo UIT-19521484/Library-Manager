@@ -32,5 +32,16 @@ namespace WindowsFormsApp1.Properties {
                 return ((string)(this["QLGVConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-60EFUQD;Initial Catalog=QLThuVien;Persist Security Info=True;" +
+            "User ID=sa;Password=123456")]
+        public string QLThuVienConnectionString {
+            get {
+                return ((string)(this["QLThuVienConnectionString"]));
+            }
+        }
     }
 }

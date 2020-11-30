@@ -44,7 +44,8 @@ namespace WindowsFormsApp1
             this.tmrSideMenuAnimation = new System.Windows.Forms.Timer(this.components);
             this.DragControl_pnlMenu = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.pnlMenu = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnEmployee = new Guna.UI2.WinForms.Guna2Button();
+            this.btnGenre = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBill = new Guna.UI2.WinForms.Guna2Button();
             this.btnReader = new Guna.UI2.WinForms.Guna2Button();
             this.btnBooks = new Guna.UI2.WinForms.Guna2Button();
             this.btnInfo = new Guna.UI2.WinForms.Guna2Button();
@@ -62,6 +63,7 @@ namespace WindowsFormsApp1
             this.DragControl_pnlTopBar = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
+            this.btnStaff = new Guna.UI2.WinForms.Guna2Button();
             this.pnlMenu.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.pnlTopBar.SuspendLayout();
@@ -69,7 +71,7 @@ namespace WindowsFormsApp1
             // 
             // tmrSideMenuAnimation
             // 
-            this.tmrSideMenuAnimation.Interval = 10;
+            this.tmrSideMenuAnimation.Interval = 5;
             this.tmrSideMenuAnimation.Tick += new System.EventHandler(this.tmrSideMenuAnimation_Tick);
             // 
             // DragControl_pnlMenu
@@ -81,7 +83,9 @@ namespace WindowsFormsApp1
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(69)))), ((int)(((byte)(92)))));
             this.pnlMenu.BorderColor = System.Drawing.Color.Black;
-            this.pnlMenu.Controls.Add(this.btnEmployee);
+            this.pnlMenu.Controls.Add(this.btnStaff);
+            this.pnlMenu.Controls.Add(this.btnGenre);
+            this.pnlMenu.Controls.Add(this.btnBill);
             this.pnlMenu.Controls.Add(this.btnReader);
             this.pnlMenu.Controls.Add(this.btnBooks);
             this.pnlMenu.Controls.Add(this.btnInfo);
@@ -98,32 +102,59 @@ namespace WindowsFormsApp1
             this.pnlMenu.Size = new System.Drawing.Size(220, 700);
             this.pnlMenu.TabIndex = 5;
             // 
-            // btnEmployee
+            // btnGenre
             // 
-            this.btnEmployee.BackColor = System.Drawing.Color.Transparent;
-            this.btnEmployee.CheckedState.Parent = this.btnEmployee;
-            this.btnEmployee.CustomImages.Parent = this.btnEmployee;
-            this.btnEmployee.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEmployee.FillColor = System.Drawing.Color.Transparent;
-            this.btnEmployee.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.btnEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnEmployee.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(97)))));
-            this.btnEmployee.HoverState.Parent = this.btnEmployee;
-            this.btnEmployee.Image = global::WindowsFormsApp1.Properties.Resources.icons8_employee_64px;
-            this.btnEmployee.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnEmployee.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnEmployee.IndicateFocus = true;
-            this.btnEmployee.Location = new System.Drawing.Point(0, 339);
-            this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(124)))), ((int)(((byte)(145)))));
-            this.btnEmployee.PressedDepth = 50;
-            this.btnEmployee.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnEmployee.ShadowDecoration.Parent = this.btnEmployee;
-            this.btnEmployee.Size = new System.Drawing.Size(220, 69);
-            this.btnEmployee.TabIndex = 4;
-            this.btnEmployee.Text = "Nhân viên";
-            this.btnEmployee.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnEmployee.TextOffset = new System.Drawing.Point(10, 0);
+            this.btnGenre.BackColor = System.Drawing.Color.Transparent;
+            this.btnGenre.CheckedState.Parent = this.btnGenre;
+            this.btnGenre.CustomImages.Parent = this.btnGenre;
+            this.btnGenre.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGenre.FillColor = System.Drawing.Color.Transparent;
+            this.btnGenre.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.btnGenre.ForeColor = System.Drawing.Color.White;
+            this.btnGenre.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(97)))));
+            this.btnGenre.HoverState.Parent = this.btnGenre;
+            this.btnGenre.Image = global::WindowsFormsApp1.Properties.Resources.icons8_books_64px;
+            this.btnGenre.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnGenre.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnGenre.IndicateFocus = true;
+            this.btnGenre.Location = new System.Drawing.Point(0, 408);
+            this.btnGenre.Name = "btnGenre";
+            this.btnGenre.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(124)))), ((int)(((byte)(145)))));
+            this.btnGenre.PressedDepth = 50;
+            this.btnGenre.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnGenre.ShadowDecoration.Parent = this.btnGenre;
+            this.btnGenre.Size = new System.Drawing.Size(220, 69);
+            this.btnGenre.TabIndex = 7;
+            this.btnGenre.Text = "Thể loại";
+            this.btnGenre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnGenre.TextOffset = new System.Drawing.Point(10, 0);
+            // 
+            // btnBill
+            // 
+            this.btnBill.BackColor = System.Drawing.Color.Transparent;
+            this.btnBill.CheckedState.Parent = this.btnBill;
+            this.btnBill.CustomImages.Parent = this.btnBill;
+            this.btnBill.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBill.FillColor = System.Drawing.Color.Transparent;
+            this.btnBill.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.btnBill.ForeColor = System.Drawing.Color.White;
+            this.btnBill.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(97)))));
+            this.btnBill.HoverState.Parent = this.btnBill;
+            this.btnBill.Image = global::WindowsFormsApp1.Properties.Resources.icons8_bill_64px;
+            this.btnBill.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnBill.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnBill.IndicateFocus = true;
+            this.btnBill.Location = new System.Drawing.Point(0, 339);
+            this.btnBill.Name = "btnBill";
+            this.btnBill.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(124)))), ((int)(((byte)(145)))));
+            this.btnBill.PressedDepth = 50;
+            this.btnBill.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnBill.ShadowDecoration.Parent = this.btnBill;
+            this.btnBill.Size = new System.Drawing.Size(220, 69);
+            this.btnBill.TabIndex = 6;
+            this.btnBill.Text = "Mượn/trả sách";
+            this.btnBill.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnBill.TextOffset = new System.Drawing.Point(10, 0);
             // 
             // btnReader
             // 
@@ -328,10 +359,10 @@ namespace WindowsFormsApp1
             // 
             // ctrboxExit
             // 
-            this.ctrboxExit.BackColor = System.Drawing.Color.Transparent;
-            this.ctrboxExit.BorderColor = System.Drawing.Color.Transparent;
+            this.ctrboxExit.BackColor = System.Drawing.Color.White;
+            this.ctrboxExit.BorderColor = System.Drawing.Color.White;
             this.ctrboxExit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ctrboxExit.FillColor = System.Drawing.Color.Transparent;
+            this.ctrboxExit.FillColor = System.Drawing.Color.White;
             this.ctrboxExit.HoverState.FillColor = System.Drawing.Color.Red;
             this.ctrboxExit.HoverState.Parent = this.ctrboxExit;
             this.ctrboxExit.IconColor = System.Drawing.Color.Black;
@@ -343,11 +374,11 @@ namespace WindowsFormsApp1
             // 
             // ctrboxMaximize
             // 
-            this.ctrboxMaximize.BackColor = System.Drawing.Color.Transparent;
-            this.ctrboxMaximize.BorderColor = System.Drawing.Color.Transparent;
+            this.ctrboxMaximize.BackColor = System.Drawing.Color.White;
+            this.ctrboxMaximize.BorderColor = System.Drawing.Color.White;
             this.ctrboxMaximize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
             this.ctrboxMaximize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ctrboxMaximize.FillColor = System.Drawing.Color.Transparent;
+            this.ctrboxMaximize.FillColor = System.Drawing.Color.White;
             this.ctrboxMaximize.HoverState.Parent = this.ctrboxMaximize;
             this.ctrboxMaximize.IconColor = System.Drawing.Color.Black;
             this.ctrboxMaximize.Location = new System.Drawing.Point(980, 0);
@@ -358,11 +389,11 @@ namespace WindowsFormsApp1
             // 
             // ctrboxMinimize
             // 
-            this.ctrboxMinimize.BackColor = System.Drawing.Color.Transparent;
-            this.ctrboxMinimize.BorderColor = System.Drawing.Color.Transparent;
+            this.ctrboxMinimize.BackColor = System.Drawing.Color.White;
+            this.ctrboxMinimize.BorderColor = System.Drawing.Color.White;
             this.ctrboxMinimize.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.ctrboxMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ctrboxMinimize.FillColor = System.Drawing.Color.Transparent;
+            this.ctrboxMinimize.FillColor = System.Drawing.Color.White;
             this.ctrboxMinimize.HoverState.Parent = this.ctrboxMinimize;
             this.ctrboxMinimize.IconColor = System.Drawing.Color.Black;
             this.ctrboxMinimize.Location = new System.Drawing.Point(935, 0);
@@ -399,6 +430,33 @@ namespace WindowsFormsApp1
             this.guna2VSeparator1.Size = new System.Drawing.Size(10, 695);
             this.guna2VSeparator1.TabIndex = 7;
             // 
+            // btnStaff
+            // 
+            this.btnStaff.BackColor = System.Drawing.Color.Transparent;
+            this.btnStaff.CheckedState.Parent = this.btnStaff;
+            this.btnStaff.CustomImages.Parent = this.btnStaff;
+            this.btnStaff.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnStaff.FillColor = System.Drawing.Color.Transparent;
+            this.btnStaff.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.btnStaff.ForeColor = System.Drawing.Color.White;
+            this.btnStaff.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(97)))));
+            this.btnStaff.HoverState.Parent = this.btnStaff;
+            this.btnStaff.Image = global::WindowsFormsApp1.Properties.Resources.icons8_employee_64px;
+            this.btnStaff.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnStaff.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnStaff.IndicateFocus = true;
+            this.btnStaff.Location = new System.Drawing.Point(0, 477);
+            this.btnStaff.Name = "btnStaff";
+            this.btnStaff.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(124)))), ((int)(((byte)(145)))));
+            this.btnStaff.PressedDepth = 50;
+            this.btnStaff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnStaff.ShadowDecoration.Parent = this.btnStaff;
+            this.btnStaff.Size = new System.Drawing.Size(220, 69);
+            this.btnStaff.TabIndex = 8;
+            this.btnStaff.Text = "Nhân viên";
+            this.btnStaff.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnStaff.TextOffset = new System.Drawing.Point(10, 0);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,7 +486,6 @@ namespace WindowsFormsApp1
         private Guna.UI2.WinForms.Guna2DragControl DragControl_pnlMenu;
         private Guna.UI2.WinForms.Guna2Panel pnlChildForm;
         private Guna.UI2.WinForms.Guna2Panel pnlMenu;
-        private Guna.UI2.WinForms.Guna2Button btnEmployee;
         private Guna.UI2.WinForms.Guna2Button btnReader;
         private Guna.UI2.WinForms.Guna2Button btnBooks;
         private Guna.UI2.WinForms.Guna2Button btnInfo;
@@ -445,5 +502,8 @@ namespace WindowsFormsApp1
         private Guna.UI2.WinForms.Guna2DragControl DragControl_pnlTopBar;
         private Guna.UI2.WinForms.Guna2Panel pnlTopBar;
         private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator1;
+        private Guna.UI2.WinForms.Guna2Button btnGenre;
+        private Guna.UI2.WinForms.Guna2Button btnBill;
+        private Guna.UI2.WinForms.Guna2Button btnStaff;
     }
 }

@@ -83,6 +83,16 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_bill_64px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_bill_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_book_and_pencil_64px {
             get {
                 object obj = ResourceManager.GetObject("icons8_book_and_pencil_64px", resourceCulture);
@@ -96,6 +106,16 @@ namespace WindowsFormsApp1.Properties {
         internal static System.Drawing.Bitmap icons8_book_stack_64px {
             get {
                 object obj = ResourceManager.GetObject("icons8_book_stack_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_books_64px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_books_64px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,6 +156,16 @@ namespace WindowsFormsApp1.Properties {
         internal static System.Drawing.Bitmap icons8_menu_64px {
             get {
                 object obj = ResourceManager.GetObject("icons8_menu_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_plus_math_64px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_plus_math_64px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
