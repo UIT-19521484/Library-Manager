@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F6C9D2A2-45E2-4766-8541-F32EBB1188C5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>New_Library</RootNamespace>
+    <AssemblyName>New_Library</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>C:\Users\huyvn\Desktop\Bunifu\Bunifu-UI-WinForms-1.11.5.1_ShareAppsCrack.com\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataConnection.cs" />
+    <Compile Include="Forms\Management\frmAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Management\frmAccount.Designer.cs">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBook.Designer.cs">
+      <DependentUpon>frmBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmGenre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGenre.Designer.cs">
+      <DependentUpon>frmGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHelp.Designer.cs">
+      <DependentUpon>frmHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Help\frmInfoApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Help\frmInfoApp.Designer.cs">
+      <DependentUpon>frmInfoApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmManagement.Designer.cs">
+      <DependentUpon>frmManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmReader.Designer.cs">
+      <DependentUpon>frmReader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmReceipt.Designer.cs">
+      <DependentUpon>frmReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSetting.Designer.cs">
+      <DependentUpon>frmSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Management\frmStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Management\frmStaff.Designer.cs">
+      <DependentUpon>frmStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setting\frmInfoLibrary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setting\frmInfoLibrary.Designer.cs">
+      <DependentUpon>frmInfoLibrary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ThemeColor.cs" />
+    <Compile Include="ValidateInput.cs" />
+    <EmbeddedResource Include="Forms\Management\frmAccount.resx">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBook.resx">
+      <DependentUpon>frmBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmGenre.resx">
+      <DependentUpon>frmGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHelp.resx">
+      <DependentUpon>frmHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Help\frmInfoApp.resx">
+      <DependentUpon>frmInfoApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmManagement.resx">
+      <DependentUpon>frmManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmReader.resx">
+      <DependentUpon>frmReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmReceipt.resx">
+      <DependentUpon>frmReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSetting.resx">
+      <DependentUpon>frmSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Management\frmStaff.resx">
+      <DependentUpon>frmStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setting\frmInfoLibrary.resx">
+      <DependentUpon>frmInfoLibrary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\images\books2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\images\multiply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\library.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\genre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\reader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\receipt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\signout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\library_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\library_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\delete_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\maximize_button_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\management_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\staff_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\staff_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\account_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\management_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\info_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\Main\" />
+    <Folder Include="Forms\Receipt\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\update_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\image\right_24px.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
