@@ -10,9 +10,9 @@ GO
 ------ TẠO BẢNG QUẢN LÝ TÀI KHOẢN
 CREATE TABLE TAIKHOAN
 (
-	TenTaiKhoan VARCHAR(100) NOT NULL,						--- TÊN TÀI KHOẢN (KHÓA CHÍNH)   
+	TenTaiKhoan VARCHAR(100) NOT NULL,						--- TÊN TÀI KHOẢN (KHÓA CHÍNH)  
 	MatKhau		VARCHAR(50) NOT NULL,						--- MẬT KHẨU 
-	PhanQuyen	NVARCHAR(20) NOT NULL DEFAULT 'Member',		--- ADMIN hoặc MEMBER
+	PhanQuyen	NVARCHAR(20) NOT NULL DEFAULT 'Member',		--- Admin hoặc Member
 )
 GO
 
@@ -32,8 +32,6 @@ CREATE TABLE NHANVIEN
 )
 GO
 
-drop table NHANVIEN
-
 ALTER TABLE NHANVIEN ADD constraint PK_NHANVIEN PRIMARY KEY (MaNV)
 GO
 
@@ -41,7 +39,7 @@ GO
 CREATE TABLE THELOAI
 (
 	MaTL INT IDENTITY(1,1) NOT NULL,		--- MÃ THỂ LOẠI (KHÓA CHÍNH)
-	TenTL NVARCHAR(100)						--- TÊN THỂ LOẠI 
+	TenTL NVARCHAR(100)	UNIQUE NOT NULL					--- TÊN THỂ LOẠI 
 )
 GO
 
@@ -86,7 +84,7 @@ CREATE TABLE HOADON
 	MaDG INT NOT NULL,										--- Bắt buộc phải tạo độc giả trước (KHÓA NGOẠI)
 	NgayMuon DATE DEFAULT GETDATE(),						--- Ngày mượn sách
 	NgayTra DATE DEFAULT GETDATE(),							--- Ngày trả sách phải lớn hơn ngày mượn
- 	TinhTrang NVARCHAR(50) NOT NULL DEFAULT 'Cho Mượn',		--- 'Cho Mượn' hoặc 'Thu hồi'
+ 	TinhTrang NVARCHAR(50) DEFAULT 'Cho Mượn',		--- 'Cho Mượn' hoặc 'Thu hồi'
 	TongSL INT DEFAULT 0,									--- Tổng số lượng sách mượn
 	ChiPhi INT DEFAULT 0 									--- Chi phí sau khi 'Thu hồi' nếu getdate() > ngày trả thì tính phí
 )
@@ -128,22 +126,24 @@ ALTER TABLE CTHD WITH CHECK
 ADD constraint FK_CTHD_SACH FOREIGN KEY (MaSach) REFERENCES SACH(MaSach)
 GO
 
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Hướng dẫn nấu các món ăn Đông Á', N'Trần Hoàng Lân', N'KiMoChi', 481, 19, 10)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Hướng dẫn nấu các món ăn Tây', N'Trần Hoàng Lân', N'KiMoChi', 392, 10, 10)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Kỹ năng sinh tồn - Phần 1', N'Zoro', N'One Piece', 293, 5, 1)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Kỹ năng sinh tồn - Phần 3', N'Robin', N'One Piece', 192, 6, 1)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Kỹ năng sinh tồn - Phần 2', N'Robin', N'One Piece', 94, 5, 1)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Nhà Giả Kim ', N'Paulo Coelho', N'', 200, 30, 3)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Chuyện Con Mèo Dạy Hải Âu Bay (Tái Bản 2014)', N'Luis Sepulveda', N'', 200, 21, 3)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Cho Tôi Một Vé Đi Tuổi Thơ', N'Nguyễn Nhật Ánh', N'', 200, 18, 3)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bàn Có Năm Chỗ Ngồi', N'Nguyễn Nhật Ánh', N'', 200, 18, 3)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bồ Câu Không Đưa Thư', N'Nguyễn Nhật Ánh', N'', 200, 2, 3)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Đời Cơ Bản Là Buồn Cười', N'Lê Bích', N'', 200, 3, 3)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bong Bóng Lên Trời', N'Nguyễn Nhật Ánh', N'', 200, 4, 3)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Khi Lỗi Thuộc Về Những Vì Sao', N'John Green', N'', 200, 0, 3)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bức Xúc Không Làm Ta Vô Can', N'Đặng Hoàng Giang', N'', 200, 0, 3)
 
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon]) VALUES (N'Hướng dẫn nấu các món ăn Đông Á', N'Trần Hoàng Lân', N'KiMoChi', 481, 19)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon]) VALUES (N'Hướng dẫn nấu các món ăn Đông Á', N'Trần Hoàng Lân', N'KiMoChi', 481, 19)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon]) VALUES (N'Hướng dẫn nấu các món ăn Tây', N'Trần Hoàng Lân', N'KiMoChi', 392, 8)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon]) VALUES (N'Kỹ năng sinh tồn - Phần 1', N'Zoro', N'One Piece', 293, 5)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon]) VALUES (N'Kỹ năng sinh tồn - Phần 3', N'Robin', N'One Piece', 192, 6)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon]) VALUES (N'Kỹ năng sinh tồn - Phần 2', N'Robin', N'One Piece', 94, 5)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon]) VALUES (N'Nhà Giả Kim ', N'Paulo Coelho', N'', 200, 30)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon]) VALUES (N'Chuyện Con Mèo Dạy Hải Âu Bay (Tái Bản 2014)', N'Luis Sepulveda', N'', 200, 21)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon]) VALUES (N'Cho Tôi Một Vé Đi Tuổi Thơ', N'Nguyễn Nhật Ánh', N'', 200, 18)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon]) VALUES (N'Bàn Có Năm Chỗ Ngồi', N'Nguyễn Nhật Ánh', N'', 200, 18)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon]) VALUES (N'Bồ Câu Không Đưa Thư', N'Nguyễn Nhật Ánh', N'', 200, 2)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon]) VALUES (N'Đời Cơ Bản Là Buồn Cười', N'Lê Bích', N'', 200, 3)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon]) VALUES (N'Bong Bóng Lên Trời', N'Nguyễn Nhật Ánh', N'', 200, 4)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon]) VALUES (N'Khi Lỗi Thuộc Về Những Vì Sao', N'John Green', N'', 200, 0)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon]) VALUES (N'Bức Xúc Không Làm Ta Vô Can', N'Đặng Hoàng Giang', N'', 200, 0)
+Select SACH.TenSach, SACH.TacGia, SACH.NhaXuatBan, THELOAI.TenTL 
+from SACH left join THELOAI on SACH.MaTL = THELOAI.MaTL 
+where SACH.TenSach = N'Bức Xúc Không Làm Ta Vô Can' and SACH.TacGia = N'Đặng Hoàng Giang' and SACH.NhaXuatBan = N'' and THELOAI.TenTL = N'Văn học'
 
 INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách kỹ năng sống')
 INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách truyện ngắn - Bút ký')
@@ -171,5 +171,480 @@ INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]
 INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('a', '1')
 INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('b', '1')
 
+go
+
+select *
+from SACH
+where MaSach = 1
+
+CREATE QUEUE SQLDependencyQueue;
+CREATE SERVICE SQLDependencyService ON QUEUE SQLDependencyQueue
+
+--DROP SERVICE SQLDependencyService;
+--DROP QUEUE SQLDependencyQueue;
+
+/*CREATE QUEUE ContactChangeMessages;   
+  
+CREATE SERVICE ContactChangeNotifications  
+  ON QUEUE ContactChangeMessages  
+([http://schemas.microsoft.com/SQL/Notifications/PostQueryNotification]); */
+
+------ FORM MAIN
+------------- SP_COUNT ----------
+
+--- 1. ---Count tất cả Sách (tồn kho)
+CREATE PROC sp_count_all_available_books
+AS
+BEGIN
+	SELECT SUM(TonTai) FROM SACH
+END
+GO
+
+--- 2. ---Count tất cả Sách (đã mượn)
+CREATE PROC sp_count_all_borrowed_books
+AS
+BEGIN
+	SELECT SUM(DaMuon) FROM SACH
+END
+GO
+
+
+--- 3. ---Count tất cả Sách (đã mượn)
+CREATE PROC sp_count_all_books
+AS
+BEGIN
+	SELECT SUM(DaMuon) + SUM(TonTai) FROM SACH
+END
+GO
+
+
+--- 4. ---Count tất cả Độc giả
+CREATE PROC sp_count_all_readers
+AS
+BEGIN
+	SELECT COUNT(*) FROM DOCGIA
+END
+GO
+
+--- 5. ---Count độc giả đang mượn sách
+CREATE PROC sp_count_borrowing_readers
+AS
+BEGIN
+	SELECT COUNT(DISTINCT DG.MaDG) FROM DOCGIA DG, HOADON HD
+	WHERE DG.MaDG = HD.MaDG AND HD.TinhTrang = 'Cho mượn'
+END
+GO
+
+
+--- 6. ---Count độc giả đã mượn sách quá hạn
+CREATE PROC sp_count_overdue_readers
+AS
+BEGIN
+	SELECT COUNT(DISTINCT DG.MaDG) FROM DOCGIA DG, HOADON HD
+	WHERE DG.MaDG = HD.MaDG AND GETDATE() > HD.NgayTra
+END
+GO
+
+
+--- 7. ---Count tất cả Thể loại
+CREATE PROC sp_count_all_genres
+AS
+BEGIN
+	SELECT COUNT(*) FROM THELOAI
+END
+GO
+
+
+
+
+----------- SP_SELECT --------------
+
+--- 8. ---Select tất cả Sách
+CREATE PROC sp_select_all_books
+AS
+BEGIN
+	SELECT SACH.MaSach, SACH.TenSach AS [TÊN SÁCH], SACH.TacGia AS [TÁC GIẢ], THELOAI.TenTL AS [THỂ LOẠI], SACH.NhaXuatBan AS [NHÀ XUẤT BẢN], SACH.TonTai AS [CÓ SẴN], SACH.DaMuon AS [ĐÃ MƯỢN] 
+	FROM SACH LEFT JOIN THELOAI ON SACH.MaTL = THELOAI.MaTL 
+END
+GO
+
+--drop proc sp_select_all_books
+
+--EXEC sp_select_all_books
+
+--- 9. ---Select tất cả Thể loại
+CREATE PROC sp_select_all_genres
+AS
+BEGIN
+	SELECT TenTL AS [TÊN THỂ LOẠI] FROM THELOAI
+END
+GO
+
+--EXEC sp_select_all_genres
+
+--- 10. ---Select tất cả Độc giả
+CREATE PROC sp_select_all_readers
+AS
+BEGIN
+	SELECT MaDG, HoTen AS [HỌ TÊN], GioiTinh AS [GIỚI TÍNH], NgaySinh AS [NGÀY SINH], DiaChi AS [ĐỊA CHỈ], SDT AS [SĐT], Email AS [EMAIL] 
+	FROM DOCGIA
+END
+GO
+
+--drop proc sp_select_all_readers
+
+--- 11.---Select tất cả Nhân viên
+CREATE PROC sp_select_all_staff
+AS
+BEGIN
+	SELECT MaNV, HoTen AS [HỌ TÊN], GioiTinh AS [GIỚI TÍNH], NgaySinh AS [NGÀY SINH], DiaChi AS [ĐỊA CHỈ], SDT AS [SĐT], NHANVIEN.TenTaiKhoan AS [TÀI KHOẢN], TAIKHOAN.PhanQuyen AS [PHÂN QUYỀN] 
+	FROM NHANVIEN left join TAIKHOAN on NHANVIEN.TenTaiKhoan = TAIKHOAN.TenTaiKhoan
+END
+GO
+
+--drop proc sp_select_all_staff
+
+--- 12.---Select tất cả Tên tài khoản + Phân quyền
+CREATE PROC sp_select_all_accounts
+AS
+BEGIN
+	SELECT TenTaiKhoan AS [TÊN TÀI KHOẢN], MatKhau AS [MẬT KHẨU], PhanQuyen AS [PHÂN QUYỀN]  FROM TAIKHOAN
+END
+GO
+
+--- 13.---Select Tên tài khoản
+CREATE PROC sp_select_all_account_name
+AS
+BEGIN
+	SELECT TenTaiKhoan AS [TÊN TÀI KHOẢN] FROM TAIKHOAN
+END
+GO
+
+
+--- 14. --- Select Tài khoản, mật khẩu, phân quyền để LOGIN
+CREATE PROC sp_select_login_account
+@TenTaiKhoan VARCHAR(100), @MatKhau VARCHAR(50)
+AS
+BEGIN
+	SELECT TenTaiKhoan AS [TÊN TÀI KHOẢN], MatKhau AS [MẬT KHẨU], PhanQuyen AS [PHÂN QUYỀN] FROM TAIKHOAN
+	WHERE TenTaiKhoan = @TenTaiKhoan AND MatKhau = @MatKhau
+END
+GO
+
+--- 15. --- Select Tài khoản để Cấp lại mật khẩu
+CREATE PROC sp_select_forgot_password_account
+@TenTaiKhoan VARCHAR(100)
+AS
+BEGIN
+	SELECT TenTaiKhoan AS [TÊN TÀI KHOẢN] FROM TAIKHOAN
+	WHERE TenTaiKhoan = @TenTaiKhoan
+END
+GO
+
+--- 16. --- Update Mật khẩu cho Tài khoản
+CREATE PROC sp_update_password
+@TenTaiKhoan VARCHAR(100), @MatKhau VARCHAR(50)
+AS
+BEGIN
+	UPDATE TAIKHOAN SET MatKhau = @MatKhau WHERE TenTaiKhoan = @TenTaiKhoan
+END
+GO
+
+--- 17. --- Select from SACH, THELOAI để tìm kiếm
+CREATE PROC sp_search_books
+@TuKhoa NVARCHAR(200)
+AS
+BEGIN
+	DECLARE @temp NVARCHAR(200) = N'"*'+ @TuKhoa + '*"'
+	SELECT MaSach, SACH.TenSach AS [TÊN SÁCH], SACH.TacGia AS [TÁC GIẢ], THELOAI.TenTL AS [THỂ LOẠI], SACH.NhaXuatBan AS [NHÀ XUẤT BẢN], SACH.TonTai AS [CÓ SẴN], SACH.DaMuon AS [ĐÃ MƯỢN] 
+	FROM SACH, THELOAI
+	WHERE SACH.MaTL = THELOAI.MaTL 
+	AND ( CONTAINS(SACH.TenSach, @temp ) OR FREETEXT(SACH.TenSach, @TuKhoa) OR SACH.TenSach LIKE '%'+ @TuKhoa +'%' OR
+		  CONTAINS(SACH.TacGia, @temp ) OR FREETEXT(SACH.TacGia, @TuKhoa) OR SACH.TacGia LIKE '%'+ @TuKhoa +'%' OR
+		  CONTAINS(SACH.NhaXuatBan, @temp ) OR FREETEXT(SACH.NhaXuatBan, @TuKhoa) OR SACH.NhaXuatBan LIKE '%'+ @TuKhoa +'%' OR
+		  CONTAINS(THELOAI.TenTL, @temp ) OR FREETEXT(THELOAI.TenTL, @TuKhoa) OR THELOAI.TenTL LIKE '%'+ @TuKhoa +'%' OR
+		  SACH.TonTai LIKE '%'+ @TuKhoa +'%' OR SACH.DaMuon LIKE '%'+ @TuKhoa +'%' )
+END
+GO
+
+--drop proc sp_search_books
+
+--- 19. --- Select 1 loại sách dựa tên Tên sách, Tác giả, Tên Thể loại, Nhà xuất bản
+CREATE PROC sp_select_book
+@TenSach NVARCHAR(100), @TacGia NVARCHAR(100), @NhaXuatBan NVARCHAR(200)
+AS
+BEGIN
+	SELECT MaSach FROM SACH
+	WHERE TenSach = @TenSach AND TacGia = @TacGia AND NhaXuatBan = @NhaXuatBan
+END
+GO
+
+--exec sp_select_book @TenSach = 'A', @TacGia = 'B', @NhaXuatBan = 'C'
+
+--- 20. --- Delete 1 loại sách
+CREATE PROC sp_delete_book
+@MaSach INT
+AS
+BEGIN
+	DELETE FROM SACH
+	WHERE MaSach = @MaSach
+END
+GO
+
+--drop proc sp_delete_book
+
+--- 21. --- Insert 1 loại sách
+CREATE PROC sp_insert_book
+@TenSach NVARCHAR(100), @TacGia NVARCHAR(100), @NhaXuatBan NVARCHAR(200), @TenTL NVARCHAR(100), @TonTai INT
+AS
+BEGIN
+	DECLARE @MaTL INT
+	SELECT @MaTL = MaTL FROM THELOAI
+	WHERE TenTL = @TenTL
+	INSERT INTO SACH(TenSach, TacGia, NhaXuatBan, TonTai, MaTL) VALUES (@TenSach, @TacGia, @NhaXuatBan, @TonTai, @MaTL)
+END
+GO
+
+--drop proc sp_insert_book
+
+--EXEC sp_insert_book @TenSach = 'A', @TacGia = 'B', @NhaXuatBan = 'C', @TenTL = 'D', @TonTai = 0, @DaMuon  = 0
+
 ALTER DATABASE QLThuVien SET  READ_WRITE 
 GO
+
+--- 22. --- Update 1 loại sách dựa theo mã sách
+CREATE PROC sp_update_book
+@MaSach INT, @TenSach NVARCHAR(100), @TacGia NVARCHAR(100), @NhaXuatBan NVARCHAR(200), @TenTL NVARCHAR(100), @TonTai INT, @DaMuon INT
+AS
+BEGIN
+	DECLARE @MaTL INT
+	SELECT @MaTL = MaTL FROM THELOAI WHERE TenTL = @TenTL
+
+	UPDATE SACH
+	SET TenSach = @TenSach, TacGia = @TacGia, NhaXuatBan = @NhaXuatBan, TonTai = @TonTai, DaMuon = @DaMuon, MaTL = @MaTL
+	WHERE MaSach = @MaSach 
+END
+GO
+
+--- 23. --- Select from THELOAI để tìm kiếm
+CREATE PROC sp_search_genres
+@TuKhoa NVARCHAR(200)
+AS
+BEGIN
+	DECLARE @temp NVARCHAR(200) = N'"*'+ @TuKhoa + '*"'
+	SELECT TenTL AS [TÊN THỂ LOẠI] FROM THELOAI 
+	WHERE 
+		( CONTAINS(TenTL, @temp ) OR FREETEXT(TenTL, @TuKhoa) OR TenTL LIKE '%'+ @TuKhoa +'%' )
+END
+GO
+
+--- 24. --- Select 1 thể loại từ tên thể loại (kiểm tra có sách thuộc thể loại này hay không)
+CREATE PROC sp_select_genre
+@TenTL NVARCHAR(100)
+AS
+BEGIN
+	SELECT TenTL FROM THELOAI, SACH
+	WHERE TenTL = @TenTL AND THELOAI.MaTL = SACH.MaTL
+END
+go
+
+--- 25. --- Delete 1 thể loại 
+CREATE PROC sp_delete_genre
+@TenTL NVARCHAR(100)
+AS
+BEGIN
+	DELETE FROM THELOAI
+	WHERE TenTL = @TenTL
+END
+go
+
+--- 26. --- Insert Update 1 thể loại -- ko tạo
+
+--- 27. --- Select from Độc giả để tìm kiếm
+create PROC sp_search_readers
+@TuKhoa NVARCHAR(200)
+AS
+BEGIN
+	DECLARE @temp NVARCHAR(200) = N'"*'+ @TuKhoa + '*"'
+	SELECT HoTen AS [HỌ TÊN], GioiTinh AS [GIỚI TÍNH], NgaySinh AS [NGÀY SINH], DiaChi AS [ĐỊA CHỈ], SDT AS [SĐT], Email AS [EMAIL] 
+	FROM DOCGIA
+	WHERE ( CONTAINS(HoTen, @temp ) OR FREETEXT(HoTen, @TuKhoa) OR HoTen LIKE '%'+ @TuKhoa +'%' OR
+		    CONTAINS(GioiTinh, @temp ) OR FREETEXT(GioiTinh, @TuKhoa) OR GioiTinh LIKE '%'+ @TuKhoa +'%' OR
+		    NgaySinh LIKE '%'+ @TuKhoa +'%' OR
+		    CONTAINS(DiaChi, @temp ) OR FREETEXT(DiaChi, @TuKhoa) OR DiaChi LIKE '%'+ @TuKhoa +'%' OR
+		    SDT LIKE '%'+ @TuKhoa +'%' OR
+		    CONTAINS(Email, @temp ) OR FREETEXT(Email, @TuKhoa) OR Email LIKE '%'+ @TuKhoa +'%' )
+END
+GO
+
+--- 28. --- Select reader từ SĐT, Email để Insert, Update, Delete
+CREATE PROC sp_select_reader 
+@SDT VARCHAR(20), @Email VARCHAR(100)
+AS
+BEGIN
+	SELECT MaDG FROM DOCGIA
+	WHERE SDT = @SDT OR Email = @Email
+END
+go
+
+--- 29. --- Delete 1 độc giả
+CREATE PROC sp_delete_reader 
+@SDT VARCHAR(20), @Email VARCHAR(100)
+AS
+BEGIN
+	DELETE FROM DOCGIA
+	WHERE SDT = @SDT OR Email = @Email
+END
+go
+
+--- 29. --- Insert 1 độc giả
+CREATE PROC sp_insert_reader 
+@HoTen NVARCHAR(100), @GioiTinh NVARCHAR(10), @NgaySinh DATE, @DiaChi NVARCHAR(200), @SDT VARCHAR(20), @Email VARCHAR(100)
+AS
+BEGIN
+	INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (@HoTen, @GioiTinh, @NgaySinh,@DiaChi,@SDT, @Email)
+END
+go
+
+--- 30. --- Update 1 độc giả
+CREATE PROC sp_update_reader 
+@MaDG INT, @HoTen NVARCHAR(100), @GioiTinh NVARCHAR(10), @NgaySinh DATE, @DiaChi NVARCHAR(200), @SDT VARCHAR(20), @Email VARCHAR(100)
+AS
+BEGIN
+	UPDATE DOCGIA
+	SET HoTen = @HoTen, GioiTinh = @GioiTinh, NgaySinh = @NgaySinh, DiaChi = @DiaChi, SDT = @SDT, Email = @Email
+	WHERE MaDG = @MaDG
+END
+go
+
+
+--- 31. --- Select Nhân viên từ NHANVIEN để tìm kiểm
+CREATE PROC sp_search_staff 
+@TuKhoa NVARCHAR(200)
+AS
+BEGIN
+	DECLARE @temp NVARCHAR(200) = N'"*'+ @TuKhoa + '*"'
+	SELECT HoTen AS [HỌ TÊN], GioiTinh AS [GIỚI TÍNH], NgaySinh AS [NGÀY SINH], DiaChi AS [ĐỊA CHỈ], SDT AS [SĐT], TenTaiKhoan AS [TÀI KHOẢN] 
+	FROM NHANVIEN
+	WHERE ( CONTAINS(HoTen, @temp ) OR FREETEXT(HoTen, @TuKhoa) OR HoTen LIKE '%'+ @TuKhoa +'%' OR
+		    CONTAINS(GioiTinh, @temp ) OR FREETEXT(GioiTinh, @TuKhoa) OR GioiTinh LIKE '%'+ @TuKhoa +'%' OR
+		    NgaySinh LIKE '%'+ @TuKhoa +'%' OR
+		    CONTAINS(DiaChi, @temp ) OR FREETEXT(DiaChi, @TuKhoa) OR DiaChi LIKE '%'+ @TuKhoa +'%' OR
+		    SDT LIKE '%'+ @TuKhoa +'%' OR
+		    CONTAINS(TenTaiKhoan, @temp ) OR FREETEXT(TenTaiKhoan, @TuKhoa) OR TenTaiKhoan LIKE '%'+ @TuKhoa +'%' )
+END
+go
+
+--- 32. --- Select 1 nhân viên để Insert, Delete, Update
+CREATE PROC sp_select_staff
+@SDT VARCHAR(20)
+AS
+BEGIN
+	SELECT MaNV FROM NHANVIEN
+	WHERE SDT = @SDT
+END
+go
+
+--- 33. --- Delete 1 nhân viên
+CREATE PROC sp_delete_staff
+@SDT VARCHAR(20)
+AS
+BEGIN
+	DELETE FROM NHANVIEN
+	WHERE SDT = @SDT 
+END
+go
+
+--- 34. --- Insert 1 nhân viên
+CREATE PROC sp_insert_staff 
+@HoTen NVARCHAR(100), @GioiTinh NVARCHAR(10), @NgaySinh DATE, @DiaChi NVARCHAR(200), @SDT VARCHAR(20), @TenTaiKhoan VARCHAR(100)
+AS
+BEGIN
+	IF @TenTaiKhoan = '.'
+		INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (@HoTen, @GioiTinh, @NgaySinh,@DiaChi,@SDT)
+	ELSE
+		INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [TenTaiKhoan]) VALUES (@HoTen, @GioiTinh, @NgaySinh,@DiaChi,@SDT, @TenTaiKhoan)
+END
+go
+
+--- 35. --- Update 1 nhân viên
+CREATE PROC sp_update_staff
+@MaNV INT, @HoTen NVARCHAR(100), @GioiTinh NVARCHAR(10), @NgaySinh DATE, @DiaChi NVARCHAR(200), @SDT VARCHAR(20), @TenTaiKhoan VARCHAR(100)
+AS
+BEGIN
+	IF @TenTaiKhoan = '.'
+		UPDATE NHANVIEN
+		SET HoTen = @HoTen, GioiTinh = @GioiTinh, NgaySinh = @NgaySinh, DiaChi = @DiaChi, SDT = @SDT
+		WHERE MaNV = @MaNV
+	ELSE
+		UPDATE NHANVIEN
+		SET HoTen = @HoTen, GioiTinh = @GioiTinh, NgaySinh = @NgaySinh, DiaChi = @DiaChi, SDT = @SDT, TenTaiKhoan = @TenTaiKhoan
+		WHERE MaNV = @MaNV
+END
+go
+
+---- 36. --- Search Tài khoản
+CREATE PROC sp_search_accounts
+@TuKhoa NVARCHAR(200)
+AS
+BEGIN
+	DECLARE @temp NVARCHAR(200) = N'"*'+ @TuKhoa + '*"'
+	SELECT TenTaiKhoan AS [TÊN TÀI KHOẢN], MatKhau AS [MẬT KHẨU], PhanQuyen AS [PHÂN QUYỀN]  FROM TAIKHOAN
+	WHERE 
+		( CONTAINS(TenTaiKhoan, @temp ) OR FREETEXT(TenTaiKhoan, @TuKhoa) OR TenTaiKhoan LIKE '%'+ @TuKhoa +'%' OR
+		  CONTAINS(PhanQuyen, @temp ) OR FREETEXT(PhanQuyen, @TuKhoa) OR PhanQuyen LIKE '%'+ @TuKhoa +'%' )
+END
+GO
+
+--- 37. ---- Select 1 tài khoản 
+CREATE PROC sp_select_account
+@TenTaiKhoan VARCHAR(100)
+AS
+BEGIN
+	SELECT TAIKHOAN.TenTaiKhoan AS [TÀI KHOẢN] FROM TAIKHOAN, NHANVIEN
+	WHERE TAIKHOAN.TenTaiKhoan = @TenTaiKhoan AND NHANVIEN.TenTaiKhoan = TAIKHOAN.TenTaiKhoan
+END
+go
+
+--- 38. --- Delete 1 account
+CREATE PROC sp_delete_account
+@TenTaiKhoan VARCHAR(100)
+AS
+BEGIN
+	DELETE FROM TAIKHOAN
+	WHERE TenTaiKhoan = @TenTaiKhoan
+END
+go
+
+--- 39. --- Thêm số lượng sách khi thêm sách trùng 
+CREATE PROC sp_increase_book_quantity
+@TenSach NVARCHAR(100), @TacGia NVARCHAR(100), @NhaXuatBan NVARCHAR(200), @TenTL NVARCHAR(100), @SoLuong INT
+AS
+BEGIN
+	DECLARE @MaTL INT
+	SELECT @MaTL = MaTL FROM THELOAI
+	WHERE TenTL = @TenTL
+
+	UPDATE SACH set TonTai = TonTai + @SoLuong where TenSach = @TenSach and TacGia = @TacGia and NhaXuatBan = @NhaXuatBan and MaTL = @MaTL
+END
+GO
+
+alter database QLThuVien set enable_broker with rollback immediate;
+
+SET ANSI_NULLS ON
+GO
+SET ANSI_PADDING ON 
+GO
+SET ANSI_WARNINGS ON 
+GO
+SET CONCAT_NULL_YIELDS_NULL ON 
+GO
+SET QUOTED_IDENTIFIER ON
+GO 
+SET NUMERIC_ROUNDABORT OFF
+GO 
+SET ARITHABORT ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+

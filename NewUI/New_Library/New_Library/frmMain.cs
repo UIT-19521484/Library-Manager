@@ -23,6 +23,15 @@ namespace New_Library
         private string password;
         private string role;
 
+        Forms.frmDashboard dashboard = new Forms.frmDashboard();
+        Forms.frmBook book = new Forms.frmBook();
+        Forms.frmGenre genre = new Forms.frmGenre();
+        Forms.frmReader reader = new Forms.frmReader();
+        Forms.frmReceipt receipt = new Forms.frmReceipt();
+        Forms.frmManagement management = new Forms.frmManagement();
+        Forms.frmSetting setting = new Forms.frmSetting();
+        Forms.frmHelp help = new Forms.frmHelp();
+
         //Constructor
         public frmMain(string username, string password, string role)
         {
@@ -35,6 +44,9 @@ namespace New_Library
             this.username = username;
             this.password = password;
             this.role = role;
+
+            this.ResizeBegin += (s, e) => { this.SuspendLayout(); };
+            this.ResizeEnd += (s, e) => { this.ResumeLayout(true); };
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -42,14 +54,9 @@ namespace New_Library
             if (this.role == "Member")
             {
                 this.btnManagement.Visible = false;
-            }   
-            
-            this.lblNoTotalReader.Text = DataConnection.ExecuteScalar(@"EXEC sp_count_all_readers").ToString();
-            this.lblNoBorrowingReader.Text = DataConnection.ExecuteScalar(@"EXEC sp_count_borrowing_readers").ToString();
-            this.lblNoOverdueReader.Text = DataConnection.ExecuteScalar(@"EXEC sp_count_overdue_readers").ToString();
-            this.lblNoTotalBook.Text = DataConnection.ExecuteScalar(@"EXEC sp_count_all_books").ToString();
-            this.lblNoTotalGenres.Text = DataConnection.ExecuteScalar(@"EXEC sp_count_all_genres").ToString();
-            this.lblNoTotalAvailableCopies.Text = DataConnection.ExecuteScalar(@"EXEC sp_count_all_available_books").ToString();
+            }
+
+            lblLogo_Click(lblLogo, new EventArgs());
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -92,28 +99,27 @@ namespace New_Library
 
         private void DisableButton()
         {
-            foreach (Control previousBtn in pnlMenu.Controls)
+            if (currentButton != null)
             {
-                if (previousBtn.GetType() == typeof(Button))
-                {
-                    previousBtn.BackColor = Color.FromArgb(51, 51, 76);
-                    previousBtn.ForeColor = Color.Gainsboro;
-                    previousBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                }    
-            }    
+                currentButton.BackColor = Color.FromArgb(51, 51, 76);
+                currentButton.ForeColor = Color.Gainsboro;
+                currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            }
+
+            GC.Collect();
         }
 
         private void OpenChildForm(Form childForm, object btnSender)
         {
-            //this.pnlChildForm.Controls.Clear();
-            if (activeForm != null)
+            this.pnlChildForm.Controls.Clear();
+
+            if (btnSender.GetType() == typeof(Button))
             {
-                activeForm.Close();
+                ActiveButton(btnSender);
             }
-            ActiveButton(btnSender);
+
             activeForm = childForm;
             childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
             this.pnlChildForm.Controls.Add(childForm);
             this.pnlChildForm.Tag = childForm;
@@ -122,39 +128,45 @@ namespace New_Library
             btnTitle.Text = childForm.Text;
         }
 
+        private void lblLogo_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(dashboard, sender);
+            Reset();
+        }
+
         private void btnBook_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.frmBook(), sender);
+            OpenChildForm(book, sender);
         }
 
         private void btnGenre_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.frmGenre(), sender);
+            OpenChildForm(genre, sender);
         }
 
         private void btnReader_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.frmReader(), sender);
+            OpenChildForm(reader, sender);
         }
 
         private void btnReceipt_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.frmReceipt(), sender);
+            OpenChildForm(receipt, sender);
         }
+
         private void btnManagement_Click(object sender, EventArgs e)
         {
-           
-            OpenChildForm(new Forms.frmManagement(), sender);
+            OpenChildForm(management, sender);
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.frmSetting(), sender);
+            OpenChildForm(setting, sender);
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.frmHelp(), sender);
+            OpenChildForm(help, sender);
         }
 
         private void btnSignout_Click(object sender, EventArgs e)
@@ -167,6 +179,8 @@ namespace New_Library
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+
+            GC.Collect();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -177,21 +191,18 @@ namespace New_Library
         private void btnMaximize_Click(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Normal)
+            {
                 this.WindowState = FormWindowState.Maximized;
+            }
             else
+            {
                 this.WindowState = FormWindowState.Normal;
+            }
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void lblLogo_Click(object sender, EventArgs e)
-        {
-            if (activeForm != null)
-                activeForm.Close();
-            Reset();
         }
 
         private void Reset()
@@ -201,24 +212,6 @@ namespace New_Library
             pnlTitleBar.BackColor = Color.FromArgb(51, 51, 76);
             pnlLogo.BackColor = Color.FromArgb(39, 39, 58);
             currentButton = null;
-        }
-
-        private void btnSignout_MouseMove(object sender, MouseEventArgs e)
-        {
-            this.btnSignout.BackColor = Color.Red; 
-        }
-
-        private void btnSignout_MouseLeave(object sender, EventArgs e)
-        {
-            this.btnSignout.BackColor = Color.FromArgb(51, 51, 76);
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            txtLibraryName.ReadOnly = !txtLibraryName.ReadOnly;
-            txtAddressName.ReadOnly = !txtAddressName.ReadOnly;
-            txtPhoneName.ReadOnly = !txtPhoneName.ReadOnly;
-            txtEmailName.ReadOnly = !txtEmailName.ReadOnly;
         }
     }
 }

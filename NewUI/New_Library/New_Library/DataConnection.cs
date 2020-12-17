@@ -18,6 +18,9 @@ namespace New_Library
         private static SqlDataAdapter da;
         private static SqlDataReader rdr;
 
+        public static string ConnectionString { get => connectionString; }
+        public static SqlConnection Connection { get => con; }
+
         public static void OpenConnection()
         {
             //
@@ -30,11 +33,14 @@ namespace New_Library
 
             try
             {
-                con.Open();
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
             }
             catch (Exception)
             {
-                MessageBox.Show("Không thể kết nối tới CSDL!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không thể kết nối tới Server!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }

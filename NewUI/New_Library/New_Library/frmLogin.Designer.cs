@@ -36,6 +36,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pnlSignin = new System.Windows.Forms.Panel();
+            this.lblPasswordError = new System.Windows.Forms.Label();
+            this.lblUsernameError = new System.Windows.Forms.Label();
             this.lblSignin = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.lblForgotPassword = new System.Windows.Forms.Label();
@@ -45,6 +47,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlForgotPassword = new System.Windows.Forms.Panel();
+            this.lblConfirmPasswordError = new System.Windows.Forms.Label();
+            this.lblNewPasswordFPError = new System.Windows.Forms.Label();
+            this.lblUsernameFPError = new System.Windows.Forms.Label();
             this.lblChangePassword = new System.Windows.Forms.Label();
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -57,52 +62,54 @@
             this.tmrForgotPassword = new System.Windows.Forms.Timer(this.components);
             this.tmrLogin = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.errLogin = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlSignin.SuspendLayout();
             this.pnlForgotPassword.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bungee Inline", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(185)))), ((int)(((byte)(154)))));
-            this.label1.Location = new System.Drawing.Point(8, 14);
+            this.label1.Location = new System.Drawing.Point(25, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 61);
+            this.label1.Size = new System.Drawing.Size(86, 29);
             this.label1.TabIndex = 1;
             this.label1.Text = "QUẢN";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bungee Inline", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(203)))), ((int)(((byte)(101)))));
-            this.label2.Location = new System.Drawing.Point(99, 14);
+            this.label2.Location = new System.Drawing.Point(117, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 61);
+            this.label2.Size = new System.Drawing.Size(44, 29);
             this.label2.TabIndex = 2;
             this.label2.Text = "LÝ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bungee Inline", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(186)))), ((int)(((byte)(22)))));
-            this.label3.Location = new System.Drawing.Point(155, 14);
+            this.label3.Location = new System.Drawing.Point(167, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 61);
+            this.label3.Size = new System.Drawing.Size(66, 29);
             this.label3.TabIndex = 3;
             this.label3.Text = "THƯ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bungee Inline", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(52)))), ((int)(((byte)(46)))));
-            this.label4.Location = new System.Drawing.Point(231, 14);
+            this.label4.Location = new System.Drawing.Point(239, 13);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 61);
+            this.label4.Size = new System.Drawing.Size(72, 29);
             this.label4.TabIndex = 4;
             this.label4.Text = "VIỆN";
             // 
@@ -116,6 +123,8 @@
             // 
             // pnlSignin
             // 
+            this.pnlSignin.Controls.Add(this.lblPasswordError);
+            this.pnlSignin.Controls.Add(this.lblUsernameError);
             this.pnlSignin.Controls.Add(this.lblSignin);
             this.pnlSignin.Controls.Add(this.btnExit);
             this.pnlSignin.Controls.Add(this.lblForgotPassword);
@@ -128,6 +137,26 @@
             this.pnlSignin.Name = "pnlSignin";
             this.pnlSignin.Size = new System.Drawing.Size(293, 268);
             this.pnlSignin.TabIndex = 6;
+            // 
+            // lblPasswordError
+            // 
+            this.lblPasswordError.AutoSize = true;
+            this.lblPasswordError.ForeColor = System.Drawing.Color.Red;
+            this.lblPasswordError.Location = new System.Drawing.Point(19, 132);
+            this.lblPasswordError.Name = "lblPasswordError";
+            this.lblPasswordError.Size = new System.Drawing.Size(78, 13);
+            this.lblPasswordError.TabIndex = 10;
+            this.lblPasswordError.Text = "Password Error";
+            // 
+            // lblUsernameError
+            // 
+            this.lblUsernameError.AutoSize = true;
+            this.lblUsernameError.ForeColor = System.Drawing.Color.Red;
+            this.lblUsernameError.Location = new System.Drawing.Point(19, 82);
+            this.lblUsernameError.Name = "lblUsernameError";
+            this.lblUsernameError.Size = new System.Drawing.Size(80, 13);
+            this.lblUsernameError.TabIndex = 9;
+            this.lblUsernameError.Text = "Username Error";
             // 
             // lblSignin
             // 
@@ -197,6 +226,10 @@
             this.txtUsername.Size = new System.Drawing.Size(253, 19);
             this.txtUsername.TabIndex = 1;
             this.txtUsername.Text = "Tên đăng nhập";
+            this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
+            this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
+            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
+            this.txtUsername.Validated += new System.EventHandler(this.txtUsername_Validated);
             // 
             // txtPassword
             // 
@@ -209,7 +242,10 @@
             this.txtPassword.Size = new System.Drawing.Size(253, 19);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.Text = "Mật khẩu";
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
+            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
+            this.txtPassword.Validated += new System.EventHandler(this.txtPassword_Validated);
             // 
             // panel3
             // 
@@ -229,6 +265,9 @@
             // 
             // pnlForgotPassword
             // 
+            this.pnlForgotPassword.Controls.Add(this.lblConfirmPasswordError);
+            this.pnlForgotPassword.Controls.Add(this.lblNewPasswordFPError);
+            this.pnlForgotPassword.Controls.Add(this.lblUsernameFPError);
             this.pnlForgotPassword.Controls.Add(this.lblChangePassword);
             this.pnlForgotPassword.Controls.Add(this.txtConfirmPassword);
             this.pnlForgotPassword.Controls.Add(this.panel7);
@@ -242,6 +281,36 @@
             this.pnlForgotPassword.Name = "pnlForgotPassword";
             this.pnlForgotPassword.Size = new System.Drawing.Size(293, 268);
             this.pnlForgotPassword.TabIndex = 7;
+            // 
+            // lblConfirmPasswordError
+            // 
+            this.lblConfirmPasswordError.AutoSize = true;
+            this.lblConfirmPasswordError.ForeColor = System.Drawing.Color.Red;
+            this.lblConfirmPasswordError.Location = new System.Drawing.Point(18, 180);
+            this.lblConfirmPasswordError.Name = "lblConfirmPasswordError";
+            this.lblConfirmPasswordError.Size = new System.Drawing.Size(116, 13);
+            this.lblConfirmPasswordError.TabIndex = 12;
+            this.lblConfirmPasswordError.Text = "Confirm Password Error";
+            // 
+            // lblNewPasswordFPError
+            // 
+            this.lblNewPasswordFPError.AutoSize = true;
+            this.lblNewPasswordFPError.ForeColor = System.Drawing.Color.Red;
+            this.lblNewPasswordFPError.Location = new System.Drawing.Point(18, 132);
+            this.lblNewPasswordFPError.Name = "lblNewPasswordFPError";
+            this.lblNewPasswordFPError.Size = new System.Drawing.Size(103, 13);
+            this.lblNewPasswordFPError.TabIndex = 11;
+            this.lblNewPasswordFPError.Text = "New Password Error";
+            // 
+            // lblUsernameFPError
+            // 
+            this.lblUsernameFPError.AutoSize = true;
+            this.lblUsernameFPError.ForeColor = System.Drawing.Color.Red;
+            this.lblUsernameFPError.Location = new System.Drawing.Point(17, 82);
+            this.lblUsernameFPError.Name = "lblUsernameFPError";
+            this.lblUsernameFPError.Size = new System.Drawing.Size(80, 13);
+            this.lblUsernameFPError.TabIndex = 10;
+            this.lblUsernameFPError.Text = "Username Error";
             // 
             // lblChangePassword
             // 
@@ -264,7 +333,10 @@
             this.txtConfirmPassword.Size = new System.Drawing.Size(253, 19);
             this.txtConfirmPassword.TabIndex = 3;
             this.txtConfirmPassword.Text = "Xác nhận Mật khẩu";
-            this.txtConfirmPassword.TextChanged += new System.EventHandler(this.txtConfirmPassword_TextChanged);
+            this.txtConfirmPassword.Enter += new System.EventHandler(this.txtConfirmPassword_Enter);
+            this.txtConfirmPassword.Leave += new System.EventHandler(this.txtConfirmPassword_Leave);
+            this.txtConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfirmPassword_Validating);
+            this.txtConfirmPassword.Validated += new System.EventHandler(this.txtConfirmPassword_Validated);
             // 
             // panel7
             // 
@@ -319,6 +391,10 @@
             this.txtUsernameFP.Size = new System.Drawing.Size(253, 19);
             this.txtUsernameFP.TabIndex = 1;
             this.txtUsernameFP.Text = "Tên đăng nhập";
+            this.txtUsernameFP.Enter += new System.EventHandler(this.txtUsernameFP_Enter);
+            this.txtUsernameFP.Leave += new System.EventHandler(this.txtUsernameFP_Leave);
+            this.txtUsernameFP.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsernameFP_Validating);
+            this.txtUsernameFP.Validated += new System.EventHandler(this.txtUsernameFP_Validated);
             // 
             // txtNewPasswordFP
             // 
@@ -331,7 +407,10 @@
             this.txtNewPasswordFP.Size = new System.Drawing.Size(253, 19);
             this.txtNewPasswordFP.TabIndex = 2;
             this.txtNewPasswordFP.Text = "Mật khẩu mới";
-            this.txtNewPasswordFP.TextChanged += new System.EventHandler(this.txtNewPasswordFP_TextChanged);
+            this.txtNewPasswordFP.Enter += new System.EventHandler(this.txtNewPasswordFP_Enter);
+            this.txtNewPasswordFP.Leave += new System.EventHandler(this.txtNewPasswordFP_Leave);
+            this.txtNewPasswordFP.Validating += new System.ComponentModel.CancelEventHandler(this.txtNewPasswordFP_Validating);
+            this.txtNewPasswordFP.Validated += new System.EventHandler(this.txtNewPasswordFP_Validated);
             // 
             // panel5
             // 
@@ -372,12 +451,19 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // errLogin
+            // 
+            this.errLogin.BlinkRate = 0;
+            this.errLogin.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errLogin.ContainerControl = this;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(329, 596);
+            this.ClientSize = new System.Drawing.Size(332, 596);
             this.Controls.Add(this.pnlForgotPassword);
             this.Controls.Add(this.pnlSignin);
             this.Controls.Add(this.label5);
@@ -398,6 +484,7 @@
             this.pnlForgotPassword.ResumeLayout(false);
             this.pnlForgotPassword.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,6 +519,12 @@
         private System.Windows.Forms.Label lblChangePassword;
         private System.Windows.Forms.Timer tmrForgotPassword;
         private System.Windows.Forms.Timer tmrLogin;
+        private System.Windows.Forms.Label lblPasswordError;
+        private System.Windows.Forms.Label lblUsernameError;
+        private System.Windows.Forms.ErrorProvider errLogin;
+        private System.Windows.Forms.Label lblConfirmPasswordError;
+        private System.Windows.Forms.Label lblNewPasswordFPError;
+        private System.Windows.Forms.Label lblUsernameFPError;
     }
 }
 

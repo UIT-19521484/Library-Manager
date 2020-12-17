@@ -8,52 +8,62 @@ namespace New_Library
 {
     public class ValidateInput
     {
-        public static bool ValidNoneSpecialChar(string str, out string errMsg)
+        public static bool IsEmpty(string str, out string errMsg)
         {
             if (str.Length == 0)
             {
                 errMsg = "Trường này không được trống";
-                return false;
+                return true;
             }
-
-            if (!(str.All(char.IsLetter) || str.Any(char.IsWhiteSpace) || str.All(char.IsDigit)))
-            {
-                errMsg = "Không được chứa kí tự đặc biệt";
-                return false;
-            }
-
             errMsg = "";
+            return false;
+        }
+
+        public static bool ValidNoneSpecialChar(string str, out string errMsg)
+        {
+            if (!IsEmpty(str, out errMsg))
+            {
+                if (!(str.All(char.IsLetter) || str.Any(char.IsWhiteSpace) || str.All(char.IsDigit)))
+                {
+                    errMsg = "Không được chứa kí tự đặc biệt";
+                    return false;
+                }
+            }
+
             return true;
         }
 
         public static bool ValidNumber(string number, out string errMsg)
         {
-            if (number.Length == 0)
+            if (!IsEmpty(number, out errMsg))
             {
-                errMsg = "Trường này không được trống";
-                return false;
-            }
-
-            if (number.All(char.IsDigit))
-            {
-                errMsg = "";
-                return true;
+                if (number.All(char.IsDigit))
+                {
+                    errMsg = "";
+                    return true;
+                }
             }
 
             errMsg = "Trường này chỉ nhập số";
             return false;
         }
 
-        public static bool ValidName(string name, out string errMsg)
+        public static bool ValidEmail(string email, out string errMsg)
         {
-            if (name.Length == 0)
+            if (!IsEmpty(email, out errMsg))
             {
-                errMsg = "Trường này không được trống";
-                return false;
+                if (email.IndexOf("@") > -1)
+                {
+                    if (email.IndexOf(".", email.IndexOf("@")) > email.IndexOf("@"))
+                    {
+                        errMsg = "";
+                        return true;
+                    }
+                }
             }
 
-            errMsg = "";
-            return true;
+            errMsg = "Email không hợp lệ";
+            return false;
         }
     }
 }
