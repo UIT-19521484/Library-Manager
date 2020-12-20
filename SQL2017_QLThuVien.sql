@@ -276,9 +276,11 @@ GO
 CREATE PROC sp_select_all_genres
 AS
 BEGIN
-	SELECT TenTL AS [TÊN THỂ LOẠI] FROM THELOAI
+	SELECT MaTL, TenTL AS [TÊN THỂ LOẠI] FROM THELOAI
 END
 GO
+
+drop proc sp_select_all_genres
 
 --EXEC sp_select_all_genres
 
@@ -414,17 +416,19 @@ GO
 
 --- 22. --- Update 1 loại sách dựa theo mã sách
 CREATE PROC sp_update_book
-@MaSach INT, @TenSach NVARCHAR(100), @TacGia NVARCHAR(100), @NhaXuatBan NVARCHAR(200), @TenTL NVARCHAR(100), @TonTai INT, @DaMuon INT
+@MaSach INT, @TenSach NVARCHAR(100), @TacGia NVARCHAR(100), @NhaXuatBan NVARCHAR(200), @TenTL NVARCHAR(100), @TonTai INT
 AS
 BEGIN
 	DECLARE @MaTL INT
 	SELECT @MaTL = MaTL FROM THELOAI WHERE TenTL = @TenTL
 
 	UPDATE SACH
-	SET TenSach = @TenSach, TacGia = @TacGia, NhaXuatBan = @NhaXuatBan, TonTai = @TonTai, DaMuon = @DaMuon, MaTL = @MaTL
+	SET TenSach = @TenSach, TacGia = @TacGia, NhaXuatBan = @NhaXuatBan, TonTai = @TonTai, MaTL = @MaTL
 	WHERE MaSach = @MaSach 
 END
 GO
+
+--drop proc sp_update_book
 
 --- 23. --- Select from THELOAI để tìm kiếm
 CREATE PROC sp_search_genres

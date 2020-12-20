@@ -1,6 +1,6 @@
 ﻿namespace New_Library.Forms.Book
 {
-    partial class frmAddBook
+    partial class frmEditBook
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gbBookInfo = new System.Windows.Forms.GroupBox();
-            this.lblGenreError = new System.Windows.Forms.Label();
             this.lblPublisherNameError = new System.Windows.Forms.Label();
             this.lblAuthorNameError = new System.Windows.Forms.Label();
             this.lblBookNameError = new System.Windows.Forms.Label();
@@ -62,7 +61,6 @@
             // 
             // gbBookInfo
             // 
-            this.gbBookInfo.Controls.Add(this.lblGenreError);
             this.gbBookInfo.Controls.Add(this.lblPublisherNameError);
             this.gbBookInfo.Controls.Add(this.lblAuthorNameError);
             this.gbBookInfo.Controls.Add(this.lblBookNameError);
@@ -77,17 +75,6 @@
             this.gbBookInfo.TabIndex = 6;
             this.gbBookInfo.TabStop = false;
             this.gbBookInfo.Text = "Thông tin sách";
-            // 
-            // lblGenreError
-            // 
-            this.lblGenreError.AutoSize = true;
-            this.lblGenreError.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGenreError.ForeColor = System.Drawing.Color.Red;
-            this.lblGenreError.Location = new System.Drawing.Point(10, 297);
-            this.lblGenreError.Name = "lblGenreError";
-            this.lblGenreError.Size = new System.Drawing.Size(66, 13);
-            this.lblGenreError.TabIndex = 75;
-            this.lblGenreError.Text = "Genre Error";
             // 
             // lblPublisherNameError
             // 
@@ -151,8 +138,6 @@
             this.cbGenre.Size = new System.Drawing.Size(337, 33);
             this.cbGenre.Sorted = true;
             this.cbGenre.TabIndex = 4;
-            this.cbGenre.Validating += new System.ComponentModel.CancelEventHandler(this.cbGenre_Validating);
-            this.cbGenre.Validated += new System.EventHandler(this.cbGenre_Validated);
             // 
             // gbPublisher
             // 
@@ -348,18 +333,18 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAdd.Image = global::New_Library.Properties.Resources.add1;
+            this.btnAdd.Image = global::New_Library.Properties.Resources.update_24px;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.Location = new System.Drawing.Point(409, 307);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(125, 36);
             this.btnAdd.TabIndex = 8;
-            this.btnAdd.Text = "Thêm";
+            this.btnAdd.Text = "Thay đổi";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // frmAddBook
+            // frmEditBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -373,7 +358,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmAddBook";
+            this.Name = "frmEditBook";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -418,6 +403,5 @@
         private System.Windows.Forms.Label lblBookNameError;
         private System.Windows.Forms.Label lblAvailableWarning;
         private System.Windows.Forms.ErrorProvider errAddBook;
-        private System.Windows.Forms.Label lblGenreError;
     }
 }

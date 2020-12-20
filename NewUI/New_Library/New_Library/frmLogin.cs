@@ -34,6 +34,14 @@ namespace New_Library
             ResetErrorMessage();
         }
 
+        private void CancelValidatedEvent(Control control, Label error, CancelEventArgs e)
+        {
+            System.Media.SystemSounds.Asterisk.Play();
+            e.Cancel = true;
+            errLogin.SetError(control, errMsg);
+            error.Text = errMsg;
+        }
+
         private void ResetErrorMessage()
         {
             lblUsernameError.Text = "";
@@ -97,36 +105,28 @@ namespace New_Library
         {
             if (txtUsername.Text == "Tên đăng nhập")
             {
-                this.errLogin.SetError(txtUsername, errMsg);
-                this.lblUsernameError.Text = errMsg;
+                CancelValidatedEvent(txtUsername, lblUsernameError, e);
             }
         }
 
         private void txtUsername_Validated(object sender, EventArgs e)
         {
-            if (txtUsername.Text != "Tên đăng nhập")
-            {
-                this.errLogin.SetError(txtUsername, "");
-                this.lblUsernameError.Text = "";
-            }
+            this.errLogin.SetError(txtUsername, "");
+            this.lblUsernameError.Text = "";
         }
 
         private void txtPassword_Validating(object sender, CancelEventArgs e)
         {
             if (txtPassword.Text == "Mật khẩu")
             {
-                this.errLogin.SetError(txtPassword, errMsg);
-                this.lblPasswordError.Text = errMsg;
+                CancelValidatedEvent(txtPassword, lblPasswordError, e);
             }
         }
 
         private void txtPassword_Validated(object sender, EventArgs e)
         {
-            if (txtPassword.Text != "Mật khẩu")
-            {
-                this.errLogin.SetError(txtPassword, "");
-                this.lblPasswordError.Text = "";
-            }
+            this.errLogin.SetError(txtPassword, "");
+            this.lblPasswordError.Text = "";
         }
 
         private string CreateMD5(string passWord)
@@ -152,15 +152,14 @@ namespace New_Library
             txtUsername.Text = "Tên đăng nhập";
             txtPassword.Text = "Mật khẩu";
             txtPassword.UseSystemPasswordChar = false;
+            txtUsername.Focus();
 
             ResetErrorMessage();
         }
 
         private void btnSignin_Click(object sender, EventArgs e)
         {
-            ValidateChildren(ValidationConstraints.Enabled);
-
-            if (this.lblUsernameError.Text == "Trường này chưa nhập" || this.lblPasswordError.Text == "Trường này chưa nhập")
+            if (!ValidateChildren(ValidationConstraints.Enabled))
             {
                 return;
             }
@@ -220,6 +219,7 @@ namespace New_Library
             txtConfirmPassword.Text = "Xác nhận Mật khẩu";
             txtNewPasswordFP.UseSystemPasswordChar = false;
             txtConfirmPassword.UseSystemPasswordChar = false;
+            txtUsernameFP.Focus();
 
             ResetErrorMessage();
         }
@@ -305,63 +305,46 @@ namespace New_Library
 
         private void txtUsernameFP_Validating(object sender, CancelEventArgs e)
         {
-            if (txtUsernameFP.Text == "Tên đăng nhập")
-            {
-                this.errLogin.SetError(txtUsernameFP, errMsg);
-                this.lblUsernameFPError.Text = errMsg;
-            }
+            CancelValidatedEvent(txtUsernameFP, lblUsernameFPError, e);
         }
 
         private void txtUsernameFP_Validated(object sender, EventArgs e)
         {
-            if (txtUsernameFP.Text != "Tên đăng nhập")
-            {
-                this.errLogin.SetError(txtUsernameFP, "");
-                this.lblUsernameFPError.Text = "";
-            }
+            this.errLogin.SetError(txtUsernameFP, "");
+            this.lblUsernameFPError.Text = "";
         }
 
         private void txtNewPasswordFP_Validating(object sender, CancelEventArgs e)
         {
             if (txtNewPasswordFP.Text == "Mật khẩu mới")
             {
-                this.errLogin.SetError(txtNewPasswordFP, errMsg);
-                this.lblNewPasswordFPError.Text = errMsg;
+                CancelValidatedEvent(txtNewPasswordFP, lblNewPasswordFPError, e);
             }
         }
 
         private void txtNewPasswordFP_Validated(object sender, EventArgs e)
         {
-            if (txtNewPasswordFP.Text != "Mật khẩu mới")
-            {
-                this.errLogin.SetError(txtNewPasswordFP, "");
-                this.lblNewPasswordFPError.Text = "";
-            }
+            this.errLogin.SetError(txtNewPasswordFP, "");
+            this.lblNewPasswordFPError.Text = "";
         }
 
         private void txtConfirmPassword_Validating(object sender, CancelEventArgs e)
         {
             if (txtConfirmPassword.Text == "Xác nhận Mật khẩu")
             {
-                this.errLogin.SetError(txtConfirmPassword, errMsg);
-                this.lblConfirmPasswordError.Text = errMsg;
+                CancelValidatedEvent(txtConfirmPassword, lblConfirmPasswordError, e);
             }
         }
 
         private void txtConfirmPassword_Validated(object sender, EventArgs e)
         {
-            if (txtConfirmPassword.Text != "Xác nhận Mật khẩu")
-            {
-                this.errLogin.SetError(txtUsernameFP, "");
-                this.lblConfirmPasswordError.Text = "";
-            }
+            this.errLogin.SetError(txtUsernameFP, "");
+            this.lblConfirmPasswordError.Text = "";
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
-        {
-            ValidateChildren(ValidationConstraints.Enabled);
-
-            if (this.lblUsernameFPError.Text == errMsg || lblNewPasswordFPError.Text == errMsg || lblConfirmPasswordError.Text == errMsg)
+        { 
+            if (!ValidateChildren(ValidationConstraints.Enabled))
             {
                 return;
             }

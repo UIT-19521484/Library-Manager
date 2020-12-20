@@ -10,15 +10,25 @@ using System.Windows.Forms;
 
 namespace New_Library.Forms.Book
 {
-    public partial class frmAddBook : Form
+    public partial class frmEditBook : Form
     {
-        private string errMsg;
+        string errMsg;
+        DataTable dt = DataConnection.GetDataTable("sp_select_all_genres");
+        int BookID;
 
-        public frmAddBook()
+        public frmEditBook(LibraryEntity.Book selectedBook)
         {
             InitializeComponent();
-
             LoadData_Genre();
+
+            txtBookName.Text = selectedBook.TenSach;
+            txtAuthorName.Text = selectedBook.TacGia;
+            txtPublisherName.Text = selectedBook.NhaXB;
+            txtAvailable.Text = selectedBook.TonTai.ToString();
+            cbGenre.Text = (from DataRow dr in dt.Rows
+                           where (int)dr["MaTL"] == selectedBook.MaTL
+                           select (string)dr["TÊN THỂ LOẠI"]).FirstOrDefault();
+            BookID = selectedBook.MaSach;
         }
 
         private void CancelValidatedEvent(Control control, Label error, CancelEventArgs e)
@@ -31,7 +41,7 @@ namespace New_Library.Forms.Book
 
         private void LoadData_Genre()
         {
-            DataTable dt = DataConnection.GetDataTable("sp_select_all_genres");
+            //DataTable dt = DataConnection.GetDataTable("sp_select_all_genres");
 
             cbGenre.DisplayMember = dt.Columns[1].ToString();
             cbGenre.DataSource = dt;
@@ -59,7 +69,6 @@ namespace New_Library.Forms.Book
             lblAuthorNameError.Text = "";
             lblPublisherNameError.Text = "";
             lblAvailableWarning.Text = "";
-            lblGenreError.Text = "";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -78,12 +87,12 @@ namespace New_Library.Forms.Book
 
             if (IsBookExist())
             {
-                DialogResult rs = 
+                DialogResult rs =
                     MessageBox.Show
                     ("Sách này đã tồn tại trong cơ sở dữ liệu.\n" +
                     "Cộng thêm số lượng vào sách đã có hiện tại hiện tại?",
-                    "Thông báo", 
-                    MessageBoxButtons.OKCancel, 
+                    "Thông báo",
+                    MessageBoxButtons.OKCancel,
                     MessageBoxIcon.Question);
 
                 if (rs == DialogResult.OK)
@@ -94,13 +103,12 @@ namespace New_Library.Forms.Book
                         + "@NhaXuatBan = N'" + txtPublisherName.Text + "', "
                         + "@TenTL = N'" + cbGenre.Text + "', "
                         + "@SoLuong = " + txtAvailable.Text);
-
-                    MessageBox.Show("Thêm số lượng sách có sẵn thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
-                string cmd = @"EXEC sp_insert_book "
+                string cmd = @"EXEC sp_update_book "
+                        + "@MaSach = " + BookID.ToString() + ", "
                         + "@TenSach = N'" + txtBookName.Text + "', "
                         + "@TacGia = N'" + txtAuthorName.Text + "', "
                         + "@NhaXuatBan = N'" + txtPublisherName.Text + "', "
@@ -109,7 +117,7 @@ namespace New_Library.Forms.Book
 
                 DataConnection.ExecuteQuery(cmd);
 
-                MessageBox.Show("Thêm thông tin sách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thay đổi thông tin sách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             this.Dispose();
@@ -180,22 +188,6 @@ namespace New_Library.Forms.Book
         {
             errAddBook.SetError(gbAvailable, "");
             lblAvailableWarning.Text = "";
-        }
-
-        private void cbGenre_Validating(object sender, CancelEventArgs e)
-        {
-            if (cbGenre.SelectedIndex == -1)
-            {
-                e.Cancel = true;
-                errMsg = "Chưa chọn thể loại";
-                CancelValidatedEvent(cbGenre, lblGenreError, e);
-            }
-        }
-
-        private void cbGenre_Validated(object sender, EventArgs e)
-        {
-            lblGenreError.Text = "";
-            errAddBook.SetError(gbGenre, "");
         }
     }
 }
