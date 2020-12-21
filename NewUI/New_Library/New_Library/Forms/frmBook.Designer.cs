@@ -39,6 +39,12 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvBook = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.TenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TheLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NhaXuatBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CoSan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DaMuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
@@ -47,12 +53,6 @@
             this.errBook = new System.Windows.Forms.ErrorProvider(this.components);
             this.cbAuthor = new System.Windows.Forms.ComboBox();
             this.cbPublisher = new System.Windows.Forms.ComboBox();
-            this.TenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TheLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NhaXuatBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CoSan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DaMuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.pnlBook.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errBook)).BeginInit();
@@ -141,6 +141,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvBook.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBook.ColumnHeadersHeight = 32;
+            this.dgvBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvBook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TenSach,
             this.TacGia,
@@ -188,6 +189,63 @@
             this.dgvBook.TabIndex = 49;
             this.dgvBook.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBook_CellClick);
             this.dgvBook.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvBook_DataBindingComplete);
+            // 
+            // TenSach
+            // 
+            this.TenSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenSach.DataPropertyName = "TÊN SÁCH";
+            this.TenSach.HeaderText = "TÊN SÁCH";
+            this.TenSach.Name = "TenSach";
+            this.TenSach.ReadOnly = true;
+            // 
+            // TacGia
+            // 
+            this.TacGia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TacGia.DataPropertyName = "TÁC GIẢ";
+            this.TacGia.HeaderText = "TÁC GIẢ";
+            this.TacGia.Name = "TacGia";
+            this.TacGia.ReadOnly = true;
+            this.TacGia.Width = 107;
+            // 
+            // TheLoai
+            // 
+            this.TheLoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TheLoai.DataPropertyName = "THỂ LOẠI";
+            this.TheLoai.HeaderText = "THỂ LOẠI";
+            this.TheLoai.Name = "TheLoai";
+            this.TheLoai.ReadOnly = true;
+            this.TheLoai.Width = 116;
+            // 
+            // NhaXuatBan
+            // 
+            this.NhaXuatBan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.NhaXuatBan.DataPropertyName = "NHÀ XUẤT BẢN";
+            this.NhaXuatBan.HeaderText = "NHÀ XUẤT BẢN";
+            this.NhaXuatBan.Name = "NhaXuatBan";
+            this.NhaXuatBan.ReadOnly = true;
+            this.NhaXuatBan.Width = 175;
+            // 
+            // CoSan
+            // 
+            this.CoSan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.CoSan.DataPropertyName = "CÓ SẴN";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.CoSan.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CoSan.HeaderText = "CÓ SẴN";
+            this.CoSan.Name = "CoSan";
+            this.CoSan.ReadOnly = true;
+            this.CoSan.Width = 105;
+            // 
+            // DaMuon
+            // 
+            this.DaMuon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.DaMuon.DataPropertyName = "ĐÃ MƯỢN";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DaMuon.DefaultCellStyle = dataGridViewCellStyle4;
+            this.DaMuon.HeaderText = "ĐÃ MƯỢN";
+            this.DaMuon.Name = "DaMuon";
+            this.DaMuon.ReadOnly = true;
+            this.DaMuon.Width = 130;
             // 
             // btnSearch
             // 
@@ -251,6 +309,7 @@
             this.cbGenre.TabIndex = 58;
             this.cbGenre.TabStop = false;
             this.cbGenre.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
+            this.cbGenre.Leave += new System.EventHandler(this.cbGenre_Leave);
             // 
             // errBook
             // 
@@ -271,6 +330,7 @@
             this.cbAuthor.TabIndex = 59;
             this.cbAuthor.TabStop = false;
             this.cbAuthor.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
+            this.cbAuthor.Leave += new System.EventHandler(this.cbAuthor_Leave);
             // 
             // cbPublisher
             // 
@@ -285,61 +345,7 @@
             this.cbPublisher.TabIndex = 60;
             this.cbPublisher.TabStop = false;
             this.cbPublisher.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
-            // 
-            // TenSach
-            // 
-            this.TenSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenSach.DataPropertyName = "TÊN SÁCH";
-            this.TenSach.HeaderText = "TÊN SÁCH";
-            this.TenSach.Name = "TenSach";
-            this.TenSach.ReadOnly = true;
-            // 
-            // TacGia
-            // 
-            this.TacGia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TacGia.DataPropertyName = "TÁC GIẢ";
-            this.TacGia.HeaderText = "TÁC GIẢ";
-            this.TacGia.Name = "TacGia";
-            this.TacGia.ReadOnly = true;
-            // 
-            // TheLoai
-            // 
-            this.TheLoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TheLoai.DataPropertyName = "THỂ LOẠI";
-            this.TheLoai.HeaderText = "THỂ LOẠI";
-            this.TheLoai.Name = "TheLoai";
-            this.TheLoai.ReadOnly = true;
-            this.TheLoai.Width = 116;
-            // 
-            // NhaXuatBan
-            // 
-            this.NhaXuatBan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NhaXuatBan.DataPropertyName = "NHÀ XUẤT BẢN";
-            this.NhaXuatBan.HeaderText = "NHÀ XUẤT BẢN";
-            this.NhaXuatBan.Name = "NhaXuatBan";
-            this.NhaXuatBan.ReadOnly = true;
-            // 
-            // CoSan
-            // 
-            this.CoSan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.CoSan.DataPropertyName = "CÓ SẴN";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.CoSan.DefaultCellStyle = dataGridViewCellStyle3;
-            this.CoSan.HeaderText = "CÓ SẴN";
-            this.CoSan.Name = "CoSan";
-            this.CoSan.ReadOnly = true;
-            this.CoSan.Width = 105;
-            // 
-            // DaMuon
-            // 
-            this.DaMuon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.DaMuon.DataPropertyName = "ĐÃ MƯỢN";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DaMuon.DefaultCellStyle = dataGridViewCellStyle4;
-            this.DaMuon.HeaderText = "ĐÃ MƯỢN";
-            this.DaMuon.Name = "DaMuon";
-            this.DaMuon.ReadOnly = true;
-            this.DaMuon.Width = 130;
+            this.cbPublisher.Leave += new System.EventHandler(this.cbPublisher_Leave);
             // 
             // frmBook
             // 

@@ -15,53 +15,62 @@ namespace New_Library.Forms
 {
     public partial class frmGenre : Form
     {
-        DataTable dtGenre;
+        //DataTable dtGenre = DataConnection.GetDataTable(@"EXEC sp_select_all_genres");
         public frmGenre()
         {
             InitializeComponent();
-            SetupSqlTableDependency();
+            //SetupSqlTableDependency();
         }
 
-        #region SqlTableDependency
-        SqlTableDependency<LibraryEntity.Genre> deGenre;
-        private void SetupSqlTableDependency()
-        {
-            var mapperGenre = new ModelToTableMapper<LibraryEntity.Genre>();
-            mapperGenre.AddMapping(c => c.MaTL, "MaTL");
-            mapperGenre.AddMapping(c => c.TenTL, "TenTL");
+        //#region SqlTableDependency
+        //SqlTableDependency<LibraryEntity.Genre> deGenre;
+        //private void SetupSqlTableDependency()
+        //{
+        //    var mapperGenre = new ModelToTableMapper<LibraryEntity.Genre>();
+        //    mapperGenre.AddMapping(c => c.MaTL, "MaTL");
+        //    mapperGenre.AddMapping(c => c.TenTL, "TenTL");
 
-            deGenre = new SqlTableDependency<LibraryEntity.Genre>(DataConnection.ConnectionString, "THELOAI", mapper: mapperGenre);
-            deGenre.OnChanged += dbGenreChanged;
-            deGenre.Start();
-        }
+        //    deGenre = new SqlTableDependency<LibraryEntity.Genre>(DataConnection.ConnectionString, "THELOAI", mapper: mapperGenre);
+        //    deGenre.OnChanged += dbGenreChanged;
+        //    deGenre.Start();
+        //}
 
-        public void dbGenreChanged(object sender, RecordChangedEventArgs<LibraryEntity.Genre> e)
-        {
-            switch (e.ChangeType)
-            {
-                case TableDependency.SqlClient.Base.Enums.ChangeType.Insert:
-                    DataRow row = dtGenre.NewRow();
-                    row["MaTL"] = e.Entity.MaTL;
-                    row["TÊN THỂ LOẠI"] = e.Entity.TenTL;
-                    dtGenre.Rows.Add(row);
-                    dgvGenre.BeginInvoke(new Action(() => { dgvGenre.Refresh(); }));
-                    break;
-                case TableDependency.SqlClient.Base.Enums.ChangeType.Delete:
-                    while (dgvGenre.SelectedRows.Count != 0)
-                    {
-                        row = ((DataRowView)dgvGenre.SelectedRows[0].DataBoundItem).Row;
-                        dtGenre.Rows.Remove(row);
-                    }
-                    dgvGenre.BeginInvoke(new Action(() => { dgvGenre.Refresh(); dgvGenre.ClearSelection(); }));
-                    break;
-                case TableDependency.SqlClient.Base.Enums.ChangeType.Update:
-                    dgvGenre.SelectedRows[0].Cells["MaTL"].Value = e.Entity.MaTL;
-                    dgvGenre.SelectedRows[0].Cells["TacGia"].Value = e.Entity.TenTL;
-                    dgvGenre.BeginInvoke(new Action(() => { dgvGenre.Refresh(); }));
-                    break;
-            }
-        }
-        #endregion
+        //public void dbGenreChanged(object sender, RecordChangedEventArgs<LibraryEntity.Genre> e)
+        //{
+        //    if (IsHandleCreated)
+        //    {
+        //        switch (e.ChangeType)
+        //        {
+        //            case TableDependency.SqlClient.Base.Enums.ChangeType.Insert:
+        //                DataRow row = dtGenre.NewRow();
+        //                row["MaTL"] = e.Entity.MaTL;
+        //                row["TÊN THỂ LOẠI"] = e.Entity.TenTL;
+        //                dtGenre.Rows.Add(row);
+
+        //                dgvGenre.BeginInvoke(new Action(() => { dgvGenre.Refresh(); }));
+        //                break;
+        //            case TableDependency.SqlClient.Base.Enums.ChangeType.Delete:
+        //                row = dtGenre.Select("MaTL=" + e.Entity.MaTL).FirstOrDefault();
+        //                if (row != null)
+        //                {
+        //                    dtGenre.Rows.Remove(row);
+        //                }    
+
+        //                dgvGenre.BeginInvoke(new Action(() => { dgvGenre.Refresh(); dgvGenre.ClearSelection(); }));
+        //                break;
+        //            case TableDependency.SqlClient.Base.Enums.ChangeType.Update:
+        //                row = dtGenre.Select("MaTL=" + e.Entity.MaTL).FirstOrDefault();
+        //                if (row != null)
+        //                {
+        //                    row["TÊN THỂ LOẠI"] = e.Entity.TenTL;
+        //                }    
+
+        //                dgvGenre.BeginInvoke(new Action(() => { dgvGenre.Refresh(); }));
+        //                break;
+        //        }
+        //    }    
+        //}
+        ////#endregion
 
         private void frmGenre_Load(object sender, EventArgs e)
         {
@@ -72,9 +81,7 @@ namespace New_Library.Forms
 
         void LoadData_Genre()
         {
-            string str = @"EXEC sp_select_all_genres";
-            dtGenre = DataConnection.GetDataTable(str);
-            dgvGenre.DataSource = dtGenre;
+            dgvGenre.DataSource = DatabaseListener.dtGenre;
             dgvGenre.Columns["MaTL"].Visible = false;
         }
 
@@ -104,7 +111,7 @@ namespace New_Library.Forms
         {
             if (txtSearch.Text == "" || txtSearch.Text == null)
             {
-                dgvGenre.DataSource = dtGenre;
+                dgvGenre.DataSource = DatabaseListener.dtGenre;
                 return;
             }
             string command = @"EXEC sp_search_genres @TuKhoa = N'" + txtSearch.Text + "'";
@@ -120,9 +127,31 @@ namespace New_Library.Forms
             switch (dt.Rows.Count)
             {
                 case 0:
-                    string command = @"EXEC sp_delete_genre @TenTL = N'" + dgvGenre.SelectedRows[0].Cells["TenTheLoai"].Value + "'";
-                    DataConnection.ExecuteQuery(command);
-                    MessageBox.Show("Xóa thể loại thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    string msg = "Bạn thật sự muốn xóa những thể lo này?\n\n";
+
+                    for (int i = 0; i < dgvGenre.SelectedRows.Count; i++)
+                    {
+                        msg += (i + 1).ToString() + ". " + dgvGenre.SelectedRows[i].Cells["TenTheLoai"].Value + "\n";
+                    }
+
+                    DialogResult rs = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (rs == DialogResult.Yes)
+                    {
+                        for (int i = 0; i < dgvGenre.SelectedRows.Count; i++)
+                        {
+                            string cmd = @"EXEC sp_delete_genre @TenTL = N'" + dgvGenre.SelectedRows[i].Cells["TenTheLoai"].Value + "'";
+                            if (DataConnection.ExecuteQuery(cmd))
+                            {
+                                //MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Thất bại khi xoá" + dgvGenre.SelectedRows[i].Cells["TenTheLoai"].Value, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+
+                    GC.Collect();
                     break;
                 default:
                     MessageBox.Show("Có sách đang thuộc thể loại này!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -138,8 +167,8 @@ namespace New_Library.Forms
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             LibraryEntity.Genre ge = new LibraryEntity.Genre();
-            ge.MaTL = dgvGenre.SelectedRows[0].Cells[1].Value
-            (new Genre.frmEditGenre()).ShowDialog();
+            ge.MaTL = (int)dgvGenre.SelectedRows[0].Cells[1].Value;
+            (new Genre.frmEditGenre(ge)).ShowDialog();
         }
     }
 }

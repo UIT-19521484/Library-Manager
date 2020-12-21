@@ -32,6 +32,8 @@ namespace New_Library
         Forms.frmSetting setting = new Forms.frmSetting();
         Forms.frmHelp help = new Forms.frmHelp();
 
+        //public DatabaseListener listener = new DatabaseListener();
+
         //Constructor
         public frmMain(string username, string password, string role)
         {
@@ -57,6 +59,8 @@ namespace New_Library
             }
 
             lblLogo_Click(lblLogo, new EventArgs());
+
+            DatabaseListener.SetupSqlTableDependency();
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

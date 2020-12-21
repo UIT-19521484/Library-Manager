@@ -23,7 +23,7 @@ namespace New_Library
             InitializeComponent();
 
             this.Text = " ";
-            this.ControlBox = false;
+            this.ControlBox = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.AcceptButton = this.btnSignin;
 

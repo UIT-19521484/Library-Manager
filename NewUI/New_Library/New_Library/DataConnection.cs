@@ -26,8 +26,10 @@ namespace New_Library
             //
             //Nhập connection string của server database
             //
-            connectionString = @"Data Source=.\SQLSERVERDEV2017;Initial Catalog=QLThuVien;User ID=sa;Password=Huy123456";
+            //connectionString = @"Data Source=.\SQLSERVERDEV2017;Initial Catalog=QLThuVien;User ID=sa;Password=Huy123456";
             //connectionString = @"Data Source=DESKTOP-60EFUQD;Initial Catalog=QLThuVien;Persist Security Info=True;User ID=sa;Password=123456";
+
+            connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
             con = new SqlConnection(connectionString);
 
