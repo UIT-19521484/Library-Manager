@@ -428,6 +428,7 @@
             // 
             // txtPhoneName
             // 
+            this.txtPhoneName.BackColor = System.Drawing.Color.White;
             this.txtPhoneName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPhoneName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPhoneName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
@@ -440,6 +441,7 @@
             // 
             // txtEmailName
             // 
+            this.txtEmailName.BackColor = System.Drawing.Color.White;
             this.txtEmailName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEmailName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtEmailName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
@@ -452,6 +454,7 @@
             // 
             // txtAddressName
             // 
+            this.txtAddressName.BackColor = System.Drawing.Color.White;
             this.txtAddressName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAddressName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtAddressName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
@@ -524,6 +527,7 @@
             // 
             // txtLibraryName
             // 
+            this.txtLibraryName.BackColor = System.Drawing.Color.White;
             this.txtLibraryName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLibraryName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLibraryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
@@ -539,6 +543,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1031, 576);
             this.ControlBox = false;
             this.Controls.Add(btnEdit);

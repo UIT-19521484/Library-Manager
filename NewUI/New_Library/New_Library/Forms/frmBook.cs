@@ -19,7 +19,7 @@ namespace New_Library.Forms
             InitializeComponent();
             SetupSqlTableDependency();
         }
-        
+
         private void frmBook_Load(object sender, EventArgs e)
         {
             this.btnSearch.BackColor = ThemeColor.PrimaryColor;
@@ -66,15 +66,161 @@ namespace New_Library.Forms
         }
         #endregion
 
+        #region SqlTableDependency
+        private void dbBookChanged(object sender, RecordChangedEventArgs<LibraryEntity.Book> e)
+        {
+            if (IsHandleCreated)
+            {
+                switch (e.ChangeType)
+                {
+                    case TableDependency.SqlClient.Base.Enums.ChangeType.Insert:
+                        DataRow row = dtBook.NewRow();
+                        row["MaSach"] = e.Entity.MaSach;
+                        row["TÊN SÁCH"] = e.Entity.TenSach;
+                        row["TÁC GIẢ"] = e.Entity.TacGia;
+                        row["THỂ LOẠI"] = (from DataRow dr in dtGenre.Rows
+                                           where dr["MaTL"].ToString() == e.Entity.MaTL.ToString()
+                                           select dr["TÊN THỂ LOẠI"]).FirstOrDefault();
+                        row["NHÀ XUẤT BẢN"] = e.Entity.NhaXB;
+                        row["CÓ SẴN"] = e.Entity.TonTai;
+                        row["ĐÃ MƯỢN"] = e.Entity.DaMuon;
+                        dtBook.Rows.Add(row);
+                        dgvBook.BeginInvoke(new Action(() => { dgvBook.Refresh(); }));
+                        break;
+                    case TableDependency.SqlClient.Base.Enums.ChangeType.Delete:
+                        while (dgvBook.SelectedRows.Count != 0)
+                        {
+                            row = ((DataRowView)dgvBook.SelectedRows[0].DataBoundItem).Row;
+                            dtBook.Rows.Remove(row);
+                        }
+                        dgvBook.BeginInvoke(new Action(() => { dgvBook.Refresh(); dgvBook.ClearSelection(); }));
+                        break;
+                    case TableDependency.SqlClient.Base.Enums.ChangeType.Update:
+                        dgvBook.SelectedRows[0].Cells["TenSach"].Value = e.Entity.TenSach;
+                        dgvBook.SelectedRows[0].Cells["TacGia"].Value = e.Entity.TacGia;
+                        dgvBook.SelectedRows[0].Cells["TheLoai"].Value = (from DataRow dr in dtGenre.Rows
+                                                                          where dr["MaTL"].ToString() == e.Entity.MaTL.ToString()
+                                                                          select dr["TÊN THỂ LOẠI"]).FirstOrDefault();
+                        dgvBook.SelectedRows[0].Cells["NhaXuatBan"].Value = e.Entity.NhaXB;
+                        dgvBook.SelectedRows[0].Cells["CoSan"].Value = e.Entity.TonTai;
+                        dgvBook.BeginInvoke(new Action(() => { dgvBook.Refresh(); }));
+                        break;
+                }
+                cbAuthor.BeginInvoke(new Action(LoadData_Author));
+                cbPublisher.BeginInvoke(new Action(LoadData_Publisher));
+            }
+        }
+
+        public void dbGenreChanged(object sender, RecordChangedEventArgs<LibraryEntity.Genre> e)
+        {
+            if (IsHandleCreated)
+            {
+                cbGenre.BeginInvoke(new Action(LoadData_Genre));
+            }
+        }
+
+        SqlTableDependency<LibraryEntity.Book> deBook;
+        SqlTableDependency<LibraryEntity.Genre> deGenre;
+        private void SetupSqlTableDependency()
+        {
+            var mapperBook = new ModelToTableMapper<LibraryEntity.Book>();
+            mapperBook.AddMapping(c => c.MaSach, "MaSach");
+            mapperBook.AddMapping(c => c.TenSach, "TenSach");
+            mapperBook.AddMapping(c => c.NhaXB, "NhaXuatBan");
+            mapperBook.AddMapping(c => c.MaTL, "MaTL");
+            mapperBook.AddMapping(c => c.TacGia, "TacGia");
+            mapperBook.AddMapping(c => c.TonTai, "TonTai");
+            mapperBook.AddMapping(c => c.DaMuon, "DaMuon");
+
+            deBook = new SqlTableDependency<LibraryEntity.Book>(DataConnection.ConnectionString, "SACH", mapper: mapperBook);
+            deBook.OnChanged += dbBookChanged;
+            deBook.Start();
+
+            var mapperGenre = new ModelToTableMapper<LibraryEntity.Genre>();
+            mapperGenre.AddMapping(c => c.MaTL, "MaTL");
+            mapperGenre.AddMapping(c => c.TenTL, "TenTL");
+
+            deGenre = new SqlTableDependency<LibraryEntity.Genre>(DataConnection.ConnectionString, "THELOAI", mapper: mapperGenre);
+            deGenre.OnChanged += dbGenreChanged;
+            deGenre.Start();
+        }
+        #endregion
+
+        private void dgvBook_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            this.dgvBook.ClearSelection();
+            btnDelete.Enabled = false;
+            btnUpdate.Enabled = false;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "" || txtSearch.Text == null)
+            {
+                dgvBook.DataSource = dtBook;
+                return;
+            }
+            string command = @"EXEC sp_search_books @TuKhoa = N'" + txtSearch.Text + "'";
+            DataTable dt = DataConnection.GetDataTable(command);
+
+            this.dgvBook.DataSource = dt;
+            dgvBook.Columns["MaSach"].Visible = false;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string cmd = @"EXEC sp_delete_book @MaSach = " + dgvBook.SelectedRows[0].Cells["MaSach"].Value.ToString();
+
+            string msg = "Bạn thật sự muốn xóa những cuốn sách này?\n\n";
+
+            for (int i = 0; i < dgvBook.SelectedRows.Count; i++)
+            {
+                msg += (i + 1).ToString() + ". " + dgvBook.SelectedRows[i].Cells["TenSach"].Value
+                                    + " - Tác giả: " + dgvBook.SelectedRows[i].Cells["TacGia"].Value
+                                    + " - Nhà xuất bản: " + dgvBook.SelectedRows[i].Cells["NhaXuatBan"].Value
+                                    + "\n";
+            }
+
+            DialogResult rs = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (rs == DialogResult.Yes)
+            {
+                if (DataConnection.ExecuteQuery(cmd))
+                {
+                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+            GC.Collect();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            (new Forms.Book.frmAddBook()).ShowDialog();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            LibraryEntity.Book book = new LibraryEntity.Book();
+
+            book.MaSach = (int)dgvBook.SelectedRows[0].Cells["MaSach"].Value;
+            book.TenSach = (string)dgvBook.SelectedRows[0].Cells["TenSach"].Value;
+            book.TacGia = (string)dgvBook.SelectedRows[0].Cells["TacGia"].Value;
+            book.MaTL = (int)(from DataRow dr in dtGenre.Rows
+                              where dr["TÊN THỂ LOẠI"].ToString() == (string)dgvBook.SelectedRows[0].Cells["TheLoai"].Value
+                              select dr["MaTL"]).FirstOrDefault();
+            book.NhaXB = (string)dgvBook.SelectedRows[0].Cells["NhaXuatBan"].Value;
+            book.TonTai = (int)dgvBook.SelectedRows[0].Cells["CoSan"].Value;
+
+            (new Forms.Book.frmEditBook(book)).ShowDialog();
+        }
+
+        #region Filter
         private string RowFilter()
         {
-            //string columnGenreFilter = string.Format("[THỂ LOẠI] = '{0}'", (cbGenre.SelectedIndex != 0) ? cbGenre.Text : "");
-            //string columnAuthorFilter = string.Format("[TÁC GIẢ] = '{0}'", (cbAuthor.SelectedIndex != 0) ? cbAuthor.Text : "");
-            //string columnPulisherFilter = string.Format("[NHÀ XUẤT BẢN] = '{0}'", (cbPublisher.SelectedIndex != 0) ? cbPublisher.Text : "");
-
-            //string rowFilter = "(" + columnAuthorFilter + ") and (" + columnGenreFilter + ") and (" + columnPulisherFilter + ")";
-            //return rowFilter;
-
             string columnGenreFilter = "";
             string columnAuthorFilter = "";
             string columnPulisherFilter = "";
@@ -128,151 +274,26 @@ namespace New_Library.Forms
 
             return rowFilter;
         }
-        
-        private void dbBookChanged(object sender, RecordChangedEventArgs<LibraryEntity.Book> e)
-        {
-            switch (e.ChangeType)
-            {
-                case TableDependency.SqlClient.Base.Enums.ChangeType.Insert:
-                    DataRow row = dtBook.NewRow();
-                    row["MaSach"] = e.Entity.MaSach;
-                    row["TÊN SÁCH"] = e.Entity.TenSach;
-                    row["TÁC GIẢ"] = e.Entity.TacGia;
-                    row["THỂ LOẠI"] = (from DataRow dr in dtGenre.Rows 
-                                       where dr["MaTL"].ToString() == e.Entity.MaTL.ToString() 
-                                       select dr["TÊN THỂ LOẠI"]).FirstOrDefault();
-                    row["NHÀ XUẤT BẢN"] = e.Entity.NhaXB;
-                    row["CÓ SẴN"] = e.Entity.TonTai;
-                    row["ĐÃ MƯỢN"] = e.Entity.DaMuon;
-                    dtBook.Rows.Add(row);
-                    dgvBook.BeginInvoke(new Action(() => { dgvBook.Refresh(); }));
-                    break;
-                case TableDependency.SqlClient.Base.Enums.ChangeType.Delete:
-                    while(dgvBook.SelectedRows.Count != 0)
-                    {
-                        row = ((DataRowView)dgvBook.SelectedRows[0].DataBoundItem).Row;
-                        dtBook.Rows.Remove(row);
-                    }
-                    dgvBook.BeginInvoke(new Action(() => { dgvBook.Refresh(); dgvBook.ClearSelection(); }));
-                    break;
-                case TableDependency.SqlClient.Base.Enums.ChangeType.Update:
-                    dgvBook.SelectedRows[0].Cells["TenSach"].Value = e.Entity.TenSach;
-                    dgvBook.SelectedRows[0].Cells["TacGia"].Value = e.Entity.TacGia;
-                    dgvBook.SelectedRows[0].Cells["TheLoai"].Value = (from DataRow dr in dtGenre.Rows
-                                                                      where dr["MaTL"].ToString() == e.Entity.MaTL.ToString()
-                                                                      select dr["TÊN THỂ LOẠI"]).FirstOrDefault();
-                    dgvBook.SelectedRows[0].Cells["NhaXuatBan"].Value = e.Entity.NhaXB;
-                    dgvBook.SelectedRows[0].Cells["CoSan"].Value = e.Entity.TonTai;
-                    dgvBook.BeginInvoke(new Action(() => { dgvBook.Refresh(); }));
-                    break;
-            }
-            cbAuthor.BeginInvoke(new Action(LoadData_Author));
-            cbPublisher.BeginInvoke(new Action(LoadData_Publisher));
-        }
-
-        public void dbGenreChanged(object sender, RecordChangedEventArgs<LibraryEntity.Genre> e)
-        {
-            cbGenre.BeginInvoke(new Action(LoadData_Genre));
-        }
-
-        SqlTableDependency<LibraryEntity.Book> deBook;
-        SqlTableDependency<LibraryEntity.Genre> deGenre;
-        private void SetupSqlTableDependency()
-        {
-            var mapperBook = new ModelToTableMapper<LibraryEntity.Book>();
-            mapperBook.AddMapping(c => c.MaSach, "MaSach");
-            mapperBook.AddMapping(c => c.TenSach, "TenSach");
-            mapperBook.AddMapping(c => c.NhaXB, "NhaXuatBan");
-            mapperBook.AddMapping(c => c.MaTL, "MaTL");
-            mapperBook.AddMapping(c => c.TacGia, "TacGia");
-            mapperBook.AddMapping(c => c.TonTai, "TonTai");
-            mapperBook.AddMapping(c => c.DaMuon, "DaMuon");
-
-            deBook = new SqlTableDependency<LibraryEntity.Book>(DataConnection.ConnectionString, "SACH", mapper: mapperBook);
-            deBook.OnChanged += dbBookChanged;
-            deBook.Start();
-
-            var mapperGenre = new ModelToTableMapper<LibraryEntity.Genre>();
-            mapperGenre.AddMapping(c => c.MaTL, "MaTL");
-            mapperGenre.AddMapping(c => c.TenTL, "TenTL");
-
-            deGenre = new SqlTableDependency<LibraryEntity.Genre>(DataConnection.ConnectionString, "THELOAI", mapper: mapperGenre);
-            deGenre.OnChanged += dbGenreChanged;
-            deGenre.Start();
-        }
-
-        private void dgvBook_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            this.dgvBook.ClearSelection();
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            if (txtSearch.Text == "" || txtSearch.Text == null)
-            {
-                dgvBook.DataSource = dtBook;
-                return;
-            }
-            string command = @"EXEC sp_search_books @TuKhoa = N'" + txtSearch.Text + "'";
-            DataTable dt = DataConnection.GetDataTable(command);
-
-            this.dgvBook.DataSource = dt;
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            string cmd = @"EXEC sp_delete_book @MaSach = " + dgvBook.SelectedRows[0].Cells["MaSach"].Value.ToString();
-            
-            string msg = "Bạn thật sự muốn xóa những cuốn sách này?\n\n";
-
-            for (int i = 0; i < dgvBook.SelectedRows.Count; i++)
-            {
-                msg += (i + 1).ToString() + ". " + dgvBook.SelectedRows[i].Cells["TenSach"].Value
-                                    + " - Tác giả: " + dgvBook.SelectedRows[i].Cells["TacGia"].Value
-                                    + " - Nhà xuất bản: " + dgvBook.SelectedRows[i].Cells["NhaXuatBan"].Value
-                                    + "\n";
-            }
-
-            DialogResult rs = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (rs == DialogResult.Yes)
-            {
-                if (DataConnection.ExecuteQuery(cmd))
-                {
-                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-
-            GC.Collect();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            (new Forms.Book.frmAddBook()).ShowDialog();
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            LibraryEntity.Book book = new LibraryEntity.Book();
-
-            book.MaSach = (int)dgvBook.SelectedRows[0].Cells["MaSach"].Value;
-            book.TenSach = (string)dgvBook.SelectedRows[0].Cells["TenSach"].Value;
-            book.TacGia = (string)dgvBook.SelectedRows[0].Cells["TacGia"].Value;
-            book.MaTL = (int)(from DataRow dr in dtGenre.Rows
-                              where dr["TÊN THỂ LOẠI"].ToString() == (string)dgvBook.SelectedRows[0].Cells["TheLoai"].Value
-                              select dr["MaTL"]).FirstOrDefault();
-            book.NhaXB = (string)dgvBook.SelectedRows[0].Cells["NhaXuatBan"].Value;
-            book.TonTai = (int)dgvBook.SelectedRows[0].Cells["CoSan"].Value;
-
-            (new Forms.Book.frmEditBook(book)).ShowDialog();
-        }
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             dtBook.DefaultView.RowFilter = RowFilter();
+        }
+        #endregion
+
+        private void dgvBook_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            switch (dgvBook.SelectedRows.Count)
+            {
+                case 0:
+                    btnDelete.Enabled = false;
+                    btnUpdate.Enabled = false;
+                    break;
+                default:
+                    btnDelete.Enabled = true;
+                    btnUpdate.Enabled = true;
+                    break;
+            }
         }
     }
 }

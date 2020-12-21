@@ -41,8 +41,6 @@ namespace New_Library.Forms.Book
 
         private void LoadData_Genre()
         {
-            //DataTable dt = DataConnection.GetDataTable("sp_select_all_genres");
-
             cbGenre.DisplayMember = dt.Columns[1].ToString();
             cbGenre.DataSource = dt;
             cbGenre.SelectedIndex = -1;

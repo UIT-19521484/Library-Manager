@@ -21,15 +21,18 @@ namespace New_Library
 
         public static bool ValidNoneSpecialChar(string str, out string errMsg)
         {
-            if (!IsEmpty(str, out errMsg))
+            if (str.Length == 0)
             {
-                if (!(str.All(char.IsLetter) || str.Any(char.IsWhiteSpace) || str.All(char.IsDigit)))
-                {
-                    errMsg = "Không được chứa kí tự đặc biệt";
-                    return false;
-                }
+                errMsg = "Trường này không được trống";
+                return true;
+            }
+            else if (!(str.All(char.IsLetter) || str.Any(char.IsWhiteSpace) || str.All(char.IsDigit)))
+            {
+                errMsg = "Không được chứa kí tự đặc biệt";
+                return false;
             }
 
+            errMsg = "";
             return true;
         }
 

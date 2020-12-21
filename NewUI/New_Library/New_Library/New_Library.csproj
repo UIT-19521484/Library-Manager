@@ -84,6 +84,18 @@
     <Compile Include="Forms\frmDashboard.Designer.cs">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Genre\frmAddGenre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Genre\frmAddGenre.Designer.cs">
+      <DependentUpon>frmAddGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Genre\frmEditGenre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Genre\frmEditGenre.Designer.cs">
+      <DependentUpon>frmEditGenre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Management\frmAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +192,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Genre\frmAddGenre.resx">
+      <DependentUpon>frmAddGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Genre\frmEditGenre.resx">
+      <DependentUpon>frmEditGenre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Management\frmAccount.resx">
       <DependentUpon>frmAccount.cs</DependentUpon>

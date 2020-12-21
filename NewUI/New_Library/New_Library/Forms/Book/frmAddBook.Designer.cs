@@ -118,7 +118,7 @@
             this.lblBookNameError.ForeColor = System.Drawing.Color.Red;
             this.lblBookNameError.Location = new System.Drawing.Point(10, 94);
             this.lblBookNameError.Name = "lblBookNameError";
-            this.lblBookNameError.Size = new System.Drawing.Size(91, 13);
+            this.lblBookNameError.Size = new System.Drawing.Size(90, 13);
             this.lblBookNameError.TabIndex = 72;
             this.lblBookNameError.Text = "BookName Error";
             // 
