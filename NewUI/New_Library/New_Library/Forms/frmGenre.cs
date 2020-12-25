@@ -74,8 +74,6 @@ namespace New_Library.Forms
 
         private void frmGenre_Load(object sender, EventArgs e)
         {
-            this.btnSearch.BackColor = ThemeColor.PrimaryColor;
-            dgvGenre.HeaderBgColor = ThemeColor.PrimaryColor;
             LoadData_Genre();
         }
 

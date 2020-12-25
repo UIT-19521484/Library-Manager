@@ -88,5 +88,10 @@ namespace New_Library
             public string MatKhau { get => matKhau; set => matKhau = value; }
             public string PhanQuyen { get => phanQuyen; set => phanQuyen = value; }
         }
+
+        public class Receipt
+        {
+            
+        }
     }
 }

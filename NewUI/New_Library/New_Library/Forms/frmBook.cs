@@ -22,8 +22,6 @@ namespace New_Library.Forms
 
         private void frmBook_Load(object sender, EventArgs e)
         {
-            this.btnSearch.BackColor = ThemeColor.PrimaryColor;
-
             LoadData_Book();
             LoadData_Genre();
             LoadData_Author();
@@ -307,7 +305,7 @@ namespace New_Library.Forms
 
             DialogResult rs = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (rs == DialogResult.Yes)
-            {
+            {   
                 while (dgvBook.SelectedRows.Count != 0)
                 {
                     string cmd = @"EXEC sp_delete_book @MaSach = " + dgvBook.SelectedRows[0].Cells["MaSach"].Value.ToString();

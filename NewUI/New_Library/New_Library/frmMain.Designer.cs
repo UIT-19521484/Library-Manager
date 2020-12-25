@@ -166,7 +166,7 @@
             this.btnReceipt.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnReceipt.Size = new System.Drawing.Size(200, 60);
             this.btnReceipt.TabIndex = 5;
-            this.btnReceipt.Text = "   Hóa đơn";
+            this.btnReceipt.Text = "   Mượn / Trả Sách";
             this.btnReceipt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReceipt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReceipt.UseVisualStyleBackColor = true;

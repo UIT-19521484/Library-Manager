@@ -21,13 +21,11 @@ namespace New_Library.Forms
 
         private void frmReader_Load(object sender, EventArgs e)
         {
-            this.btnSearch.BackColor = ThemeColor.PrimaryColor;
             LoadData_Reader();
         }
 
         void LoadData_Reader()
         {
-            dgvReader.HeaderBgColor = ThemeColor.PrimaryColor;
             dgvReader.DataSource = DatabaseData.dtReader;
             dgvReader.Columns["MaDG"].Visible = false;
         }

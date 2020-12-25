@@ -19,23 +19,49 @@ namespace New_Library.Forms
 
         private void frmReceipt_Load(object sender, EventArgs e)
         {
-            LoadTheme();
+            //LoadTheme();
         }
 
-        private void LoadTheme()
+        //private void LoadTheme()
+        //{
+        //    foreach (Control btns in this.Controls)
+        //    {
+        //        if (btns.GetType() == typeof(Button))
+        //        {
+        //            Button btn = (Button)btns;
+        //            btn.BackColor = ThemeColor.PrimaryColor;
+        //            btn.ForeColor = Color.White;
+        //            btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+        //        }
+        //    }
+
+        //}
+        void LoadData_Receipt()
         {
-            foreach (Control btns in this.Controls)
-            {
-                if (btns.GetType() == typeof(Button))
-                {
-                    Button btn = (Button)btns;
-                    btn.BackColor = ThemeColor.PrimaryColor;
-                    btn.ForeColor = Color.White;
-                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
-                }
-            }
-            //label4.ForeColor = ThemeColor.SecondaryColor;
-            //label5.ForeColor = ThemeColor.PrimaryColor;
+            dgvReceipt.DataSource = DatabaseData.dtReader;
         }
+
+        private void dgvReceipt_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            switch (dgvReceipt.SelectedRows.Count)
+            {
+                case 0:
+                    btnDelete.Enabled = false;
+                    btnUpdate.Enabled = false;
+                    break;
+                default:
+                    btnDelete.Enabled = true;
+                    btnUpdate.Enabled = true;
+                    break;
+            }
+        }
+
+        private void dgvReceipt_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            this.dgvReceipt.ClearSelection();
+            this.BeginInvoke(new Action(() => { btnDelete.Enabled = false; btnUpdate.Enabled = false; }));
+        }
+
+
     }
 }

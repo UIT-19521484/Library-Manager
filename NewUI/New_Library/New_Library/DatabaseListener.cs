@@ -16,6 +16,7 @@ namespace New_Library
         private static SqlTableDependency<LibraryEntity.Reader> deReader;
         private static SqlTableDependency<LibraryEntity.Staff> deStaff;
         private static SqlTableDependency<LibraryEntity.Account> deAccount;
+        private static SqlTableDependency<LibraryEntity.Account> deReceipt;
 
         #region OnChanged events
         private static void dbBookChanged(object sender, RecordChangedEventArgs<LibraryEntity.Book> e)
@@ -211,6 +212,43 @@ namespace New_Library
 
             GC.Collect();
         }
+        //private static void dbReceiptChanged(object sender, RecordChangedEventArgs<LibraryEntity.Reader> e)
+        //{
+        //    switch (e.ChangeType)
+        //    {
+        //        case TableDependency.SqlClient.Base.Enums.ChangeType.Insert:
+        //            DataRow row = dtReceipt.NewRow();
+        //            row["MÃ MƯỢN/TRẢ"] = e.Entity.MaDG;
+        //            row["ĐỘC GIẢ"] = e.Entity.HoTen;
+        //            row["NGÀY MƯỢN"] = e.Entity.GioiTinh;
+        //            row["NGÀY TRẢ"] = e.Entity.NgaySinh.ToString();
+        //            row["SL SÁCH"] = e.Entity.DiaChi;
+        //            row["TÌNH TRẠNG"] = e.Entity.DiaChi;
+        //            row["CHI PHÍ"] = e.Entity.Email;
+        //            dtReceipt.Rows.Add(row);
+        //            break;
+        //        case TableDependency.SqlClient.Base.Enums.ChangeType.Delete:
+        //            row = dtReader.Select("MaDG=" + e.Entity.MaDG).FirstOrDefault();
+        //            if (row != null)
+        //            {
+        //                dtReader.Rows.Remove(row);
+        //            }
+        //            break;
+        //        case TableDependency.SqlClient.Base.Enums.ChangeType.Update:
+        //            row = dtReader.Select("MaDG=" + e.Entity.MaDG).FirstOrDefault();
+        //            if (row != null)
+        //            {
+        //                row["HỌ TÊN"] = e.Entity.HoTen;
+        //                row["GIỚI TÍNH"] = e.Entity.GioiTinh;
+        //                row["NGÀY SINH"] = e.Entity.NgaySinh.ToString();
+        //                row["ĐỊA CHỈ"] = e.Entity.DiaChi;
+        //                row["SĐT"] = e.Entity.DiaChi;
+        //                row["Email"] = e.Entity.Email;
+        //            }
+        //            break;
+        //    }
+        //}
+
         #endregion
 
         #region Map model to table
@@ -302,6 +340,8 @@ namespace New_Library
             deAccount = new SqlTableDependency<LibraryEntity.Account>(DataConnection.ConnectionString, "TAIKHOAN", mapper: mapperAccount, includeOldValues: true);
             deAccount.OnChanged += dbAccountChanged;
             deAccount.Start();
+
+            
         }
 
         public static void Dispose()

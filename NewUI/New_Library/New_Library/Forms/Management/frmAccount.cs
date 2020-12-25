@@ -27,14 +27,14 @@ namespace New_Library.Forms
 
         private void frmAccount_Load(object sender, EventArgs e)
         {
-            this.btnSearch.BackColor = ThemeColor.PrimaryColor;
+            
             LoadData_Account();
         }
 
         void LoadData_Account()
         {
             dgvAccount.DataSource = DatabaseData.dtAccount;
-            dgvAccount.HeaderBgColor = ThemeColor.PrimaryColor;
+            
         }
 
         private void dgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -79,7 +79,7 @@
             this.dgvGenre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvGenre.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.MidnightBlue;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -100,7 +100,7 @@
             this.dgvGenre.DoubleBuffered = true;
             this.dgvGenre.EnableHeadersVisualStyles = false;
             this.dgvGenre.GridColor = System.Drawing.Color.White;
-            this.dgvGenre.HeaderBgColor = System.Drawing.Color.SeaGreen;
+            this.dgvGenre.HeaderBgColor = System.Drawing.Color.MidnightBlue;
             this.dgvGenre.HeaderForeColor = System.Drawing.Color.White;
             this.dgvGenre.Location = new System.Drawing.Point(12, 59);
             this.dgvGenre.Name = "dgvGenre";
@@ -136,7 +136,7 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.BackColor = System.Drawing.Color.Black;
+            this.btnSearch.BackColor = System.Drawing.Color.MidnightBlue;
             this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

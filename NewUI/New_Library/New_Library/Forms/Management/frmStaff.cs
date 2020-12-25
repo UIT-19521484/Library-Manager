@@ -23,14 +23,12 @@ namespace New_Library.Forms
 
         private void frmStaff_Load(object sender, EventArgs e)
         {
-            this.btnSearch.BackColor = ThemeColor.PrimaryColor;
             LoadData_Staff();
         }
 
         void LoadData_Staff()
         {
             dgvStaff.DataSource = DatabaseData.dtStaff;
-            dgvStaff.HeaderBgColor = ThemeColor.PrimaryColor;
             dgvStaff.Columns["MaNV"].Visible = false;
         }
 
