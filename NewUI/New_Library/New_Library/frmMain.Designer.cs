@@ -83,7 +83,7 @@
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnHelp.Size = new System.Drawing.Size(200, 60);
-            this.btnHelp.TabIndex = 12;
+            this.btnHelp.TabIndex = 8;
             this.btnHelp.Text = "   Trợ giúp";
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -103,7 +103,7 @@
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnSetting.Size = new System.Drawing.Size(200, 60);
-            this.btnSetting.TabIndex = 11;
+            this.btnSetting.TabIndex = 7;
             this.btnSetting.Text = "   Thiết lập";
             this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -123,7 +123,7 @@
             this.btnManagement.Name = "btnManagement";
             this.btnManagement.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnManagement.Size = new System.Drawing.Size(200, 60);
-            this.btnManagement.TabIndex = 9;
+            this.btnManagement.TabIndex = 6;
             this.btnManagement.Text = "   Quản lý";
             this.btnManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -145,7 +145,7 @@
             this.btnSignout.Name = "btnSignout";
             this.btnSignout.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnSignout.Size = new System.Drawing.Size(200, 60);
-            this.btnSignout.TabIndex = 8;
+            this.btnSignout.TabIndex = 9;
             this.btnSignout.Text = "   Đăng xuất";
             this.btnSignout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSignout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

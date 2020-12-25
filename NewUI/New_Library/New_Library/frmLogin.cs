@@ -310,7 +310,10 @@ namespace New_Library
 
         private void txtUsernameFP_Validating(object sender, CancelEventArgs e)
         {
-            CancelValidatedEvent(txtUsernameFP, lblUsernameFPError, e);
+            if (!ValidateInput.ValidNoneSpecialChar(txtUsernameFP.Text, out errMsg))
+            {
+                CancelValidatedEvent(txtUsernameFP, lblUsernameFPError, e);
+            }    
         }
 
         private void txtUsernameFP_Validated(object sender, EventArgs e)

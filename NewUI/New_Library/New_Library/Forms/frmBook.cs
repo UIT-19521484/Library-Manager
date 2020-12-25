@@ -308,16 +308,16 @@ namespace New_Library.Forms
             DialogResult rs = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (rs == DialogResult.Yes)
             {
-                for (int i = 0; i <= dgvBook.SelectedRows.Count; i++)
+                while (dgvBook.SelectedRows.Count != 0)
                 {
-                    string cmd = @"EXEC sp_delete_book @MaSach = " + dgvBook.SelectedRows[i].Cells["MaSach"].Value.ToString();
+                    string cmd = @"EXEC sp_delete_book @MaSach = " + dgvBook.SelectedRows[0].Cells["MaSach"].Value.ToString();
                     if (DataConnection.ExecuteQuery(cmd))
                     {
                         //MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Thất bại khi xoá" + dgvBook.SelectedRows[i].Cells["TenSach"].Value, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Thất bại khi xoá" + dgvBook.SelectedRows[0].Cells["TenSach"].Value, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 MessageBox.Show("Hoàn thành xóa dữ liệu sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

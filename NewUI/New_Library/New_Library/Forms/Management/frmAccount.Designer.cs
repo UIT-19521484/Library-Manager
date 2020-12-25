@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
@@ -50,11 +50,23 @@
             this.txtAccountName = new System.Windows.Forms.TextBox();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.errAccount = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pnlChangePassword = new System.Windows.Forms.Panel();
+            this.btnCancelChange = new System.Windows.Forms.Button();
+            this.btnAcceptChange = new System.Windows.Forms.Button();
+            this.lblNewPasswordError = new System.Windows.Forms.Label();
+            this.gbNewPassword = new System.Windows.Forms.GroupBox();
+            this.txtNewPassword = new System.Windows.Forms.TextBox();
+            this.lblConfirmPasswordError = new System.Windows.Forms.Label();
+            this.gbConfirmPassword = new System.Windows.Forms.GroupBox();
+            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
             this.pnlEditAccount.SuspendLayout();
             this.gbPermission.SuspendLayout();
             this.gbAccountName.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errAccount)).BeginInit();
+            this.pnlChangePassword.SuspendLayout();
+            this.gbNewPassword.SuspendLayout();
+            this.gbConfirmPassword.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSearch
@@ -69,6 +81,7 @@
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(37, 27);
             this.btnSearch.TabIndex = 74;
+            this.btnSearch.TabStop = false;
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -82,6 +95,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(443, 27);
             this.txtSearch.TabIndex = 68;
+            this.txtSearch.TabStop = false;
             // 
             // lblSearch
             // 
@@ -99,8 +113,8 @@
             // 
             this.dgvAccount.AllowUserToAddRows = false;
             this.dgvAccount.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvAccount.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvAccount.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAccount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -108,26 +122,26 @@
             this.dgvAccount.BackgroundColor = System.Drawing.Color.White;
             this.dgvAccount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAccount.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAccount.ColumnHeadersHeight = 32;
             this.dgvAccount.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TenTaiKhoan,
             this.PhanQuyen});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAccount.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAccount.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvAccount.DoubleBuffered = true;
             this.dgvAccount.EnableHeadersVisualStyles = false;
             this.dgvAccount.GridColor = System.Drawing.Color.White;
@@ -137,14 +151,14 @@
             this.dgvAccount.Name = "dgvAccount";
             this.dgvAccount.ReadOnly = true;
             this.dgvAccount.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAccount.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAccount.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAccount.RowHeadersVisible = false;
             this.dgvAccount.RowHeadersWidth = 20;
             this.dgvAccount.RowTemplate.DividerHeight = 1;
@@ -153,6 +167,7 @@
             this.dgvAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAccount.Size = new System.Drawing.Size(974, 433);
             this.dgvAccount.TabIndex = 45;
+            this.dgvAccount.TabStop = false;
             this.dgvAccount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccount_CellClick);
             this.dgvAccount.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvStaff_DataBindingComplete);
             // 
@@ -191,6 +206,7 @@
             this.btnUpdate.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnUpdate.Size = new System.Drawing.Size(116, 41);
             this.btnUpdate.TabIndex = 76;
+            this.btnUpdate.TabStop = false;
             this.btnUpdate.Text = "   Sửa";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -342,6 +358,7 @@
             this.btnChangePassword.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnChangePassword.Size = new System.Drawing.Size(130, 41);
             this.btnChangePassword.TabIndex = 78;
+            this.btnChangePassword.TabStop = false;
             this.btnChangePassword.Text = "Đổi mật khẩu";
             this.btnChangePassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnChangePassword.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -354,6 +371,151 @@
             this.errAccount.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errAccount.ContainerControl = this;
             // 
+            // pnlChangePassword
+            // 
+            this.pnlChangePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlChangePassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlChangePassword.Controls.Add(this.lblConfirmPasswordError);
+            this.pnlChangePassword.Controls.Add(this.gbConfirmPassword);
+            this.pnlChangePassword.Controls.Add(this.btnCancelChange);
+            this.pnlChangePassword.Controls.Add(this.btnAcceptChange);
+            this.pnlChangePassword.Controls.Add(this.lblNewPasswordError);
+            this.pnlChangePassword.Controls.Add(this.gbNewPassword);
+            this.pnlChangePassword.Location = new System.Drawing.Point(679, 49);
+            this.pnlChangePassword.Name = "pnlChangePassword";
+            this.pnlChangePassword.Size = new System.Drawing.Size(238, 197);
+            this.pnlChangePassword.TabIndex = 79;
+            // 
+            // btnCancelChange
+            // 
+            this.btnCancelChange.BackColor = System.Drawing.Color.Red;
+            this.btnCancelChange.FlatAppearance.BorderSize = 0;
+            this.btnCancelChange.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkRed;
+            this.btnCancelChange.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnCancelChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelChange.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCancelChange.Image = global::New_Library.Properties.Resources.delete;
+            this.btnCancelChange.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelChange.Location = new System.Drawing.Point(122, 158);
+            this.btnCancelChange.Name = "btnCancelChange";
+            this.btnCancelChange.Size = new System.Drawing.Size(114, 36);
+            this.btnCancelChange.TabIndex = 78;
+            this.btnCancelChange.Text = "Hủy";
+            this.btnCancelChange.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelChange.UseVisualStyleBackColor = false;
+            this.btnCancelChange.Click += new System.EventHandler(this.btnCancelChange_Click);
+            // 
+            // btnAcceptChange
+            // 
+            this.btnAcceptChange.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnAcceptChange.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnAcceptChange.FlatAppearance.BorderSize = 0;
+            this.btnAcceptChange.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGreen;
+            this.btnAcceptChange.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.btnAcceptChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAcceptChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcceptChange.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAcceptChange.Image = global::New_Library.Properties.Resources.update_24px;
+            this.btnAcceptChange.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnAcceptChange.Location = new System.Drawing.Point(3, 158);
+            this.btnAcceptChange.Name = "btnAcceptChange";
+            this.btnAcceptChange.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnAcceptChange.Size = new System.Drawing.Size(114, 36);
+            this.btnAcceptChange.TabIndex = 77;
+            this.btnAcceptChange.Text = "Đổi mật khẩu";
+            this.btnAcceptChange.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAcceptChange.UseVisualStyleBackColor = false;
+            this.btnAcceptChange.Click += new System.EventHandler(this.btnAcceptChange_Click);
+            // 
+            // lblNewPasswordError
+            // 
+            this.lblNewPasswordError.AutoSize = true;
+            this.lblNewPasswordError.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewPasswordError.ForeColor = System.Drawing.Color.Red;
+            this.lblNewPasswordError.Location = new System.Drawing.Point(3, 55);
+            this.lblNewPasswordError.Name = "lblNewPasswordError";
+            this.lblNewPasswordError.Size = new System.Drawing.Size(107, 13);
+            this.lblNewPasswordError.TabIndex = 74;
+            this.lblNewPasswordError.Text = "NewPassword Error";
+            // 
+            // gbNewPassword
+            // 
+            this.gbNewPassword.BackColor = System.Drawing.Color.White;
+            this.gbNewPassword.Controls.Add(this.txtNewPassword);
+            this.gbNewPassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.gbNewPassword.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbNewPassword.Location = new System.Drawing.Point(3, 4);
+            this.gbNewPassword.Name = "gbNewPassword";
+            this.gbNewPassword.Size = new System.Drawing.Size(216, 48);
+            this.gbNewPassword.TabIndex = 73;
+            this.gbNewPassword.TabStop = false;
+            this.gbNewPassword.Text = "Mật khẩu mới";
+            // 
+            // txtNewPassword
+            // 
+            this.txtNewPassword.AcceptsTab = true;
+            this.txtNewPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNewPassword.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtNewPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNewPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNewPassword.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtNewPassword.Location = new System.Drawing.Point(9, 19);
+            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(0);
+            this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.Size = new System.Drawing.Size(204, 26);
+            this.txtNewPassword.TabIndex = 1;
+            this.txtNewPassword.UseSystemPasswordChar = true;
+            this.txtNewPassword.WordWrap = false;
+            this.txtNewPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtNewPassword_Validating);
+            this.txtNewPassword.Validated += new System.EventHandler(this.txtNewPassword_Validated);
+            // 
+            // lblConfirmPasswordError
+            // 
+            this.lblConfirmPasswordError.AutoSize = true;
+            this.lblConfirmPasswordError.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirmPasswordError.ForeColor = System.Drawing.Color.Red;
+            this.lblConfirmPasswordError.Location = new System.Drawing.Point(3, 128);
+            this.lblConfirmPasswordError.Name = "lblConfirmPasswordError";
+            this.lblConfirmPasswordError.Size = new System.Drawing.Size(125, 13);
+            this.lblConfirmPasswordError.TabIndex = 80;
+            this.lblConfirmPasswordError.Text = "ConfirmPasswrod Error";
+            // 
+            // gbConfirmPassword
+            // 
+            this.gbConfirmPassword.BackColor = System.Drawing.Color.White;
+            this.gbConfirmPassword.Controls.Add(this.txtConfirmPassword);
+            this.gbConfirmPassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.gbConfirmPassword.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbConfirmPassword.Location = new System.Drawing.Point(3, 77);
+            this.gbConfirmPassword.Name = "gbConfirmPassword";
+            this.gbConfirmPassword.Size = new System.Drawing.Size(216, 48);
+            this.gbConfirmPassword.TabIndex = 79;
+            this.gbConfirmPassword.TabStop = false;
+            this.gbConfirmPassword.Text = "Xác nhận mật khẩu";
+            // 
+            // txtConfirmPassword
+            // 
+            this.txtConfirmPassword.AcceptsTab = true;
+            this.txtConfirmPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtConfirmPassword.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtConfirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPassword.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtConfirmPassword.Location = new System.Drawing.Point(9, 19);
+            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(0);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.Size = new System.Drawing.Size(204, 26);
+            this.txtConfirmPassword.TabIndex = 2;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
+            this.txtConfirmPassword.WordWrap = false;
+            this.txtConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfirmPassword_Validating);
+            this.txtConfirmPassword.Validated += new System.EventHandler(this.txtConfirmPassword_Validated);
+            // 
             // frmAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,6 +524,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(998, 498);
             this.ControlBox = false;
+            this.Controls.Add(this.pnlChangePassword);
             this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.pnlEditAccount);
             this.Controls.Add(this.btnUpdate);
@@ -385,6 +548,12 @@
             this.gbAccountName.ResumeLayout(false);
             this.gbAccountName.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errAccount)).EndInit();
+            this.pnlChangePassword.ResumeLayout(false);
+            this.pnlChangePassword.PerformLayout();
+            this.gbNewPassword.ResumeLayout(false);
+            this.gbNewPassword.PerformLayout();
+            this.gbConfirmPassword.ResumeLayout(false);
+            this.gbConfirmPassword.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,5 +577,14 @@
         private System.Windows.Forms.ErrorProvider errAccount;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenTaiKhoan;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhanQuyen;
+        private System.Windows.Forms.Panel pnlChangePassword;
+        private System.Windows.Forms.Label lblConfirmPasswordError;
+        private System.Windows.Forms.GroupBox gbConfirmPassword;
+        private System.Windows.Forms.TextBox txtConfirmPassword;
+        private System.Windows.Forms.Button btnCancelChange;
+        private System.Windows.Forms.Button btnAcceptChange;
+        private System.Windows.Forms.Label lblNewPasswordError;
+        private System.Windows.Forms.GroupBox gbNewPassword;
+        private System.Windows.Forms.TextBox txtNewPassword;
     }
 }

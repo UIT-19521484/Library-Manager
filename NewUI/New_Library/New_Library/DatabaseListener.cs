@@ -59,6 +59,8 @@ namespace New_Library
                     row.AcceptChanges();
                     break;
             }
+
+            GC.Collect();
         }
 
         private static void dbGenreChanged(object sender, RecordChangedEventArgs<LibraryEntity.Genre> e)
@@ -86,6 +88,8 @@ namespace New_Library
                     }
                     break;
             }
+
+            GC.Collect();
         }
 
         private static void dbReaderChanged(object sender, RecordChangedEventArgs<LibraryEntity.Reader> e)
@@ -123,6 +127,8 @@ namespace New_Library
                     }
                     break;
             }
+
+            GC.Collect();
         }
 
         private static void dbStaffChanged(object sender, RecordChangedEventArgs<LibraryEntity.Staff> e)
@@ -163,8 +169,11 @@ namespace New_Library
                         row["SĐT"] = e.Entity.SDT;
                         row["TÀI KHOẢN"] = e.Entity.TenTaiKhoan;
                     }
+                    
                     break;
             }
+
+            GC.Collect();
         }
 
         private static void dbAccountChanged(object sender, RecordChangedEventArgs<LibraryEntity.Account> e)
@@ -173,6 +182,7 @@ namespace New_Library
             {
                 case TableDependency.SqlClient.Base.Enums.ChangeType.Insert:
                     DataRow row = dtAccount.NewRow();
+                    row["HỌ TÊN"] = dtStaff.Select("[TÀI KHOẢN]='" + e.Entity.TenTaiKhoan + "'").FirstOrDefault().Field<string>("HỌ TÊN");
                     row["TÊN TÀI KHOẢN"] = e.Entity.TenTaiKhoan;
                     row["PHÂN QUYỀN"] = e.Entity.PhanQuyen;
                     dtAccount.Rows.Add(row);
@@ -185,7 +195,7 @@ namespace New_Library
                     }
                     break;
                 case TableDependency.SqlClient.Base.Enums.ChangeType.Update:
-                    row = dtAccount.Select("[TÊN TÀI KHOẢN]='" + e.Entity.TenTaiKhoan + "'").FirstOrDefault();
+                    row = dtAccount.Select("[TÊN TÀI KHOẢN]='" + e.EntityOldValues.TenTaiKhoan + "'").FirstOrDefault();
                     if (row != null)
                     {
                         row["TÊN TÀI KHOẢN"] = e.Entity.TenTaiKhoan;
@@ -197,7 +207,9 @@ namespace New_Library
                         dr["TÀI KHOẢN"] = e.Entity.TenTaiKhoan;  
                     }    
                     break;
-            }    
+            }
+
+            GC.Collect();
         }
         #endregion
 
@@ -287,7 +299,7 @@ namespace New_Library
             deStaff.Start();
 
             var mapperAccount = MapAccount();
-            deAccount = new SqlTableDependency<LibraryEntity.Account>(DataConnection.ConnectionString, "TAIKHOAN", mapper: mapperAccount);
+            deAccount = new SqlTableDependency<LibraryEntity.Account>(DataConnection.ConnectionString, "TAIKHOAN", mapper: mapperAccount, includeOldValues: true);
             deAccount.OnChanged += dbAccountChanged;
             deAccount.Start();
         }

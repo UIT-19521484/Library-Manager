@@ -70,7 +70,7 @@ namespace New_Library.Forms.Genre
                 errMsg = "Trường này không được trống";
                 CancelValidatedEvent(lblGenreNameError, e);
             }
-            else if (!ValidateInput.ValidNoneSpecialChar(txtGenreName.Text, out errMsg))
+            else if (!ValidateInput.ValidOnlyLetter(txtGenreName.Text, out errMsg))
             {
                 CancelValidatedEvent(lblGenreNameError, e);
             }

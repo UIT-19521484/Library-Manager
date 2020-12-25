@@ -31,22 +31,34 @@ namespace New_Library
             return false;
         }
 
-        public static bool ValidNoneSpecialChar(string str, out string errMsg)
+        public static bool ValidOnlyLetter(string str, out string errMsg)
         {
-            //if (str.Length == 0)
-            //{
-            //    errMsg = "Trường này không được trống";
-            //    return true;
-            //}
-            //else if (!(str.All(char.IsLetter) || str.Any(char.IsWhiteSpace) || str.All(char.IsDigit)))
-            //{
-            //    errMsg = "Không được chứa kí tự đặc biệt";
-            //    return false;
-            //}
-
             if (!IsEmpty(str, out errMsg))
             {
-                if (!(str.All(char.IsLetter) || str.Any(char.IsWhiteSpace) || str.All(char.IsDigit)))
+                var regexItem = new System.Text.RegularExpressions.Regex("^[a-zA-Z ]*$");
+
+                if (!regexItem.IsMatch(str))
+                {
+                    errMsg = "Không được chứa kí tự đặc biệt và chữ số";
+                    return false;
+                }
+                else
+                {
+                    errMsg = "";
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public static bool ValidNoneSpecialChar(string str, out string errMsg)
+        {
+            if (!IsEmpty(str, out errMsg))
+            {
+                var regexItem = new System.Text.RegularExpressions.Regex("^[a-zA-Z0-9 ]*$");
+
+                if (!regexItem.IsMatch(str))
                 {
                     errMsg = "Không được chứa kí tự đặc biệt";
                     return false;
@@ -65,18 +77,6 @@ namespace New_Library
         {
             if (!IsEmpty(email, out errMsg))
             {
-                //if (email.IndexOf("@") > -1)
-                //{
-                //    if (email.IndexOf(".", email.IndexOf("@")) > email.IndexOf("@"))
-                //    {
-                //        errMsg = "";
-                //        return true;
-                //    }
-                //}
-
-                //errMsg = "Email không hợp lệ";
-                //return false;
-
                 try
                 {
                     System.Net.Mail.MailAddress m = new System.Net.Mail.MailAddress(email);

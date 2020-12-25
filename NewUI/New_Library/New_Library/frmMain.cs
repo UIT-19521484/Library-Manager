@@ -172,7 +172,7 @@ namespace New_Library
         private void btnSignout_Click(object sender, EventArgs e)
         {
             this.Owner.Show();
-            this.Close();
+            this.Dispose();
         }
 
         private void pnlTitleBar_MouseDown(object sender, MouseEventArgs e)

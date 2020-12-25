@@ -45,7 +45,7 @@ namespace New_Library.Forms.Management.Account
 
         private void txtStaffName_Validating(object sender, CancelEventArgs e)
         {
-            if (!ValidateInput.ValidNoneSpecialChar(txtStaffName.Text, out errMsg))
+            if (!ValidateInput.ValidOnlyLetter(txtStaffName.Text, out errMsg))
             {
                 CancelValidatedEvent(gbStaffName, lblStaffNameError, e);
             }

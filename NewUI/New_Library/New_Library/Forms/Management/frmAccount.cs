@@ -22,6 +22,7 @@ namespace New_Library.Forms
             btnUpdate.Enabled = false;
 
             pnlEditAccount.Visible = false;
+            pnlChangePassword.Visible = false;
         }
 
         private void frmAccount_Load(object sender, EventArgs e)
@@ -40,6 +41,9 @@ namespace New_Library.Forms
         {
             btnChangePassword.Enabled = true;
             btnUpdate.Enabled = true;
+
+            txtAccountName.Text = dgvAccount.SelectedRows[0].Cells["TenTaiKhoan"].Value.ToString();
+            cbPermission.Text = dgvAccount.SelectedRows[0].Cells["PhanQuyen"].Value.ToString();
         }
 
         private void dgvStaff_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -64,39 +68,6 @@ namespace New_Library.Forms
             DataTable dt = DataConnection.GetDataTable(command);
             this.dgvAccount.DataSource = dt;
             dgvAccount.HeaderBgColor = ThemeColor.PrimaryColor;
-        }
-
-        private void btnChangePassword_Click(object sender, EventArgs e)
-        {
-            //if (txtAccountName.Text == "")
-            //{
-            //    MessageBox.Show("Chưa chọn tài khoản hoặc Không tồn tại tài khoản này!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            //if (txtPassword.Text == "")
-            //{
-            //    MessageBox.Show("Vui lòng nhập mật khẩu!");
-            //    return;
-            //}
-            //else if (txtPassword.Text != txtConfirmPassword.Text)
-            //{
-            //    MessageBox.Show("Hai mật khẩu không khớp!");
-            //    return;
-            //}
-            //else
-            //{
-            //    DataTable dt = DataConnection.GetDataTable("SELECT TenTaiKhoan FROM TAIKHOAN WHERE TenTaiKhoan = '" + txtAccountName.Text + "'");
-            //    if (dt.Rows.Count == 1)
-            //    {
-            //        string command = @"UPDATE TAIKHOAN SET MatKhau = '" + CreateMD5(txtPassword.Text) + "' WHERE TenTaiKhoan = '" +txtAccountName.Text+ "'";
-            //        DataConnection.ExecuteQuery(command);
-            //        MessageBox.Show("Đổi mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK);
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Tài khoản này không tồn tại!", "Thông báo", MessageBoxButtons.OK);
-            //    }
-            //}
         }
 
         private string CreateMD5(string passWord)
@@ -125,17 +96,20 @@ namespace New_Library.Forms
             error.Text = errMsg;
         }
 
+        #region Edit account
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             lblAccountNameError.Text = "";
-            txtAccountName.Text = dgvAccount.SelectedRows[0].Cells["TenTaiKhoan"].Value.ToString();
-            cbPermission.Text = dgvAccount.SelectedRows[0].Cells["PhanQuyen"].Value.ToString();
             pnlEditAccount.Visible = true;
+            pnlChangePassword.Visible = false;
+
+            errAccount.SetError(gbNewPassword, "");
+            errAccount.SetError(gbConfirmPassword, "");
         }
 
         private void txtAccountName_Validating(object sender, CancelEventArgs e)
         {
-            if (ValidateInput.IsEmpty(txtAccountName.Text, out errMsg)) ;
+            if (!ValidateInput.ValidNoneSpecialChar(txtAccountName.Text, out errMsg))
             {
                 CancelValidatedEvent(gbAccountName, lblAccountNameError, e);
             }
@@ -156,11 +130,10 @@ namespace New_Library.Forms
 
             if (DatabaseData.dtAccount.Select(String.Format("[TÊN TÀI KHOẢN] = '{0}'", txtAccountName.Text)).FirstOrDefault() == null)
             {
-                string cmd = @"update TAIKHOAN 
-                               set TenTaiKhoan = '" + txtAccountName.Text + "', PhanQuyen = '" + cbPermission.Text + 
-                            "' where TenTaiKhoan = '" + dgvAccount.SelectedRows[0].Cells["TenTaiKhoan"].Value.ToString() + "'";
+                string cmdSta = @"update NHANVIEN set TenTaiKhoan = '" + txtAccountName.Text + "' " + "where HoTen = N'" + dgvAccount.SelectedRows[0].Cells[0].Value.ToString() + "'";
+                string cmdAcc = @"update TAIKHOAN set TenTaiKhoan = '" + txtAccountName.Text + "', PhanQuyen = '" + cbPermission.Text + "' " + "where TenTaiKhoan = '" + dgvAccount.SelectedRows[0].Cells["TenTaiKhoan"].Value.ToString() + "'";
 
-                if (DataConnection.ExecuteQuery(cmd))
+                if (DataConnection.ExecuteQuery(cmdAcc + ";\n" + cmdSta))
                 {
                     MessageBox.Show("Thay đổi thông tin tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     pnlEditAccount.Visible = false;
@@ -169,12 +142,96 @@ namespace New_Library.Forms
             else
             {
                 MessageBox.Show("Tên tài khoản đã tồn tại", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }    
+            }
+            dgvAccount.Refresh();
+
+            pnlEditAccount.Visible = false;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             pnlEditAccount.Visible = false;
         }
+        #endregion
+
+        #region Change password
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            lblNewPasswordError.Text = "";
+            lblConfirmPasswordError.Text = "";
+            pnlEditAccount.Visible = false;
+            pnlChangePassword.Visible = true;
+        }
+
+        private void txtNewPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (ValidateInput.IsEmpty(txtNewPassword.Text, out errMsg))
+            {
+                CancelValidatedEvent(gbNewPassword, lblNewPasswordError, e);
+            }    
+        }
+
+        private void txtNewPassword_Validated(object sender, EventArgs e)
+        {
+            lblNewPasswordError.Text = "";
+            errAccount.SetError(gbNewPassword, "");
+        }
+
+        private void txtConfirmPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtNewPassword.Text != txtConfirmPassword.Text)
+            {
+                errMsg = "Mật khẩu xác nhận không trùng khớp";
+                CancelValidatedEvent(gbConfirmPassword, lblConfirmPasswordError, e);
+            }
+        }
+
+        private void txtConfirmPassword_Validated(object sender, EventArgs e)
+        {
+            lblConfirmPasswordError.Text = "";
+            errAccount.SetError(gbConfirmPassword, "");
+        }
+
+        private void btnAcceptChange_Click(object sender, EventArgs e)
+        {
+            ValidateChildren(ValidationConstraints.Visible);
+
+            if (lblNewPasswordError.Text.Length != 0 || lblConfirmPasswordError.Text.Length != 0)
+            {
+                return;
+            }  
+            
+            DataTable dt = DataConnection.GetDataTable("SELECT TenTaiKhoan FROM TAIKHOAN WHERE TenTaiKhoan = '" + txtAccountName.Text + "'");
+            if (dt.Rows.Count == 1)
+            {
+                string command = @"UPDATE TAIKHOAN SET MatKhau = '" + CreateMD5(txtNewPassword.Text) + "' WHERE TenTaiKhoan = '" + dgvAccount.SelectedRows[0].Cells["TenTaiKhoan"].Value.ToString() + "'";
+                if (DataConnection.ExecuteQuery(command))
+                {
+                    MessageBox.Show("Đổi mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else 
+                {
+                    MessageBox.Show("Đổi mật khẩu thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tài khoản này không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            pnlChangePassword.Visible = false;
+
+            txtNewPassword.Text = "";
+            txtConfirmPassword.Text = "";
+        }
+
+        private void btnCancelChange_Click(object sender, EventArgs e)
+        {
+            pnlChangePassword.Visible = false;
+
+            txtNewPassword.Text = "";
+            txtConfirmPassword.Text = "";
+        }
+        #endregion
     }
 }

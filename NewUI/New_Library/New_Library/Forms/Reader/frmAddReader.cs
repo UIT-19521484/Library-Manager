@@ -42,7 +42,7 @@ namespace New_Library.Forms.Reader
 
         private void txtReaderName_Validating(object sender, CancelEventArgs e)
         {
-            if (!ValidateInput.ValidNoneSpecialChar(txtReaderName.Text, out errMsg))
+            if (!ValidateInput.ValidOnlyLetter(txtReaderName.Text, out errMsg))
             {
                 CancelValidatedEvent(gbReaderName, lblReaderNameError, e);
             }

@@ -77,13 +77,13 @@ namespace New_Library.Forms
             DialogResult rs = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (rs == DialogResult.Yes)
             {
-                for (int i = 0; i < dgvReader.SelectedRows.Count; i++)
+                while (dgvReader.SelectedRows.Count != 0)
                 {
-                    string command = (@"EXEC sp_delete_reader @SDT = '" + dgvReader.SelectedRows[i].Cells["SDT"].Value + "', @Email = '" + dgvReader.SelectedRows[i].Cells["Email"].Value + "'");
+                    string command = (@"EXEC sp_delete_reader @SDT = '" + dgvReader.SelectedRows[0].Cells["SDT"].Value + "', @Email = '" + dgvReader.SelectedRows[0].Cells["Email"].Value + "'");
 
                     if (!DataConnection.ExecuteQuery(command))
                     {
-                        MessageBox.Show("Thất bại khi xoá " + dgvReader.SelectedRows[i].Cells["HoTen"].Value, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Thất bại khi xoá " + dgvReader.SelectedRows[0].Cells["HoTen"].Value, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 MessageBox.Show("Hoàn thành xóa dữ liệu người đọc", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

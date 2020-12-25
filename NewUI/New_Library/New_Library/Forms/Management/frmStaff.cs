@@ -86,17 +86,17 @@ namespace New_Library.Forms
             DialogResult rs = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (rs == DialogResult.Yes)
             {
-                for (int i = 0; i <= dgvStaff.SelectedRows.Count; i++)
+                while (dgvStaff.SelectedRows.Count != 0)
                 {
-                    string cmdDelAccount = @"delete from TAIKHOAN where TenTaiKhoan = '" + dgvStaff.SelectedRows[i].Cells["TaiKhoan"].Value.ToString() + "'";
-                    string cmdDelStaff = @"EXEC sp_delete_staff @SDT = '" + dgvStaff.SelectedRows[i].Cells["SDT"].Value.ToString() + "'";
+                    string cmdDelAccount = @"delete from TAIKHOAN where TenTaiKhoan = '" + dgvStaff.SelectedRows[0].Cells["TaiKhoan"].Value.ToString() + "'";
+                    string cmdDelStaff = @"EXEC sp_delete_staff @SDT = '" + dgvStaff.SelectedRows[0].Cells["SDT"].Value.ToString() + "'";
                     if (DataConnection.ExecuteQuery(cmdDelStaff) && DataConnection.ExecuteQuery(cmdDelAccount))
                     {
                         //MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Thất bại khi xoá " + dgvStaff.SelectedRows[i].Cells["HoTen"].Value, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Thất bại khi xoá " + dgvStaff.SelectedRows[0].Cells["HoTen"].Value, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 MessageBox.Show("Hoàn thành xóa dữ liệu nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

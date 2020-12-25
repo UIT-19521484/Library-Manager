@@ -422,6 +422,7 @@
             this.chkShowPassword.Name = "chkShowPassword";
             this.chkShowPassword.Size = new System.Drawing.Size(121, 20);
             this.chkShowPassword.TabIndex = 75;
+            this.chkShowPassword.TabStop = false;
             this.chkShowPassword.Text = "Hiện mật khẩu";
             this.chkShowPassword.UseVisualStyleBackColor = true;
             this.chkShowPassword.CheckStateChanged += new System.EventHandler(this.chkShowPassword_CheckStateChanged);
