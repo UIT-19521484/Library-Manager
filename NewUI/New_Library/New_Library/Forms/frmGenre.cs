@@ -81,15 +81,15 @@ namespace New_Library.Forms
 
         void LoadData_Genre()
         {
-            dgvGenre.DataSource = DatabaseListener.dtGenre;
+            dgvGenre.DataSource = DatabaseData.dtGenre;
             dgvGenre.Columns["MaTL"].Visible = false;
         }
 
         private void dgvGenre_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             this.dgvGenre.ClearSelection();
-            btnDelete.Enabled = false;
-            btnUpdate.Enabled = false;
+
+            this.BeginInvoke(new Action(() => { btnDelete.Enabled = false; btnUpdate.Enabled = false; }));
         }
 
         private void dgvGenre_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -111,7 +111,7 @@ namespace New_Library.Forms
         {
             if (txtSearch.Text == "" || txtSearch.Text == null)
             {
-                dgvGenre.DataSource = DatabaseListener.dtGenre;
+                LoadData_Genre();
                 return;
             }
             string command = @"EXEC sp_search_genres @TuKhoa = N'" + txtSearch.Text + "'";
@@ -121,17 +121,16 @@ namespace New_Library.Forms
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
-    {                
+        {                
             DataTable dt = DataConnection.GetDataTable(@"EXEC sp_select_genre @TenTL = N'" + dgvGenre.SelectedRows + "'");
 
             switch (dt.Rows.Count)
             {
                 case 0:
-                    string msg = "Bạn thật sự muốn xóa những thể lo này?\n\n";
-
+                    string msg = "Bạn thật sự muốn xóa những thể loại này?\n\n";
                     for (int i = 0; i < dgvGenre.SelectedRows.Count; i++)
                     {
-                        msg += (i + 1).ToString() + ". " + dgvGenre.SelectedRows[i].Cells["TenTheLoai"].Value + "\n";
+                        msg += (i + 1).ToString() + ". " + dgvGenre.SelectedRows[i].Cells["TenTL"].Value + "\n";
                     }
 
                     DialogResult rs = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -139,7 +138,7 @@ namespace New_Library.Forms
                     {
                         for (int i = 0; i < dgvGenre.SelectedRows.Count; i++)
                         {
-                            string cmd = @"EXEC sp_delete_genre @TenTL = N'" + dgvGenre.SelectedRows[i].Cells["TenTheLoai"].Value + "'";
+                            string cmd = @"EXEC sp_delete_genre @TenTL = N'" + dgvGenre.SelectedRows[i].Cells["TenTL"].Value + "'";
                             if (DataConnection.ExecuteQuery(cmd))
                             {
                                 //MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -149,7 +148,10 @@ namespace New_Library.Forms
                                 MessageBox.Show("Thất bại khi xoá" + dgvGenre.SelectedRows[i].Cells["TenTheLoai"].Value, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
+                        MessageBox.Show("Hoàn thành xóa dữ liệu thể loại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+
+                    dgvGenre.Refresh();
 
                     GC.Collect();
                     break;
@@ -162,13 +164,18 @@ namespace New_Library.Forms
         private void btnAdd_Click(object sender, EventArgs e)
         {
             (new Genre.frmAddGenre()).ShowDialog();
+            dgvGenre.Refresh();
+            //this.Enabled = true;
+            //this.Owner.Enabled = true;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             LibraryEntity.Genre ge = new LibraryEntity.Genre();
-            ge.MaTL = (int)dgvGenre.SelectedRows[0].Cells[1].Value;
+            ge.MaTL = (int)dgvGenre.SelectedRows[0].Cells["MaTL"].Value;
+            ge.TenTL = dgvGenre.SelectedRows[0].Cells["TenTL"].Value.ToString();
             (new Genre.frmEditGenre(ge)).ShowDialog();
+            dgvGenre.Refresh();
         }
     }
 }

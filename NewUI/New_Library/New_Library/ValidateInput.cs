@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace New_Library
 {
@@ -19,35 +16,48 @@ namespace New_Library
             return false;
         }
 
-        public static bool ValidNoneSpecialChar(string str, out string errMsg)
+        public static bool ValidVietnamesePhone(string phNumber, out string errMsg)
         {
-            if (str.Length == 0)
+            if (!IsEmpty(phNumber, out errMsg))
             {
-                errMsg = "Trường này không được trống";
-                return true;
-            }
-            else if (!(str.All(char.IsLetter) || str.Any(char.IsWhiteSpace) || str.All(char.IsDigit)))
-            {
-                errMsg = "Không được chứa kí tự đặc biệt";
+                if (System.Text.RegularExpressions.Regex.Match(phNumber, @"^(0|\+84)[35789]\d{8}$").Success)
+                {
+                    errMsg = "";
+                    return true;
+                }
+                errMsg = "Số điện thoại không hợp lệ";
                 return false;
             }
-
-            errMsg = "";
-            return true;
+            return false;
         }
 
-        public static bool ValidNumber(string number, out string errMsg)
+        public static bool ValidNoneSpecialChar(string str, out string errMsg)
         {
-            if (!IsEmpty(number, out errMsg))
+            //if (str.Length == 0)
+            //{
+            //    errMsg = "Trường này không được trống";
+            //    return true;
+            //}
+            //else if (!(str.All(char.IsLetter) || str.Any(char.IsWhiteSpace) || str.All(char.IsDigit)))
+            //{
+            //    errMsg = "Không được chứa kí tự đặc biệt";
+            //    return false;
+            //}
+
+            if (!IsEmpty(str, out errMsg))
             {
-                if (number.All(char.IsDigit))
+                if (!(str.All(char.IsLetter) || str.Any(char.IsWhiteSpace) || str.All(char.IsDigit)))
+                {
+                    errMsg = "Không được chứa kí tự đặc biệt";
+                    return false;
+                }
+                else
                 {
                     errMsg = "";
                     return true;
                 }
             }
 
-            errMsg = "Trường này chỉ nhập số";
             return false;
         }
 
@@ -55,17 +65,32 @@ namespace New_Library
         {
             if (!IsEmpty(email, out errMsg))
             {
-                if (email.IndexOf("@") > -1)
+                //if (email.IndexOf("@") > -1)
+                //{
+                //    if (email.IndexOf(".", email.IndexOf("@")) > email.IndexOf("@"))
+                //    {
+                //        errMsg = "";
+                //        return true;
+                //    }
+                //}
+
+                //errMsg = "Email không hợp lệ";
+                //return false;
+
+                try
                 {
-                    if (email.IndexOf(".", email.IndexOf("@")) > email.IndexOf("@"))
-                    {
-                        errMsg = "";
-                        return true;
-                    }
+                    System.Net.Mail.MailAddress m = new System.Net.Mail.MailAddress(email);
+
+                    errMsg = "";
+                    return true;
+                }
+                catch (FormatException)
+                {
+                    errMsg = "Email không hợp lệ";
+                    return false;
                 }
             }
 
-            errMsg = "Email không hợp lệ";
             return false;
         }
     }

@@ -127,6 +127,7 @@ namespace New_Library.Forms.Genre
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(335, 121);
             this.Controls.Add(this.btnCancelAdd);
             this.Controls.Add(this.btnAddGenre);
@@ -139,7 +140,6 @@ namespace New_Library.Forms.Genre
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Thêm thể loại";
             this.gbGenreName.ResumeLayout(false);
             this.gbGenreName.PerformLayout();
             this.ResumeLayout(false);

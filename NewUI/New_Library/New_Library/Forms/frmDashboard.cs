@@ -19,6 +19,11 @@ namespace New_Library.Forms
 
         private void frmDashboard_Load(object sender, EventArgs e)
         {
+            txtLibraryName.Text = Properties.Settings.Default.LibraryName;
+            txtAddress.Text = Properties.Settings.Default.LibraryAddress;
+            txtEmail.Text = Properties.Settings.Default.LibraryEmail;
+            txtPhoneNumber.Text = Properties.Settings.Default.LibraryPhoneNumber;
+
             this.lblNoTotalReader.Text = DataConnection.ExecuteScalar(@"EXEC sp_count_all_readers").ToString();
             this.lblNoBorrowingReader.Text = DataConnection.ExecuteScalar(@"EXEC sp_count_borrowing_readers").ToString();
             this.lblNoOverdueReader.Text = DataConnection.ExecuteScalar(@"EXEC sp_count_overdue_readers").ToString();
@@ -30,9 +35,9 @@ namespace New_Library.Forms
         private void btnEdit_Click(object sender, EventArgs e)
         {
             txtLibraryName.ReadOnly = !txtLibraryName.ReadOnly;
-            txtAddressName.ReadOnly = !txtAddressName.ReadOnly;
-            txtPhoneName.ReadOnly = !txtPhoneName.ReadOnly;
-            txtEmailName.ReadOnly = !txtEmailName.ReadOnly;
+            txtAddress.ReadOnly = !txtAddress.ReadOnly;
+            txtPhoneNumber.ReadOnly = !txtPhoneNumber.ReadOnly;
+            txtEmail.ReadOnly = !txtEmail.ReadOnly;
         }
     }
 }

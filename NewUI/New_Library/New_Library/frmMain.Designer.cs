@@ -206,7 +206,7 @@
             this.btnGenre.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnGenre.Size = new System.Drawing.Size(200, 60);
             this.btnGenre.TabIndex = 3;
-            this.btnGenre.Text = "   Thể loại";
+            this.btnGenre.Text = "    Thể loại";
             this.btnGenre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGenre.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGenre.UseVisualStyleBackColor = true;
@@ -350,6 +350,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý thư viện";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.pnlMenu.ResumeLayout(false);
             this.pnlLogo.ResumeLayout(false);

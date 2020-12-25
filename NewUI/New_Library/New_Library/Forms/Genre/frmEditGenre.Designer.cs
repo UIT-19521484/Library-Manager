@@ -29,7 +29,7 @@ namespace New_Library.Forms.Genre
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCancelAdd = new System.Windows.Forms.Button();
+            this.btnCancelEdit = new System.Windows.Forms.Button();
             this.btnEditGenre = new System.Windows.Forms.Button();
             this.lblGenreNameError = new System.Windows.Forms.Label();
             this.txtGenreName = new System.Windows.Forms.TextBox();
@@ -37,25 +37,25 @@ namespace New_Library.Forms.Genre
             this.gbGenreName.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnCancelAdd
+            // btnCancelEdit
             // 
-            this.btnCancelAdd.BackColor = System.Drawing.Color.Crimson;
-            this.btnCancelAdd.FlatAppearance.BorderSize = 0;
-            this.btnCancelAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCancelAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelAdd.ForeColor = System.Drawing.Color.White;
-            this.btnCancelAdd.Image = global::New_Library.Properties.Resources.delete;
-            this.btnCancelAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelAdd.Location = new System.Drawing.Point(167, 79);
-            this.btnCancelAdd.Name = "btnCancelAdd";
-            this.btnCancelAdd.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnCancelAdd.Size = new System.Drawing.Size(156, 31);
-            this.btnCancelAdd.TabIndex = 84;
-            this.btnCancelAdd.Text = "   Huỷ";
-            this.btnCancelAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelAdd.UseVisualStyleBackColor = false;
-            this.btnCancelAdd.Click += new System.EventHandler(this.btnCancelAdd_Click);
+            this.btnCancelEdit.BackColor = System.Drawing.Color.Crimson;
+            this.btnCancelEdit.FlatAppearance.BorderSize = 0;
+            this.btnCancelEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancelEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelEdit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelEdit.ForeColor = System.Drawing.Color.White;
+            this.btnCancelEdit.Image = global::New_Library.Properties.Resources.delete;
+            this.btnCancelEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelEdit.Location = new System.Drawing.Point(167, 79);
+            this.btnCancelEdit.Name = "btnCancelEdit";
+            this.btnCancelEdit.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnCancelEdit.Size = new System.Drawing.Size(156, 31);
+            this.btnCancelEdit.TabIndex = 84;
+            this.btnCancelEdit.Text = "   Huỷ";
+            this.btnCancelEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelEdit.UseVisualStyleBackColor = false;
+            this.btnCancelEdit.Click += new System.EventHandler(this.btnCancelEdit_Click);
             // 
             // btnEditGenre
             // 
@@ -126,8 +126,10 @@ namespace New_Library.Forms.Genre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(335, 121);
-            this.Controls.Add(this.btnCancelAdd);
+            this.Controls.Add(this.btnCancelEdit);
             this.Controls.Add(this.btnEditGenre);
             this.Controls.Add(this.lblGenreNameError);
             this.Controls.Add(this.gbGenreName);
@@ -136,7 +138,7 @@ namespace New_Library.Forms.Genre
             this.Name = "frmEditGenre";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Sửa thể loại";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.gbGenreName.ResumeLayout(false);
             this.gbGenreName.PerformLayout();
             this.ResumeLayout(false);
@@ -146,7 +148,7 @@ namespace New_Library.Forms.Genre
 
         #endregion
 
-        private System.Windows.Forms.Button btnCancelAdd;
+        private System.Windows.Forms.Button btnCancelEdit;
         private System.Windows.Forms.Button btnEditGenre;
         private System.Windows.Forms.Label lblGenreNameError;
         private System.Windows.Forms.TextBox txtGenreName;

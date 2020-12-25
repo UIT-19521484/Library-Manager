@@ -48,7 +48,7 @@
             this.txtAvailable = new System.Windows.Forms.TextBox();
             this.errAddBook = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.gbBookInfo.SuspendLayout();
             this.gbGenre.SuspendLayout();
             this.gbPublisher.SuspendLayout();
@@ -323,26 +323,26 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // btnAdd
+            // btnEdit
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGreen;
-            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAdd.Image = global::New_Library.Properties.Resources.update_24px;
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.Location = new System.Drawing.Point(409, 307);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(125, 36);
-            this.btnAdd.TabIndex = 8;
-            this.btnAdd.Text = "Thay đổi";
-            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnEdit.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGreen;
+            this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEdit.Image = global::New_Library.Properties.Resources.update_24px;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEdit.Location = new System.Drawing.Point(409, 307);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(125, 36);
+            this.btnEdit.TabIndex = 8;
+            this.btnEdit.Text = "Thay đổi";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // frmEditBook
             // 
@@ -352,7 +352,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(679, 359);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.gbQuantity);
             this.Controls.Add(this.gbBookInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -396,7 +396,7 @@
         private System.Windows.Forms.GroupBox gbAvailable;
         private System.Windows.Forms.TextBox txtAvailable;
         private System.Windows.Forms.Label lblBorrowed;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblPublisherNameError;
         private System.Windows.Forms.Label lblAuthorNameError;

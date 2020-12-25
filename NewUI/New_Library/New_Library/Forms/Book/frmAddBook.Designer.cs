@@ -50,6 +50,7 @@
             this.errAddBook = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbBookInfo.SuspendLayout();
             this.gbGenre.SuspendLayout();
             this.gbPublisher.SuspendLayout();
@@ -58,6 +59,7 @@
             this.gbQuantity.SuspendLayout();
             this.gbAvailable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errAddBook)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbBookInfo
@@ -118,7 +120,7 @@
             this.lblBookNameError.ForeColor = System.Drawing.Color.Red;
             this.lblBookNameError.Location = new System.Drawing.Point(10, 94);
             this.lblBookNameError.Name = "lblBookNameError";
-            this.lblBookNameError.Size = new System.Drawing.Size(90, 13);
+            this.lblBookNameError.Size = new System.Drawing.Size(91, 13);
             this.lblBookNameError.TabIndex = 72;
             this.lblBookNameError.Text = "BookName Error";
             // 
@@ -359,6 +361,10 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmAddBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,6 +398,7 @@
             this.gbAvailable.ResumeLayout(false);
             this.gbAvailable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errAddBook)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -419,5 +426,6 @@
         private System.Windows.Forms.Label lblAvailableWarning;
         private System.Windows.Forms.ErrorProvider errAddBook;
         private System.Windows.Forms.Label lblGenreError;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -1,7 +1,18 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="New_Library.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LibraryName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Thư viện</Value>
+    </Setting>
+    <Setting Name="LibraryAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Địa chỉ</Value>
+    </Setting>
+    <Setting Name="LibraryEmail" Type="System.String" Scope="User">
+      <Value Profile="(Default)">gmail.com</Value>
+    </Setting>
+    <Setting Name="LibraryPhoneNumber" Type="System.String" Scope="User">
+      <Value Profile="(Default)">01255185458</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

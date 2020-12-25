@@ -13,107 +13,55 @@ namespace New_Library.Forms
 {
     public partial class frmStaff : Form
     {
-        private string curPhone;
         public frmStaff()
         {
             InitializeComponent();
+
+            btnUpdate.Enabled = false;
+            btnDelete.Enabled = false;
         }
 
         private void frmStaff_Load(object sender, EventArgs e)
         {
-            this.BackColor = Color.White;
-            this.btnEdit.BackColor = ThemeColor.PrimaryColor;
-            this.btnEdit.ForeColor = Color.White;
             this.btnSearch.BackColor = ThemeColor.PrimaryColor;
-            this.btnSearch.ForeColor = Color.White;
-            LoadTheme();
             LoadData_Staff();
-            LoadData_AccountName();
-        }
-
-        private void LoadTheme()
-        {
-            foreach (Control btns in this.Controls)
-            {
-                if (btns.GetType() == typeof(Button))
-                {
-                    Button btn = (Button)btns;
-                    btn.BackColor = ThemeColor.PrimaryColor;
-                    btn.ForeColor = Color.White;
-                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
-                }
-            }
-            lblStaffName.ForeColor = ThemeColor.SecondaryColor;
-            lblAddress.ForeColor = ThemeColor.SecondaryColor;
-            lblPhone.ForeColor = ThemeColor.SecondaryColor;
-            lblSex.ForeColor = ThemeColor.SecondaryColor;
-            lblDateOfBirth.ForeColor = ThemeColor.SecondaryColor;
-            lblAccountName.ForeColor = ThemeColor.SecondaryColor;
         }
 
         void LoadData_Staff()
         {
-            string str = @"EXEC sp_select_all_staff";
-            DataTable dt = DataConnection.GetDataTable(str);
-            dgvStaff.DataSource = dt;
-            dgvStaff.BackgroundColor = Color.White;
+            dgvStaff.DataSource = DatabaseData.dtStaff;
             dgvStaff.HeaderBgColor = ThemeColor.PrimaryColor;
-            dgvStaff.HeaderForeColor = Color.White;
-            dgvStaff.GridColor = Color.White;
+            dgvStaff.Columns["MaNV"].Visible = false;
         }
 
-        void LoadData_AccountName()
+        private void dgvStaff_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string sqlGenreName = "EXEC sp_select_all_account_name";
-            DataTable dt = DataConnection.GetDataTable(sqlGenreName);
-
-            for (int i = 0; i < dt.Rows.Count; i++)
+            switch (dgvStaff.SelectedRows.Count)
             {
-                cboAccountName.Items.Add(dt.Rows[i]["TÊN TÀI KHOẢN"]);
+                case 0:
+                    btnDelete.Enabled = false;
+                    btnUpdate.Enabled = false;
+                    break;
+                default:
+                    btnDelete.Enabled = true;
+                    btnUpdate.Enabled = true;
+                    break;
             }
         }
 
-        private void dgvReader_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private void dgvStaff_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             this.dgvStaff.ClearSelection();
-        }
 
-        private void dgvStaff_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            try
+            dgvStaff.BeginInvoke(new Action(() =>
             {
-                DataGridViewRow row = new DataGridViewRow();
-                row = this.dgvStaff.Rows[e.RowIndex];
-                txtStaffName.Text = row.Cells[0].Value.ToString();
-                cboSex.Text = row.Cells[1].Value.ToString();
-                dtpDateOfBirth.Text = row.Cells[2].Value.ToString();
-                txtAddress.Text = row.Cells[3].Value.ToString();
-                txtPhone.Text = row.Cells[4].Value.ToString();
-                cboAccountName.Text = row.Cells[5].Value.ToString();
-
-                curPhone = txtPhone.Text;
-            }
-            catch (Exception)
-            { }
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            txtStaffName.ReadOnly = !txtStaffName.ReadOnly;
-            cboSex.Enabled = !cboSex.Enabled;
-            dtpDateOfBirth.Enabled = !dtpDateOfBirth.Enabled;
-            txtAddress.ReadOnly = !txtAddress.ReadOnly;
-            txtPhone.ReadOnly = !txtPhone.ReadOnly;
-            chkUsernamePermission.Enabled = !chkUsernamePermission.Enabled;
-        }
-        private void chkUsernamePermission_CheckedChanged(object sender, EventArgs e)
-        {
-                cboAccountName.Enabled = !cboAccountName.Enabled;
+                btnUpdate.Enabled = false;
+                btnDelete.Enabled = false;
+            }));
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
             if (txtSearch.Text == "" || txtSearch.Text == null)
             {
                 LoadData_Staff();
@@ -122,128 +70,59 @@ namespace New_Library.Forms
             string command = @"EXEC sp_search_staff @TuKhoa = N'" + txtSearch.Text + "'";
             DataTable dt = DataConnection.GetDataTable(command);
             this.dgvStaff.DataSource = dt;
-            dgvStaff.BackgroundColor = Color.White;
             dgvStaff.HeaderBgColor = ThemeColor.PrimaryColor;
-            dgvStaff.HeaderForeColor = Color.White;
-            dgvStaff.GridColor = Color.White;
+            dgvStaff.Columns["MaNV"].Visible = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (txtStaffName.ReadOnly == true)
-            {
-                DataTable dt = DataConnection.GetDataTable(@"EXEC sp_select_staff @SDT = '" + txtPhone.Text + "'");
-                if (dt.Rows.Count == 1)
-                {
-                    string command = @"EXEC sp_delete_staff @SDT = '" + txtPhone.Text + "'";
+            string msg = "Bạn thật sự muốn xóa những nhân viên này?\n\n";
 
-                    DataConnection.ExecuteQuery(command);
-                    MessageBox.Show("Xóa nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadData_Staff();
-                }
-                else
-                {
-                    MessageBox.Show("Không tồn tại nhân viên này!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
+            for (int i = 0; i < dgvStaff.SelectedRows.Count; i++)
             {
-                MessageBox.Show("Đang trong chế độ edit! Vui lòng tắt trước khi xóa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msg += (i + 1).ToString() + ". " + dgvStaff.SelectedRows[i].Cells["HoTen"].Value + "\n";
             }
-        }
-        public bool IsVietnamPhoneNumber(string number)
-        {
-            return Regex.Match(number, @"^(0|\+84)[35789]\d{8}$").Success;
+
+            DialogResult rs = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (rs == DialogResult.Yes)
+            {
+                for (int i = 0; i <= dgvStaff.SelectedRows.Count; i++)
+                {
+                    string cmdDelAccount = @"delete from TAIKHOAN where TenTaiKhoan = '" + dgvStaff.SelectedRows[i].Cells["TaiKhoan"].Value.ToString() + "'";
+                    string cmdDelStaff = @"EXEC sp_delete_staff @SDT = '" + dgvStaff.SelectedRows[i].Cells["SDT"].Value.ToString() + "'";
+                    if (DataConnection.ExecuteQuery(cmdDelStaff) && DataConnection.ExecuteQuery(cmdDelAccount))
+                    {
+                        //MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thất bại khi xoá " + dgvStaff.SelectedRows[i].Cells["HoTen"].Value, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                MessageBox.Show("Hoàn thành xóa dữ liệu nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            dgvStaff.Refresh();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtStaffName.ReadOnly == false)
-            {
-                if (txtStaffName.Text == "" || txtPhone.Text == "" || cboSex.Text == "")
-                {
-                    MessageBox.Show("Thông tin nhân viên chưa đầy đủ! Hãy nhập lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                if (IsVietnamPhoneNumber(txtPhone.Text) == false || DateTime.Now < dtpDateOfBirth.Value)
-                {
-                    MessageBox.Show("SĐT hoặc Ngày sinh không hợp lệ!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                DataTable dt = DataConnection.GetDataTable(@"EXEC sp_select_staff @SDT = '" + txtPhone.Text + "'");
-
-                if (dt.Rows.Count == 0)
-                {
-                    string command = "";
-                    if (chkUsernamePermission.Checked == true)
-                        command = (@"EXEC sp_insert_staff @HoTen = N'" + txtStaffName.Text + "', @GioiTinh = N'" + cboSex.Text + "', @NgaySinh = N'"
-                                    + dtpDateOfBirth.Value.ToShortDateString() + "', @DiaChi = N'" + txtAddress.Text + "', @SDT = '" + txtPhone.Text + "', @TenTaiKhoan = '" + cboAccountName.Text + "'");
-                    else
-                        command = (@"EXEC sp_insert_staff @HoTen = N'" + txtStaffName.Text + "', @GioiTinh = N'" + cboSex.Text + "', @NgaySinh = N'"
-                                    + dtpDateOfBirth.Value.ToShortDateString() + "', @DiaChi = N'" + txtAddress.Text + "', @SDT = '" + txtPhone.Text + "', @TenTaiKhoan = '.'");
-                    DataConnection.ExecuteQuery(command);
-                    MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadData_Staff();
-                }
-                else
-                {
-                    MessageBox.Show("Đã tồn tại SĐT trên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Hãy bật chế độ edit! Điền thông tin nhân viên trước khi thêm!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            (new Management.Account.frmAddStaff()).ShowDialog();
+            dgvStaff.Refresh();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtStaffName.ReadOnly == false && this.dgvStaff.SelectedRows.Count > 0)
-            {
-                if (txtStaffName.Text == "" || txtPhone.Text == "" || cboSex.Text == "")
-                {
-                    MessageBox.Show("Thông tin nhân viên chưa đầy đủ! Hãy nhập lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+            LibraryEntity.Staff staff = new LibraryEntity.Staff();
+            staff.MaNV = (int)dgvStaff.SelectedRows[0].Cells["MaNV"].Value;
+            staff.HoTen = dgvStaff.SelectedRows[0].Cells["HoTen"].Value.ToString();
+            staff.NgaySinh = (DateTime)dgvStaff.SelectedRows[0].Cells["NgaySinh"].Value;
+            staff.GioiTinh = dgvStaff.SelectedRows[0].Cells["GioiTinh"].Value.ToString();
+            staff.DiaChi = dgvStaff.SelectedRows[0].Cells["DiaChi"].Value.ToString();
+            staff.SDT = dgvStaff.SelectedRows[0].Cells["SDT"].Value.ToString();
 
-                if (IsVietnamPhoneNumber(txtPhone.Text) == false || DateTime.Now < dtpDateOfBirth.Value)
-                {
-                    MessageBox.Show("SĐT hoặc Ngày sinh không hợp lệ!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-
-                DataTable dt1 = DataConnection.GetDataTable(@"EXEC sp_select_staff @SDT = '" + txtPhone.Text + "'");
-                if (dt1.Rows.Count == 0 || curPhone == txtPhone.Text)
-                {
-
-                    DataTable dt = DataConnection.GetDataTable(@"EXEC sp_select_staff @SDT = '" + curPhone + "'");
-
-                    int MaNV = Int32.Parse(dt.Rows[0][0].ToString());
-
-                    string command = "";
-                    if (chkUsernamePermission.Checked == true)
-                        command = (@"EXEC sp_update_staff @MaNV = " + MaNV + ", @HoTen = N'" + txtStaffName.Text + "', @GioiTinh = N'" + cboSex.Text + "', @NgaySinh = N'"
-                                        + dtpDateOfBirth.Value.ToShortDateString() + "', @DiaChi = N'" + txtAddress.Text + "', @SDT = '" + txtPhone.Text + "', @TenTaiKhoan = '" + cboAccountName.Text + "'");
-                    else
-                        command = (@"EXEC sp_update_staff @MaNV = " + MaNV + ", @HoTen = N'" + txtStaffName.Text + "', @GioiTinh = N'" + cboSex.Text + "', @NgaySinh = N'"
-                                        + dtpDateOfBirth.Value.ToShortDateString() + "', @DiaChi = N'" + txtAddress.Text + "', @SDT = '" + txtPhone.Text + "', @TenTaiKhoan = '.'");
-
-                    DataConnection.ExecuteQuery(command);
-                    MessageBox.Show("Cập nhật nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadData_Staff();
-                }
-                else
-                {
-                    MessageBox.Show("Đã tồn tại SĐT trên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }    
-            }
-            else
-            {
-                MessageBox.Show("Chưa bật chế độ edit hoặc Chưa chọn nhân viên cần sửa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            (new Management.Account.frmEditStaff(staff)).ShowDialog();
+            dgvStaff.Refresh();
         }
     }
 }

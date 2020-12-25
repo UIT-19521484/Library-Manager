@@ -62,13 +62,20 @@ namespace New_Library.Forms.Genre
             {
                 case 0:
                     string command = @"INSERT INTO THELOAI (TenTL) VALUES (N'" + txtGenreName.Text + "')";
-                    DataConnection.ExecuteQuery(command);
-                    MessageBox.Show("Thêm thể loại thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (DataConnection.ExecuteQuery(command))
+                    {
+                        MessageBox.Show("Thêm thể loại thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        return;
+                    }
                     break;
                 default:
                     MessageBox.Show("Đã tồn tại thể loại này!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    break;
+                    return;
             }
+            this.Dispose();
         }
     }
 }

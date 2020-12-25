@@ -310,9 +310,11 @@ GO
 CREATE PROC sp_select_all_accounts
 AS
 BEGIN
-	SELECT TenTaiKhoan AS [TÊN TÀI KHOẢN], MatKhau AS [MẬT KHẨU], PhanQuyen AS [PHÂN QUYỀN]  FROM TAIKHOAN
+	SELECT HoTen as [HỌ TÊN], TAIKHOAN.TenTaiKhoan AS [TÊN TÀI KHOẢN], PhanQuyen AS [PHÂN QUYỀN] FROM TAIKHOAN left join NHANVIEN on TAIKHOAN.TenTaiKhoan = NHANVIEN.TenTaiKhoan
 END
 GO
+
+--drop proc sp_select_all_accounts
 
 --- 13.---Select Tên tài khoản
 CREATE PROC sp_select_all_account_name
@@ -436,11 +438,13 @@ CREATE PROC sp_search_genres
 AS
 BEGIN
 	DECLARE @temp NVARCHAR(200) = N'"*'+ @TuKhoa + '*"'
-	SELECT TenTL AS [TÊN THỂ LOẠI] FROM THELOAI 
+	SELECT MaTL, TenTL AS [TÊN THỂ LOẠI] FROM THELOAI 
 	WHERE 
 		( CONTAINS(TenTL, @temp ) OR FREETEXT(TenTL, @TuKhoa) OR TenTL LIKE '%'+ @TuKhoa +'%' )
 END
 GO
+
+--drop proc sp_search_genre
 
 --- 24. --- Select 1 thể loại từ tên thể loại (kiểm tra có sách thuộc thể loại này hay không)
 CREATE PROC sp_select_genre
@@ -470,7 +474,7 @@ create PROC sp_search_readers
 AS
 BEGIN
 	DECLARE @temp NVARCHAR(200) = N'"*'+ @TuKhoa + '*"'
-	SELECT HoTen AS [HỌ TÊN], GioiTinh AS [GIỚI TÍNH], NgaySinh AS [NGÀY SINH], DiaChi AS [ĐỊA CHỈ], SDT AS [SĐT], Email AS [EMAIL] 
+	SELECT MaDG, HoTen AS [HỌ TÊN], GioiTinh AS [GIỚI TÍNH], NgaySinh AS [NGÀY SINH], DiaChi AS [ĐỊA CHỈ], SDT AS [SĐT], Email AS [EMAIL] 
 	FROM DOCGIA
 	WHERE ( CONTAINS(HoTen, @temp ) OR FREETEXT(HoTen, @TuKhoa) OR HoTen LIKE '%'+ @TuKhoa +'%' OR
 		    CONTAINS(GioiTinh, @temp ) OR FREETEXT(GioiTinh, @TuKhoa) OR GioiTinh LIKE '%'+ @TuKhoa +'%' OR
@@ -528,7 +532,7 @@ CREATE PROC sp_search_staff
 AS
 BEGIN
 	DECLARE @temp NVARCHAR(200) = N'"*'+ @TuKhoa + '*"'
-	SELECT HoTen AS [HỌ TÊN], GioiTinh AS [GIỚI TÍNH], NgaySinh AS [NGÀY SINH], DiaChi AS [ĐỊA CHỈ], SDT AS [SĐT], TenTaiKhoan AS [TÀI KHOẢN] 
+	SELECT MaNV, HoTen AS [HỌ TÊN], GioiTinh AS [GIỚI TÍNH], NgaySinh AS [NGÀY SINH], DiaChi AS [ĐỊA CHỈ], SDT AS [SĐT], TenTaiKhoan AS [TÀI KHOẢN] 
 	FROM NHANVIEN
 	WHERE ( CONTAINS(HoTen, @temp ) OR FREETEXT(HoTen, @TuKhoa) OR HoTen LIKE '%'+ @TuKhoa +'%' OR
 		    CONTAINS(GioiTinh, @temp ) OR FREETEXT(GioiTinh, @TuKhoa) OR GioiTinh LIKE '%'+ @TuKhoa +'%' OR
@@ -561,31 +565,28 @@ go
 
 --- 34. --- Insert 1 nhân viên
 CREATE PROC sp_insert_staff 
-@HoTen NVARCHAR(100), @GioiTinh NVARCHAR(10), @NgaySinh DATE, @DiaChi NVARCHAR(200), @SDT VARCHAR(20), @TenTaiKhoan VARCHAR(100)
+@HoTen NVARCHAR(100), @GioiTinh NVARCHAR(10), @NgaySinh DATE, @DiaChi NVARCHAR(200), @SDT VARCHAR(20), @TenTaiKhoan VARCHAR(100), @MatKhau VARCHAR(50)
 AS
 BEGIN
-	IF @TenTaiKhoan = '.'
-		INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (@HoTen, @GioiTinh, @NgaySinh,@DiaChi,@SDT)
-	ELSE
-		INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [TenTaiKhoan]) VALUES (@HoTen, @GioiTinh, @NgaySinh,@DiaChi,@SDT, @TenTaiKhoan)
+	INSERT [dbo].[TAIKHOAN] (TenTaiKhoan, MatKhau) VALUES (@TenTaiKhoan, @MatKhau);
+	INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [TenTaiKhoan]) VALUES (@HoTen, @GioiTinh, @NgaySinh, @DiaChi, @SDT, @TenTaiKhoan)
 END
 go
 
+--drop proc sp_insert_staff
+
 --- 35. --- Update 1 nhân viên
 CREATE PROC sp_update_staff
-@MaNV INT, @HoTen NVARCHAR(100), @GioiTinh NVARCHAR(10), @NgaySinh DATE, @DiaChi NVARCHAR(200), @SDT VARCHAR(20), @TenTaiKhoan VARCHAR(100)
+@MaNV INT, @HoTen NVARCHAR(100), @GioiTinh NVARCHAR(10), @NgaySinh DATE, @DiaChi NVARCHAR(200), @SDT VARCHAR(20)
 AS
 BEGIN
-	IF @TenTaiKhoan = '.'
-		UPDATE NHANVIEN
-		SET HoTen = @HoTen, GioiTinh = @GioiTinh, NgaySinh = @NgaySinh, DiaChi = @DiaChi, SDT = @SDT
-		WHERE MaNV = @MaNV
-	ELSE
-		UPDATE NHANVIEN
-		SET HoTen = @HoTen, GioiTinh = @GioiTinh, NgaySinh = @NgaySinh, DiaChi = @DiaChi, SDT = @SDT, TenTaiKhoan = @TenTaiKhoan
-		WHERE MaNV = @MaNV
+	UPDATE NHANVIEN
+	SET HoTen = @HoTen, GioiTinh = @GioiTinh, NgaySinh = @NgaySinh, DiaChi = @DiaChi, SDT = @SDT
+	WHERE MaNV = @MaNV
 END
 go
+
+--drop proc sp_update_staff
 
 ---- 36. --- Search Tài khoản
 CREATE PROC sp_search_accounts

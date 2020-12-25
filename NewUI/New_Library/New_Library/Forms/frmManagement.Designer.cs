@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.pnlManagementMenu = new System.Windows.Forms.Panel();
-            this.pnlManagementCihildForm = new System.Windows.Forms.Panel();
             this.btnAccount = new System.Windows.Forms.Button();
             this.btnStaff = new System.Windows.Forms.Button();
+            this.pnlManagementChildForm = new System.Windows.Forms.Panel();
             this.pnlManagementMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,16 +46,9 @@
             this.pnlManagementMenu.Size = new System.Drawing.Size(131, 537);
             this.pnlManagementMenu.TabIndex = 0;
             // 
-            // pnlManagementCihildForm
-            // 
-            this.pnlManagementCihildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlManagementCihildForm.Location = new System.Drawing.Point(131, 0);
-            this.pnlManagementCihildForm.Name = "pnlManagementCihildForm";
-            this.pnlManagementCihildForm.Size = new System.Drawing.Size(884, 537);
-            this.pnlManagementCihildForm.TabIndex = 1;
-            // 
             // btnAccount
             // 
+            this.btnAccount.BackColor = System.Drawing.Color.Transparent;
             this.btnAccount.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAccount.FlatAppearance.BorderSize = 0;
             this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -71,11 +64,12 @@
             this.btnAccount.Text = "   Tài khoản";
             this.btnAccount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAccount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAccount.UseVisualStyleBackColor = true;
+            this.btnAccount.UseVisualStyleBackColor = false;
             this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
             // 
             // btnStaff
             // 
+            this.btnStaff.BackColor = System.Drawing.Color.Transparent;
             this.btnStaff.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnStaff.FlatAppearance.BorderSize = 0;
             this.btnStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -91,17 +85,28 @@
             this.btnStaff.Text = "   Nhân viên";
             this.btnStaff.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStaff.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnStaff.UseVisualStyleBackColor = true;
+            this.btnStaff.UseVisualStyleBackColor = false;
             this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
+            // 
+            // pnlManagementChildForm
+            // 
+            this.pnlManagementChildForm.BackColor = System.Drawing.Color.White;
+            this.pnlManagementChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlManagementChildForm.Location = new System.Drawing.Point(131, 0);
+            this.pnlManagementChildForm.Name = "pnlManagementChildForm";
+            this.pnlManagementChildForm.Size = new System.Drawing.Size(884, 537);
+            this.pnlManagementChildForm.TabIndex = 1;
             // 
             // frmManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(1015, 537);
-            this.Controls.Add(this.pnlManagementCihildForm);
+            this.Controls.Add(this.pnlManagementChildForm);
             this.Controls.Add(this.pnlManagementMenu);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmManagement";
             this.Text = "QUẢN LÝ";
             this.Load += new System.EventHandler(this.frmManagement_Load);
@@ -115,6 +120,6 @@
         private System.Windows.Forms.Panel pnlManagementMenu;
         private System.Windows.Forms.Button btnAccount;
         private System.Windows.Forms.Button btnStaff;
-        private System.Windows.Forms.Panel pnlManagementCihildForm;
+        private System.Windows.Forms.Panel pnlManagementChildForm;
     }
 }

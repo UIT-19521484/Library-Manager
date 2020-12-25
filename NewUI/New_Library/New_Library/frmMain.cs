@@ -17,7 +17,6 @@ namespace New_Library
         private Button currentButton;
         private Random random;
         private int tempIndex;
-        private Form activeForm;
 
         private string username;
         private string password;
@@ -31,8 +30,6 @@ namespace New_Library
         Forms.frmManagement management = new Forms.frmManagement();
         Forms.frmSetting setting = new Forms.frmSetting();
         Forms.frmHelp help = new Forms.frmHelp();
-
-        //public DatabaseListener listener = new DatabaseListener();
 
         //Constructor
         public frmMain(string username, string password, string role)
@@ -122,7 +119,6 @@ namespace New_Library
                 ActiveButton(btnSender);
             }
 
-            activeForm = childForm;
             childForm.TopLevel = false;
             childForm.Dock = DockStyle.Fill;
             this.pnlChildForm.Controls.Add(childForm);
@@ -216,6 +212,11 @@ namespace New_Library
             pnlTitleBar.BackColor = Color.FromArgb(51, 51, 76);
             pnlLogo.BackColor = Color.FromArgb(39, 39, 58);
             currentButton = null;
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DatabaseListener.Dispose();
         }
     }
 }

@@ -65,6 +65,11 @@ namespace New_Library
             {
                 e.Cancel = true;
             }
+            else
+            {
+                this.FormClosing -= frmLogin_FormClosing;
+                Application.Exit();
+            }    
         }
 
         private void txtPassword_Enter(object sender, EventArgs e)
@@ -353,9 +358,14 @@ namespace New_Library
             if (dt.Rows.Count > 0)
             {
                 string update = @"EXEC sp_update_password @TenTaiKhoan = '" + txtUsernameFP.Text + "', @MatKhau = '" + CreateMD5(txtNewPasswordFP.Text) + "'";
-                DataConnection.ExecuteQuery(update);
-
-                MessageBox.Show("Đổi mật khẩu thành công! Hãy đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (DataConnection.ExecuteQuery(update))
+                {
+                    MessageBox.Show("Đổi mật khẩu thành công! Hãy đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Đổi mật khẩu thất bại! Hãy đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
                 tmrLogin.Start();
             }

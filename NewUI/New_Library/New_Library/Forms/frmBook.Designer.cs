@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,12 +49,10 @@
             this.lblSearch = new System.Windows.Forms.Label();
             this.pnlBook = new System.Windows.Forms.Panel();
             this.cbGenre = new System.Windows.Forms.ComboBox();
-            this.errBook = new System.Windows.Forms.ErrorProvider(this.components);
             this.cbAuthor = new System.Windows.Forms.ComboBox();
             this.cbPublisher = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.pnlBook.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errBook)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDelete
@@ -255,7 +252,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Image = global::New_Library.Properties.Resources.right_24px;
-            this.btnSearch.Location = new System.Drawing.Point(653, 6);
+            this.btnSearch.Location = new System.Drawing.Point(682, 6);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(37, 27);
             this.btnSearch.TabIndex = 56;
@@ -270,7 +267,7 @@
             this.txtSearch.Font = new System.Drawing.Font("Verdana", 12F);
             this.txtSearch.Location = new System.Drawing.Point(107, 6);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(540, 27);
+            this.txtSearch.Size = new System.Drawing.Size(569, 27);
             this.txtSearch.TabIndex = 55;
             // 
             // lblSearch
@@ -309,13 +306,8 @@
             this.cbGenre.TabIndex = 58;
             this.cbGenre.TabStop = false;
             this.cbGenre.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
+            this.cbGenre.Enter += new System.EventHandler(this.cbGenre_Enter);
             this.cbGenre.Leave += new System.EventHandler(this.cbGenre_Leave);
-            // 
-            // errBook
-            // 
-            this.errBook.BlinkRate = 0;
-            this.errBook.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errBook.ContainerControl = this;
             // 
             // cbAuthor
             // 
@@ -330,6 +322,7 @@
             this.cbAuthor.TabIndex = 59;
             this.cbAuthor.TabStop = false;
             this.cbAuthor.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
+            this.cbAuthor.Enter += new System.EventHandler(this.cbAuthor_Enter);
             this.cbAuthor.Leave += new System.EventHandler(this.cbAuthor_Leave);
             // 
             // cbPublisher
@@ -345,6 +338,7 @@
             this.cbPublisher.TabIndex = 60;
             this.cbPublisher.TabStop = false;
             this.cbPublisher.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
+            this.cbPublisher.Enter += new System.EventHandler(this.cbPublisher_Enter);
             this.cbPublisher.Leave += new System.EventHandler(this.cbPublisher_Leave);
             // 
             // frmBook
@@ -370,7 +364,6 @@
             this.Load += new System.EventHandler(this.frmBook_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
             this.pnlBook.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.errBook)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,7 +379,6 @@
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Panel pnlBook;
         private System.Windows.Forms.ComboBox cbGenre;
-        private System.Windows.Forms.ErrorProvider errBook;
         private System.Windows.Forms.ComboBox cbPublisher;
         private System.Windows.Forms.ComboBox cbAuthor;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSach;

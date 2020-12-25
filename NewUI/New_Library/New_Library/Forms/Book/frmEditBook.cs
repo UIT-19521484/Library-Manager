@@ -13,8 +13,8 @@ namespace New_Library.Forms.Book
     public partial class frmEditBook : Form
     {
         string errMsg;
-        DataTable dt = DataConnection.GetDataTable("sp_select_all_genres");
-        int BookID;
+        DataTable dt = DatabaseData.dtGenre.Copy();
+        int bookID;
 
         public frmEditBook(LibraryEntity.Book selectedBook)
         {
@@ -28,7 +28,7 @@ namespace New_Library.Forms.Book
             cbGenre.Text = (from DataRow dr in dt.Rows
                            where (int)dr["MaTL"] == selectedBook.MaTL
                            select (string)dr["TÊN THỂ LOẠI"]).FirstOrDefault();
-            BookID = selectedBook.MaSach;
+            bookID = selectedBook.MaSach;
         }
 
         private void CancelValidatedEvent(Control control, Label error, CancelEventArgs e)
@@ -46,20 +46,21 @@ namespace New_Library.Forms.Book
             cbGenre.SelectedIndex = -1;
         }
 
-        private bool IsBookExist()
-        {
-            string cmd = @"Select TenSach, TacGia, NhaXuatBan, TenTL from SACH left join THELOAI on SACH.MaTL = THELOAI.MaTL where "
-                        + "TenSach = N'" + txtBookName.Text + "' and "
-                        + "TacGia = N'" + txtAuthorName.Text + "' and "
-                        + "NhaXuatBan = N'" + txtPublisherName.Text + "' and "
-                        + "TenTL = N'" + cbGenre.Text + "'";
+        //private bool IsBookExist()
+        //{
+        //    string cmd = @"Select TenSach, TacGia, NhaXuatBan, TenTL, TonTai from SACH left join THELOAI on SACH.MaTL = THELOAI.MaTL where "
+        //                + "TenSach = N'" + txtBookName.Text + "' and "
+        //                + "TacGia = N'" + txtAuthorName.Text + "' and "
+        //                + "NhaXuatBan = N'" + txtPublisherName.Text + "' and "
+        //                + "TenTL = N'" + cbGenre.Text + "' and"
+        //                + "TonTai = " + txtAvailable;
 
-            if (DataConnection.GetDataTable(cmd).Rows.Count == 0)
-            {
-                return false;
-            }
-            return true;
-        }
+        //    if (DataConnection.GetDataTable(cmd).Rows.Count == 0)
+        //    {
+        //        return false;
+        //    }
+        //    return true;
+        //}
 
         private void frmAddBook_Load(object sender, EventArgs e)
         {
@@ -75,52 +76,33 @@ namespace New_Library.Forms.Book
 
             GC.Collect();
         }
-
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
             if (!ValidateChildren(ValidationConstraints.Enabled))
             {
                 return;
             }
 
-            if (IsBookExist())
-            {
-                DialogResult rs =
-                    MessageBox.Show
-                    ("Sách này đã tồn tại trong cơ sở dữ liệu.\n" +
-                    "Cộng thêm số lượng vào sách đã có hiện tại hiện tại?",
-                    "Thông báo",
-                    MessageBoxButtons.OKCancel,
-                    MessageBoxIcon.Question);
-
-                if (rs == DialogResult.OK)
-                {
-                    DataConnection.ExecuteQuery("EXEC sp_increase_book_quantity "
-                        + "@TenSach = N'" + txtBookName.Text + "', "
-                        + "@TacGia = N'" + txtAuthorName.Text + "', "
-                        + "@NhaXuatBan = N'" + txtPublisherName.Text + "', "
-                        + "@TenTL = N'" + cbGenre.Text + "', "
-                        + "@SoLuong = " + txtAvailable.Text);
-                }
-            }
-            else
-            {
-                string cmd = @"EXEC sp_update_book "
-                        + "@MaSach = " + BookID.ToString() + ", "
+            string cmd = @"EXEC sp_update_book "
+                        + "@MaSach = " + bookID.ToString() + ", "
                         + "@TenSach = N'" + txtBookName.Text + "', "
                         + "@TacGia = N'" + txtAuthorName.Text + "', "
                         + "@NhaXuatBan = N'" + txtPublisherName.Text + "', "
                         + "@TenTL = N'" + cbGenre.Text + "', "
                         + "@TonTai = " + txtAvailable.Text;
 
-                DataConnection.ExecuteQuery(cmd);
-
+            if (DataConnection.ExecuteQuery(cmd))
+            {
                 MessageBox.Show("Thay đổi thông tin sách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
+            else
+            {
+                return;
+            }    
             this.Dispose();
         }
 
+        #region Validate input data
         private void txtBookName_Validating(object sender, CancelEventArgs e)
         {
             if (ValidateInput.IsEmpty(txtBookName.Text, out errMsg))
@@ -187,5 +169,6 @@ namespace New_Library.Forms.Book
             errAddBook.SetError(gbAvailable, "");
             lblAvailableWarning.Text = "";
         }
+        #endregion
     }
 }

@@ -35,11 +35,11 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.dgvGenre = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.TenTL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.TenTheLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenre)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +50,7 @@
             this.txtSearch.Font = new System.Drawing.Font("Verdana", 12F);
             this.txtSearch.Location = new System.Drawing.Point(107, 12);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(381, 27);
+            this.txtSearch.Size = new System.Drawing.Size(472, 27);
             this.txtSearch.TabIndex = 1;
             // 
             // lblSearch
@@ -88,7 +88,7 @@
             this.dgvGenre.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGenre.ColumnHeadersHeight = 32;
             this.dgvGenre.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TenTheLoai});
+            this.TenTL});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -126,6 +126,13 @@
             this.dgvGenre.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGenre_CellClick);
             this.dgvGenre.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvGenre_DataBindingComplete);
             // 
+            // TenTL
+            // 
+            this.TenTL.DataPropertyName = "TÊN THỂ LOẠI";
+            this.TenTL.HeaderText = "TÊN THỂ LOẠI";
+            this.TenTL.Name = "TenTL";
+            this.TenTL.ReadOnly = true;
+            // 
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -134,7 +141,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Image = global::New_Library.Properties.Resources.right_24px;
-            this.btnSearch.Location = new System.Drawing.Point(494, 12);
+            this.btnSearch.Location = new System.Drawing.Point(585, 12);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(37, 27);
             this.btnSearch.TabIndex = 54;
@@ -208,13 +215,6 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // TenTheLoai
-            // 
-            this.TenTheLoai.DataPropertyName = "TÊN THỂ LOẠI";
-            this.TenTheLoai.HeaderText = "TÊN THỂ LOẠI";
-            this.TenTheLoai.Name = "TenTheLoai";
-            this.TenTheLoai.ReadOnly = true;
-            // 
             // frmGenre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,6 +249,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenTheLoai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenTL;
     }
 }

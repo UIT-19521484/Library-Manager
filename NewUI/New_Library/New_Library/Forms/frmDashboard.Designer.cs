@@ -50,9 +50,9 @@
             this.lblTotalReader = new System.Windows.Forms.Label();
             this.lblNoTotalReader = new System.Windows.Forms.Label();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtPhoneName = new System.Windows.Forms.TextBox();
-            this.txtEmailName = new System.Windows.Forms.TextBox();
-            this.txtAddressName = new System.Windows.Forms.TextBox();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.lblPhoneTag = new System.Windows.Forms.Label();
             this.lblEmailTag = new System.Windows.Forms.Label();
             this.lblAddressTag = new System.Windows.Forms.Label();
@@ -407,9 +407,9 @@
             this.tableLayoutPanel9.ColumnCount = 2;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.96009F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.03991F));
-            this.tableLayoutPanel9.Controls.Add(this.txtPhoneName, 1, 3);
-            this.tableLayoutPanel9.Controls.Add(this.txtEmailName, 1, 2);
-            this.tableLayoutPanel9.Controls.Add(this.txtAddressName, 1, 1);
+            this.tableLayoutPanel9.Controls.Add(this.txtPhoneNumber, 1, 3);
+            this.tableLayoutPanel9.Controls.Add(this.txtEmail, 1, 2);
+            this.tableLayoutPanel9.Controls.Add(this.txtAddress, 1, 1);
             this.tableLayoutPanel9.Controls.Add(this.lblPhoneTag, 0, 3);
             this.tableLayoutPanel9.Controls.Add(this.lblEmailTag, 0, 2);
             this.tableLayoutPanel9.Controls.Add(this.lblAddressTag, 0, 1);
@@ -426,44 +426,41 @@
             this.tableLayoutPanel9.Size = new System.Drawing.Size(902, 150);
             this.tableLayoutPanel9.TabIndex = 1;
             // 
-            // txtPhoneName
+            // txtPhoneNumber
             // 
-            this.txtPhoneName.BackColor = System.Drawing.Color.White;
-            this.txtPhoneName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPhoneName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPhoneName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.txtPhoneName.Location = new System.Drawing.Point(165, 114);
-            this.txtPhoneName.Name = "txtPhoneName";
-            this.txtPhoneName.ReadOnly = true;
-            this.txtPhoneName.Size = new System.Drawing.Size(734, 31);
-            this.txtPhoneName.TabIndex = 10;
-            this.txtPhoneName.Text = "19001000";
+            this.txtPhoneNumber.BackColor = System.Drawing.Color.White;
+            this.txtPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(165, 114);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.ReadOnly = true;
+            this.txtPhoneNumber.Size = new System.Drawing.Size(734, 31);
+            this.txtPhoneNumber.TabIndex = 10;
             // 
-            // txtEmailName
+            // txtEmail
             // 
-            this.txtEmailName.BackColor = System.Drawing.Color.White;
-            this.txtEmailName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEmailName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtEmailName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.txtEmailName.Location = new System.Drawing.Point(165, 77);
-            this.txtEmailName.Name = "txtEmailName";
-            this.txtEmailName.ReadOnly = true;
-            this.txtEmailName.Size = new System.Drawing.Size(734, 31);
-            this.txtEmailName.TabIndex = 9;
-            this.txtEmailName.Text = "something@emailhost.com";
+            this.txtEmail.BackColor = System.Drawing.Color.White;
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.txtEmail.Location = new System.Drawing.Point(165, 77);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
+            this.txtEmail.Size = new System.Drawing.Size(734, 31);
+            this.txtEmail.TabIndex = 9;
             // 
-            // txtAddressName
+            // txtAddress
             // 
-            this.txtAddressName.BackColor = System.Drawing.Color.White;
-            this.txtAddressName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddressName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAddressName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.txtAddressName.Location = new System.Drawing.Point(165, 40);
-            this.txtAddressName.Name = "txtAddressName";
-            this.txtAddressName.ReadOnly = true;
-            this.txtAddressName.Size = new System.Drawing.Size(734, 31);
-            this.txtAddressName.TabIndex = 8;
-            this.txtAddressName.Text = "SOMEWHERE";
+            this.txtAddress.BackColor = System.Drawing.Color.White;
+            this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAddress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.txtAddress.Location = new System.Drawing.Point(165, 40);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.ReadOnly = true;
+            this.txtAddress.Size = new System.Drawing.Size(734, 31);
+            this.txtAddress.TabIndex = 8;
             // 
             // lblPhoneTag
             // 
@@ -536,7 +533,6 @@
             this.txtLibraryName.ReadOnly = true;
             this.txtLibraryName.Size = new System.Drawing.Size(734, 31);
             this.txtLibraryName.TabIndex = 7;
-            this.txtLibraryName.Text = "THƯ VIỆN CỘNG ĐỒNG";
             // 
             // frmDashboard
             // 
@@ -592,9 +588,9 @@
         private System.Windows.Forms.Label lblTotalReader;
         private System.Windows.Forms.Label lblNoTotalReader;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.TextBox txtPhoneName;
-        private System.Windows.Forms.TextBox txtEmailName;
-        private System.Windows.Forms.TextBox txtAddressName;
+        private System.Windows.Forms.TextBox txtPhoneNumber;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label lblPhoneTag;
         private System.Windows.Forms.Label lblEmailTag;
         private System.Windows.Forms.Label lblAddressTag;
