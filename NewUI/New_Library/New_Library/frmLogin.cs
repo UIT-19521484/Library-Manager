@@ -16,7 +16,7 @@ namespace New_Library
         string username;
         string password;
         string role;
-        string errMsg = "Trường này chưa nhập";
+        string errMsg = "";
 
         public frmLogin()
         {
@@ -34,13 +34,7 @@ namespace New_Library
             ResetErrorMessage();
         }
 
-        private void CancelValidatedEvent(Control control, Label error, CancelEventArgs e)
-        {
-            System.Media.SystemSounds.Asterisk.Play();
-            e.Cancel = true;
-            errLogin.SetError(control, errMsg);
-            error.Text = errMsg;
-        }
+        
 
         private void ResetErrorMessage()
         {
@@ -67,7 +61,7 @@ namespace New_Library
             }
             else
             {
-                this.FormClosing -= frmLogin_FormClosing;
+                //this.FormClosing -= frmLogin_FormClosing;
                 Application.Exit();
             }    
         }
@@ -97,7 +91,7 @@ namespace New_Library
                 this.txtUsername.Text = "";
             }
         }
-
+        
         private void txtUsername_Leave(object sender, EventArgs e)
         {
             if (this.txtUsername.Text == "")
@@ -106,9 +100,24 @@ namespace New_Library
             }
         }
 
+        #region Validate input data
+        private void CancelValidatedEvent(Control control, Label error, CancelEventArgs e)
+        {
+            System.Media.SystemSounds.Asterisk.Play();
+            e.Cancel = true;
+            errLogin.SetError(control, errMsg);
+            error.Text = errMsg;
+        }
+
         private void txtUsername_Validating(object sender, CancelEventArgs e)
         {
             if (txtUsername.Text == "Tên đăng nhập")
+            {
+                errMsg = "Hãy điền tên đăng nhập";
+                CancelValidatedEvent(txtUsername, lblUsernameError, e);
+                return;
+            }
+            if (!ValidateInput.ValidNoneSpecialChar(txtUsername.Text, out errMsg))
             {
                 CancelValidatedEvent(txtUsername, lblUsernameError, e);
             }
@@ -124,6 +133,12 @@ namespace New_Library
         {
             if (txtPassword.Text == "Mật khẩu")
             {
+                errMsg = "Hãy điền mật khẩu";
+                CancelValidatedEvent(txtPassword, lblPasswordError, e);
+                return;
+            }
+            if (!ValidateInput.ValidNoneSpecialChar(txtPassword.Text, out errMsg))
+            {
                 CancelValidatedEvent(txtPassword, lblPasswordError, e);
             }
         }
@@ -133,7 +148,7 @@ namespace New_Library
             this.errLogin.SetError(txtPassword, "");
             this.lblPasswordError.Text = "";
         }
-
+        #endregion
         private string CreateMD5(string passWord)
         {
             // Use input string to calculate MD5 hash
@@ -154,6 +169,15 @@ namespace New_Library
 
         private void ResetLogin()
         {
+            this.AcceptButton = this.btnSignin;
+
+            this.txtUsernameFP.Enabled = false;
+            this.txtNewPasswordFP.Enabled = false;
+            this.txtConfirmPassword.Enabled = false;
+
+            this.txtUsername.Enabled = true;
+            this.txtPassword.Enabled = true;
+
             txtUsername.Text = "Tên đăng nhập";
             txtPassword.Text = "Mật khẩu";
             txtPassword.UseSystemPasswordChar = false;
@@ -195,7 +219,7 @@ namespace New_Library
         {
             tmrForgotPassword.Start();
             this.AcceptButton = this.btnChangePassword;
-            this.btnChangePassword.Focus();
+            //this.btnChangePassword.Focus();
 
             this.txtUsernameFP.Enabled = true;
             this.txtNewPasswordFP.Enabled = true;
@@ -234,7 +258,7 @@ namespace New_Library
             tmrLogin.Start();
             ResetFogotPassword();
             this.AcceptButton = this.btnSignin;
-            this.btnSignin.Focus();
+            //this.btnSignin.Focus();
 
             this.txtUsernameFP.Enabled = false;
             this.txtNewPasswordFP.Enabled = false;
@@ -310,6 +334,11 @@ namespace New_Library
 
         private void txtUsernameFP_Validating(object sender, CancelEventArgs e)
         {
+            if (txtUsernameFP.Text == "Tên đăng nhập")
+            {
+                errMsg = "Hãy điền tên đăng nhập";
+                CancelValidatedEvent(txtUsernameFP, lblUsernameFPError, e);
+            }
             if (!ValidateInput.ValidNoneSpecialChar(txtUsernameFP.Text, out errMsg))
             {
                 CancelValidatedEvent(txtUsernameFP, lblUsernameFPError, e);
@@ -326,6 +355,11 @@ namespace New_Library
         {
             if (txtNewPasswordFP.Text == "Mật khẩu mới")
             {
+                errMsg = "Hãy điền mật khẩu mới";
+                CancelValidatedEvent(txtNewPasswordFP, lblNewPasswordFPError, e);
+            }
+            if (!ValidateInput.ValidNoneSpecialChar(txtNewPasswordFP.Text, out errMsg))
+            {
                 CancelValidatedEvent(txtNewPasswordFP, lblNewPasswordFPError, e);
             }
         }
@@ -337,16 +371,26 @@ namespace New_Library
         }
 
         private void txtConfirmPassword_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtConfirmPassword.Text == "Xác nhận Mật khẩu")
+        {           
+            if (txtConfirmPassword.Text == "Xác nhận Mật khẩu") 
             {
+                errMsg = "Hãy xác nhận mật khẩu";
+                CancelValidatedEvent(txtConfirmPassword, lblConfirmPasswordError, e);
+            }
+            if (!ValidateInput.ValidNoneSpecialChar(txtConfirmPassword.Text, out errMsg))
+            {
+                CancelValidatedEvent(txtConfirmPassword, lblConfirmPasswordError, e);
+            }
+            if (txtNewPasswordFP.Text != txtConfirmPassword.Text)
+            {
+                errMsg = "Mật khẩu xác nhận không trùng khớp";
                 CancelValidatedEvent(txtConfirmPassword, lblConfirmPasswordError, e);
             }
         }
 
         private void txtConfirmPassword_Validated(object sender, EventArgs e)
         {
-            this.errLogin.SetError(txtUsernameFP, "");
+            this.errLogin.SetError(txtConfirmPassword, "");
             this.lblConfirmPasswordError.Text = "";
         }
 
@@ -371,6 +415,7 @@ namespace New_Library
                 }
 
                 tmrLogin.Start();
+                ResetLogin();
             }
             else
             {

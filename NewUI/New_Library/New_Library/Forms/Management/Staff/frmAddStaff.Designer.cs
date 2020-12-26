@@ -33,48 +33,48 @@
             this.lblStaffNameError = new System.Windows.Forms.Label();
             this.gbSex = new System.Windows.Forms.GroupBox();
             this.cbSex = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpSex = new System.Windows.Forms.GroupBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.nudYear = new System.Windows.Forms.NumericUpDown();
             this.lblPhoneNumberWarning = new System.Windows.Forms.Label();
-            this.gbPhoneNumber = new System.Windows.Forms.GroupBox();
+            this.grpPhoneNumber = new System.Windows.Forms.GroupBox();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.nudDay = new System.Windows.Forms.NumericUpDown();
             this.lblAddressError = new System.Windows.Forms.Label();
-            this.gbAddress = new System.Windows.Forms.GroupBox();
+            this.grpAddress = new System.Windows.Forms.GroupBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.nudMonth = new System.Windows.Forms.NumericUpDown();
-            this.gbDOB = new System.Windows.Forms.GroupBox();
-            this.gbStaffName = new System.Windows.Forms.GroupBox();
+            this.grpDOB = new System.Windows.Forms.GroupBox();
+            this.grpStaffName = new System.Windows.Forms.GroupBox();
             this.txtStaffName = new System.Windows.Forms.TextBox();
-            this.gbStaffInfo = new System.Windows.Forms.GroupBox();
-            this.gbContactInfo = new System.Windows.Forms.GroupBox();
+            this.grpStaffInfo = new System.Windows.Forms.GroupBox();
+            this.grpContactInfo = new System.Windows.Forms.GroupBox();
             this.errAddStaff = new System.Windows.Forms.ErrorProvider(this.components);
-            this.gbPassword = new System.Windows.Forms.GroupBox();
+            this.grpPassword = new System.Windows.Forms.GroupBox();
             this.chkShowPassword = new System.Windows.Forms.CheckBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.gbAccountName = new System.Windows.Forms.GroupBox();
+            this.grpAccountName = new System.Windows.Forms.GroupBox();
             this.txtAccountName = new System.Windows.Forms.TextBox();
             this.lblAccountNameError = new System.Windows.Forms.Label();
-            this.gbAccount = new System.Windows.Forms.GroupBox();
+            this.grpAccount = new System.Windows.Forms.GroupBox();
             this.lblPasswordError = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.gbSex.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grpSex.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudYear)).BeginInit();
-            this.gbPhoneNumber.SuspendLayout();
+            this.grpPhoneNumber.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDay)).BeginInit();
-            this.gbAddress.SuspendLayout();
+            this.grpAddress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMonth)).BeginInit();
-            this.gbDOB.SuspendLayout();
-            this.gbStaffName.SuspendLayout();
-            this.gbStaffInfo.SuspendLayout();
-            this.gbContactInfo.SuspendLayout();
+            this.grpDOB.SuspendLayout();
+            this.grpStaffName.SuspendLayout();
+            this.grpStaffInfo.SuspendLayout();
+            this.grpContactInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errAddStaff)).BeginInit();
-            this.gbPassword.SuspendLayout();
-            this.gbAccountName.SuspendLayout();
-            this.gbAccount.SuspendLayout();
+            this.grpPassword.SuspendLayout();
+            this.grpAccountName.SuspendLayout();
+            this.grpAccount.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblSexError
@@ -103,7 +103,7 @@
             // 
             this.gbSex.BackColor = System.Drawing.Color.White;
             this.gbSex.Controls.Add(this.cbSex);
-            this.gbSex.Controls.Add(this.groupBox2);
+            this.gbSex.Controls.Add(this.grpSex);
             this.gbSex.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gbSex.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSex.Location = new System.Drawing.Point(13, 169);
@@ -131,22 +131,22 @@
             this.cbSex.Name = "cbSex";
             this.cbSex.Size = new System.Drawing.Size(337, 33);
             this.cbSex.Sorted = true;
-            this.cbSex.TabIndex = 2;
+            this.cbSex.TabIndex = 5;
             this.cbSex.Validating += new System.ComponentModel.CancelEventHandler(this.cbSex_Validating);
             this.cbSex.Validated += new System.EventHandler(this.cbSex_Validated);
             // 
-            // groupBox2
+            // grpSex
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.White;
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.groupBox2.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(349, 54);
-            this.groupBox2.TabIndex = 71;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Giới tính";
+            this.grpSex.BackColor = System.Drawing.Color.White;
+            this.grpSex.Controls.Add(this.comboBox2);
+            this.grpSex.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpSex.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpSex.Location = new System.Drawing.Point(0, 0);
+            this.grpSex.Name = "grpSex";
+            this.grpSex.Size = new System.Drawing.Size(349, 54);
+            this.grpSex.TabIndex = 71;
+            this.grpSex.TabStop = false;
+            this.grpSex.Text = "Giới tính";
             // 
             // comboBox2
             // 
@@ -183,7 +183,7 @@
             0});
             this.nudYear.Name = "nudYear";
             this.nudYear.Size = new System.Drawing.Size(121, 28);
-            this.nudYear.TabIndex = 5;
+            this.nudYear.TabIndex = 4;
             this.nudYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudYear.ValueChanged += new System.EventHandler(this.nudYear_ValueChanged);
             // 
@@ -198,18 +198,18 @@
             this.lblPhoneNumberWarning.TabIndex = 73;
             this.lblPhoneNumberWarning.Text = "PhoneNumber Warning ";
             // 
-            // gbPhoneNumber
+            // grpPhoneNumber
             // 
-            this.gbPhoneNumber.BackColor = System.Drawing.Color.White;
-            this.gbPhoneNumber.Controls.Add(this.txtPhoneNumber);
-            this.gbPhoneNumber.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbPhoneNumber.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPhoneNumber.Location = new System.Drawing.Point(6, 45);
-            this.gbPhoneNumber.Name = "gbPhoneNumber";
-            this.gbPhoneNumber.Size = new System.Drawing.Size(234, 48);
-            this.gbPhoneNumber.TabIndex = 69;
-            this.gbPhoneNumber.TabStop = false;
-            this.gbPhoneNumber.Text = "Số điện thoại";
+            this.grpPhoneNumber.BackColor = System.Drawing.Color.White;
+            this.grpPhoneNumber.Controls.Add(this.txtPhoneNumber);
+            this.grpPhoneNumber.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpPhoneNumber.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpPhoneNumber.Location = new System.Drawing.Point(6, 45);
+            this.grpPhoneNumber.Name = "grpPhoneNumber";
+            this.grpPhoneNumber.Size = new System.Drawing.Size(234, 48);
+            this.grpPhoneNumber.TabIndex = 69;
+            this.grpPhoneNumber.TabStop = false;
+            this.grpPhoneNumber.Text = "Số điện thoại";
             // 
             // txtPhoneNumber
             // 
@@ -244,7 +244,7 @@
             0});
             this.nudDay.Name = "nudDay";
             this.nudDay.Size = new System.Drawing.Size(102, 28);
-            this.nudDay.TabIndex = 3;
+            this.nudDay.TabIndex = 2;
             this.nudDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudDay.Value = new decimal(new int[] {
             1,
@@ -263,18 +263,18 @@
             this.lblAddressError.TabIndex = 75;
             this.lblAddressError.Text = "Address Error";
             // 
-            // gbAddress
+            // grpAddress
             // 
-            this.gbAddress.BackColor = System.Drawing.Color.White;
-            this.gbAddress.Controls.Add(this.txtAddress);
-            this.gbAddress.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbAddress.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbAddress.Location = new System.Drawing.Point(6, 110);
-            this.gbAddress.Name = "gbAddress";
-            this.gbAddress.Size = new System.Drawing.Size(234, 48);
-            this.gbAddress.TabIndex = 74;
-            this.gbAddress.TabStop = false;
-            this.gbAddress.Text = "Địa chỉ";
+            this.grpAddress.BackColor = System.Drawing.Color.White;
+            this.grpAddress.Controls.Add(this.txtAddress);
+            this.grpAddress.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpAddress.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpAddress.Location = new System.Drawing.Point(6, 110);
+            this.grpAddress.Name = "grpAddress";
+            this.grpAddress.Size = new System.Drawing.Size(234, 48);
+            this.grpAddress.TabIndex = 74;
+            this.grpAddress.TabStop = false;
+            this.grpAddress.Text = "Địa chỉ";
             // 
             // txtAddress
             // 
@@ -289,7 +289,7 @@
             this.txtAddress.Margin = new System.Windows.Forms.Padding(0);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(222, 26);
-            this.txtAddress.TabIndex = 8;
+            this.txtAddress.TabIndex = 7;
             this.txtAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddress_Validating);
             this.txtAddress.Validated += new System.EventHandler(this.txtAddress_Validated);
             // 
@@ -309,7 +309,7 @@
             0});
             this.nudMonth.Name = "nudMonth";
             this.nudMonth.Size = new System.Drawing.Size(106, 28);
-            this.nudMonth.TabIndex = 4;
+            this.nudMonth.TabIndex = 3;
             this.nudMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nudMonth.Value = new decimal(new int[] {
             1,
@@ -318,33 +318,33 @@
             0});
             this.nudMonth.ValueChanged += new System.EventHandler(this.nudMonth_ValueChanged);
             // 
-            // gbDOB
+            // grpDOB
             // 
-            this.gbDOB.BackColor = System.Drawing.Color.White;
-            this.gbDOB.Controls.Add(this.nudMonth);
-            this.gbDOB.Controls.Add(this.nudDay);
-            this.gbDOB.Controls.Add(this.nudYear);
-            this.gbDOB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbDOB.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbDOB.Location = new System.Drawing.Point(13, 110);
-            this.gbDOB.Name = "gbDOB";
-            this.gbDOB.Size = new System.Drawing.Size(349, 48);
-            this.gbDOB.TabIndex = 70;
-            this.gbDOB.TabStop = false;
-            this.gbDOB.Text = "Ngày sinh";
+            this.grpDOB.BackColor = System.Drawing.Color.White;
+            this.grpDOB.Controls.Add(this.nudMonth);
+            this.grpDOB.Controls.Add(this.nudDay);
+            this.grpDOB.Controls.Add(this.nudYear);
+            this.grpDOB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpDOB.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpDOB.Location = new System.Drawing.Point(13, 110);
+            this.grpDOB.Name = "grpDOB";
+            this.grpDOB.Size = new System.Drawing.Size(349, 48);
+            this.grpDOB.TabIndex = 70;
+            this.grpDOB.TabStop = false;
+            this.grpDOB.Text = "Ngày sinh";
             // 
-            // gbStaffName
+            // grpStaffName
             // 
-            this.gbStaffName.BackColor = System.Drawing.Color.White;
-            this.gbStaffName.Controls.Add(this.txtStaffName);
-            this.gbStaffName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbStaffName.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbStaffName.Location = new System.Drawing.Point(13, 45);
-            this.gbStaffName.Name = "gbStaffName";
-            this.gbStaffName.Size = new System.Drawing.Size(349, 48);
-            this.gbStaffName.TabIndex = 68;
-            this.gbStaffName.TabStop = false;
-            this.gbStaffName.Text = "Tên nhân viên";
+            this.grpStaffName.BackColor = System.Drawing.Color.White;
+            this.grpStaffName.Controls.Add(this.txtStaffName);
+            this.grpStaffName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpStaffName.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpStaffName.Location = new System.Drawing.Point(13, 45);
+            this.grpStaffName.Name = "grpStaffName";
+            this.grpStaffName.Size = new System.Drawing.Size(349, 48);
+            this.grpStaffName.TabIndex = 68;
+            this.grpStaffName.TabStop = false;
+            this.grpStaffName.Text = "Tên nhân viên";
             // 
             // txtStaffName
             // 
@@ -365,34 +365,34 @@
             this.txtStaffName.Validating += new System.ComponentModel.CancelEventHandler(this.txtStaffName_Validating);
             this.txtStaffName.Validated += new System.EventHandler(this.txtStaffName_Validated);
             // 
-            // gbStaffInfo
+            // grpStaffInfo
             // 
-            this.gbStaffInfo.Controls.Add(this.lblSexError);
-            this.gbStaffInfo.Controls.Add(this.lblStaffNameError);
-            this.gbStaffInfo.Controls.Add(this.gbSex);
-            this.gbStaffInfo.Controls.Add(this.gbDOB);
-            this.gbStaffInfo.Controls.Add(this.gbStaffName);
-            this.gbStaffInfo.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbStaffInfo.Location = new System.Drawing.Point(12, 12);
-            this.gbStaffInfo.Name = "gbStaffInfo";
-            this.gbStaffInfo.Size = new System.Drawing.Size(391, 331);
-            this.gbStaffInfo.TabIndex = 71;
-            this.gbStaffInfo.TabStop = false;
-            this.gbStaffInfo.Text = "Thông tin nhân viên";
+            this.grpStaffInfo.Controls.Add(this.lblSexError);
+            this.grpStaffInfo.Controls.Add(this.lblStaffNameError);
+            this.grpStaffInfo.Controls.Add(this.gbSex);
+            this.grpStaffInfo.Controls.Add(this.grpDOB);
+            this.grpStaffInfo.Controls.Add(this.grpStaffName);
+            this.grpStaffInfo.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpStaffInfo.Location = new System.Drawing.Point(12, 12);
+            this.grpStaffInfo.Name = "grpStaffInfo";
+            this.grpStaffInfo.Size = new System.Drawing.Size(391, 331);
+            this.grpStaffInfo.TabIndex = 71;
+            this.grpStaffInfo.TabStop = false;
+            this.grpStaffInfo.Text = "Thông tin nhân viên";
             // 
-            // gbContactInfo
+            // grpContactInfo
             // 
-            this.gbContactInfo.Controls.Add(this.lblAddressError);
-            this.gbContactInfo.Controls.Add(this.gbAddress);
-            this.gbContactInfo.Controls.Add(this.lblPhoneNumberWarning);
-            this.gbContactInfo.Controls.Add(this.gbPhoneNumber);
-            this.gbContactInfo.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbContactInfo.Location = new System.Drawing.Point(409, 12);
-            this.gbContactInfo.Name = "gbContactInfo";
-            this.gbContactInfo.Size = new System.Drawing.Size(268, 263);
-            this.gbContactInfo.TabIndex = 72;
-            this.gbContactInfo.TabStop = false;
-            this.gbContactInfo.Text = "Thông tin liên lạc";
+            this.grpContactInfo.Controls.Add(this.lblAddressError);
+            this.grpContactInfo.Controls.Add(this.grpAddress);
+            this.grpContactInfo.Controls.Add(this.lblPhoneNumberWarning);
+            this.grpContactInfo.Controls.Add(this.grpPhoneNumber);
+            this.grpContactInfo.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpContactInfo.Location = new System.Drawing.Point(409, 12);
+            this.grpContactInfo.Name = "grpContactInfo";
+            this.grpContactInfo.Size = new System.Drawing.Size(268, 263);
+            this.grpContactInfo.TabIndex = 72;
+            this.grpContactInfo.TabStop = false;
+            this.grpContactInfo.Text = "Thông tin liên lạc";
             // 
             // errAddStaff
             // 
@@ -400,19 +400,19 @@
             this.errAddStaff.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errAddStaff.ContainerControl = this;
             // 
-            // gbPassword
+            // grpPassword
             // 
-            this.gbPassword.BackColor = System.Drawing.Color.White;
-            this.gbPassword.Controls.Add(this.chkShowPassword);
-            this.gbPassword.Controls.Add(this.txtPassword);
-            this.gbPassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbPassword.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPassword.Location = new System.Drawing.Point(6, 110);
-            this.gbPassword.Name = "gbPassword";
-            this.gbPassword.Size = new System.Drawing.Size(234, 75);
-            this.gbPassword.TabIndex = 69;
-            this.gbPassword.TabStop = false;
-            this.gbPassword.Text = "Mật khẩu";
+            this.grpPassword.BackColor = System.Drawing.Color.White;
+            this.grpPassword.Controls.Add(this.chkShowPassword);
+            this.grpPassword.Controls.Add(this.txtPassword);
+            this.grpPassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpPassword.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpPassword.Location = new System.Drawing.Point(6, 110);
+            this.grpPassword.Name = "grpPassword";
+            this.grpPassword.Size = new System.Drawing.Size(234, 75);
+            this.grpPassword.TabIndex = 69;
+            this.grpPassword.TabStop = false;
+            this.grpPassword.Text = "Mật khẩu";
             // 
             // chkShowPassword
             // 
@@ -421,7 +421,7 @@
             this.chkShowPassword.Location = new System.Drawing.Point(9, 49);
             this.chkShowPassword.Name = "chkShowPassword";
             this.chkShowPassword.Size = new System.Drawing.Size(121, 20);
-            this.chkShowPassword.TabIndex = 75;
+            this.chkShowPassword.TabIndex = 10;
             this.chkShowPassword.TabStop = false;
             this.chkShowPassword.Text = "Hiện mật khẩu";
             this.chkShowPassword.UseVisualStyleBackColor = true;
@@ -440,23 +440,23 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(0);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(222, 26);
-            this.txtPassword.TabIndex = 10;
+            this.txtPassword.TabIndex = 9;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             this.txtPassword.Validated += new System.EventHandler(this.txtPassword_Validated);
             // 
-            // gbAccountName
+            // grpAccountName
             // 
-            this.gbAccountName.BackColor = System.Drawing.Color.White;
-            this.gbAccountName.Controls.Add(this.txtAccountName);
-            this.gbAccountName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbAccountName.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbAccountName.Location = new System.Drawing.Point(6, 45);
-            this.gbAccountName.Name = "gbAccountName";
-            this.gbAccountName.Size = new System.Drawing.Size(234, 48);
-            this.gbAccountName.TabIndex = 69;
-            this.gbAccountName.TabStop = false;
-            this.gbAccountName.Text = "Tên tài khoản";
+            this.grpAccountName.BackColor = System.Drawing.Color.White;
+            this.grpAccountName.Controls.Add(this.txtAccountName);
+            this.grpAccountName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpAccountName.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpAccountName.Location = new System.Drawing.Point(6, 45);
+            this.grpAccountName.Name = "grpAccountName";
+            this.grpAccountName.Size = new System.Drawing.Size(234, 48);
+            this.grpAccountName.TabIndex = 69;
+            this.grpAccountName.TabStop = false;
+            this.grpAccountName.Text = "Tên tài khoản";
             // 
             // txtAccountName
             // 
@@ -470,7 +470,7 @@
             this.txtAccountName.Margin = new System.Windows.Forms.Padding(0);
             this.txtAccountName.Name = "txtAccountName";
             this.txtAccountName.Size = new System.Drawing.Size(222, 26);
-            this.txtAccountName.TabIndex = 9;
+            this.txtAccountName.TabIndex = 8;
             this.txtAccountName.Validating += new System.ComponentModel.CancelEventHandler(this.txtAccountName_Validating);
             this.txtAccountName.Validated += new System.EventHandler(this.txtAccountName_Validated);
             // 
@@ -485,19 +485,19 @@
             this.lblAccountNameError.TabIndex = 73;
             this.lblAccountNameError.Text = "AccountName Warning ";
             // 
-            // gbAccount
+            // grpAccount
             // 
-            this.gbAccount.Controls.Add(this.lblPasswordError);
-            this.gbAccount.Controls.Add(this.lblAccountNameError);
-            this.gbAccount.Controls.Add(this.gbAccountName);
-            this.gbAccount.Controls.Add(this.gbPassword);
-            this.gbAccount.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbAccount.Location = new System.Drawing.Point(683, 12);
-            this.gbAccount.Name = "gbAccount";
-            this.gbAccount.Size = new System.Drawing.Size(268, 263);
-            this.gbAccount.TabIndex = 73;
-            this.gbAccount.TabStop = false;
-            this.gbAccount.Text = "Tài khoản";
+            this.grpAccount.Controls.Add(this.lblPasswordError);
+            this.grpAccount.Controls.Add(this.lblAccountNameError);
+            this.grpAccount.Controls.Add(this.grpAccountName);
+            this.grpAccount.Controls.Add(this.grpPassword);
+            this.grpAccount.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpAccount.Location = new System.Drawing.Point(683, 12);
+            this.grpAccount.Name = "grpAccount";
+            this.grpAccount.Size = new System.Drawing.Size(268, 263);
+            this.grpAccount.TabIndex = 73;
+            this.grpAccount.TabStop = false;
+            this.grpAccount.Text = "Tài khoản";
             // 
             // lblPasswordError
             // 
@@ -524,7 +524,7 @@
             this.btnCancel.Location = new System.Drawing.Point(818, 307);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(133, 36);
-            this.btnCancel.TabIndex = 70;
+            this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -545,7 +545,7 @@
             this.btnAdd.Location = new System.Drawing.Point(683, 307);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(133, 36);
-            this.btnAdd.TabIndex = 69;
+            this.btnAdd.TabIndex = 11;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -558,10 +558,10 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(962, 353);
-            this.Controls.Add(this.gbAccount);
+            this.Controls.Add(this.grpAccount);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.gbStaffInfo);
-            this.Controls.Add(this.gbContactInfo);
+            this.Controls.Add(this.grpStaffInfo);
+            this.Controls.Add(this.grpContactInfo);
             this.Controls.Add(this.btnAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -572,28 +572,28 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.frmAddStaff_Load);
             this.gbSex.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.grpSex.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudYear)).EndInit();
-            this.gbPhoneNumber.ResumeLayout(false);
-            this.gbPhoneNumber.PerformLayout();
+            this.grpPhoneNumber.ResumeLayout(false);
+            this.grpPhoneNumber.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDay)).EndInit();
-            this.gbAddress.ResumeLayout(false);
-            this.gbAddress.PerformLayout();
+            this.grpAddress.ResumeLayout(false);
+            this.grpAddress.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMonth)).EndInit();
-            this.gbDOB.ResumeLayout(false);
-            this.gbStaffName.ResumeLayout(false);
-            this.gbStaffName.PerformLayout();
-            this.gbStaffInfo.ResumeLayout(false);
-            this.gbStaffInfo.PerformLayout();
-            this.gbContactInfo.ResumeLayout(false);
-            this.gbContactInfo.PerformLayout();
+            this.grpDOB.ResumeLayout(false);
+            this.grpStaffName.ResumeLayout(false);
+            this.grpStaffName.PerformLayout();
+            this.grpStaffInfo.ResumeLayout(false);
+            this.grpStaffInfo.PerformLayout();
+            this.grpContactInfo.ResumeLayout(false);
+            this.grpContactInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errAddStaff)).EndInit();
-            this.gbPassword.ResumeLayout(false);
-            this.gbPassword.PerformLayout();
-            this.gbAccountName.ResumeLayout(false);
-            this.gbAccountName.PerformLayout();
-            this.gbAccount.ResumeLayout(false);
-            this.gbAccount.PerformLayout();
+            this.grpPassword.ResumeLayout(false);
+            this.grpPassword.PerformLayout();
+            this.grpAccountName.ResumeLayout(false);
+            this.grpAccountName.PerformLayout();
+            this.grpAccount.ResumeLayout(false);
+            this.grpAccount.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -605,30 +605,30 @@
         private System.Windows.Forms.ComboBox cbSex;
         private System.Windows.Forms.NumericUpDown nudYear;
         private System.Windows.Forms.Label lblPhoneNumberWarning;
-        private System.Windows.Forms.GroupBox gbPhoneNumber;
+        private System.Windows.Forms.GroupBox grpPhoneNumber;
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.NumericUpDown nudDay;
         private System.Windows.Forms.Label lblAddressError;
-        private System.Windows.Forms.GroupBox gbAddress;
+        private System.Windows.Forms.GroupBox grpAddress;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.NumericUpDown nudMonth;
-        private System.Windows.Forms.GroupBox gbDOB;
+        private System.Windows.Forms.GroupBox grpDOB;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.GroupBox gbStaffName;
+        private System.Windows.Forms.GroupBox grpStaffName;
         private System.Windows.Forms.TextBox txtStaffName;
-        private System.Windows.Forms.GroupBox gbStaffInfo;
-        private System.Windows.Forms.GroupBox gbContactInfo;
+        private System.Windows.Forms.GroupBox grpStaffInfo;
+        private System.Windows.Forms.GroupBox grpContactInfo;
         private System.Windows.Forms.ErrorProvider errAddStaff;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.GroupBox gbAccount;
+        private System.Windows.Forms.GroupBox grpAccount;
         private System.Windows.Forms.Label lblPasswordError;
         private System.Windows.Forms.Label lblAccountNameError;
-        private System.Windows.Forms.GroupBox gbAccountName;
+        private System.Windows.Forms.GroupBox grpAccountName;
         private System.Windows.Forms.TextBox txtAccountName;
-        private System.Windows.Forms.GroupBox gbPassword;
+        private System.Windows.Forms.GroupBox grpPassword;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.CheckBox chkShowPassword;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpSex;
         private System.Windows.Forms.ComboBox comboBox2;
     }
 }

@@ -33,8 +33,8 @@ namespace New_Library.Forms.Genre
             this.btnAddGenre = new System.Windows.Forms.Button();
             this.lblGenreNameError = new System.Windows.Forms.Label();
             this.txtGenreName = new System.Windows.Forms.TextBox();
-            this.gbGenreName = new System.Windows.Forms.GroupBox();
-            this.gbGenreName.SuspendLayout();
+            this.grpGenreName = new System.Windows.Forms.GroupBox();
+            this.grpGenreName.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancelAdd
@@ -51,7 +51,7 @@ namespace New_Library.Forms.Genre
             this.btnCancelAdd.Name = "btnCancelAdd";
             this.btnCancelAdd.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnCancelAdd.Size = new System.Drawing.Size(156, 31);
-            this.btnCancelAdd.TabIndex = 80;
+            this.btnCancelAdd.TabIndex = 3;
             this.btnCancelAdd.Text = "   Huỷ";
             this.btnCancelAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelAdd.UseVisualStyleBackColor = false;
@@ -71,7 +71,7 @@ namespace New_Library.Forms.Genre
             this.btnAddGenre.Name = "btnAddGenre";
             this.btnAddGenre.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnAddGenre.Size = new System.Drawing.Size(156, 31);
-            this.btnAddGenre.TabIndex = 79;
+            this.btnAddGenre.TabIndex = 2;
             this.btnAddGenre.Text = "   Thêm";
             this.btnAddGenre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddGenre.UseVisualStyleBackColor = false;
@@ -104,23 +104,23 @@ namespace New_Library.Forms.Genre
             this.txtGenreName.Margin = new System.Windows.Forms.Padding(0);
             this.txtGenreName.Name = "txtGenreName";
             this.txtGenreName.Size = new System.Drawing.Size(301, 26);
-            this.txtGenreName.TabIndex = 1;
+            this.txtGenreName.TabIndex = 0;
             this.txtGenreName.WordWrap = false;
             this.txtGenreName.Validating += new System.ComponentModel.CancelEventHandler(this.txtGenreName_Validating);
             this.txtGenreName.Validated += new System.EventHandler(this.txtGenreName_Validated);
             // 
-            // gbGenreName
+            // grpGenreName
             // 
-            this.gbGenreName.BackColor = System.Drawing.Color.White;
-            this.gbGenreName.Controls.Add(this.txtGenreName);
-            this.gbGenreName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbGenreName.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbGenreName.Location = new System.Drawing.Point(12, 12);
-            this.gbGenreName.Name = "gbGenreName";
-            this.gbGenreName.Size = new System.Drawing.Size(313, 48);
-            this.gbGenreName.TabIndex = 77;
-            this.gbGenreName.TabStop = false;
-            this.gbGenreName.Text = "Tên thể loại";
+            this.grpGenreName.BackColor = System.Drawing.Color.White;
+            this.grpGenreName.Controls.Add(this.txtGenreName);
+            this.grpGenreName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpGenreName.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpGenreName.Location = new System.Drawing.Point(12, 12);
+            this.grpGenreName.Name = "grpGenreName";
+            this.grpGenreName.Size = new System.Drawing.Size(313, 48);
+            this.grpGenreName.TabIndex = 77;
+            this.grpGenreName.TabStop = false;
+            this.grpGenreName.Text = "Tên thể loại";
             // 
             // frmAddGenre
             // 
@@ -132,7 +132,7 @@ namespace New_Library.Forms.Genre
             this.Controls.Add(this.btnCancelAdd);
             this.Controls.Add(this.btnAddGenre);
             this.Controls.Add(this.lblGenreNameError);
-            this.Controls.Add(this.gbGenreName);
+            this.Controls.Add(this.grpGenreName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -140,8 +140,8 @@ namespace New_Library.Forms.Genre
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.gbGenreName.ResumeLayout(false);
-            this.gbGenreName.PerformLayout();
+            this.grpGenreName.ResumeLayout(false);
+            this.grpGenreName.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,6 +153,6 @@ namespace New_Library.Forms.Genre
         private System.Windows.Forms.Button btnAddGenre;
         private System.Windows.Forms.Label lblGenreNameError;
         private System.Windows.Forms.TextBox txtGenreName;
-        private System.Windows.Forms.GroupBox gbGenreName;
+        private System.Windows.Forms.GroupBox grpGenreName;
     }
 }

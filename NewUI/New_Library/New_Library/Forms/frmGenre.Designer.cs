@@ -35,11 +35,11 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.dgvGenre = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.TenTL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.TenTL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenre)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +67,7 @@
             // 
             // dgvGenre
             // 
+            this.dgvGenre.AllowUserToAddRows = false;
             this.dgvGenre.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.dgvGenre.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -125,13 +126,6 @@
             this.dgvGenre.TabIndex = 45;
             this.dgvGenre.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGenre_CellClick);
             this.dgvGenre.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvGenre_DataBindingComplete);
-            // 
-            // TenTL
-            // 
-            this.TenTL.DataPropertyName = "TÊN THỂ LOẠI";
-            this.TenTL.HeaderText = "TÊN THỂ LOẠI";
-            this.TenTL.Name = "TenTL";
-            this.TenTL.ReadOnly = true;
             // 
             // btnSearch
             // 
@@ -214,6 +208,14 @@
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // TenTL
+            // 
+            this.TenTL.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenTL.DataPropertyName = "TÊN THỂ LOẠI";
+            this.TenTL.HeaderText = "TÊN THỂ LOẠI";
+            this.TenTL.Name = "TenTL";
+            this.TenTL.ReadOnly = true;
             // 
             // frmGenre
             // 

@@ -29,6 +29,10 @@ namespace New_Library.Forms.Reader
             nudYear.Maximum = DateTime.Now.Year;
             nudYear.Minimum = nudYear.Maximum - 100;
             nudDay.Maximum = DateTime.DaysInMonth(Convert.ToInt32(nudYear.Value), Convert.ToInt32(nudMonth.Value));
+
+            nudYear.Value = DateTime.Now.Year;
+            nudMonth.Value = DateTime.Now.Month;
+            nudDay.Value = DateTime.Now.Day;
         }
 
         #region Validate input data
@@ -42,15 +46,19 @@ namespace New_Library.Forms.Reader
 
         private void txtReaderName_Validating(object sender, CancelEventArgs e)
         {
+            if (ValidateInput.IsEmpty(txtReaderName.Text, out errMsg))
+            {
+                CancelValidatedEvent(grpReaderName, lblReaderNameError, e);
+            }
             if (!ValidateInput.ValidOnlyLetter(txtReaderName.Text, out errMsg))
             {
-                CancelValidatedEvent(gbReaderName, lblReaderNameError, e);
+                CancelValidatedEvent(grpReaderName, lblReaderNameError, e);
             }
         }
 
         private void txtReaderName_Validated(object sender, EventArgs e)
         {
-            errAddReader.SetError(gbReaderName, errMsg);
+            errAddReader.SetError(grpReaderName, errMsg);
             lblReaderNameError.Text = "";
         }
 
@@ -62,7 +70,7 @@ namespace New_Library.Forms.Reader
                 errMsg = "Trường này chỉ nhập số";
                 System.Media.SystemSounds.Asterisk.Play();
                 e.Handled = true;
-                errAddReader.SetError(gbPhoneNumber, errMsg);
+                errAddReader.SetError(grpPhoneNumber, errMsg);
             }
         }
 
@@ -70,41 +78,41 @@ namespace New_Library.Forms.Reader
         {
             if (!ValidateInput.ValidVietnamesePhone(txtPhoneNumber.Text, out errMsg))
             {
-                CancelValidatedEvent(gbPhoneNumber, lblPhoneNumberWarning, e);
+                CancelValidatedEvent(grpPhoneNumber, lblPhoneNumberWarning, e);
             }
         }
 
         private void txtPhoneNumber_Validated(object sender, EventArgs e)
         {
             lblPhoneNumberWarning.Text = "";
-            errAddReader.SetError(gbPhoneNumber, "");
+            errAddReader.SetError(grpPhoneNumber, "");
         }
 
         private void txtEmail_Validating(object sender, CancelEventArgs e)
         {
             if (!ValidateInput.ValidEmail(txtEmail.Text, out errMsg))
             {
-                CancelValidatedEvent(gbEmail, lblEmailError, e);
+                CancelValidatedEvent(grpEmail, lblEmailError, e);
             }
         }
 
         private void txtEmail_Validated(object sender, EventArgs e)
         {
-            errAddReader.SetError(gbEmail, "");
+            errAddReader.SetError(grpEmail, "");
             lblEmailError.Text = "";
         }
 
         private void txtAddress_Validating(object sender, CancelEventArgs e)
         {
-            if (ValidateInput.IsEmpty(txtEmail.Text, out errMsg))
+            if (ValidateInput.IsEmpty(txtAddress.Text, out errMsg))
             {
-                CancelValidatedEvent(gbAddress, lblAddressError, e);
+                CancelValidatedEvent(grpAddress, lblAddressError, e);
             }
         }
 
         private void txtAddress_Validated(object sender, EventArgs e)
         {
-            errAddReader.SetError(gbAddress, "");
+            errAddReader.SetError(grpAddress, "");
             lblAddressError.Text = "";
         }
 
@@ -113,12 +121,13 @@ namespace New_Library.Forms.Reader
             if (cbSex.Text.Length == 0)
             {
                 errMsg = "Chưa chọn giới tính";
-                CancelValidatedEvent(gbSex, lblSexError, e);
+                CancelValidatedEvent(grpSex, lblSexError, e);
             }    
         }
 
         private void cbSex_Validated(object sender, EventArgs e)
         {
+            errAddReader.SetError(grpSex, "");
             lblSexError.Text = "";
         }
         #endregion
@@ -180,5 +189,7 @@ namespace New_Library.Forms.Reader
         {
             nudDay.Maximum = DateTime.DaysInMonth(Convert.ToInt32(nudYear.Value), Convert.ToInt32(nudMonth.Value));
         }
+
+        
     }
 }

@@ -15,8 +15,8 @@ namespace New_Library.Forms.Genre
         public frmAddGenre()
         {
             InitializeComponent();
-            txtGenreName.Focus();
             lblGenreNameError.Text = "";
+            txtGenreName.Focus();
         }
 
         string errMsg;
@@ -29,7 +29,7 @@ namespace New_Library.Forms.Genre
 
         private void txtGenreName_Validating(object sender, CancelEventArgs e)
         {
-            if (txtGenreName.Text.Length == 0)
+            if (ValidateInput.IsEmpty(txtGenreName.Text, out errMsg))
             {
                 errMsg = "Trường này không được trống";
                 CancelValidatedEvent(lblGenreNameError, e);
@@ -42,6 +42,7 @@ namespace New_Library.Forms.Genre
 
         private void txtGenreName_Validated(object sender, EventArgs e)
         {
+
             lblGenreNameError.Text = "";
         }
 

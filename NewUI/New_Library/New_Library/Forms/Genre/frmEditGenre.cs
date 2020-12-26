@@ -20,6 +20,7 @@ namespace New_Library.Forms.Genre
             genreID = genre.MaTL;
             txtGenreName.Text = genre.TenTL;
             lblGenreNameError.Text = "";
+            txtGenreName.Focus();
         }
 
         private void btnEditGenre_Click(object sender, EventArgs e)
@@ -65,7 +66,7 @@ namespace New_Library.Forms.Genre
 
         private void txtGenreName_Validating(object sender, CancelEventArgs e)
         {
-            if (txtGenreName.Text.Length == 0)
+            if (ValidateInput.IsEmpty(txtGenreName.Text, out errMsg))
             {
                 errMsg = "Trường này không được trống";
                 CancelValidatedEvent(lblGenreNameError, e);

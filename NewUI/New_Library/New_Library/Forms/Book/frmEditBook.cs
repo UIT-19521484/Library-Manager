@@ -68,6 +68,7 @@ namespace New_Library.Forms.Book
             lblAuthorNameError.Text = "";
             lblPublisherNameError.Text = "";
             lblAvailableWarning.Text = "";
+            txtBookName.Focus();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -107,13 +108,13 @@ namespace New_Library.Forms.Book
         {
             if (ValidateInput.IsEmpty(txtBookName.Text, out errMsg))
             {
-                CancelValidatedEvent(gbBookName, lblBookNameError, e);
+                CancelValidatedEvent(grpBookName, lblBookNameError, e);
             }
         }
 
         private void txtBookName_Validated(object sender, EventArgs e)
         {
-            errAddBook.SetError(gbBookName, "");
+            errAddBook.SetError(grpBookName, "");
             lblBookNameError.Text = errMsg;
         }
 
@@ -121,13 +122,13 @@ namespace New_Library.Forms.Book
         {
             if (ValidateInput.IsEmpty(txtAuthorName.Text, out errMsg))
             {
-                CancelValidatedEvent(gbAuthorName, lblAuthorNameError, e);
+                CancelValidatedEvent(grpAuthorName, lblAuthorNameError, e);
             }
         }
 
         private void txtAuthorName_Validated(object sender, EventArgs e)
         {
-            errAddBook.SetError(gbAuthorName, "");
+            errAddBook.SetError(grpAuthorName, "");
             lblAuthorNameError.Text = errMsg;
         }
 
@@ -135,13 +136,13 @@ namespace New_Library.Forms.Book
         {
             if (ValidateInput.IsEmpty(txtPublisherName.Text, out errMsg))
             {
-                CancelValidatedEvent(gbPublisher, lblPublisherNameError, e);
+                CancelValidatedEvent(grpPublisher, lblPublisherNameError, e);
             }
         }
 
         private void txtPublisherName_Validated(object sender, EventArgs e)
         {
-            errAddBook.SetError(gbPublisher, "");
+            errAddBook.SetError(grpPublisher, "");
             lblPublisherNameError.Text = errMsg;
         }
 
@@ -160,13 +161,13 @@ namespace New_Library.Forms.Book
         {
             if (ValidateInput.IsEmpty(txtAvailable.Text, out errMsg))
             {
-                CancelValidatedEvent(gbAvailable, lblAvailableWarning, e);
+                CancelValidatedEvent(grpAvailable, lblAvailableWarning, e);
             }
         }
 
         private void txtAvailable_Validated(object sender, EventArgs e)
         {
-            errAddBook.SetError(gbAvailable, "");
+            errAddBook.SetError(grpAvailable, "");
             lblAvailableWarning.Text = "";
         }
         #endregion

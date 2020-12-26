@@ -104,7 +104,7 @@ namespace New_Library
                     row["GIỚI TÍNH"] = e.Entity.GioiTinh;
                     row["NGÀY SINH"] = e.Entity.NgaySinh.ToString();
                     row["ĐỊA CHỈ"] = e.Entity.DiaChi;
-                    row["SĐT"] = e.Entity.DiaChi;
+                    row["SĐT"] = e.Entity.SDT;
                     row["Email"] = e.Entity.Email;
                     dtReader.Rows.Add(row);
                     break;
@@ -123,7 +123,7 @@ namespace New_Library
                         row["GIỚI TÍNH"] = e.Entity.GioiTinh;
                         row["NGÀY SINH"] = e.Entity.NgaySinh.ToString();
                         row["ĐỊA CHỈ"] = e.Entity.DiaChi;
-                        row["SĐT"] = e.Entity.DiaChi;
+                        row["SĐT"] = e.Entity.SDT;
                         row["Email"] = e.Entity.Email;
                     }
                     break;

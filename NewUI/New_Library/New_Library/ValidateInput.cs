@@ -7,13 +7,24 @@ namespace New_Library
     {
         public static bool IsEmpty(string str, out string errMsg)
         {
-            if (str.Length == 0)
+            for (int i = 0; i < str.Length; i++)
             {
-                errMsg = "Trường này không được trống";
-                return true;
+                if (str[i] != ' ')
+                {
+                    errMsg = "";
+                    return false;
+                }   
             }
-            errMsg = "";
-            return false;
+            errMsg = "Trường này không được trống";
+            return true;
+
+            //if (str.Length == 0 || str == "")
+            //{
+            //    errMsg = "Trường này không được trống";
+            //    return true;
+            //}
+            //errMsg = "";
+            //return false;
         }
 
         public static bool ValidVietnamesePhone(string phNumber, out string errMsg)
@@ -33,23 +44,37 @@ namespace New_Library
 
         public static bool ValidOnlyLetter(string str, out string errMsg)
         {
-            if (!IsEmpty(str, out errMsg))
-            {
-                var regexItem = new System.Text.RegularExpressions.Regex("^[a-zA-Z ]*$");
+            
+            //if (!IsEmpty(str, out errMsg))
+            //{
+            //    var regexItem = new System.Text.RegularExpressions.Regex("^[a-zA-Z ]*$");
 
-                if (!regexItem.IsMatch(str))
+            //    if (!regexItem.IsMatch(str))
+            //    {
+            //        errMsg = "Không được chứa kí tự đặc biệt và chữ số";
+            //        return false;
+            //    }
+            //    else
+            //    {
+            //        errMsg = "";
+            //        return true;
+            //    }
+            //}
+
+            //return false;
+
+            //ĐỂ VIẾT TIẾNG VIỆT
+            string specialChar = @"\|!#$%&/()=?»«@£§€{}.-;'<>_,0123456789";
+            foreach (var item in specialChar)
+            {
+                if (str.Contains(item))
                 {
                     errMsg = "Không được chứa kí tự đặc biệt và chữ số";
                     return false;
                 }
-                else
-                {
-                    errMsg = "";
-                    return true;
-                }
             }
-
-            return false;
+            errMsg = "";
+            return true;
         }
 
         public static bool ValidNoneSpecialChar(string str, out string errMsg)
@@ -60,7 +85,7 @@ namespace New_Library
 
                 if (!regexItem.IsMatch(str))
                 {
-                    errMsg = "Không được chứa kí tự đặc biệt";
+                    errMsg = "Chỉ cho phép các kí tự a-z, A-Z, 0-9";
                     return false;
                 }
                 else

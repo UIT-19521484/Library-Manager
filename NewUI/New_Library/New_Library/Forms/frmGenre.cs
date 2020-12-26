@@ -128,7 +128,9 @@ namespace New_Library.Forms
                     string msg = "Bạn thật sự muốn xóa những thể loại này?\n\n";
                     for (int i = 0; i < dgvGenre.SelectedRows.Count; i++)
                     {
+                       
                         msg += (i + 1).ToString() + ". " + dgvGenre.SelectedRows[i].Cells["TenTL"].Value + "\n";
+                       
                     }
 
                     DialogResult rs = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);

@@ -48,9 +48,9 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.pnlBook = new System.Windows.Forms.Panel();
-            this.cbGenre = new System.Windows.Forms.ComboBox();
-            this.cbAuthor = new System.Windows.Forms.ComboBox();
-            this.cbPublisher = new System.Windows.Forms.ComboBox();
+            this.cboGenre = new System.Windows.Forms.ComboBox();
+            this.cboAuthor = new System.Windows.Forms.ComboBox();
+            this.cboPublisher = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.pnlBook.SuspendLayout();
             this.SuspendLayout();
@@ -293,53 +293,53 @@
             this.pnlBook.Size = new System.Drawing.Size(1093, 470);
             this.pnlBook.TabIndex = 57;
             // 
-            // cbGenre
+            // cboGenre
             // 
-            this.cbGenre.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbGenre.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbGenre.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbGenre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbGenre.FormattingEnabled = true;
-            this.cbGenre.Location = new System.Drawing.Point(12, 57);
-            this.cbGenre.Name = "cbGenre";
-            this.cbGenre.Size = new System.Drawing.Size(184, 29);
-            this.cbGenre.TabIndex = 58;
-            this.cbGenre.TabStop = false;
-            this.cbGenre.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
-            this.cbGenre.Enter += new System.EventHandler(this.cbGenre_Enter);
-            this.cbGenre.Leave += new System.EventHandler(this.cbGenre_Leave);
+            this.cboGenre.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboGenre.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboGenre.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cboGenre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboGenre.FormattingEnabled = true;
+            this.cboGenre.Location = new System.Drawing.Point(12, 57);
+            this.cboGenre.Name = "cboGenre";
+            this.cboGenre.Size = new System.Drawing.Size(184, 29);
+            this.cboGenre.TabIndex = 58;
+            this.cboGenre.TabStop = false;
+            this.cboGenre.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
+            this.cboGenre.Enter += new System.EventHandler(this.cbGenre_Enter);
+            this.cboGenre.Leave += new System.EventHandler(this.cbGenre_Leave);
             // 
-            // cbAuthor
+            // cboAuthor
             // 
-            this.cbAuthor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbAuthor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbAuthor.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbAuthor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAuthor.FormattingEnabled = true;
-            this.cbAuthor.Location = new System.Drawing.Point(202, 57);
-            this.cbAuthor.Name = "cbAuthor";
-            this.cbAuthor.Size = new System.Drawing.Size(184, 29);
-            this.cbAuthor.TabIndex = 59;
-            this.cbAuthor.TabStop = false;
-            this.cbAuthor.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
-            this.cbAuthor.Enter += new System.EventHandler(this.cbAuthor_Enter);
-            this.cbAuthor.Leave += new System.EventHandler(this.cbAuthor_Leave);
+            this.cboAuthor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboAuthor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboAuthor.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cboAuthor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboAuthor.FormattingEnabled = true;
+            this.cboAuthor.Location = new System.Drawing.Point(202, 57);
+            this.cboAuthor.Name = "cboAuthor";
+            this.cboAuthor.Size = new System.Drawing.Size(184, 29);
+            this.cboAuthor.TabIndex = 59;
+            this.cboAuthor.TabStop = false;
+            this.cboAuthor.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
+            this.cboAuthor.Enter += new System.EventHandler(this.cbAuthor_Enter);
+            this.cboAuthor.Leave += new System.EventHandler(this.cbAuthor_Leave);
             // 
-            // cbPublisher
+            // cboPublisher
             // 
-            this.cbPublisher.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbPublisher.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbPublisher.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbPublisher.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPublisher.FormattingEnabled = true;
-            this.cbPublisher.Location = new System.Drawing.Point(392, 57);
-            this.cbPublisher.Name = "cbPublisher";
-            this.cbPublisher.Size = new System.Drawing.Size(184, 29);
-            this.cbPublisher.TabIndex = 60;
-            this.cbPublisher.TabStop = false;
-            this.cbPublisher.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
-            this.cbPublisher.Enter += new System.EventHandler(this.cbPublisher_Enter);
-            this.cbPublisher.Leave += new System.EventHandler(this.cbPublisher_Leave);
+            this.cboPublisher.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboPublisher.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboPublisher.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cboPublisher.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPublisher.FormattingEnabled = true;
+            this.cboPublisher.Location = new System.Drawing.Point(392, 57);
+            this.cboPublisher.Name = "cboPublisher";
+            this.cboPublisher.Size = new System.Drawing.Size(184, 29);
+            this.cboPublisher.TabIndex = 60;
+            this.cboPublisher.TabStop = false;
+            this.cboPublisher.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
+            this.cboPublisher.Enter += new System.EventHandler(this.cbPublisher_Enter);
+            this.cboPublisher.Leave += new System.EventHandler(this.cbPublisher_Leave);
             // 
             // frmBook
             // 
@@ -347,9 +347,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1117, 574);
-            this.Controls.Add(this.cbPublisher);
-            this.Controls.Add(this.cbAuthor);
-            this.Controls.Add(this.cbGenre);
+            this.Controls.Add(this.cboPublisher);
+            this.Controls.Add(this.cboAuthor);
+            this.Controls.Add(this.cboGenre);
             this.Controls.Add(this.pnlBook);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
@@ -378,9 +378,9 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Panel pnlBook;
-        private System.Windows.Forms.ComboBox cbGenre;
-        private System.Windows.Forms.ComboBox cbPublisher;
-        private System.Windows.Forms.ComboBox cbAuthor;
+        private System.Windows.Forms.ComboBox cboGenre;
+        private System.Windows.Forms.ComboBox cboPublisher;
+        private System.Windows.Forms.ComboBox cboAuthor;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn TacGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn TheLoai;

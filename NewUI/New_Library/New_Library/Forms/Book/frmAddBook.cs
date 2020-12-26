@@ -33,9 +33,9 @@ namespace New_Library.Forms.Book
         {
             DataTable dt = DatabaseData.dtGenre.Copy();
 
-            cbGenre.DisplayMember = dt.Columns[1].ToString();
-            cbGenre.DataSource = dt;
-            cbGenre.SelectedIndex = -1;
+            cboGenre.DisplayMember = dt.Columns[1].ToString();
+            cboGenre.DataSource = dt;
+            cboGenre.SelectedIndex = -1;
         }
 
         #region Validate input data
@@ -43,13 +43,13 @@ namespace New_Library.Forms.Book
         {
             if (ValidateInput.IsEmpty(txtBookName.Text, out errMsg))
             {
-                CancelValidatedEvent(gbBookName, lblBookNameError, e);
+                CancelValidatedEvent(grpBookName, lblBookNameError, e);
             }
         }
 
         private void txtBookName_Validated(object sender, EventArgs e)
         {
-            errAddBook.SetError(gbBookName, "");
+            errAddBook.SetError(grpBookName, "");
             lblBookNameError.Text = errMsg;
         }
 
@@ -57,13 +57,13 @@ namespace New_Library.Forms.Book
         {
             if (ValidateInput.IsEmpty(txtAuthorName.Text, out errMsg))
             {
-                CancelValidatedEvent(gbAuthorName, lblAuthorNameError, e);
+                CancelValidatedEvent(grpAuthorName, lblAuthorNameError, e);
             }
         }
 
         private void txtAuthorName_Validated(object sender, EventArgs e)
         {
-            errAddBook.SetError(gbAuthorName, "");
+            errAddBook.SetError(grpAuthorName, "");
             lblAuthorNameError.Text = errMsg;
         }
 
@@ -71,13 +71,13 @@ namespace New_Library.Forms.Book
         {
             if (ValidateInput.IsEmpty(txtPublisherName.Text, out errMsg))
             {
-                CancelValidatedEvent(gbPublisher, lblPublisherNameError, e);
+                CancelValidatedEvent(grpPublisher, lblPublisherNameError, e);
             }
         }
 
         private void txtPublisherName_Validated(object sender, EventArgs e)
         {
-            errAddBook.SetError(gbPublisher, "");
+            errAddBook.SetError(grpPublisher, "");
             lblPublisherNameError.Text = errMsg;
         }
 
@@ -96,30 +96,30 @@ namespace New_Library.Forms.Book
         {
             if (ValidateInput.IsEmpty(txtAvailable.Text, out errMsg))
             {
-                CancelValidatedEvent(gbAvailable, lblAvailableWarning, e);
+                CancelValidatedEvent(grpAvailable, lblAvailableWarning, e);
             }
         }
 
         private void txtAvailable_Validated(object sender, EventArgs e)
         {
-            errAddBook.SetError(gbAvailable, "");
+            errAddBook.SetError(grpAvailable, "");
             lblAvailableWarning.Text = "";
         }
 
         private void cbGenre_Validating(object sender, CancelEventArgs e)
         {
-            if (cbGenre.SelectedIndex == -1)
+            if (cboGenre.SelectedIndex == -1)
             {
                 e.Cancel = true;
                 errMsg = "Chưa chọn thể loại";
-                CancelValidatedEvent(gbGenre, lblGenreError, e);
+                CancelValidatedEvent(grpGenre, lblGenreError, e);
             }
         }
 
         private void cbGenre_Validated(object sender, EventArgs e)
         {
             lblGenreError.Text = "";
-            errAddBook.SetError(gbGenre, "");
+            errAddBook.SetError(grpGenre, "");
         }
         #endregion
 
@@ -128,9 +128,8 @@ namespace New_Library.Forms.Book
             string cmd = @"Select TenSach, TacGia, NhaXuatBan, TenTL from SACH left join THELOAI on SACH.MaTL = THELOAI.MaTL where "
                         + "TenSach = N'" + txtBookName.Text + "' and "
                         + "TacGia = N'" + txtAuthorName.Text + "' and "
-                        + "NhaXuatBan = N'" + txtPublisherName.Text + "' and "
-                        + "TenTL = N'" + cbGenre.Text + "'";
-
+                        + "NhaXuatBan = N'" + txtPublisherName.Text + "' and"
+                        + "TenTL = N'" + cboGenre.Text + "'";
             if (DataConnection.GetDataTable(cmd).Rows.Count == 0)
             {
                 return false;
@@ -145,6 +144,7 @@ namespace New_Library.Forms.Book
             lblPublisherNameError.Text = "";
             lblAvailableWarning.Text = "";
             lblGenreError.Text = "";
+            txtBookName.Focus();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -177,7 +177,7 @@ namespace New_Library.Forms.Book
                         + "@TenSach = N'" + txtBookName.Text + "', "
                         + "@TacGia = N'" + txtAuthorName.Text + "', "
                         + "@NhaXuatBan = N'" + txtPublisherName.Text + "', "
-                        + "@TenTL = N'" + cbGenre.Text + "', "
+                        + "@TenTL = N'" + cboGenre.Text + "', "
                         + "@SoLuong = " + txtAvailable.Text;
                     if (DataConnection.ExecuteQuery(cmd))
                     {
@@ -195,7 +195,7 @@ namespace New_Library.Forms.Book
                         + "@TenSach = N'" + txtBookName.Text + "', "
                         + "@TacGia = N'" + txtAuthorName.Text + "', "
                         + "@NhaXuatBan = N'" + txtPublisherName.Text + "', "
-                        + "@TenTL = N'" + cbGenre.Text + "', "
+                        + "@TenTL = N'" + cboGenre.Text + "', "
                         + "@TonTai = " + txtAvailable.Text;
 
                 if (DataConnection.ExecuteQuery(cmd))

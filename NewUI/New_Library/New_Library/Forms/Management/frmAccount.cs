@@ -103,23 +103,11 @@ namespace New_Library.Forms
             pnlEditAccount.Visible = true;
             pnlChangePassword.Visible = false;
 
-            errAccount.SetError(gbNewPassword, "");
-            errAccount.SetError(gbConfirmPassword, "");
+            errAccount.SetError(grpNewPassword, "");
+            errAccount.SetError(grpConfirmPassword, "");
         }
 
-        private void txtAccountName_Validating(object sender, CancelEventArgs e)
-        {
-            if (!ValidateInput.ValidNoneSpecialChar(txtAccountName.Text, out errMsg))
-            {
-                CancelValidatedEvent(gbAccountName, lblAccountNameError, e);
-            }
-        }
-
-        private void txtAccountName_Validated(object sender, EventArgs e)
-        {
-            lblAccountNameError.Text = "";
-            errAccount.SetError(gbAccountName, "");
-        }
+        
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
@@ -165,31 +153,35 @@ namespace New_Library.Forms
 
         private void txtNewPassword_Validating(object sender, CancelEventArgs e)
         {
-            if (ValidateInput.IsEmpty(txtNewPassword.Text, out errMsg))
+            if (!ValidateInput.ValidNoneSpecialChar(txtNewPassword.Text, out errMsg))
             {
-                CancelValidatedEvent(gbNewPassword, lblNewPasswordError, e);
+                CancelValidatedEvent(grpNewPassword, lblNewPasswordError, e);
             }    
         }
 
         private void txtNewPassword_Validated(object sender, EventArgs e)
         {
             lblNewPasswordError.Text = "";
-            errAccount.SetError(gbNewPassword, "");
+            errAccount.SetError(grpNewPassword, "");
         }
 
         private void txtConfirmPassword_Validating(object sender, CancelEventArgs e)
         {
+            if (!ValidateInput.ValidNoneSpecialChar(txtConfirmPassword.Text, out errMsg))
+            {
+                CancelValidatedEvent(grpConfirmPassword, lblConfirmPasswordError, e);
+            }
             if (txtNewPassword.Text != txtConfirmPassword.Text)
             {
                 errMsg = "Mật khẩu xác nhận không trùng khớp";
-                CancelValidatedEvent(gbConfirmPassword, lblConfirmPasswordError, e);
+                CancelValidatedEvent(grpConfirmPassword, lblConfirmPasswordError, e);
             }
         }
 
         private void txtConfirmPassword_Validated(object sender, EventArgs e)
         {
             lblConfirmPasswordError.Text = "";
-            errAccount.SetError(gbConfirmPassword, "");
+            errAccount.SetError(grpConfirmPassword, "");
         }
 
         private void btnAcceptChange_Click(object sender, EventArgs e)

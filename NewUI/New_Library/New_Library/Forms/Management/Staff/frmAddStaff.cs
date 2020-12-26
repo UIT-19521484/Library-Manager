@@ -17,8 +17,26 @@ namespace New_Library.Forms.Management.Account
         public frmAddStaff()
         {
             InitializeComponent();
+
         }
 
+        private void frmAddStaff_Load(object sender, EventArgs e)
+        {
+            lblAccountNameError.Text = "";
+            lblAddressError.Text = "";
+            lblPasswordError.Text = "";
+            lblPhoneNumberWarning.Text = "";
+            lblSexError.Text = "";
+            lblStaffNameError.Text = "";
+
+            nudYear.Maximum = DateTime.Now.Year;
+            nudYear.Minimum = nudYear.Maximum - 100;
+            nudDay.Maximum = DateTime.DaysInMonth(Convert.ToInt32(nudYear.Value), Convert.ToInt32(nudMonth.Value));
+
+            nudYear.Value = DateTime.Now.Year;
+            nudMonth.Value = DateTime.Now.Month;
+            nudDay.Value = DateTime.Now.Day;
+        }
         private void nudMonth_ValueChanged(object sender, EventArgs e)
         {
             nudDay.Maximum = DateTime.DaysInMonth(Convert.ToInt32(nudYear.Value), Convert.ToInt32(nudMonth.Value));
@@ -34,6 +52,7 @@ namespace New_Library.Forms.Management.Account
             txtPassword.UseSystemPasswordChar = !txtPassword.UseSystemPasswordChar;
         }
 
+
         #region Validate input data
         private void CancelValidatedEvent(Control control, Label error, CancelEventArgs e)
         {
@@ -47,13 +66,13 @@ namespace New_Library.Forms.Management.Account
         {
             if (!ValidateInput.ValidOnlyLetter(txtStaffName.Text, out errMsg))
             {
-                CancelValidatedEvent(gbStaffName, lblStaffNameError, e);
+                CancelValidatedEvent(grpStaffName, lblStaffNameError, e);
             }
         }
 
         private void txtStaffName_Validated(object sender, EventArgs e)
         {
-            errAddStaff.SetError(gbStaffName, "");
+            errAddStaff.SetError(grpStaffName, "");
             lblStaffNameError.Text = "";
         }
 
@@ -66,7 +85,7 @@ namespace New_Library.Forms.Management.Account
                 errMsg = "Trường này chỉ nhập số";
                 lblPhoneNumberWarning.Text = errMsg;
                 System.Media.SystemSounds.Asterisk.Play();
-                errAddStaff.SetError(gbPhoneNumber, errMsg);
+                errAddStaff.SetError(grpPhoneNumber, errMsg);
             }
         }
 
@@ -74,27 +93,27 @@ namespace New_Library.Forms.Management.Account
         {
             if (!ValidateInput.ValidVietnamesePhone(txtPhoneNumber.Text, out errMsg))
             {
-                CancelValidatedEvent(gbPhoneNumber, lblPhoneNumberWarning, e);
+                CancelValidatedEvent(grpPhoneNumber, lblPhoneNumberWarning, e);
             }
         }
 
         private void txtPhoneNumber_Validated(object sender, EventArgs e)
         {
             lblPhoneNumberWarning.Text = "";
-            errAddStaff.SetError(gbPhoneNumber, "");
+            errAddStaff.SetError(grpPhoneNumber, "");
         }
 
         private void txtAddress_Validating(object sender, CancelEventArgs e)
         {
             if (ValidateInput.IsEmpty(txtAddress.Text, out errMsg))
             {
-                CancelValidatedEvent(gbAddress, lblAddressError, e);
+                CancelValidatedEvent(grpAddress, lblAddressError, e);
             }
         }
 
         private void txtAddress_Validated(object sender, EventArgs e)
         {
-            errAddStaff.SetError(gbAddress, "");
+            errAddStaff.SetError(grpAddress, "");
             lblAddressError.Text = "";
         }
 
@@ -115,35 +134,35 @@ namespace New_Library.Forms.Management.Account
 
         private void txtAccountName_Validating(object sender, CancelEventArgs e)
         {
-            if (ValidateInput.IsEmpty(txtAccountName.Text, out errMsg))
+            if (!ValidateInput.ValidNoneSpecialChar(txtAccountName.Text, out errMsg))
             {
-                CancelValidatedEvent(gbAccountName, lblAccountNameError, e);
+                CancelValidatedEvent(grpAccountName, lblAccountNameError, e);
             }    
         }
 
         private void txtAccountName_Validated(object sender, EventArgs e)
         {
             lblAccountNameError.Text = "";
-            errAddStaff.SetError(gbAccountName, "");
+            errAddStaff.SetError(grpAccountName, "");
         }
 
         private void txtPassword_Validating(object sender, CancelEventArgs e)
         {
-            if (ValidateInput.IsEmpty(txtPassword.Text, out errMsg))
+            if (!ValidateInput.ValidNoneSpecialChar(txtPassword.Text, out errMsg))
             {
-                CancelValidatedEvent(gbPassword, lblPasswordError, e);
+                CancelValidatedEvent(grpPassword, lblPasswordError, e);
             }    
             if (txtPassword.Text.Any(c => c > 255))
             {
                 errMsg = "Mật khẩu chứa kí tự tiếng Việt.\nHãy tắt bộ gõ tiếng Việt và nhập lại.";
-                CancelValidatedEvent(gbPassword, lblPasswordError, e);
+                CancelValidatedEvent(grpPassword, lblPasswordError, e);
             }    
         }
 
         private void txtPassword_Validated(object sender, EventArgs e)
         {
             lblPasswordError.Text = "";
-            errAddStaff.SetError(gbPassword, "");
+            errAddStaff.SetError(grpPassword, "");
         }
         #endregion
 
@@ -220,18 +239,5 @@ namespace New_Library.Forms.Management.Account
             this.Dispose();
         }
 
-        private void frmAddStaff_Load(object sender, EventArgs e)
-        {
-            lblAccountNameError.Text = "";
-            lblAddressError.Text = "";
-            lblPasswordError.Text = "";
-            lblPhoneNumberWarning.Text = "";
-            lblSexError.Text  = "";
-            lblStaffNameError.Text = "";
-
-            nudYear.Maximum = DateTime.Now.Year;
-            nudYear.Minimum = nudYear.Maximum - 100;
-            nudDay.Maximum = DateTime.DaysInMonth(Convert.ToInt32(nudYear.Value), Convert.ToInt32(nudMonth.Value));
-        }
     }
 }

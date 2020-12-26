@@ -42,8 +42,8 @@ namespace New_Library.Forms
             dr[1] = "Tất cả thể loại";
             dt.Rows.InsertAt(dr, 0);
 
-            cbGenre.DisplayMember = dt.Columns[1].ToString();
-            cbGenre.DataSource = dt;
+            cboGenre.DisplayMember = dt.Columns[1].ToString();
+            cboGenre.DataSource = dt;
         }
 
         public void LoadData_Publisher()
@@ -51,7 +51,7 @@ namespace New_Library.Forms
             System.Collections.Generic.List<string> publisher = (from DataRow publisherName in DatabaseData.dtBook.Rows
                                                                  select (string)publisherName["NHÀ XUẤT BẢN"]).Distinct().ToList();
             publisher.Insert(0, "Tất cả nhà xuất bản");
-            cbPublisher.DataSource = publisher;
+            cboPublisher.DataSource = publisher;
         }
 
         public void LoadData_Author()
@@ -59,7 +59,7 @@ namespace New_Library.Forms
             System.Collections.Generic.List<string> author = (from DataRow authorName in DatabaseData.dtBook.Rows
                                                               select (string)authorName["TÁC GIẢ"]).Distinct().ToList();
             author.Insert(0, "Tất cả tác giả");
-            cbAuthor.DataSource = author;
+            cboAuthor.DataSource = author;
         }
         #endregion
 
@@ -157,30 +157,30 @@ namespace New_Library.Forms
 
             string rowFilter;
 
-            switch (cbGenre.SelectedIndex)
+            switch (cboGenre.SelectedIndex)
             {
                 case 0:
                     break;
                 default:
-                    columnGenreFilter = string.Format("[THỂ LOẠI] = '{0}'", cbGenre.Text);
+                    columnGenreFilter = string.Format("[THỂ LOẠI] = '{0}'", cboGenre.Text);
                     break;
             }
 
-            switch (cbAuthor.SelectedIndex)
+            switch (cboAuthor.SelectedIndex)
             {
                 case 0:
                     break;
                 default:
-                    columnAuthorFilter = string.Format("[TÁC GIẢ] = '{0}'", cbAuthor.Text);
+                    columnAuthorFilter = string.Format("[TÁC GIẢ] = '{0}'", cboAuthor.Text);
                     break;
             }
 
-            switch (cbPublisher.SelectedIndex)
+            switch (cboPublisher.SelectedIndex)
             {
                 case 0:
                     break;
                 default:
-                    columnPulisherFilter = string.Format("[NHÀ XUẤT BẢN] = '{0}'", cbPublisher.Text);
+                    columnPulisherFilter = string.Format("[NHÀ XUẤT BẢN] = '{0}'", cboPublisher.Text);
                     break;
             }
 
@@ -213,25 +213,25 @@ namespace New_Library.Forms
         private void cbGenre_Leave(object sender, EventArgs e)
         {
 
-            if (cbGenre.SelectedItem == null)
+            if (cboGenre.SelectedItem == null)
             {
-                cbGenre.SelectedIndex = 0;
+                cboGenre.SelectedIndex = 0;
             }
         }
 
         private void cbAuthor_Leave(object sender, EventArgs e)
         {
-            if (cbAuthor.SelectedItem == null)
+            if (cboAuthor.SelectedItem == null)
             {
-                cbAuthor.SelectedIndex = 0;
+                cboAuthor.SelectedIndex = 0;
             }
         }
 
         private void cbPublisher_Leave(object sender, EventArgs e)
         {
-            if (cbPublisher.SelectedItem == null)
+            if (cboPublisher.SelectedItem == null)
             {
-                cbPublisher.SelectedIndex = 0;
+                cboPublisher.SelectedIndex = 0;
             }
         }
 

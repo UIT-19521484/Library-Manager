@@ -39,34 +39,35 @@
             this.dgvAccount = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.TenTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhanQuyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.pnlEditAccount = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.gbPermission = new System.Windows.Forms.GroupBox();
+            this.grpPermission = new System.Windows.Forms.GroupBox();
             this.cbPermission = new System.Windows.Forms.ComboBox();
             this.lblAccountNameError = new System.Windows.Forms.Label();
-            this.gbAccountName = new System.Windows.Forms.GroupBox();
+            this.grpAccountName = new System.Windows.Forms.GroupBox();
             this.txtAccountName = new System.Windows.Forms.TextBox();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.errAccount = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlChangePassword = new System.Windows.Forms.Panel();
+            this.lblConfirmPasswordError = new System.Windows.Forms.Label();
+            this.grpConfirmPassword = new System.Windows.Forms.GroupBox();
+            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             this.btnCancelChange = new System.Windows.Forms.Button();
             this.btnAcceptChange = new System.Windows.Forms.Button();
             this.lblNewPasswordError = new System.Windows.Forms.Label();
-            this.gbNewPassword = new System.Windows.Forms.GroupBox();
+            this.grpNewPassword = new System.Windows.Forms.GroupBox();
             this.txtNewPassword = new System.Windows.Forms.TextBox();
-            this.lblConfirmPasswordError = new System.Windows.Forms.Label();
-            this.gbConfirmPassword = new System.Windows.Forms.GroupBox();
-            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
             this.pnlEditAccount.SuspendLayout();
-            this.gbPermission.SuspendLayout();
-            this.gbAccountName.SuspendLayout();
+            this.grpPermission.SuspendLayout();
+            this.grpAccountName.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errAccount)).BeginInit();
             this.pnlChangePassword.SuspendLayout();
-            this.gbNewPassword.SuspendLayout();
-            this.gbConfirmPassword.SuspendLayout();
+            this.grpConfirmPassword.SuspendLayout();
+            this.grpNewPassword.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSearch
@@ -133,7 +134,8 @@
             this.dgvAccount.ColumnHeadersHeight = 32;
             this.dgvAccount.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TenTaiKhoan,
-            this.PhanQuyen});
+            this.PhanQuyen,
+            this.HoTen});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -173,12 +175,11 @@
             // 
             // TenTaiKhoan
             // 
-            this.TenTaiKhoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TenTaiKhoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TenTaiKhoan.DataPropertyName = "TÊN TÀI KHOẢN";
             this.TenTaiKhoan.HeaderText = "TÊN TÀI KHOẢN";
             this.TenTaiKhoan.Name = "TenTaiKhoan";
             this.TenTaiKhoan.ReadOnly = true;
-            this.TenTaiKhoan.Width = 177;
             // 
             // PhanQuyen
             // 
@@ -189,6 +190,13 @@
             this.PhanQuyen.ReadOnly = true;
             this.PhanQuyen.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.PhanQuyen.Width = 157;
+            // 
+            // HoTen
+            // 
+            this.HoTen.DataPropertyName = "HỌ TÊN";
+            this.HoTen.HeaderText = "HỌ TÊN";
+            this.HoTen.Name = "HoTen";
+            this.HoTen.ReadOnly = true;
             // 
             // btnUpdate
             // 
@@ -219,9 +227,9 @@
             this.pnlEditAccount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlEditAccount.Controls.Add(this.btnCancel);
             this.pnlEditAccount.Controls.Add(this.btnEdit);
-            this.pnlEditAccount.Controls.Add(this.gbPermission);
+            this.pnlEditAccount.Controls.Add(this.grpPermission);
             this.pnlEditAccount.Controls.Add(this.lblAccountNameError);
-            this.pnlEditAccount.Controls.Add(this.gbAccountName);
+            this.pnlEditAccount.Controls.Add(this.grpAccountName);
             this.pnlEditAccount.Location = new System.Drawing.Point(748, 49);
             this.pnlEditAccount.Name = "pnlEditAccount";
             this.pnlEditAccount.Size = new System.Drawing.Size(238, 197);
@@ -241,7 +249,7 @@
             this.btnCancel.Location = new System.Drawing.Point(122, 158);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(114, 36);
-            this.btnCancel.TabIndex = 78;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -262,24 +270,24 @@
             this.btnEdit.Location = new System.Drawing.Point(3, 158);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(114, 36);
-            this.btnEdit.TabIndex = 77;
+            this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // gbPermission
+            // grpPermission
             // 
-            this.gbPermission.BackColor = System.Drawing.Color.White;
-            this.gbPermission.Controls.Add(this.cbPermission);
-            this.gbPermission.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbPermission.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPermission.Location = new System.Drawing.Point(3, 71);
-            this.gbPermission.Name = "gbPermission";
-            this.gbPermission.Size = new System.Drawing.Size(216, 54);
-            this.gbPermission.TabIndex = 75;
-            this.gbPermission.TabStop = false;
-            this.gbPermission.Text = "Phân quyền";
+            this.grpPermission.BackColor = System.Drawing.Color.White;
+            this.grpPermission.Controls.Add(this.cbPermission);
+            this.grpPermission.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpPermission.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpPermission.Location = new System.Drawing.Point(3, 71);
+            this.grpPermission.Name = "grpPermission";
+            this.grpPermission.Size = new System.Drawing.Size(216, 54);
+            this.grpPermission.TabIndex = 75;
+            this.grpPermission.TabStop = false;
+            this.grpPermission.Text = "Phân quyền";
             // 
             // cbPermission
             // 
@@ -312,18 +320,18 @@
             this.lblAccountNameError.TabIndex = 74;
             this.lblAccountNameError.Text = "AccountName Error";
             // 
-            // gbAccountName
+            // grpAccountName
             // 
-            this.gbAccountName.BackColor = System.Drawing.Color.White;
-            this.gbAccountName.Controls.Add(this.txtAccountName);
-            this.gbAccountName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbAccountName.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbAccountName.Location = new System.Drawing.Point(3, 4);
-            this.gbAccountName.Name = "gbAccountName";
-            this.gbAccountName.Size = new System.Drawing.Size(216, 48);
-            this.gbAccountName.TabIndex = 73;
-            this.gbAccountName.TabStop = false;
-            this.gbAccountName.Text = "Tên tài khoản";
+            this.grpAccountName.BackColor = System.Drawing.Color.White;
+            this.grpAccountName.Controls.Add(this.txtAccountName);
+            this.grpAccountName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpAccountName.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpAccountName.Location = new System.Drawing.Point(3, 4);
+            this.grpAccountName.Name = "grpAccountName";
+            this.grpAccountName.Size = new System.Drawing.Size(216, 48);
+            this.grpAccountName.TabIndex = 73;
+            this.grpAccountName.TabStop = false;
+            this.grpAccountName.Text = "Tên tài khoản";
             // 
             // txtAccountName
             // 
@@ -333,6 +341,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAccountName.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtAccountName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAccountName.Enabled = false;
             this.txtAccountName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAccountName.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtAccountName.Location = new System.Drawing.Point(9, 19);
@@ -341,15 +350,13 @@
             this.txtAccountName.Size = new System.Drawing.Size(204, 26);
             this.txtAccountName.TabIndex = 1;
             this.txtAccountName.WordWrap = false;
-            this.txtAccountName.Validating += new System.ComponentModel.CancelEventHandler(this.txtAccountName_Validating);
-            this.txtAccountName.Validated += new System.EventHandler(this.txtAccountName_Validated);
             // 
             // btnChangePassword
             // 
             this.btnChangePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChangePassword.BackColor = System.Drawing.Color.LightPink;
+            this.btnChangePassword.BackColor = System.Drawing.Color.Magenta;
             this.btnChangePassword.FlatAppearance.BorderSize = 0;
-            this.btnChangePassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Pink;
+            this.btnChangePassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orchid;
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangePassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePassword.ForeColor = System.Drawing.Color.White;
@@ -376,15 +383,59 @@
             this.pnlChangePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlChangePassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlChangePassword.Controls.Add(this.lblConfirmPasswordError);
-            this.pnlChangePassword.Controls.Add(this.gbConfirmPassword);
+            this.pnlChangePassword.Controls.Add(this.grpConfirmPassword);
             this.pnlChangePassword.Controls.Add(this.btnCancelChange);
             this.pnlChangePassword.Controls.Add(this.btnAcceptChange);
             this.pnlChangePassword.Controls.Add(this.lblNewPasswordError);
-            this.pnlChangePassword.Controls.Add(this.gbNewPassword);
-            this.pnlChangePassword.Location = new System.Drawing.Point(679, 49);
+            this.pnlChangePassword.Controls.Add(this.grpNewPassword);
+            this.pnlChangePassword.Location = new System.Drawing.Point(626, 49);
             this.pnlChangePassword.Name = "pnlChangePassword";
             this.pnlChangePassword.Size = new System.Drawing.Size(238, 197);
             this.pnlChangePassword.TabIndex = 79;
+            // 
+            // lblConfirmPasswordError
+            // 
+            this.lblConfirmPasswordError.AutoSize = true;
+            this.lblConfirmPasswordError.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirmPasswordError.ForeColor = System.Drawing.Color.Red;
+            this.lblConfirmPasswordError.Location = new System.Drawing.Point(3, 128);
+            this.lblConfirmPasswordError.Name = "lblConfirmPasswordError";
+            this.lblConfirmPasswordError.Size = new System.Drawing.Size(125, 13);
+            this.lblConfirmPasswordError.TabIndex = 80;
+            this.lblConfirmPasswordError.Text = "ConfirmPasswrod Error";
+            // 
+            // grpConfirmPassword
+            // 
+            this.grpConfirmPassword.BackColor = System.Drawing.Color.White;
+            this.grpConfirmPassword.Controls.Add(this.txtConfirmPassword);
+            this.grpConfirmPassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpConfirmPassword.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpConfirmPassword.Location = new System.Drawing.Point(3, 77);
+            this.grpConfirmPassword.Name = "grpConfirmPassword";
+            this.grpConfirmPassword.Size = new System.Drawing.Size(216, 48);
+            this.grpConfirmPassword.TabIndex = 79;
+            this.grpConfirmPassword.TabStop = false;
+            this.grpConfirmPassword.Text = "Xác nhận mật khẩu";
+            // 
+            // txtConfirmPassword
+            // 
+            this.txtConfirmPassword.AcceptsTab = true;
+            this.txtConfirmPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtConfirmPassword.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtConfirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmPassword.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtConfirmPassword.Location = new System.Drawing.Point(9, 19);
+            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(0);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.Size = new System.Drawing.Size(204, 26);
+            this.txtConfirmPassword.TabIndex = 2;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
+            this.txtConfirmPassword.WordWrap = false;
+            this.txtConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfirmPassword_Validating);
+            this.txtConfirmPassword.Validated += new System.EventHandler(this.txtConfirmPassword_Validated);
             // 
             // btnCancelChange
             // 
@@ -400,7 +451,7 @@
             this.btnCancelChange.Location = new System.Drawing.Point(122, 158);
             this.btnCancelChange.Name = "btnCancelChange";
             this.btnCancelChange.Size = new System.Drawing.Size(114, 36);
-            this.btnCancelChange.TabIndex = 78;
+            this.btnCancelChange.TabIndex = 4;
             this.btnCancelChange.Text = "Hủy";
             this.btnCancelChange.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelChange.UseVisualStyleBackColor = false;
@@ -422,7 +473,7 @@
             this.btnAcceptChange.Name = "btnAcceptChange";
             this.btnAcceptChange.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnAcceptChange.Size = new System.Drawing.Size(114, 36);
-            this.btnAcceptChange.TabIndex = 77;
+            this.btnAcceptChange.TabIndex = 3;
             this.btnAcceptChange.Text = "Đổi mật khẩu";
             this.btnAcceptChange.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAcceptChange.UseVisualStyleBackColor = false;
@@ -439,18 +490,18 @@
             this.lblNewPasswordError.TabIndex = 74;
             this.lblNewPasswordError.Text = "NewPassword Error";
             // 
-            // gbNewPassword
+            // grpNewPassword
             // 
-            this.gbNewPassword.BackColor = System.Drawing.Color.White;
-            this.gbNewPassword.Controls.Add(this.txtNewPassword);
-            this.gbNewPassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbNewPassword.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbNewPassword.Location = new System.Drawing.Point(3, 4);
-            this.gbNewPassword.Name = "gbNewPassword";
-            this.gbNewPassword.Size = new System.Drawing.Size(216, 48);
-            this.gbNewPassword.TabIndex = 73;
-            this.gbNewPassword.TabStop = false;
-            this.gbNewPassword.Text = "Mật khẩu mới";
+            this.grpNewPassword.BackColor = System.Drawing.Color.White;
+            this.grpNewPassword.Controls.Add(this.txtNewPassword);
+            this.grpNewPassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpNewPassword.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpNewPassword.Location = new System.Drawing.Point(3, 4);
+            this.grpNewPassword.Name = "grpNewPassword";
+            this.grpNewPassword.Size = new System.Drawing.Size(216, 48);
+            this.grpNewPassword.TabIndex = 73;
+            this.grpNewPassword.TabStop = false;
+            this.grpNewPassword.Text = "Mật khẩu mới";
             // 
             // txtNewPassword
             // 
@@ -471,50 +522,6 @@
             this.txtNewPassword.WordWrap = false;
             this.txtNewPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtNewPassword_Validating);
             this.txtNewPassword.Validated += new System.EventHandler(this.txtNewPassword_Validated);
-            // 
-            // lblConfirmPasswordError
-            // 
-            this.lblConfirmPasswordError.AutoSize = true;
-            this.lblConfirmPasswordError.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmPasswordError.ForeColor = System.Drawing.Color.Red;
-            this.lblConfirmPasswordError.Location = new System.Drawing.Point(3, 128);
-            this.lblConfirmPasswordError.Name = "lblConfirmPasswordError";
-            this.lblConfirmPasswordError.Size = new System.Drawing.Size(125, 13);
-            this.lblConfirmPasswordError.TabIndex = 80;
-            this.lblConfirmPasswordError.Text = "ConfirmPasswrod Error";
-            // 
-            // gbConfirmPassword
-            // 
-            this.gbConfirmPassword.BackColor = System.Drawing.Color.White;
-            this.gbConfirmPassword.Controls.Add(this.txtConfirmPassword);
-            this.gbConfirmPassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbConfirmPassword.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbConfirmPassword.Location = new System.Drawing.Point(3, 77);
-            this.gbConfirmPassword.Name = "gbConfirmPassword";
-            this.gbConfirmPassword.Size = new System.Drawing.Size(216, 48);
-            this.gbConfirmPassword.TabIndex = 79;
-            this.gbConfirmPassword.TabStop = false;
-            this.gbConfirmPassword.Text = "Xác nhận mật khẩu";
-            // 
-            // txtConfirmPassword
-            // 
-            this.txtConfirmPassword.AcceptsTab = true;
-            this.txtConfirmPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtConfirmPassword.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtConfirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirmPassword.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtConfirmPassword.Location = new System.Drawing.Point(9, 19);
-            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(0);
-            this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(204, 26);
-            this.txtConfirmPassword.TabIndex = 2;
-            this.txtConfirmPassword.UseSystemPasswordChar = true;
-            this.txtConfirmPassword.WordWrap = false;
-            this.txtConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfirmPassword_Validating);
-            this.txtConfirmPassword.Validated += new System.EventHandler(this.txtConfirmPassword_Validated);
             // 
             // frmAccount
             // 
@@ -544,16 +551,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).EndInit();
             this.pnlEditAccount.ResumeLayout(false);
             this.pnlEditAccount.PerformLayout();
-            this.gbPermission.ResumeLayout(false);
-            this.gbAccountName.ResumeLayout(false);
-            this.gbAccountName.PerformLayout();
+            this.grpPermission.ResumeLayout(false);
+            this.grpAccountName.ResumeLayout(false);
+            this.grpAccountName.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errAccount)).EndInit();
             this.pnlChangePassword.ResumeLayout(false);
             this.pnlChangePassword.PerformLayout();
-            this.gbNewPassword.ResumeLayout(false);
-            this.gbNewPassword.PerformLayout();
-            this.gbConfirmPassword.ResumeLayout(false);
-            this.gbConfirmPassword.PerformLayout();
+            this.grpConfirmPassword.ResumeLayout(false);
+            this.grpConfirmPassword.PerformLayout();
+            this.grpNewPassword.ResumeLayout(false);
+            this.grpNewPassword.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -567,24 +574,25 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Panel pnlEditAccount;
         private System.Windows.Forms.Label lblAccountNameError;
-        private System.Windows.Forms.GroupBox gbAccountName;
+        private System.Windows.Forms.GroupBox grpAccountName;
         private System.Windows.Forms.TextBox txtAccountName;
-        private System.Windows.Forms.GroupBox gbPermission;
+        private System.Windows.Forms.GroupBox grpPermission;
         private System.Windows.Forms.ComboBox cbPermission;
         private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.ErrorProvider errAccount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenTaiKhoan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PhanQuyen;
         private System.Windows.Forms.Panel pnlChangePassword;
         private System.Windows.Forms.Label lblConfirmPasswordError;
-        private System.Windows.Forms.GroupBox gbConfirmPassword;
+        private System.Windows.Forms.GroupBox grpConfirmPassword;
         private System.Windows.Forms.TextBox txtConfirmPassword;
         private System.Windows.Forms.Button btnCancelChange;
         private System.Windows.Forms.Button btnAcceptChange;
         private System.Windows.Forms.Label lblNewPasswordError;
-        private System.Windows.Forms.GroupBox gbNewPassword;
+        private System.Windows.Forms.GroupBox grpNewPassword;
         private System.Windows.Forms.TextBox txtNewPassword;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenTaiKhoan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhanQuyen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
     }
 }

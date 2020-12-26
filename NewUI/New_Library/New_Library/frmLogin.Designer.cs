@@ -189,6 +189,7 @@
             // 
             this.lblForgotPassword.AutoSize = true;
             this.lblForgotPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblForgotPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblForgotPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblForgotPassword.ForeColor = System.Drawing.Color.LightSalmon;
             this.lblForgotPassword.Location = new System.Drawing.Point(87, 171);

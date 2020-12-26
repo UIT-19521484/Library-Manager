@@ -60,13 +60,13 @@ namespace New_Library.Forms.Management.Account
         {
             if (!ValidateInput.ValidOnlyLetter(txtStaffName.Text, out errMsg))
             {
-                CancelValidatedEvent(gbStaffName, lblStaffNameError, e);
+                CancelValidatedEvent(grpStaffName, lblStaffNameError, e);
             }
         }
 
         private void txtStaffName_Validated(object sender, EventArgs e)
         {
-            errEditStaff.SetError(gbStaffName, "");
+            errEditStaff.SetError(grpStaffName, "");
             lblStaffNameError.Text = "";
         }
 
@@ -79,7 +79,7 @@ namespace New_Library.Forms.Management.Account
                 errMsg = "Trường này chỉ nhập số";
                 lblPhoneNumberWarning.Text = errMsg;
                 System.Media.SystemSounds.Asterisk.Play();
-                errEditStaff.SetError(gbPhoneNumber, errMsg);
+                errEditStaff.SetError(grpPhoneNumber, errMsg);
             }
         }
 
@@ -87,27 +87,27 @@ namespace New_Library.Forms.Management.Account
         {
             if (!ValidateInput.ValidVietnamesePhone(txtPhoneNumber.Text, out errMsg))
             {
-                CancelValidatedEvent(gbPhoneNumber, lblPhoneNumberWarning, e);
+                CancelValidatedEvent(grpPhoneNumber, lblPhoneNumberWarning, e);
             }
         }
 
         private void txtPhoneNumber_Validated(object sender, EventArgs e)
         {
             lblPhoneNumberWarning.Text = "";
-            errEditStaff.SetError(gbPhoneNumber, "");
+            errEditStaff.SetError(grpPhoneNumber, "");
         }
 
         private void txtAddress_Validating(object sender, CancelEventArgs e)
         {
             if (ValidateInput.IsEmpty(txtAddress.Text, out errMsg))
             {
-                CancelValidatedEvent(gbAddress, lblAddressError, e);
+                CancelValidatedEvent(grpAddress, lblAddressError, e);
             }
         }
 
         private void txtAddress_Validated(object sender, EventArgs e)
         {
-            errEditStaff.SetError(gbAddress, "");
+            errEditStaff.SetError(grpAddress, "");
             lblAddressError.Text = "";
         }
 
@@ -116,14 +116,14 @@ namespace New_Library.Forms.Management.Account
             if (cbSex.Text.Length == 0)
             {
                 errMsg = "Chưa chọn giới tính";
-                CancelValidatedEvent(gbSex, lblSexError, e);
+                CancelValidatedEvent(grpSex, lblSexError, e);
             }
         }
 
         private void cbSex_Validated(object sender, EventArgs e)
         {
             lblSexError.Text = "";
-            errEditStaff.SetError(gbSex, "");
+            errEditStaff.SetError(grpSex, "");
         }
         #endregion
 

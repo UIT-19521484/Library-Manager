@@ -29,56 +29,56 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.gbBookInfo = new System.Windows.Forms.GroupBox();
+            this.grpBookInfo = new System.Windows.Forms.GroupBox();
             this.lblGenreError = new System.Windows.Forms.Label();
             this.lblPublisherNameError = new System.Windows.Forms.Label();
             this.lblAuthorNameError = new System.Windows.Forms.Label();
             this.lblBookNameError = new System.Windows.Forms.Label();
-            this.gbGenre = new System.Windows.Forms.GroupBox();
-            this.cbGenre = new System.Windows.Forms.ComboBox();
-            this.gbPublisher = new System.Windows.Forms.GroupBox();
+            this.grpGenre = new System.Windows.Forms.GroupBox();
+            this.cboGenre = new System.Windows.Forms.ComboBox();
+            this.grpPublisher = new System.Windows.Forms.GroupBox();
             this.txtPublisherName = new System.Windows.Forms.TextBox();
-            this.gbAuthorName = new System.Windows.Forms.GroupBox();
+            this.grpAuthorName = new System.Windows.Forms.GroupBox();
             this.txtAuthorName = new System.Windows.Forms.TextBox();
-            this.gbBookName = new System.Windows.Forms.GroupBox();
+            this.grpBookName = new System.Windows.Forms.GroupBox();
             this.txtBookName = new System.Windows.Forms.TextBox();
-            this.gbQuantity = new System.Windows.Forms.GroupBox();
+            this.grpQuantity = new System.Windows.Forms.GroupBox();
             this.lblAvailableWarning = new System.Windows.Forms.Label();
             this.lblBorrowed = new System.Windows.Forms.Label();
-            this.gbAvailable = new System.Windows.Forms.GroupBox();
+            this.grpAvailable = new System.Windows.Forms.GroupBox();
             this.txtAvailable = new System.Windows.Forms.TextBox();
             this.errAddBook = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.gbBookInfo.SuspendLayout();
-            this.gbGenre.SuspendLayout();
-            this.gbPublisher.SuspendLayout();
-            this.gbAuthorName.SuspendLayout();
-            this.gbBookName.SuspendLayout();
-            this.gbQuantity.SuspendLayout();
-            this.gbAvailable.SuspendLayout();
+            this.grpBookInfo.SuspendLayout();
+            this.grpGenre.SuspendLayout();
+            this.grpPublisher.SuspendLayout();
+            this.grpAuthorName.SuspendLayout();
+            this.grpBookName.SuspendLayout();
+            this.grpQuantity.SuspendLayout();
+            this.grpAvailable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errAddBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // gbBookInfo
+            // grpBookInfo
             // 
-            this.gbBookInfo.Controls.Add(this.lblGenreError);
-            this.gbBookInfo.Controls.Add(this.lblPublisherNameError);
-            this.gbBookInfo.Controls.Add(this.lblAuthorNameError);
-            this.gbBookInfo.Controls.Add(this.lblBookNameError);
-            this.gbBookInfo.Controls.Add(this.gbGenre);
-            this.gbBookInfo.Controls.Add(this.gbPublisher);
-            this.gbBookInfo.Controls.Add(this.gbAuthorName);
-            this.gbBookInfo.Controls.Add(this.gbBookName);
-            this.gbBookInfo.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbBookInfo.Location = new System.Drawing.Point(12, 12);
-            this.gbBookInfo.Name = "gbBookInfo";
-            this.gbBookInfo.Size = new System.Drawing.Size(391, 331);
-            this.gbBookInfo.TabIndex = 6;
-            this.gbBookInfo.TabStop = false;
-            this.gbBookInfo.Text = "Thông tin sách";
+            this.grpBookInfo.Controls.Add(this.lblGenreError);
+            this.grpBookInfo.Controls.Add(this.lblPublisherNameError);
+            this.grpBookInfo.Controls.Add(this.lblAuthorNameError);
+            this.grpBookInfo.Controls.Add(this.lblBookNameError);
+            this.grpBookInfo.Controls.Add(this.grpGenre);
+            this.grpBookInfo.Controls.Add(this.grpPublisher);
+            this.grpBookInfo.Controls.Add(this.grpAuthorName);
+            this.grpBookInfo.Controls.Add(this.grpBookName);
+            this.grpBookInfo.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBookInfo.Location = new System.Drawing.Point(12, 12);
+            this.grpBookInfo.Name = "grpBookInfo";
+            this.grpBookInfo.Size = new System.Drawing.Size(391, 331);
+            this.grpBookInfo.TabIndex = 6;
+            this.grpBookInfo.TabStop = false;
+            this.grpBookInfo.Text = "Thông tin sách";
             // 
             // lblGenreError
             // 
@@ -120,54 +120,54 @@
             this.lblBookNameError.ForeColor = System.Drawing.Color.Red;
             this.lblBookNameError.Location = new System.Drawing.Point(10, 94);
             this.lblBookNameError.Name = "lblBookNameError";
-            this.lblBookNameError.Size = new System.Drawing.Size(91, 13);
+            this.lblBookNameError.Size = new System.Drawing.Size(90, 13);
             this.lblBookNameError.TabIndex = 72;
             this.lblBookNameError.Text = "BookName Error";
             // 
-            // gbGenre
+            // grpGenre
             // 
-            this.gbGenre.BackColor = System.Drawing.Color.White;
-            this.gbGenre.Controls.Add(this.cbGenre);
-            this.gbGenre.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbGenre.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbGenre.Location = new System.Drawing.Point(13, 240);
-            this.gbGenre.Name = "gbGenre";
-            this.gbGenre.Size = new System.Drawing.Size(349, 56);
-            this.gbGenre.TabIndex = 71;
-            this.gbGenre.TabStop = false;
-            this.gbGenre.Text = "Thể loại";
+            this.grpGenre.BackColor = System.Drawing.Color.White;
+            this.grpGenre.Controls.Add(this.cboGenre);
+            this.grpGenre.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpGenre.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpGenre.Location = new System.Drawing.Point(13, 240);
+            this.grpGenre.Name = "grpGenre";
+            this.grpGenre.Size = new System.Drawing.Size(349, 56);
+            this.grpGenre.TabIndex = 71;
+            this.grpGenre.TabStop = false;
+            this.grpGenre.Text = "Thể loại";
             // 
-            // cbGenre
+            // cboGenre
             // 
-            this.cbGenre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cboGenre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbGenre.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGenre.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbGenre.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbGenre.FormattingEnabled = true;
-            this.cbGenre.Location = new System.Drawing.Point(9, 19);
-            this.cbGenre.Margin = new System.Windows.Forms.Padding(0);
-            this.cbGenre.Name = "cbGenre";
-            this.cbGenre.Size = new System.Drawing.Size(337, 33);
-            this.cbGenre.Sorted = true;
-            this.cbGenre.TabIndex = 4;
-            this.cbGenre.Validating += new System.ComponentModel.CancelEventHandler(this.cbGenre_Validating);
-            this.cbGenre.Validated += new System.EventHandler(this.cbGenre_Validated);
+            this.cboGenre.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cboGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGenre.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cboGenre.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboGenre.FormattingEnabled = true;
+            this.cboGenre.Location = new System.Drawing.Point(9, 19);
+            this.cboGenre.Margin = new System.Windows.Forms.Padding(0);
+            this.cboGenre.Name = "cboGenre";
+            this.cboGenre.Size = new System.Drawing.Size(337, 33);
+            this.cboGenre.Sorted = true;
+            this.cboGenre.TabIndex = 4;
+            this.cboGenre.Validating += new System.ComponentModel.CancelEventHandler(this.cbGenre_Validating);
+            this.cboGenre.Validated += new System.EventHandler(this.cbGenre_Validated);
             // 
-            // gbPublisher
+            // grpPublisher
             // 
-            this.gbPublisher.BackColor = System.Drawing.Color.White;
-            this.gbPublisher.Controls.Add(this.txtPublisherName);
-            this.gbPublisher.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbPublisher.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPublisher.Location = new System.Drawing.Point(13, 175);
-            this.gbPublisher.Name = "gbPublisher";
-            this.gbPublisher.Size = new System.Drawing.Size(349, 48);
-            this.gbPublisher.TabIndex = 70;
-            this.gbPublisher.TabStop = false;
-            this.gbPublisher.Text = "Nhà xuất bản";
+            this.grpPublisher.BackColor = System.Drawing.Color.White;
+            this.grpPublisher.Controls.Add(this.txtPublisherName);
+            this.grpPublisher.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpPublisher.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpPublisher.Location = new System.Drawing.Point(13, 175);
+            this.grpPublisher.Name = "grpPublisher";
+            this.grpPublisher.Size = new System.Drawing.Size(349, 48);
+            this.grpPublisher.TabIndex = 70;
+            this.grpPublisher.TabStop = false;
+            this.grpPublisher.Text = "Nhà xuất bản";
             // 
             // txtPublisherName
             // 
@@ -186,18 +186,18 @@
             this.txtPublisherName.Validating += new System.ComponentModel.CancelEventHandler(this.txtPublisherName_Validating);
             this.txtPublisherName.Validated += new System.EventHandler(this.txtPublisherName_Validated);
             // 
-            // gbAuthorName
+            // grpAuthorName
             // 
-            this.gbAuthorName.BackColor = System.Drawing.Color.White;
-            this.gbAuthorName.Controls.Add(this.txtAuthorName);
-            this.gbAuthorName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbAuthorName.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbAuthorName.Location = new System.Drawing.Point(13, 110);
-            this.gbAuthorName.Name = "gbAuthorName";
-            this.gbAuthorName.Size = new System.Drawing.Size(349, 48);
-            this.gbAuthorName.TabIndex = 69;
-            this.gbAuthorName.TabStop = false;
-            this.gbAuthorName.Text = "Tác giả";
+            this.grpAuthorName.BackColor = System.Drawing.Color.White;
+            this.grpAuthorName.Controls.Add(this.txtAuthorName);
+            this.grpAuthorName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpAuthorName.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpAuthorName.Location = new System.Drawing.Point(13, 110);
+            this.grpAuthorName.Name = "grpAuthorName";
+            this.grpAuthorName.Size = new System.Drawing.Size(349, 48);
+            this.grpAuthorName.TabIndex = 69;
+            this.grpAuthorName.TabStop = false;
+            this.grpAuthorName.Text = "Tác giả";
             // 
             // txtAuthorName
             // 
@@ -216,18 +216,18 @@
             this.txtAuthorName.Validating += new System.ComponentModel.CancelEventHandler(this.txtAuthorName_Validating);
             this.txtAuthorName.Validated += new System.EventHandler(this.txtAuthorName_Validated);
             // 
-            // gbBookName
+            // grpBookName
             // 
-            this.gbBookName.BackColor = System.Drawing.Color.White;
-            this.gbBookName.Controls.Add(this.txtBookName);
-            this.gbBookName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbBookName.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbBookName.Location = new System.Drawing.Point(13, 45);
-            this.gbBookName.Name = "gbBookName";
-            this.gbBookName.Size = new System.Drawing.Size(349, 48);
-            this.gbBookName.TabIndex = 68;
-            this.gbBookName.TabStop = false;
-            this.gbBookName.Text = "Tên sách";
+            this.grpBookName.BackColor = System.Drawing.Color.White;
+            this.grpBookName.Controls.Add(this.txtBookName);
+            this.grpBookName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpBookName.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBookName.Location = new System.Drawing.Point(13, 45);
+            this.grpBookName.Name = "grpBookName";
+            this.grpBookName.Size = new System.Drawing.Size(349, 48);
+            this.grpBookName.TabIndex = 68;
+            this.grpBookName.TabStop = false;
+            this.grpBookName.Text = "Tên sách";
             // 
             // txtBookName
             // 
@@ -248,18 +248,18 @@
             this.txtBookName.Validating += new System.ComponentModel.CancelEventHandler(this.txtBookName_Validating);
             this.txtBookName.Validated += new System.EventHandler(this.txtBookName_Validated);
             // 
-            // gbQuantity
+            // grpQuantity
             // 
-            this.gbQuantity.Controls.Add(this.lblAvailableWarning);
-            this.gbQuantity.Controls.Add(this.lblBorrowed);
-            this.gbQuantity.Controls.Add(this.gbAvailable);
-            this.gbQuantity.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbQuantity.Location = new System.Drawing.Point(409, 12);
-            this.gbQuantity.Name = "gbQuantity";
-            this.gbQuantity.Size = new System.Drawing.Size(258, 169);
-            this.gbQuantity.TabIndex = 7;
-            this.gbQuantity.TabStop = false;
-            this.gbQuantity.Text = "Số lượng";
+            this.grpQuantity.Controls.Add(this.lblAvailableWarning);
+            this.grpQuantity.Controls.Add(this.lblBorrowed);
+            this.grpQuantity.Controls.Add(this.grpAvailable);
+            this.grpQuantity.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpQuantity.Location = new System.Drawing.Point(409, 12);
+            this.grpQuantity.Name = "grpQuantity";
+            this.grpQuantity.Size = new System.Drawing.Size(258, 169);
+            this.grpQuantity.TabIndex = 7;
+            this.grpQuantity.TabStop = false;
+            this.grpQuantity.Text = "Số lượng";
             // 
             // lblAvailableWarning
             // 
@@ -284,18 +284,18 @@
             this.lblBorrowed.TabIndex = 70;
             this.lblBorrowed.Text = "Số lượng đã mượn chỉ có thể thay đổi thông qua việc trả mượn sách\r\n\r\n";
             // 
-            // gbAvailable
+            // grpAvailable
             // 
-            this.gbAvailable.BackColor = System.Drawing.Color.White;
-            this.gbAvailable.Controls.Add(this.txtAvailable);
-            this.gbAvailable.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbAvailable.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbAvailable.Location = new System.Drawing.Point(6, 45);
-            this.gbAvailable.Name = "gbAvailable";
-            this.gbAvailable.Size = new System.Drawing.Size(228, 48);
-            this.gbAvailable.TabIndex = 69;
-            this.gbAvailable.TabStop = false;
-            this.gbAvailable.Text = "Có sẵn";
+            this.grpAvailable.BackColor = System.Drawing.Color.White;
+            this.grpAvailable.Controls.Add(this.txtAvailable);
+            this.grpAvailable.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.grpAvailable.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpAvailable.Location = new System.Drawing.Point(6, 45);
+            this.grpAvailable.Name = "grpAvailable";
+            this.grpAvailable.Size = new System.Drawing.Size(228, 48);
+            this.grpAvailable.TabIndex = 69;
+            this.grpAvailable.TabStop = false;
+            this.grpAvailable.Text = "Có sẵn";
             // 
             // txtAvailable
             // 
@@ -374,8 +374,8 @@
             this.ClientSize = new System.Drawing.Size(679, 359);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.gbQuantity);
-            this.Controls.Add(this.gbBookInfo);
+            this.Controls.Add(this.grpQuantity);
+            this.Controls.Add(this.grpBookInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -384,19 +384,19 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.frmAddBook_Load);
-            this.gbBookInfo.ResumeLayout(false);
-            this.gbBookInfo.PerformLayout();
-            this.gbGenre.ResumeLayout(false);
-            this.gbPublisher.ResumeLayout(false);
-            this.gbPublisher.PerformLayout();
-            this.gbAuthorName.ResumeLayout(false);
-            this.gbAuthorName.PerformLayout();
-            this.gbBookName.ResumeLayout(false);
-            this.gbBookName.PerformLayout();
-            this.gbQuantity.ResumeLayout(false);
-            this.gbQuantity.PerformLayout();
-            this.gbAvailable.ResumeLayout(false);
-            this.gbAvailable.PerformLayout();
+            this.grpBookInfo.ResumeLayout(false);
+            this.grpBookInfo.PerformLayout();
+            this.grpGenre.ResumeLayout(false);
+            this.grpPublisher.ResumeLayout(false);
+            this.grpPublisher.PerformLayout();
+            this.grpAuthorName.ResumeLayout(false);
+            this.grpAuthorName.PerformLayout();
+            this.grpBookName.ResumeLayout(false);
+            this.grpBookName.PerformLayout();
+            this.grpQuantity.ResumeLayout(false);
+            this.grpQuantity.PerformLayout();
+            this.grpAvailable.ResumeLayout(false);
+            this.grpAvailable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errAddBook)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -405,17 +405,17 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gbBookInfo;
-        private System.Windows.Forms.ComboBox cbGenre;
+        private System.Windows.Forms.GroupBox grpBookInfo;
+        private System.Windows.Forms.ComboBox cboGenre;
         private System.Windows.Forms.TextBox txtPublisherName;
         private System.Windows.Forms.TextBox txtAuthorName;
         private System.Windows.Forms.TextBox txtBookName;
-        private System.Windows.Forms.GroupBox gbQuantity;
-        private System.Windows.Forms.GroupBox gbBookName;
-        private System.Windows.Forms.GroupBox gbAuthorName;
-        private System.Windows.Forms.GroupBox gbGenre;
-        private System.Windows.Forms.GroupBox gbPublisher;
-        private System.Windows.Forms.GroupBox gbAvailable;
+        private System.Windows.Forms.GroupBox grpQuantity;
+        private System.Windows.Forms.GroupBox grpBookName;
+        private System.Windows.Forms.GroupBox grpAuthorName;
+        private System.Windows.Forms.GroupBox grpGenre;
+        private System.Windows.Forms.GroupBox grpPublisher;
+        private System.Windows.Forms.GroupBox grpAvailable;
         private System.Windows.Forms.TextBox txtAvailable;
         private System.Windows.Forms.Label lblBorrowed;
         private System.Windows.Forms.Button btnAdd;
