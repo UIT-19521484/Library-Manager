@@ -43,7 +43,7 @@ namespace New_Library.Forms
             btnUpdate.Enabled = true;
 
             txtAccountName.Text = dgvAccount.SelectedRows[0].Cells["TenTaiKhoan"].Value.ToString();
-            cbPermission.Text = dgvAccount.SelectedRows[0].Cells["PhanQuyen"].Value.ToString();
+            cboPermission.Text = dgvAccount.SelectedRows[0].Cells["PhanQuyen"].Value.ToString();
         }
 
         private void dgvStaff_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -107,8 +107,6 @@ namespace New_Library.Forms
             errAccount.SetError(grpConfirmPassword, "");
         }
 
-        
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (lblAccountNameError.Text.Length != 0)
@@ -116,21 +114,14 @@ namespace New_Library.Forms
                 return;
             }
 
-            if (DatabaseData.dtAccount.Select(String.Format("[TÊN TÀI KHOẢN] = '{0}'", txtAccountName.Text)).FirstOrDefault() == null)
-            {
-                string cmdSta = @"update NHANVIEN set TenTaiKhoan = '" + txtAccountName.Text + "' " + "where HoTen = N'" + dgvAccount.SelectedRows[0].Cells[0].Value.ToString() + "'";
-                string cmdAcc = @"update TAIKHOAN set TenTaiKhoan = '" + txtAccountName.Text + "', PhanQuyen = '" + cbPermission.Text + "' " + "where TenTaiKhoan = '" + dgvAccount.SelectedRows[0].Cells["TenTaiKhoan"].Value.ToString() + "'";
+            string cmdAcc = @"update TAIKHOAN set TenTaiKhoan = PhanQuyen = '" + cboPermission.Text + "' " + "where TenTaiKhoan = '" + dgvAccount.SelectedRows[0].Cells["TenTaiKhoan"].Value.ToString() + "'";
 
-                if (DataConnection.ExecuteQuery(cmdAcc + ";\n" + cmdSta))
-                {
-                    MessageBox.Show("Thay đổi thông tin tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    pnlEditAccount.Visible = false;
-                }    
-            }
-            else
+            if (DataConnection.ExecuteQuery(cmdAcc))
             {
-                MessageBox.Show("Tên tài khoản đã tồn tại", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                MessageBox.Show("Thay đổi thông tin tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                pnlEditAccount.Visible = false;
+            } 
+            
             dgvAccount.Refresh();
 
             pnlEditAccount.Visible = false;

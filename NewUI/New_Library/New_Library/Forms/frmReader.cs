@@ -61,7 +61,6 @@ namespace New_Library.Forms
             string command = @"EXEC sp_search_readers @TuKhoa = N'" + txtSearch.Text + "'";
             DataTable dt = DataConnection.GetDataTable(command);
             this.dgvReader.DataSource = dt;
-            dgvReader.HeaderBgColor = ThemeColor.PrimaryColor;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

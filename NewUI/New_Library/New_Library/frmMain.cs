@@ -173,6 +173,7 @@ namespace New_Library
         {
             this.Owner.Show();
             this.Dispose();
+            this.Close();
         }
 
         private void pnlTitleBar_MouseDown(object sender, MouseEventArgs e)

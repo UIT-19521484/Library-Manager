@@ -16,7 +16,7 @@ namespace New_Library
         private static SqlTableDependency<LibraryEntity.Reader> deReader;
         private static SqlTableDependency<LibraryEntity.Staff> deStaff;
         private static SqlTableDependency<LibraryEntity.Account> deAccount;
-        private static SqlTableDependency<LibraryEntity.Account> deReceipt;
+        private static SqlTableDependency<LibraryEntity.Receipt> deReceipt;
 
         #region OnChanged events
         private static void dbBookChanged(object sender, RecordChangedEventArgs<LibraryEntity.Book> e)
@@ -183,9 +183,14 @@ namespace New_Library
             {
                 case TableDependency.SqlClient.Base.Enums.ChangeType.Insert:
                     DataRow row = dtAccount.NewRow();
-                    row["HỌ TÊN"] = dtStaff.Select("[TÀI KHOẢN]='" + e.Entity.TenTaiKhoan + "'").FirstOrDefault().Field<string>("HỌ TÊN");
+                    //row["HỌ TÊN"] = dtStaff.Select("[TÀI KHOẢN]='" + e.Entity.TenTaiKhoan + "'").FirstOrDefault().Field<string>("HỌ TÊN");
                     row["TÊN TÀI KHOẢN"] = e.Entity.TenTaiKhoan;
                     row["PHÂN QUYỀN"] = e.Entity.PhanQuyen;
+
+                    row["HỌ TÊN"] = (from DataRow drstaff in dtStaff.Rows
+                                       where drstaff["TÀI KHOẢN"].ToString() == e.Entity.TenTaiKhoan.ToString()
+                                       select drstaff["HỌ TÊN"]).FirstOrDefault();
+
                     dtAccount.Rows.Add(row);
                     break;
                 case TableDependency.SqlClient.Base.Enums.ChangeType.Delete:
@@ -212,42 +217,52 @@ namespace New_Library
 
             GC.Collect();
         }
-        //private static void dbReceiptChanged(object sender, RecordChangedEventArgs<LibraryEntity.Reader> e)
-        //{
-        //    switch (e.ChangeType)
-        //    {
-        //        case TableDependency.SqlClient.Base.Enums.ChangeType.Insert:
-        //            DataRow row = dtReceipt.NewRow();
-        //            row["MÃ MƯỢN/TRẢ"] = e.Entity.MaDG;
-        //            row["ĐỘC GIẢ"] = e.Entity.HoTen;
-        //            row["NGÀY MƯỢN"] = e.Entity.GioiTinh;
-        //            row["NGÀY TRẢ"] = e.Entity.NgaySinh.ToString();
-        //            row["SL SÁCH"] = e.Entity.DiaChi;
-        //            row["TÌNH TRẠNG"] = e.Entity.DiaChi;
-        //            row["CHI PHÍ"] = e.Entity.Email;
-        //            dtReceipt.Rows.Add(row);
-        //            break;
-        //        case TableDependency.SqlClient.Base.Enums.ChangeType.Delete:
-        //            row = dtReader.Select("MaDG=" + e.Entity.MaDG).FirstOrDefault();
-        //            if (row != null)
-        //            {
-        //                dtReader.Rows.Remove(row);
-        //            }
-        //            break;
-        //        case TableDependency.SqlClient.Base.Enums.ChangeType.Update:
-        //            row = dtReader.Select("MaDG=" + e.Entity.MaDG).FirstOrDefault();
-        //            if (row != null)
-        //            {
-        //                row["HỌ TÊN"] = e.Entity.HoTen;
-        //                row["GIỚI TÍNH"] = e.Entity.GioiTinh;
-        //                row["NGÀY SINH"] = e.Entity.NgaySinh.ToString();
-        //                row["ĐỊA CHỈ"] = e.Entity.DiaChi;
-        //                row["SĐT"] = e.Entity.DiaChi;
-        //                row["Email"] = e.Entity.Email;
-        //            }
-        //            break;
-        //    }
-        //}
+        private static void dbReceiptChanged(object sender, RecordChangedEventArgs<LibraryEntity.Receipt> e)
+        {
+            switch (e.ChangeType)
+            {
+                case TableDependency.SqlClient.Base.Enums.ChangeType.Insert:
+                    DataRow row = dtReceipt.NewRow();
+                    row["MaHD"] = e.Entity.MaHD;
+                   // row["MaMT"] = e.Entity.MaHD;
+                    row["ĐỘC GIẢ"] = (from DataRow dr in dtReader.Rows
+                                     where dr["MaDG"].ToString() == e.Entity.MaDG.ToString()
+                                     select dr["HỌ TÊN"]).FirstOrDefault();
+
+                    
+                    row["NGÀY MƯỢN"] = e.Entity.NgayMuon.ToString();
+                    row["NGÀY TRẢ"] = e.Entity.NgayTra.ToString();
+                    row["SL SÁCH"] = e.Entity.TongSL;
+                    row["TÌNH TRẠNG"] = e.Entity.TinhTrang;
+                    row["CHI PHÍ"] = e.Entity.ChiPhi;
+                    dtReceipt.Rows.Add(row);
+                    break;
+                case TableDependency.SqlClient.Base.Enums.ChangeType.Delete:
+                    row = dtReader.Select("MaHD=" + e.Entity.MaHD).FirstOrDefault();
+                    if (row != null)
+                    {
+                        dtReader.Rows.Remove(row);
+                    }
+                    break;
+                case TableDependency.SqlClient.Base.Enums.ChangeType.Update:
+                    row = dtReader.Select("MaHD=" + e.Entity.MaHD).FirstOrDefault();
+                    if (row != null)
+                    {
+                        //row["MaMT"] = e.Entity.MaMT;
+                        row["ĐỘC GIẢ"] = (from DataRow dr in dtReader.Rows
+                                          where dr["MaDG"].ToString() == e.Entity.MaDG.ToString()
+                                          select dr["HỌ TÊN"]).FirstOrDefault();
+
+
+                        row["NGÀY MƯỢN"] = e.Entity.NgayMuon.ToString();
+                        row["NGÀY TRẢ"] = e.Entity.NgayTra.ToString();
+                        row["SL SÁCH"] = e.Entity.TongSL;
+                        row["TÌNH TRẠNG"] = e.Entity.TinhTrang;
+                        row["CHI PHÍ"] = e.Entity.ChiPhi;
+                    }
+                    break;
+            }
+        }
 
         #endregion
 
@@ -312,6 +327,20 @@ namespace New_Library
 
             return mapperAccount;
         }
+
+        private static ModelToTableMapper<LibraryEntity.Receipt> MapReceipt()
+        {
+            var mapperReader = new ModelToTableMapper<LibraryEntity.Receipt>();
+            mapperReader.AddMapping(c => c.MaHD, "MaHD");
+            mapperReader.AddMapping(c => c.MaDG, "MaDG");
+            mapperReader.AddMapping(c => c.NgayMuon, "NgayMuon");
+            mapperReader.AddMapping(c => c.NgayTra, "NgayTra");
+            mapperReader.AddMapping(c => c.TongSL, "TongSL");
+            mapperReader.AddMapping(c => c.TinhTrang, "TinhTrang");
+            mapperReader.AddMapping(c => c.ChiPhi, "ChiPhi");
+
+            return mapperReader;
+        }
         #endregion
 
         public static void SetupSqlTableDependency()
@@ -341,7 +370,10 @@ namespace New_Library
             deAccount.OnChanged += dbAccountChanged;
             deAccount.Start();
 
-            
+            var mapperReceipt = MapReceipt();
+            deReceipt = new SqlTableDependency<LibraryEntity.Receipt>(DataConnection.ConnectionString, "HOADON", mapper: mapperReceipt);
+            deReceipt.OnChanged += dbReceiptChanged;
+            deReceipt.Start();
         }
 
         public static void Dispose()
@@ -350,6 +382,8 @@ namespace New_Library
             deGenre.Stop();
             deReader.Stop();
             deStaff.Stop();
+            deAccount.Stop();
+            deReceipt.Stop();
         }
     }
 }

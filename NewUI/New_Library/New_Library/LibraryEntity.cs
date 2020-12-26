@@ -91,7 +91,23 @@ namespace New_Library
 
         public class Receipt
         {
-            
+            private int maHD;
+            //private int maMT;
+            private int maDG;
+            private DateTime ngayMuon;
+            private DateTime ngayTra;
+            private string tinhTrang;
+            private int tongSL;
+            private int chiPhi;
+
+            public int MaHD { get => maHD; set => maHD = value; }
+            public int MaDG { get => maDG; set => maDG = value; }
+            public DateTime NgayMuon { get => ngayMuon; set => ngayMuon = value; }
+            public DateTime NgayTra { get => ngayTra; set => ngayTra = value; }
+            public string TinhTrang { get => tinhTrang; set => tinhTrang = value; }
+            public int TongSL { get => tongSL; set => tongSL = value; }
+            public int ChiPhi { get => chiPhi; set => chiPhi = value; }
+            //public int MaMT { get => maMT; set => maMT = value; }
         }
     }
 }

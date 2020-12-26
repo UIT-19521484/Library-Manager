@@ -32,10 +32,6 @@ CREATE TABLE NHANVIEN
 )
 GO
 
-delete from NHANVIEN
-alter table NHANVIEN alter column TenTaiKhoan VARCHAR(100) not null
-alter table NHANVIEN add unique(TenTaiKhoan)
-
 ALTER TABLE NHANVIEN ADD constraint PK_NHANVIEN PRIMARY KEY (MaNV)
 GO
 
@@ -110,8 +106,8 @@ ALTER TABLE CTHD ADD constraint PK_CTHD PRIMARY KEY (MaHD, MaSach)
 GO
 
 ------ THỰC HIỆN CÁC RÀNG BUỘC
-ALTER TABLE TAIKHOAN WITH CHECK
-ADD constraint FK_TAIKHOAN_NHANVIEN FOREIGN KEY (TenTaiKhoan) REFERENCES NHANVIEN(TenTaiKhoan)
+ALTER TABLE NHANVIEN WITH CHECK
+ADD constraint FK_NHANVIEN_TAIKHOAN FOREIGN KEY (TenTaiKhoan) REFERENCES TAIKHOAN(TenTaiKhoan)
 GO
 
 ALTER TABLE SACH WITH CHECK
@@ -162,22 +158,18 @@ INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách nấu ăn')
 INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách kỹ thuật công nghệ')
 INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách tin học')
 
-INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [TenTaiKhoan]) VALUES (N'Nguyễn Văn Dũng', N'Nam', CAST(0x0000881000000000 AS DateTime), N'Hà Nội', N'012106172360', N'nvd')
-INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [TenTaiKhoan]) VALUES (N'Nguyễn Hồng Phương', N'Nữ', CAST(0x0000884600000000 AS DateTime), N'Quảng Ngãi', N'01206172360 ', N'nhp')
-INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [TenTaiKhoan]) VALUES (N'Nguyễn Vân', N'Nữ', CAST(0x00008C6300000000 AS DateTime), N'Hà Nội', N'01206172360 ', N'nv')
-INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [TenTaiKhoan]) VALUES (N'Trần Phúc Thuận', N'Nam', CAST(0x000088CD00000000 AS DateTime), N'Đồng Nai', N'0123456789  ', N'tpt')
-INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [TenTaiKhoan]) VALUES (N'Thới Lục', N'Nam', CAST(0x0000874100000000 AS DateTime), N'TP HCM', N'01206172323 ', N'tl')
+INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Nguyễn Văn Dũng', N'Nam', CAST(0x0000881000000000 AS DateTime), N'Hà Nội', N'012106172360')
+INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Nguyễn Hồng Phương', N'Nữ', CAST(0x0000884600000000 AS DateTime), N'Quảng Ngãi', N'01206172360 ')
+INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Nguyễn Vân', N'Nữ', CAST(0x00008C6300000000 AS DateTime), N'Hà Nội', N'01206172360 ')
+INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Trần Phúc Thuận', N'Nam', CAST(0x000088CD00000000 AS DateTime), N'Đồng Nai', N'0123456789  ')
+INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Thới Lục', N'Nam', CAST(0x0000874100000000 AS DateTime), N'TP HCM', N'01206172323 ')
 
 INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (N'Châu Tinh Trì', N'Nam', CAST(0x0000A61200000000 AS DateTime), N'Quảng Châu - Trung Quốc', N'0123548521  ', N'chautinhtinh@gmail.com')
 INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (N'Nguyễn Thị Bé', N'Nữ', CAST(0x000088E300000000 AS DateTime), N'Đà Nẵng', N'0166555555  ', N'bexinhxinh@yahoo.com')
 INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (N'Trần Hạo Nam', N'Nam', CAST(0x0000806800000000 AS DateTime), N'Hải Phòng', N'0120000000  ', N'nguoitronggiangho@gmail.com')
 
-INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('admin', N'c4ca4238a0b923820dcc509a6f75849b')
-INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES (N'nvd', N'c4ca4238a0b923820dcc509a6f75849b')
-INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES (N'nhp', N'c4ca4238a0b923820dcc509a6f75849b')
-INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES (N'nv', N'c4ca4238a0b923820dcc509a6f75849b')
-INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES (N'tpt', N'c4ca4238a0b923820dcc509a6f75849b')
-INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES (N'tl', N'c4ca4238a0b923820dcc509a6f75849b')
+INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('a', '1')
+INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('b', '1')
 
 go
 
@@ -503,6 +495,8 @@ BEGIN
 END
 go
 
+exec sp_select_reader @SDT = '0934957323', @Email = 'f@m.m'
+
 --- 29. --- Delete 1 độc giả
 CREATE PROC sp_delete_reader 
 @SDT VARCHAR(20), @Email VARCHAR(100)
@@ -602,12 +596,14 @@ CREATE PROC sp_search_accounts
 AS
 BEGIN
 	DECLARE @temp NVARCHAR(200) = N'"*'+ @TuKhoa + '*"'
-	SELECT TenTaiKhoan AS [TÊN TÀI KHOẢN], MatKhau AS [MẬT KHẨU], PhanQuyen AS [PHÂN QUYỀN]  FROM TAIKHOAN
+	SELECT HoTen as [HỌ TÊN], TAIKHOAN.TenTaiKhoan AS [TÊN TÀI KHOẢN], PhanQuyen AS [PHÂN QUYỀN]  FROM TAIKHOAN left join NHANVIEN on NHANVIEN.TenTaiKhoan = TAIKHOAN.TenTaiKhoan
 	WHERE 
-		( CONTAINS(TenTaiKhoan, @temp ) OR FREETEXT(TenTaiKhoan, @TuKhoa) OR TenTaiKhoan LIKE '%'+ @TuKhoa +'%' OR
+		( CONTAINS(TAIKHOAN.TenTaiKhoan, @temp ) OR FREETEXT(TAIKHOAN.TenTaiKhoan, @TuKhoa) OR TAIKHOAN.TenTaiKhoan LIKE '%'+ @TuKhoa +'%' OR
 		  CONTAINS(PhanQuyen, @temp ) OR FREETEXT(PhanQuyen, @TuKhoa) OR PhanQuyen LIKE '%'+ @TuKhoa +'%' )
 END
 GO
+
+--drop proc sp_search_accounts
 
 --- 37. ---- Select 1 tài khoản 
 CREATE PROC sp_select_account
@@ -642,6 +638,39 @@ BEGIN
 END
 GO
 
+--- 40. --- Select tất cả hóa đơn
+CREATE PROC sp_select_all_receipts
+AS
+BEGIN
+	SELECT MaHD, DG.MaDG, MAHD + 10000000 AS [MÃ MƯỢN/TRẢ], DG.HoTen AS [ĐỘC GIẢ], NgayMuon AS [NGÀY MƯỢN], NgayTra AS [NGÀY TRẢ],
+		TongSL AS [SL SÁCH], TinhTrang AS [TÌNH TRẠNG], ChiPhi AS [CHI PHÍ]
+	
+	FROM HOADON HD, DOCGIA DG
+	WHERE HD.MaDG = DG.MaDG
+END
+go
+
+--- 41. --- Search hóa đơn
+CREATE PROC sp_search_receipts 
+@TuKhoa NVARCHAR(200)
+AS
+BEGIN
+	DECLARE @temp NVARCHAR(200) = N'"*'+ @TuKhoa + '*"'
+	SELECT MaHD, DG.MaDG, MAHD + 10000000 AS [MÃ MƯỢN/TRẢ], DG.HoTen AS [ĐỘC GIẢ], NgayMuon AS [NGÀY MƯỢN], NgayTra AS [NGÀY TRẢ],
+		TongSL AS [SL SÁCH], TinhTrang AS [TÌNH TRẠNG], ChiPhi AS [CHI PHÍ]
+	FROM HOADON HD, DOCGIA DG
+	WHERE HD.MaDG = DG.MaDG 
+		AND ( MaHD LIKE '%'+ @TuKhoa +'%' OR
+			CONTAINS(DG.HoTen, @temp ) OR FREETEXT(DG.HoTen, @TuKhoa) OR DG.HoTen LIKE '%'+ @TuKhoa +'%' OR
+		    NgayMuon LIKE '%'+ @TuKhoa +'%' OR
+			NgayTra LIKE '%'+ @TuKhoa +'%' OR
+		    CONTAINS(TinhTrang, @temp ) OR FREETEXT(TinhTrang, @TuKhoa) OR TinhTrang LIKE '%'+ @TuKhoa +'%' OR
+		    TongSL LIKE '%'+ @TuKhoa +'%' OR
+		    ChiPhi LIKE '%'+ @TuKhoa +'%' )
+END
+go
+
+
 alter database QLThuVien set enable_broker with rollback immediate;
 
 SET ANSI_NULLS ON
@@ -661,3 +690,14 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
+delete from NHANVIEN
+alter table NHANVIEN alter column TenTaiKhoan VARCHAR(100) not null
+alter table NHANVIEN add unique(TenTaiKhoan)
+
+ALTER TABLE NHANVIEN drop constraint FK_NHANVIEN_TAIKHOAN
+
+ALTER TABLE TAIKHOAN WITH CHECK
+ADD constraint FK_TAIKHOAN_NHANVIEN FOREIGN KEY (TenTaiKhoan) REFERENCES NHANVIEN(TenTaiKhoan)
+GO
+
+--Thay đổi sp_insert_staff

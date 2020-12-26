@@ -19,26 +19,14 @@ namespace New_Library.Forms
 
         private void frmReceipt_Load(object sender, EventArgs e)
         {
-            //LoadTheme();
+            LoadData_Receipt();
         }
 
-        //private void LoadTheme()
-        //{
-        //    foreach (Control btns in this.Controls)
-        //    {
-        //        if (btns.GetType() == typeof(Button))
-        //        {
-        //            Button btn = (Button)btns;
-        //            btn.BackColor = ThemeColor.PrimaryColor;
-        //            btn.ForeColor = Color.White;
-        //            btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
-        //        }
-        //    }
-
-        //}
         void LoadData_Receipt()
         {
-            dgvReceipt.DataSource = DatabaseData.dtReader;
+            dgvReceipt.DataSource = DatabaseData.dtReceipt;
+            dgvReceipt.Columns["MaHD"].Visible = false;
+            dgvReceipt.Columns["MaDG"].Visible = false;
         }
 
         private void dgvReceipt_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -62,6 +50,45 @@ namespace New_Library.Forms
             this.BeginInvoke(new Action(() => { btnDelete.Enabled = false; btnUpdate.Enabled = false; }));
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "" || txtSearch.Text == null)
+            {
+                LoadData_Receipt();
+                return;
+            }
 
+            string command = @"EXEC sp_search_receipts @TuKhoa = N'" + txtSearch.Text + "'";
+            DataTable dt = DataConnection.GetDataTable(command);
+            this.dgvReceipt.DataSource = dt;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string msg = "Bạn thật sự muốn xóa những phiếu mượn/trả này?\n\n";
+            for (int i = 0; i < dgvReceipt.SelectedRows.Count; i++)
+            {
+                int ma = 100000000 + (int)dgvReceipt.SelectedRows[i].Cells["MaHD"].Value;
+                msg += (i + 1).ToString() + ". " + ma.ToString()  + "\n";
+            }
+
+            DialogResult rs = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (rs == DialogResult.Yes)
+            {
+                while (dgvReceipt.SelectedRows.Count != 0)
+                {
+                    string command = @"EXEC sp_delete_receipt @MaHD = '" + dgvReceipt.SelectedRows[0].Cells["MaHD"].Value + "'";
+
+                    if (!DataConnection.ExecuteQuery(command))
+                    {
+                        MessageBox.Show("Thất bại khi xoá phiếu mượn/trả có mã " + dgvReceipt.SelectedRows[0].Cells["MÃ MƯỢN/TRẢ"].Value, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                MessageBox.Show("Hoàn thành xóa dữ liệu Phiếu mượn/trả sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            dgvReceipt.Refresh();
+            //GC.Collect();
+        }
     }
 }

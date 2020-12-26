@@ -170,7 +170,7 @@ namespace New_Library
         private void ResetLogin()
         {
             this.AcceptButton = this.btnSignin;
-
+  
             this.txtUsernameFP.Enabled = false;
             this.txtNewPasswordFP.Enabled = false;
             this.txtConfirmPassword.Enabled = false;

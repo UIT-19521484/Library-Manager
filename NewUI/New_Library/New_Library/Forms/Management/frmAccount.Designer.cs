@@ -45,7 +45,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.grpPermission = new System.Windows.Forms.GroupBox();
-            this.cbPermission = new System.Windows.Forms.ComboBox();
+            this.cboPermission = new System.Windows.Forms.ComboBox();
             this.lblAccountNameError = new System.Windows.Forms.Label();
             this.grpAccountName = new System.Windows.Forms.GroupBox();
             this.txtAccountName = new System.Windows.Forms.TextBox();
@@ -279,7 +279,7 @@
             // grpPermission
             // 
             this.grpPermission.BackColor = System.Drawing.Color.White;
-            this.grpPermission.Controls.Add(this.cbPermission);
+            this.grpPermission.Controls.Add(this.cboPermission);
             this.grpPermission.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.grpPermission.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpPermission.Location = new System.Drawing.Point(3, 71);
@@ -289,25 +289,25 @@
             this.grpPermission.TabStop = false;
             this.grpPermission.Text = "Phân quyền";
             // 
-            // cbPermission
+            // cboPermission
             // 
-            this.cbPermission.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cboPermission.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbPermission.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbPermission.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPermission.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbPermission.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPermission.FormattingEnabled = true;
-            this.cbPermission.Items.AddRange(new object[] {
+            this.cboPermission.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cboPermission.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPermission.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cboPermission.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPermission.FormattingEnabled = true;
+            this.cboPermission.Items.AddRange(new object[] {
             "Admin",
             "Member"});
-            this.cbPermission.Location = new System.Drawing.Point(9, 19);
-            this.cbPermission.Margin = new System.Windows.Forms.Padding(0);
-            this.cbPermission.Name = "cbPermission";
-            this.cbPermission.Size = new System.Drawing.Size(204, 33);
-            this.cbPermission.Sorted = true;
-            this.cbPermission.TabIndex = 2;
+            this.cboPermission.Location = new System.Drawing.Point(9, 19);
+            this.cboPermission.Margin = new System.Windows.Forms.Padding(0);
+            this.cboPermission.Name = "cboPermission";
+            this.cboPermission.Size = new System.Drawing.Size(204, 33);
+            this.cboPermission.Sorted = true;
+            this.cboPermission.TabIndex = 2;
             // 
             // lblAccountNameError
             // 
@@ -577,7 +577,7 @@
         private System.Windows.Forms.GroupBox grpAccountName;
         private System.Windows.Forms.TextBox txtAccountName;
         private System.Windows.Forms.GroupBox grpPermission;
-        private System.Windows.Forms.ComboBox cbPermission;
+        private System.Windows.Forms.ComboBox cboPermission;
         private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnEdit;
