@@ -38,8 +38,8 @@ namespace New_Library.Forms.Setting
 
             Properties.Settings.Default.LibraryName = txtLibraryName.Text;
             Properties.Settings.Default.LibraryAddress = txtAddress.Text;
-            Properties.Settings.Default.LibraryEmail = txtPhoneNumber.Text;
-            Properties.Settings.Default.LibraryPhoneNumber = txtEmail.Text;
+            Properties.Settings.Default.LibraryEmail = txtEmail.Text;
+            Properties.Settings.Default.LibraryPhoneNumber = txtPhoneNumber.Text;
 
             Properties.Settings.Default.Save();
 
