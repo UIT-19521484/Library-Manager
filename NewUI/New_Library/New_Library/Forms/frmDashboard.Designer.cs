@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Button btnEdit;
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -50,15 +49,14 @@
             this.lblTotalReader = new System.Windows.Forms.Label();
             this.lblNoTotalReader = new System.Windows.Forms.Label();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
             this.lblPhoneTag = new System.Windows.Forms.Label();
             this.lblEmailTag = new System.Windows.Forms.Label();
             this.lblAddressTag = new System.Windows.Forms.Label();
             this.lblLibraryNameTag = new System.Windows.Forms.Label();
-            this.txtLibraryName = new System.Windows.Forms.TextBox();
-            btnEdit = new System.Windows.Forms.Button();
+            this.lblLibraryName = new System.Windows.Forms.Label();
+            this.lblLibraryAddress = new System.Windows.Forms.Label();
+            this.lblLibraryEmail = new System.Windows.Forms.Label();
+            this.lblLibraryNumber = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -69,21 +67,6 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnEdit
-            // 
-            btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnEdit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnEdit.Image = global::New_Library.Properties.Resources.update;
-            btnEdit.Location = new System.Drawing.Point(956, 30);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new System.Drawing.Size(37, 35);
-            btnEdit.TabIndex = 53;
-            btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            btnEdit.UseVisualStyleBackColor = false;
-            btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -407,14 +390,14 @@
             this.tableLayoutPanel9.ColumnCount = 2;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.96009F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.03991F));
-            this.tableLayoutPanel9.Controls.Add(this.txtPhoneNumber, 1, 3);
-            this.tableLayoutPanel9.Controls.Add(this.txtEmail, 1, 2);
-            this.tableLayoutPanel9.Controls.Add(this.txtAddress, 1, 1);
+            this.tableLayoutPanel9.Controls.Add(this.lblLibraryNumber, 1, 3);
+            this.tableLayoutPanel9.Controls.Add(this.lblLibraryEmail, 1, 2);
+            this.tableLayoutPanel9.Controls.Add(this.lblLibraryAddress, 1, 1);
             this.tableLayoutPanel9.Controls.Add(this.lblPhoneTag, 0, 3);
             this.tableLayoutPanel9.Controls.Add(this.lblEmailTag, 0, 2);
             this.tableLayoutPanel9.Controls.Add(this.lblAddressTag, 0, 1);
             this.tableLayoutPanel9.Controls.Add(this.lblLibraryNameTag, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.txtLibraryName, 1, 0);
+            this.tableLayoutPanel9.Controls.Add(this.lblLibraryName, 1, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
@@ -425,42 +408,6 @@
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(902, 150);
             this.tableLayoutPanel9.TabIndex = 1;
-            // 
-            // txtPhoneNumber
-            // 
-            this.txtPhoneNumber.BackColor = System.Drawing.Color.White;
-            this.txtPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.txtPhoneNumber.Location = new System.Drawing.Point(165, 114);
-            this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.ReadOnly = true;
-            this.txtPhoneNumber.Size = new System.Drawing.Size(734, 31);
-            this.txtPhoneNumber.TabIndex = 10;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.BackColor = System.Drawing.Color.White;
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.txtEmail.Location = new System.Drawing.Point(165, 77);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(734, 31);
-            this.txtEmail.TabIndex = 9;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.BackColor = System.Drawing.Color.White;
-            this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.txtAddress.Location = new System.Drawing.Point(165, 40);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.ReadOnly = true;
-            this.txtAddress.Size = new System.Drawing.Size(734, 31);
-            this.txtAddress.TabIndex = 8;
             // 
             // lblPhoneTag
             // 
@@ -522,17 +469,45 @@
             this.lblLibraryNameTag.Text = "Tên thư viện:";
             this.lblLibraryNameTag.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txtLibraryName
+            // lblLibraryName
             // 
-            this.txtLibraryName.BackColor = System.Drawing.Color.White;
-            this.txtLibraryName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLibraryName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLibraryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.txtLibraryName.Location = new System.Drawing.Point(165, 3);
-            this.txtLibraryName.Name = "txtLibraryName";
-            this.txtLibraryName.ReadOnly = true;
-            this.txtLibraryName.Size = new System.Drawing.Size(734, 31);
-            this.txtLibraryName.TabIndex = 7;
+            this.lblLibraryName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblLibraryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblLibraryName.Location = new System.Drawing.Point(165, 0);
+            this.lblLibraryName.Name = "lblLibraryName";
+            this.lblLibraryName.Size = new System.Drawing.Size(734, 37);
+            this.lblLibraryName.TabIndex = 7;
+            this.lblLibraryName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblLibraryAddress
+            // 
+            this.lblLibraryAddress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblLibraryAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblLibraryAddress.Location = new System.Drawing.Point(165, 37);
+            this.lblLibraryAddress.Name = "lblLibraryAddress";
+            this.lblLibraryAddress.Size = new System.Drawing.Size(734, 37);
+            this.lblLibraryAddress.TabIndex = 8;
+            this.lblLibraryAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblLibraryEmail
+            // 
+            this.lblLibraryEmail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblLibraryEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblLibraryEmail.Location = new System.Drawing.Point(165, 74);
+            this.lblLibraryEmail.Name = "lblLibraryEmail";
+            this.lblLibraryEmail.Size = new System.Drawing.Size(734, 37);
+            this.lblLibraryEmail.TabIndex = 9;
+            this.lblLibraryEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblLibraryNumber
+            // 
+            this.lblLibraryNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblLibraryNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.lblLibraryNumber.Location = new System.Drawing.Point(165, 111);
+            this.lblLibraryNumber.Name = "lblLibraryNumber";
+            this.lblLibraryNumber.Size = new System.Drawing.Size(734, 39);
+            this.lblLibraryNumber.TabIndex = 10;
+            this.lblLibraryNumber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmDashboard
             // 
@@ -542,7 +517,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1031, 576);
             this.ControlBox = false;
-            this.Controls.Add(btnEdit);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -588,13 +562,13 @@
         private System.Windows.Forms.Label lblTotalReader;
         private System.Windows.Forms.Label lblNoTotalReader;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.TextBox txtPhoneNumber;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label lblPhoneTag;
         private System.Windows.Forms.Label lblEmailTag;
         private System.Windows.Forms.Label lblAddressTag;
         private System.Windows.Forms.Label lblLibraryNameTag;
-        private System.Windows.Forms.TextBox txtLibraryName;
+        private System.Windows.Forms.Label lblLibraryNumber;
+        private System.Windows.Forms.Label lblLibraryEmail;
+        private System.Windows.Forms.Label lblLibraryAddress;
+        private System.Windows.Forms.Label lblLibraryName;
     }
 }

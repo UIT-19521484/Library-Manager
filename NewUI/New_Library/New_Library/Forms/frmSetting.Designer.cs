@@ -76,10 +76,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1015, 537);
             this.Controls.Add(this.pnlSettingChildForm);
             this.Controls.Add(this.pnlSettingMenu);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSetting";
             this.Text = "THIẾT LẬP";
             this.Load += new System.EventHandler(this.frmSetting_Load);

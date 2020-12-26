@@ -29,7 +29,7 @@ namespace New_Library
             //connectionString = @"Data Source=.\SQLSERVERDEV2017;Initial Catalog=QLThuVien;User ID=sa;Password=Huy123456";
             //connectionString = @"Data Source=DESKTOP-60EFUQD;Initial Catalog=QLThuVien;Persist Security Info=True;User ID=sa;Password=123456";
 
-            connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            connectionString = Properties.Settings.Default.ConnectionString;
 
             con = new SqlConnection(connectionString);
 

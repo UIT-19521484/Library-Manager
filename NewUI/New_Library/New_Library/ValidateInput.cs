@@ -7,16 +7,16 @@ namespace New_Library
     {
         public static bool IsEmpty(string str, out string errMsg)
         {
-            for (int i = 0; i < str.Length; i++)
-            {
-                if (str[i] != ' ')
-                {
-                    errMsg = "";
-                    return false;
-                }   
-            }
-            errMsg = "Trường này không được trống";
-            return true;
+            //for (int i = 0; i < str.Length; i++)
+            //{
+            //    if (str[i] != ' ')
+            //    {
+            //        errMsg = "";
+            //        return false;
+            //    }   
+            //}
+            //errMsg = "Trường này không được trống";
+            //return true;
 
             //if (str.Length == 0 || str == "")
             //{
@@ -25,6 +25,14 @@ namespace New_Library
             //}
             //errMsg = "";
             //return false;
+
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                errMsg = "Trường này không được trống";
+                return true;
+            }
+            errMsg = "";
+            return false;
         }
 
         public static bool ValidVietnamesePhone(string phNumber, out string errMsg)

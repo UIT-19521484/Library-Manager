@@ -14,5 +14,8 @@
     <Setting Name="LibraryPhoneNumber" Type="System.String" Scope="User">
       <Value Profile="(Default)">01255185458</Value>
     </Setting>
+    <Setting Name="ConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=DESKTOP-60EFUQD;Initial Catalog=QLThuVien;Persist Security Info=True;User ID=sa;Password=123456</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

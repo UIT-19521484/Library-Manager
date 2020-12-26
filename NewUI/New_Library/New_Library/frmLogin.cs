@@ -100,7 +100,6 @@ namespace New_Library
             }
         }
 
-        #region Validate input data
         private void CancelValidatedEvent(Control control, Label error, CancelEventArgs e)
         {
             System.Media.SystemSounds.Asterisk.Play();
@@ -148,7 +147,7 @@ namespace New_Library
             this.errLogin.SetError(txtPassword, "");
             this.lblPasswordError.Text = "";
         }
-        #endregion
+
         private string CreateMD5(string passWord)
         {
             // Use input string to calculate MD5 hash

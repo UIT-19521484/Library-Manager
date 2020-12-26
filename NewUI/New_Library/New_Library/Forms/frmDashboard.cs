@@ -19,10 +19,10 @@ namespace New_Library.Forms
 
         private void frmDashboard_Load(object sender, EventArgs e)
         {
-            txtLibraryName.Text = Properties.Settings.Default.LibraryName;
-            txtAddress.Text = Properties.Settings.Default.LibraryAddress;
-            txtEmail.Text = Properties.Settings.Default.LibraryEmail;
-            txtPhoneNumber.Text = Properties.Settings.Default.LibraryPhoneNumber;
+            lblLibraryName.Text = Properties.Settings.Default.LibraryName;
+            lblLibraryAddress.Text = Properties.Settings.Default.LibraryAddress;
+            lblLibraryEmail.Text = Properties.Settings.Default.LibraryEmail;
+            lblLibraryNumber.Text = Properties.Settings.Default.LibraryPhoneNumber;
 
             this.lblNoTotalReader.Text = DataConnection.ExecuteScalar(@"EXEC sp_count_all_readers").ToString();
             this.lblNoBorrowingReader.Text = DataConnection.ExecuteScalar(@"EXEC sp_count_borrowing_readers").ToString();
@@ -30,14 +30,6 @@ namespace New_Library.Forms
             this.lblNoTotalBook.Text = DataConnection.ExecuteScalar(@"EXEC sp_count_all_books").ToString();
             this.lblNoTotalGenres.Text = DataConnection.ExecuteScalar(@"EXEC sp_count_all_genres").ToString();
             this.lblNoTotalAvailableCopies.Text = DataConnection.ExecuteScalar(@"EXEC sp_count_all_available_books").ToString();
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            txtLibraryName.ReadOnly = !txtLibraryName.ReadOnly;
-            txtAddress.ReadOnly = !txtAddress.ReadOnly;
-            txtPhoneNumber.ReadOnly = !txtPhoneNumber.ReadOnly;
-            txtEmail.ReadOnly = !txtEmail.ReadOnly;
         }
     }
 }
