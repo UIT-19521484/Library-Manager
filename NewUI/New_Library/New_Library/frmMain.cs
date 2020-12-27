@@ -130,6 +130,8 @@ namespace New_Library
 
         private void lblLogo_Click(object sender, EventArgs e)
         {
+            dashboard = new Forms.frmDashboard();
+            
             OpenChildForm(dashboard, sender);
             Reset();
         }

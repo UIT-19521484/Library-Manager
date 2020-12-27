@@ -25,7 +25,7 @@ namespace New_Library.Forms.Book
             txtAuthorName.Text = selectedBook.TacGia;
             txtPublisherName.Text = selectedBook.NhaXB;
             txtAvailable.Text = selectedBook.TonTai.ToString();
-            cbGenre.Text = (from DataRow dr in dt.Rows
+            cboGenre.Text = (from DataRow dr in dt.Rows
                            where (int)dr["MaTL"] == selectedBook.MaTL
                            select (string)dr["TÊN THỂ LOẠI"]).FirstOrDefault();
             bookID = selectedBook.MaSach;
@@ -41,9 +41,9 @@ namespace New_Library.Forms.Book
 
         private void LoadData_Genre()
         {
-            cbGenre.DisplayMember = dt.Columns[1].ToString();
-            cbGenre.DataSource = dt;
-            cbGenre.SelectedIndex = -1;
+            cboGenre.DisplayMember = dt.Columns[1].ToString();
+            cboGenre.DataSource = dt;
+            cboGenre.SelectedIndex = -1;
         }
 
         //private bool IsBookExist()
@@ -89,7 +89,7 @@ namespace New_Library.Forms.Book
                         + "@TenSach = N'" + txtBookName.Text + "', "
                         + "@TacGia = N'" + txtAuthorName.Text + "', "
                         + "@NhaXuatBan = N'" + txtPublisherName.Text + "', "
-                        + "@TenTL = N'" + cbGenre.Text + "', "
+                        + "@TenTL = N'" + cboGenre.Text + "', "
                         + "@TonTai = " + txtAvailable.Text;
 
             if (DataConnection.ExecuteQuery(cmd))

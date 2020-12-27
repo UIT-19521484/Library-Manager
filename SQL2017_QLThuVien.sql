@@ -642,7 +642,7 @@ GO
 CREATE PROC sp_select_all_receipts
 AS
 BEGIN
-	SELECT MaHD, DG.MaDG, MAHD + 10000000 AS [MÃ MƯỢN/TRẢ], DG.HoTen AS [ĐỘC GIẢ], NgayMuon AS [NGÀY MƯỢN], NgayTra AS [NGÀY TRẢ],
+	SELECT MaHD, DG.MaDG, MAHD + 10000000 AS [MÃ MƯỢN/TRẢ], DG.SDT AS [SĐT], NgayMuon AS [NGÀY MƯỢN], NgayTra AS [NGÀY TRẢ],
 		TongSL AS [SL SÁCH], TinhTrang AS [TÌNH TRẠNG], ChiPhi AS [CHI PHÍ]
 	
 	FROM HOADON HD, DOCGIA DG
@@ -656,12 +656,12 @@ CREATE PROC sp_search_receipts
 AS
 BEGIN
 	DECLARE @temp NVARCHAR(200) = N'"*'+ @TuKhoa + '*"'
-	SELECT MaHD, DG.MaDG, MAHD + 10000000 AS [MÃ MƯỢN/TRẢ], DG.HoTen AS [ĐỘC GIẢ], NgayMuon AS [NGÀY MƯỢN], NgayTra AS [NGÀY TRẢ],
+	SELECT MaHD, DG.MaDG, MAHD + 10000000 AS [MÃ MƯỢN/TRẢ], DG.SDT AS [SĐT], NgayMuon AS [NGÀY MƯỢN], NgayTra AS [NGÀY TRẢ],
 		TongSL AS [SL SÁCH], TinhTrang AS [TÌNH TRẠNG], ChiPhi AS [CHI PHÍ]
 	FROM HOADON HD, DOCGIA DG
 	WHERE HD.MaDG = DG.MaDG 
 		AND ( MaHD LIKE '%'+ @TuKhoa +'%' OR
-			CONTAINS(DG.HoTen, @temp ) OR FREETEXT(DG.HoTen, @TuKhoa) OR DG.HoTen LIKE '%'+ @TuKhoa +'%' OR
+			 SDT LIKE '%'+ @TuKhoa +'%' OR
 		    NgayMuon LIKE '%'+ @TuKhoa +'%' OR
 			NgayTra LIKE '%'+ @TuKhoa +'%' OR
 		    CONTAINS(TinhTrang, @temp ) OR FREETEXT(TinhTrang, @TuKhoa) OR TinhTrang LIKE '%'+ @TuKhoa +'%' OR
@@ -669,6 +669,54 @@ BEGIN
 		    ChiPhi LIKE '%'+ @TuKhoa +'%' )
 END
 go
+
+--- 42. --- Select CTHD của HOADON theo MaHD
+CREATE PROC sp_select_all_details_1_receipt 
+@MaHD int
+AS
+BEGIN
+	SELECT CT.MaHD, CT.MaSach, 
+			S.TenSach AS [TÊN SÁCH], S.TacGia AS [TÁC GIẢ], TL.TenTL AS [THỂ LOẠI],
+			S.NhaXuatBan AS [NHÀ XUẤT BẢN], CT.SL AS [SỐ LƯỢNG]
+	FROM CTHD CT, SACH S, THELOAI TL
+	WHERE CT.MaHD = @MaHD AND CT.MaSach = S.MaSach AND S.MaTL = TL.MaTL
+END
+go
+
+--- 43. --- Insert HOADON kèm CTHD của nó
+CREATE PROC sp_insert_receipt 
+@SDT varchar(20), @NgayMuon date, @NgayTra date, @TongSL int
+AS
+BEGIN
+	DECLARE @MaDG int
+	SELECT @MaDG = MaDG FROM DOCGIA
+	INSERT INTO HOADON (MaDG, NgayMuon, NgayTra, TinhTrang, TongSL, ChiPhi) 
+	VALUES (@MaDG, @NgayMuon, @NgayTra, N'Cho mượn', @TongSL, 0)
+END
+
+--- 45. --- Insert CTHD sau khi insert HOADON
+CREATE PROC sp_insert_detail
+@MaHD int, @MaSach int, @SoLuong int
+AS
+BEGIN
+	INSERT INTO CTHD VALUES (@MaHD, @MaSach, @SoLuong)
+
+	UPDATE SACH
+	SET TonTai = TonTai - @SoLuong, DaMuon = DaMuon + @SoLuong
+	WHERE MaSach = @MaSach
+END
+
+--- 46. --- Update hóa đơn
+CREATE PROC sp_update_receipt 
+@MaHD int, @MaDG int, @NgayMuon date, @NgayTra date, @TongSL int, 
+@TinhTrang nvarchar(20), @ChiPhi int
+AS
+BEGIN
+	UPDATE HOADON
+	SET MaDG = @MaDG, NgayMuon = @NgayMuon, NgayTra = @NgayTra, TongSL = @TongSL,
+		TinhTrang = @TinhTrang, ChiPhi = @ChiPhi
+	WHERE MaHD = @MaHD
+END
 
 
 alter database QLThuVien set enable_broker with rollback immediate;
@@ -700,4 +748,5 @@ ALTER TABLE TAIKHOAN WITH CHECK
 ADD constraint FK_TAIKHOAN_NHANVIEN FOREIGN KEY (TenTaiKhoan) REFERENCES NHANVIEN(TenTaiKhoan)
 GO
 
---Thay đổi sp_insert_staff
+---- Chỉnh sửa Bảng CTHD
+ALTER TABLE CTHD ADD CheckMove varchar(5)

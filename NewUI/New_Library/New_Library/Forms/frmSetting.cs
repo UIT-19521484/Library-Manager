@@ -12,67 +12,95 @@ namespace New_Library.Forms
 {
     public partial class frmSetting : Form
     {
-        Form activeForm;
-        Button currentButton;
-
+        private string errMsg;
         public frmSetting()
         {
             InitializeComponent();
-        }
 
+            lblNumberError.Text = "";
+            lblEmailError.Text = "";
+        }
         private void frmSetting_Load(object sender, EventArgs e)
         {
-            this.pnlSettingChildForm.BackColor = Color.White;
-            this.pnlSettingMenu.BackColor = ThemeColor.SecondaryColor;
-            this.btnInfoLibrary.PerformClick();
+
+            txtLibraryName.Text = Properties.Settings.Default.LibraryName;
+            txtAddress.Text = Properties.Settings.Default.LibraryAddress;
+            txtEmail.Text = Properties.Settings.Default.LibraryEmail;
+            txtPhoneNumber.Text = Properties.Settings.Default.LibraryPhoneNumber;
+
+            nudFineOfBook.Value = (decimal)Properties.Settings.Default.FineOfBook;
+        }
+        
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!ValidateChildren(ValidationConstraints.Enabled))
+            {
+                return;
+            }    
+
+            Properties.Settings.Default.LibraryName = txtLibraryName.Text;
+            Properties.Settings.Default.LibraryAddress = txtAddress.Text;
+            Properties.Settings.Default.LibraryEmail = txtEmail.Text;
+            Properties.Settings.Default.LibraryPhoneNumber = txtPhoneNumber.Text;
+            Properties.Settings.Default.FineOfBook = (int)nudFineOfBook.Value;
+
+            Properties.Settings.Default.Save();
+
+            MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void ActiveButton(object btnSender)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (btnSender != null)
+            txtLibraryName.Text = Properties.Settings.Default.LibraryName;
+            txtAddress.Text = Properties.Settings.Default.LibraryAddress;
+            txtPhoneNumber.Text = Properties.Settings.Default.LibraryPhoneNumber;
+            txtEmail.Text = Properties.Settings.Default.LibraryEmail;
+
+            nudFineOfBook.Value = (decimal)Properties.Settings.Default.FineOfBook;
+        }
+
+        private void CancelValidatedEvent(Label error, CancelEventArgs e)
+        {
+            System.Media.SystemSounds.Asterisk.Play();
+            e.Cancel = true;
+            error.Text = errMsg;
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (!ValidateInput.ValidEmail(txtEmail.Text, out errMsg))
             {
-                if (currentButton != (Button)btnSender)
-                {
-                    DisableButton();
-                    currentButton = (Button)btnSender;
-                    currentButton.BackColor = ThemeColor.ChangeColorBrightness(ThemeColor.SecondaryColor, +0.2);
-                    currentButton.ForeColor = Color.White;
-                }
+                CancelValidatedEvent(lblEmailError, e);
             }
         }
 
-        private void DisableButton()
+        private void txtEmail_Validated(object sender, EventArgs e)
         {
-            foreach (Control previousBtn in pnlSettingMenu.Controls)
+            lblEmailError.Text = "";
+        }
+
+        private void txtPhoneNumber_Validating(object sender, CancelEventArgs e)
+        {
+            if (!ValidateInput.ValidVietnamesePhone(txtPhoneNumber.Text, out errMsg))
             {
-                if (previousBtn.GetType() == typeof(Button))
-                {
-                    previousBtn.BackColor = ThemeColor.SecondaryColor;
-                    previousBtn.ForeColor = Color.Gainsboro;
-                }
+                CancelValidatedEvent(lblNumberError, e);
             }
         }
 
-        private void OpenChildForm(Form childForm, object btnSender)
+        private void txtPhoneNumber_Validated(object sender, EventArgs e)
         {
-            if (activeForm != null)
-            {
-                activeForm.Close();
-            }
-            ActiveButton(btnSender);
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.pnlSettingChildForm.Controls.Add(childForm);
-            this.pnlSettingChildForm.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
+            lblNumberError.Text = "";
         }
 
-        private void btnInfoLibrary_Click(object sender, EventArgs e)
+        private void txtPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            OpenChildForm(new Forms.Setting.frmInfoLibrary(), sender);
+            lblNumberError.Text = "";
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                lblNumberError.Text = "Chỉ nhập kí tự số";
+            }    
         }
     }
 }

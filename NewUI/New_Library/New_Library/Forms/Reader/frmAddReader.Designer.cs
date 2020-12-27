@@ -48,7 +48,7 @@
             this.nudMonth = new System.Windows.Forms.NumericUpDown();
             this.nudDay = new System.Windows.Forms.NumericUpDown();
             this.nudYear = new System.Windows.Forms.NumericUpDown();
-            this.cbSex = new System.Windows.Forms.ComboBox();
+            this.cboSex = new System.Windows.Forms.ComboBox();
             this.lblReaderNameError = new System.Windows.Forms.Label();
             this.grpSex = new System.Windows.Forms.GroupBox();
             this.grpReaderInfo = new System.Windows.Forms.GroupBox();
@@ -376,27 +376,27 @@
             0});
             this.nudYear.ValueChanged += new System.EventHandler(this.nudYear_ValueChanged);
             // 
-            // cbSex
+            // cboSex
             // 
-            this.cbSex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cboSex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbSex.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSex.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbSex.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSex.FormattingEnabled = true;
-            this.cbSex.Items.AddRange(new object[] {
+            this.cboSex.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cboSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSex.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cboSex.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboSex.FormattingEnabled = true;
+            this.cboSex.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cbSex.Location = new System.Drawing.Point(9, 19);
-            this.cbSex.Margin = new System.Windows.Forms.Padding(0);
-            this.cbSex.Name = "cbSex";
-            this.cbSex.Size = new System.Drawing.Size(337, 33);
-            this.cbSex.Sorted = true;
-            this.cbSex.TabIndex = 5;
-            this.cbSex.Validating += new System.ComponentModel.CancelEventHandler(this.cbSex_Validating);
-            this.cbSex.Validated += new System.EventHandler(this.cbSex_Validated);
+            this.cboSex.Location = new System.Drawing.Point(9, 19);
+            this.cboSex.Margin = new System.Windows.Forms.Padding(0);
+            this.cboSex.Name = "cboSex";
+            this.cboSex.Size = new System.Drawing.Size(337, 33);
+            this.cboSex.Sorted = true;
+            this.cboSex.TabIndex = 5;
+            this.cboSex.Validating += new System.ComponentModel.CancelEventHandler(this.cbSex_Validating);
+            this.cboSex.Validated += new System.EventHandler(this.cbSex_Validated);
             // 
             // lblReaderNameError
             // 
@@ -412,7 +412,7 @@
             // grpSex
             // 
             this.grpSex.BackColor = System.Drawing.Color.White;
-            this.grpSex.Controls.Add(this.cbSex);
+            this.grpSex.Controls.Add(this.cboSex);
             this.grpSex.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.grpSex.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpSex.Location = new System.Drawing.Point(13, 169);
@@ -504,7 +504,7 @@
         private System.Windows.Forms.GroupBox grpReaderInfo;
         private System.Windows.Forms.Label lblReaderNameError;
         private System.Windows.Forms.GroupBox grpSex;
-        private System.Windows.Forms.ComboBox cbSex;
+        private System.Windows.Forms.ComboBox cboSex;
         private System.Windows.Forms.GroupBox grpDOB;
         private System.Windows.Forms.GroupBox grpReaderName;
         private System.Windows.Forms.TextBox txtReaderName;

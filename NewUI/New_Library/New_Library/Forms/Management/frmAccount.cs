@@ -114,7 +114,7 @@ namespace New_Library.Forms
                 return;
             }
 
-            string cmdAcc = @"update TAIKHOAN set TenTaiKhoan = PhanQuyen = '" + cboPermission.Text + "' " + "where TenTaiKhoan = '" + dgvAccount.SelectedRows[0].Cells["TenTaiKhoan"].Value.ToString() + "'";
+            string cmdAcc = @"update TAIKHOAN set PhanQuyen = '" + cboPermission.Text + "' " + "where TenTaiKhoan = '" + dgvAccount.SelectedRows[0].Cells["TenTaiKhoan"].Value.ToString() + "'";
 
             if (DataConnection.ExecuteQuery(cmdAcc))
             {

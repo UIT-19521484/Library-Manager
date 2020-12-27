@@ -118,7 +118,7 @@ namespace New_Library.Forms.Reader
 
         private void cbSex_Validating(object sender, CancelEventArgs e)
         {
-            if (cbSex.Text.Length == 0)
+            if (cboSex.Text.Length == 0)
             {
                 errMsg = "Chưa chọn giới tính";
                 CancelValidatedEvent(grpSex, lblSexError, e);
@@ -151,7 +151,7 @@ namespace New_Library.Forms.Reader
             {
                 string date = dob.ToString("yyyy'-'MM'-'dd");
                 string command = (@"EXEC sp_insert_reader @HoTen = N'" + txtReaderName.Text
-                                                    + "', @GioiTinh = N'" + cbSex.Text
+                                                    + "', @GioiTinh = N'" + cboSex.Text
                                                     + "', @NgaySinh = '" + date
                                                     + "', @DiaChi = N'" + txtAddress.Text + "', @SDT = '" + txtPhoneNumber.Text
                                                     + "', @Email = '" + txtEmail.Text + "'");
@@ -188,8 +188,6 @@ namespace New_Library.Forms.Reader
         private void nudYear_ValueChanged(object sender, EventArgs e)
         {
             nudDay.Maximum = DateTime.DaysInMonth(Convert.ToInt32(nudYear.Value), Convert.ToInt32(nudMonth.Value));
-        }
-
-        
+        }  
     }
 }

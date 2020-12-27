@@ -34,7 +34,7 @@
             this.lblAuthorNameError = new System.Windows.Forms.Label();
             this.lblBookNameError = new System.Windows.Forms.Label();
             this.grpGenre = new System.Windows.Forms.GroupBox();
-            this.cbGenre = new System.Windows.Forms.ComboBox();
+            this.cboGenre = new System.Windows.Forms.ComboBox();
             this.grpPublisher = new System.Windows.Forms.GroupBox();
             this.txtPublisherName = new System.Windows.Forms.TextBox();
             this.grpAuthorName = new System.Windows.Forms.GroupBox();
@@ -112,7 +112,7 @@
             // grpGenre
             // 
             this.grpGenre.BackColor = System.Drawing.Color.White;
-            this.grpGenre.Controls.Add(this.cbGenre);
+            this.grpGenre.Controls.Add(this.cboGenre);
             this.grpGenre.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.grpGenre.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpGenre.Location = new System.Drawing.Point(13, 240);
@@ -122,22 +122,22 @@
             this.grpGenre.TabStop = false;
             this.grpGenre.Text = "Thể loại";
             // 
-            // cbGenre
+            // cboGenre
             // 
-            this.cbGenre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cboGenre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbGenre.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGenre.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbGenre.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbGenre.FormattingEnabled = true;
-            this.cbGenre.Location = new System.Drawing.Point(9, 19);
-            this.cbGenre.Margin = new System.Windows.Forms.Padding(0);
-            this.cbGenre.Name = "cbGenre";
-            this.cbGenre.Size = new System.Drawing.Size(337, 33);
-            this.cbGenre.Sorted = true;
-            this.cbGenre.TabIndex = 4;
+            this.cboGenre.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cboGenre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGenre.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cboGenre.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboGenre.FormattingEnabled = true;
+            this.cboGenre.Location = new System.Drawing.Point(9, 19);
+            this.cboGenre.Margin = new System.Windows.Forms.Padding(0);
+            this.cboGenre.Name = "cboGenre";
+            this.cboGenre.Size = new System.Drawing.Size(337, 33);
+            this.cboGenre.Sorted = true;
+            this.cboGenre.TabIndex = 4;
             // 
             // grpPublisher
             // 
@@ -384,7 +384,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grpBookInfo;
-        private System.Windows.Forms.ComboBox cbGenre;
+        private System.Windows.Forms.ComboBox cboGenre;
         private System.Windows.Forms.TextBox txtPublisherName;
         private System.Windows.Forms.TextBox txtAuthorName;
         private System.Windows.Forms.TextBox txtBookName;

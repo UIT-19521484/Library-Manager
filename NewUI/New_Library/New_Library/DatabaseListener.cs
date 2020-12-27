@@ -17,6 +17,7 @@ namespace New_Library
         private static SqlTableDependency<LibraryEntity.Staff> deStaff;
         private static SqlTableDependency<LibraryEntity.Account> deAccount;
         private static SqlTableDependency<LibraryEntity.Receipt> deReceipt;
+        
 
         #region OnChanged events
         private static void dbBookChanged(object sender, RecordChangedEventArgs<LibraryEntity.Book> e)
@@ -224,12 +225,13 @@ namespace New_Library
                 case TableDependency.SqlClient.Base.Enums.ChangeType.Insert:
                     DataRow row = dtReceipt.NewRow();
                     row["MaHD"] = e.Entity.MaHD;
-                   // row["MaMT"] = e.Entity.MaHD;
-                    row["ĐỘC GIẢ"] = (from DataRow dr in dtReader.Rows
-                                     where dr["MaDG"].ToString() == e.Entity.MaDG.ToString()
-                                     select dr["HỌ TÊN"]).FirstOrDefault();
+                    row["MaDG"] = e.Entity.MaDG;
+                    // row["MaMT"] = e.Entity.MaHD;
+                    row["MÃ MƯỢN/TRẢ"] = 10000000 + e.Entity.MaHD;
+                    row["SĐT"] = (from DataRow dr in dtReader.Rows
+                                  where dr["MaDG"].ToString() == e.Entity.MaDG.ToString()
+                                  select dr["SĐT"]).FirstOrDefault();
 
-                    
                     row["NGÀY MƯỢN"] = e.Entity.NgayMuon.ToString();
                     row["NGÀY TRẢ"] = e.Entity.NgayTra.ToString();
                     row["SL SÁCH"] = e.Entity.TongSL;
@@ -238,21 +240,23 @@ namespace New_Library
                     dtReceipt.Rows.Add(row);
                     break;
                 case TableDependency.SqlClient.Base.Enums.ChangeType.Delete:
-                    row = dtReader.Select("MaHD=" + e.Entity.MaHD).FirstOrDefault();
+                    row = dtReceipt.Select("MaHD=" + e.Entity.MaHD).FirstOrDefault();
                     if (row != null)
                     {
-                        dtReader.Rows.Remove(row);
+                        dtReceipt.Rows.Remove(row);
                     }
                     break;
                 case TableDependency.SqlClient.Base.Enums.ChangeType.Update:
-                    row = dtReader.Select("MaHD=" + e.Entity.MaHD).FirstOrDefault();
+                    row = dtReceipt.Select("MaHD=" + e.Entity.MaHD).FirstOrDefault();
                     if (row != null)
                     {
+                        row["MaHD"] = e.Entity.MaHD;
+                        row["MaDG"] = e.Entity.MaDG;
+                        row["MÃ MƯỢN/TRẢ"] = 10000000 + e.Entity.MaHD;
                         //row["MaMT"] = e.Entity.MaMT;
-                        row["ĐỘC GIẢ"] = (from DataRow dr in dtReader.Rows
-                                          where dr["MaDG"].ToString() == e.Entity.MaDG.ToString()
-                                          select dr["HỌ TÊN"]).FirstOrDefault();
-
+                        row["SĐT"] = (from DataRow dr in dtReader.Rows
+                                      where dr["MaDG"].ToString() == e.Entity.MaDG.ToString()
+                                      select dr["SĐT"]).FirstOrDefault();
 
                         row["NGÀY MƯỢN"] = e.Entity.NgayMuon.ToString();
                         row["NGÀY TRẢ"] = e.Entity.NgayTra.ToString();
@@ -263,6 +267,8 @@ namespace New_Library
                     break;
             }
         }
+
+       
 
         #endregion
 
@@ -341,6 +347,7 @@ namespace New_Library
 
             return mapperReader;
         }
+        
         #endregion
 
         public static void SetupSqlTableDependency()
@@ -374,6 +381,8 @@ namespace New_Library
             deReceipt = new SqlTableDependency<LibraryEntity.Receipt>(DataConnection.ConnectionString, "HOADON", mapper: mapperReceipt);
             deReceipt.OnChanged += dbReceiptChanged;
             deReceipt.Start();
+
+            
         }
 
         public static void Dispose()
@@ -384,6 +393,7 @@ namespace New_Library
             deStaff.Stop();
             deAccount.Stop();
             deReceipt.Stop();
+            
         }
     }
 }

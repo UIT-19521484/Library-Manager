@@ -28,7 +28,7 @@ namespace New_Library.Forms.Management.Account
             lblStaffNameError.Text = "";
 
             txtStaffName.Text = staff.HoTen;
-            cbSex.Text = staff.GioiTinh;
+            cboSex.Text = staff.GioiTinh;
             txtPhoneNumber.Text = staff.SDT;
             txtAddress.Text = staff.DiaChi;
             nudDay.Value = staff.NgaySinh.Day;
@@ -113,7 +113,7 @@ namespace New_Library.Forms.Management.Account
 
         private void cbSex_Validating(object sender, CancelEventArgs e)
         {
-            if (cbSex.Text.Length == 0)
+            if (cboSex.Text.Length == 0)
             {
                 errMsg = "Chưa chọn giới tính";
                 CancelValidatedEvent(grpSex, lblSexError, e);
@@ -148,7 +148,7 @@ namespace New_Library.Forms.Management.Account
                 string date = dob.ToString("yyyy'-'MM'-'dd");
                 string command = @"EXEC sp_update_staff @MaNV = " + staffID
                                                   +  ", @HoTen = N'" + txtStaffName.Text
-                                                  + "', @GioiTinh = N'" + cbSex.Text
+                                                  + "', @GioiTinh = N'" + cboSex.Text
                                                   + "', @NgaySinh = N'" + date
                                                   + "', @DiaChi = N'" + txtAddress.Text
                                                   + "', @SDT = '" + txtPhoneNumber.Text + "'";

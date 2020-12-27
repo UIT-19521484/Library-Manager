@@ -99,6 +99,7 @@ namespace New_Library
             private string tinhTrang;
             private int tongSL;
             private int chiPhi;
+            private string sDT;
 
             public int MaHD { get => maHD; set => maHD = value; }
             public int MaDG { get => maDG; set => maDG = value; }
@@ -107,7 +108,19 @@ namespace New_Library
             public string TinhTrang { get => tinhTrang; set => tinhTrang = value; }
             public int TongSL { get => tongSL; set => tongSL = value; }
             public int ChiPhi { get => chiPhi; set => chiPhi = value; }
+            public string SDT { get => sDT; set => sDT = value; }
             //public int MaMT { get => maMT; set => maMT = value; }
+        }
+
+        public class Detail
+        {
+            private int maHD;
+            private int maSach;
+            private int sL;
+
+            public int MaHD { get => maHD; set => maHD = value; }
+            public int MaSach { get => maSach; set => maSach = value; }
+            public int SL { get => sL; set => sL = value; }
         }
     }
 }

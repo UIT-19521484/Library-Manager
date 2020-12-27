@@ -61,7 +61,7 @@ namespace New_Library.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("01255185458")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0900000000")]
         public string LibraryPhoneNumber {
             get {
                 return ((string)(this["LibraryPhoneNumber"]));
@@ -73,14 +73,38 @@ namespace New_Library.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-60EFUQD;Initial Catalog=QLThuVien;Persist Security Info=True;" +
-            "User ID=sa;Password=123456")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLSERVERDEV2017;Initial Catalog=QLThuVien;User ID=sa;Password=Huy1" +
+            "23456")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));
             }
             set {
                 this["ConnectionString"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Setting {
+            get {
+                return ((string)(this["Setting"]));
+            }
+            set {
+                this["Setting"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5000")]
+        public int FineOfBook {
+            get {
+                return ((int)(this["FineOfBook"]));
+            }
+            set {
+                this["FineOfBook"] = value;
             }
         }
     }

@@ -182,12 +182,6 @@
     <Compile Include="Forms\frmReceipt.Designer.cs">
       <DependentUpon>frmReceipt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSetting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmSetting.Designer.cs">
-      <DependentUpon>frmSetting.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Management\frmStaff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,11 +200,23 @@
     <Compile Include="Forms\Reader\frmEditReader.Designer.cs">
       <DependentUpon>frmEditReader.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Setting\frmInfoLibrary.cs">
+    <Compile Include="Forms\Receipt\frmAddReceipt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Setting\frmInfoLibrary.Designer.cs">
-      <DependentUpon>frmInfoLibrary.cs</DependentUpon>
+    <Compile Include="Forms\Receipt\frmAddReceipt.Designer.cs">
+      <DependentUpon>frmAddReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Receipt\frmEditReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Receipt\frmEditReceipt.Designer.cs">
+      <DependentUpon>frmEditReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSetting.Designer.cs">
+      <DependentUpon>frmSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -279,9 +285,6 @@
     <EmbeddedResource Include="Forms\frmReceipt.resx">
       <DependentUpon>frmReceipt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSetting.resx">
-      <DependentUpon>frmSetting.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Management\frmStaff.resx">
       <DependentUpon>frmStaff.cs</DependentUpon>
     </EmbeddedResource>
@@ -291,8 +294,14 @@
     <EmbeddedResource Include="Forms\Reader\frmEditReader.resx">
       <DependentUpon>frmEditReader.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Setting\frmInfoLibrary.resx">
-      <DependentUpon>frmInfoLibrary.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Receipt\frmAddReceipt.resx">
+      <DependentUpon>frmAddReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Receipt\frmEditReceipt.resx">
+      <DependentUpon>frmEditReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSetting.resx">
+      <DependentUpon>frmSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -395,7 +404,7 @@
     <None Include="image\info_26px.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Forms\Receipt\" />
+    <Folder Include="Forms\Setting\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="image\update_24px.png" />
@@ -417,6 +426,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8_book_shelf.ico" />
+    <None Include="image\double_up_24px.png" />
+    <None Include="image\double_down_24px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,6 +12,7 @@ namespace New_Library.Forms
 {
     public partial class frmReceipt : Form
     {
+        
         public frmReceipt()
         {
             InitializeComponent();
@@ -70,6 +71,12 @@ namespace New_Library.Forms
             {
                 int ma = 100000000 + (int)dgvReceipt.SelectedRows[i].Cells["MaHD"].Value;
                 msg += (i + 1).ToString() + ". " + ma.ToString()  + "\n";
+                
+                if (dgvReceipt.SelectedRows[i].Cells["TinhTrang"].Value.ToString() != "Thu hồi")
+                {
+                    MessageBox.Show("Có phiếu mà sách chưa được thu hồi. Không thể xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
 
             DialogResult rs = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -77,7 +84,9 @@ namespace New_Library.Forms
             {
                 while (dgvReceipt.SelectedRows.Count != 0)
                 {
-                    string command = @"EXEC sp_delete_receipt @MaHD = '" + dgvReceipt.SelectedRows[0].Cells["MaHD"].Value + "'";
+                     
+                    string command = @"EXEC sp_delete_receipt @MaHD = '" + dgvReceipt.SelectedRows[0].Cells["MaHD"].Value
+                                                                      + "', @TinhTrang = N'" + dgvReceipt.SelectedRows[0].Cells["TinhTrang"].Value + "'";
 
                     if (!DataConnection.ExecuteQuery(command))
                     {
@@ -89,6 +98,27 @@ namespace New_Library.Forms
 
             dgvReceipt.Refresh();
             //GC.Collect();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            (new Receipt.frmAddReceipt()).ShowDialog();
+            dgvReceipt.Refresh();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            LibraryEntity.Receipt receipt = new LibraryEntity.Receipt();
+            receipt.SDT = dgvReceipt.SelectedRows[0].Cells["SDT"].Value.ToString();
+            receipt.MaHD = (int)dgvReceipt.SelectedRows[0].Cells["MaHD"].Value;
+            receipt.MaDG = (int)dgvReceipt.SelectedRows[0].Cells["MaDG"].Value;
+            receipt.NgayMuon = (DateTime)dgvReceipt.SelectedRows[0].Cells["NgayMuon"].Value;
+            receipt.NgayTra = (DateTime)dgvReceipt.SelectedRows[0].Cells["NgayTra"].Value;
+            receipt.TongSL = (int)dgvReceipt.SelectedRows[0].Cells["TongSL"].Value;
+            receipt.TinhTrang = dgvReceipt.SelectedRows[0].Cells["TinhTrang"].Value.ToString();
+
+            (new Receipt.frmEditReceipt(receipt)).ShowDialog();
+            dgvReceipt.Refresh();
         }
     }
 }
