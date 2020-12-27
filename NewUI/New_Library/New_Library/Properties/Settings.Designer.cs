@@ -25,7 +25,7 @@ namespace New_Library.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Thư viện")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string LibraryName {
             get {
                 return ((string)(this["LibraryName"]));
@@ -37,7 +37,7 @@ namespace New_Library.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Địa chỉ")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string LibraryAddress {
             get {
                 return ((string)(this["LibraryAddress"]));
@@ -49,7 +49,7 @@ namespace New_Library.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("gmail.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string LibraryEmail {
             get {
                 return ((string)(this["LibraryEmail"]));
@@ -61,7 +61,7 @@ namespace New_Library.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0900000000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string LibraryPhoneNumber {
             get {
                 return ((string)(this["LibraryPhoneNumber"]));
@@ -73,8 +73,7 @@ namespace New_Library.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLSERVERDEV2017;Initial Catalog=QLThuVien;User ID=sa;Password=Huy1" +
-            "23456")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));
@@ -86,7 +85,6 @@ namespace New_Library.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5000")]
         public int FineOfBook {
             get {
                 return ((int)(this["FineOfBook"]));

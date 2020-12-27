@@ -206,6 +206,12 @@
     <Compile Include="Forms\frmSetting.Designer.cs">
       <DependentUpon>frmSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFirstTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFirstTime.Designer.cs">
+      <DependentUpon>frmFirstTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSetting.resx">
       <DependentUpon>frmSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFirstTime.resx">
+      <DependentUpon>frmFirstTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

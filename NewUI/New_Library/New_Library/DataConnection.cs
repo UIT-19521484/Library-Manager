@@ -47,6 +47,34 @@ namespace New_Library
             }
         }
 
+        public static bool TestConnection(string connect)
+        {
+            //
+            //Nhập connection string của server database
+            //
+            //connectionString = @"Data Source=.\SQLSERVERDEV2017;Initial Catalog=QLThuVien;User ID=sa;Password=Huy123456";
+            //connectionString = @"Data Source=DESKTOP-60EFUQD;Initial Catalog=QLThuVien;Persist Security Info=True;User ID=sa;Password=123456";
+
+            connectionString = connect;
+
+            con = new SqlConnection(connectionString);
+
+            try
+            {
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                con.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không thể kết nối tới Server!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         //
         //Sử dụng khi thay đổi dữ liệu trong database
         //

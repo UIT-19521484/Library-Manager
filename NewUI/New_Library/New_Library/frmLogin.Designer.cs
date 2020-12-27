@@ -462,7 +462,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(332, 596);
             this.Controls.Add(this.pnlForgotPassword);
@@ -482,6 +482,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
+            this.Shown += new System.EventHandler(this.frmLogin_Shown);
             this.pnlSignin.ResumeLayout(false);
             this.pnlSignin.PerformLayout();
             this.pnlForgotPassword.ResumeLayout(false);

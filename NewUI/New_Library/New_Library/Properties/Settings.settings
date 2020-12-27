@@ -3,22 +3,22 @@
   <Profiles />
   <Settings>
     <Setting Name="LibraryName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Thư viện</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="LibraryAddress" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Địa chỉ</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="LibraryEmail" Type="System.String" Scope="User">
-      <Value Profile="(Default)">gmail.com</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="LibraryPhoneNumber" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0900000000</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ConnectionString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data Source=.\SQLSERVERDEV2017;Initial Catalog=QLThuVien;User ID=sa;Password=Huy123456</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="FineOfBook" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">5000</Value>
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

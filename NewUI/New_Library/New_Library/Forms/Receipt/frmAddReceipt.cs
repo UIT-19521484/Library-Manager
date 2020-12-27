@@ -163,7 +163,7 @@ namespace New_Library.Forms.Receipt
                     DataConnection.ExecuteQuery(cmd);
                     
                 }
-                MessageBox.Show("Thêm mượn/trả sách thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thêm mượn/trả sách hoàn thành!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Dispose();
             }
             else

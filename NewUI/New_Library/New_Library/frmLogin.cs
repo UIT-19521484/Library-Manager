@@ -22,6 +22,8 @@ namespace New_Library
         {
             InitializeComponent();
 
+            //Properties.Settings.Default.Reset();
+
             this.Text = " ";
             this.ControlBox = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
@@ -32,9 +34,7 @@ namespace New_Library
             this.txtConfirmPassword.Enabled = false;
 
             ResetErrorMessage();
-        }
-
-        
+        }        
 
         private void ResetErrorMessage()
         {
@@ -48,6 +48,17 @@ namespace New_Library
             GC.Collect();
         }
 
+        private void frmLogin_Shown(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.ConnectionString.Length == 0)
+            {
+                frmFirstTime ft = new frmFirstTime();
+                ft.Owner = this;
+                ft.Show();
+                this.Hide();
+            }
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -55,15 +66,15 @@ namespace New_Library
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn thoát chương trình?", "Thoát", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.OK)
-            {
-                e.Cancel = true;
-            }
-            else
-            {
-                //this.FormClosing -= frmLogin_FormClosing;
-                Application.Exit();
-            }    
+            //if (MessageBox.Show("Bạn có muốn thoát chương trình?", "Thoát", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.OK)
+            //{
+            //    e.Cancel = true;
+            //}
+            //else
+            //{
+            //    //this.FormClosing -= frmLogin_FormClosing;
+            //    Application.Exit();
+            //}    
         }
 
         private void txtPassword_Enter(object sender, EventArgs e)

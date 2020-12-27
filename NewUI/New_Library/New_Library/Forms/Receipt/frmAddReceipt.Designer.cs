@@ -711,7 +711,7 @@ namespace New_Library.Forms.Receipt
             this.Controls.Add(this.grpContactInfo);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.grpReceiptInfo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddReceipt";
