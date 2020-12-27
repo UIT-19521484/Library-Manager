@@ -29,7 +29,6 @@ namespace New_Library
         Forms.frmReceipt receipt = new Forms.frmReceipt();
         Forms.frmManagement management = new Forms.frmManagement();
         Forms.frmSetting setting = new Forms.frmSetting();
-        Forms.frmHelp help = new Forms.frmHelp();
 
         //Constructor
         public frmMain(string username, string password, string role)
@@ -166,10 +165,7 @@ namespace New_Library
             OpenChildForm(setting, sender);
         }
 
-        private void btnHelp_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(help, sender);
-        }
+       
 
         private void btnSignout_Click(object sender, EventArgs e)
         {

@@ -152,18 +152,6 @@
     <Compile Include="Forms\frmGenre.Designer.cs">
       <DependentUpon>frmGenre.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmHelp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmHelp.Designer.cs">
-      <DependentUpon>frmHelp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Help\frmInfoApp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Help\frmInfoApp.Designer.cs">
-      <DependentUpon>frmInfoApp.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,12 +257,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmGenre.resx">
       <DependentUpon>frmGenre.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmHelp.resx">
-      <DependentUpon>frmHelp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Help\frmInfoApp.resx">
-      <DependentUpon>frmInfoApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmManagement.resx">
       <DependentUpon>frmManagement.cs</DependentUpon>

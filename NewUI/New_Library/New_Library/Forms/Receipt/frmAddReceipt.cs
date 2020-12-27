@@ -161,6 +161,7 @@ namespace New_Library.Forms.Receipt
                                               + ", @SoLuong = " + Convert.ToInt32(dgvDetail.Rows[i].Cells["SoLuong"].Value);
 
                     DataConnection.ExecuteQuery(cmd);
+                    
                 }
                 MessageBox.Show("Thêm mượn/trả sách thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Dispose();
@@ -212,7 +213,6 @@ namespace New_Library.Forms.Receipt
                 }
             }
             txtBorrowBookTotal.Text = total.ToString();
-        }
-
+        }        
     }
 }

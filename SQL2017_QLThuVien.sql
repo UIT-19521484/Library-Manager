@@ -699,7 +699,7 @@ BEGIN
 	INSERT INTO HOADON (MaDG, NgayMuon, NgayTra, TinhTrang, TongSL, ChiPhi) 
 	VALUES (@MaDG, @NgayMuon, @NgayTra, N'Cho mượn', @TongSL, 0)
 END
-
+go
 --- 45. --- Insert CTHD sau khi insert HOADON
 CREATE PROC sp_insert_detail
 @MaHD int, @MaSach int, @SoLuong int
@@ -711,6 +711,7 @@ BEGIN
 	SET TonTai = TonTai - @SoLuong, DaMuon = DaMuon + @SoLuong
 	WHERE MaSach = @MaSach
 END
+go
 
 --- 46. --- Update hóa đơn
 CREATE PROC sp_update_receipt 
@@ -735,6 +736,7 @@ BEGIN
 		TinhTrang = @TinhTrang, ChiPhi = @ChiPhi
 	WHERE MaHD = @MaHD
 END
+go
 
 --- 47. --- Delete hóa đơn
 CREATE PROC sp_delete_receipt 
