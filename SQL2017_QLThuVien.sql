@@ -230,8 +230,8 @@ GO
 CREATE PROC sp_count_borrowing_readers
 AS
 BEGIN
-	SELECT COUNT(DISTINCT DG.MaDG) FROM DOCGIA DG, HOADON HD
-	WHERE DG.MaDG = HD.MaDG AND HD.TinhTrang = 'Cho mượn'
+	SELECT COUNT(DG.MaDG) FROM DOCGIA DG, HOADON HD
+	WHERE DG.MaDG = HD.MaDG AND HD.TinhTrang = N'Cho mượn'
 END
 GO
 
@@ -241,7 +241,7 @@ CREATE PROC sp_count_overdue_readers
 AS
 BEGIN
 	SELECT COUNT(DISTINCT DG.MaDG) FROM DOCGIA DG, HOADON HD
-	WHERE DG.MaDG = HD.MaDG AND GETDATE() > HD.NgayTra
+	WHERE DG.MaDG = HD.MaDG AND GETDATE() > HD.NgayTra AND TinhTrang <> N'Thu hồi'
 END
 GO
 
@@ -299,7 +299,7 @@ GO
 CREATE PROC sp_select_all_staff
 AS
 BEGIN
-	SELECT MaNV, HoTen AS [HỌ TÊN], GioiTinh AS [GIỚI TÍNH], NgaySinh AS [NGÀY SINH], DiaChi AS [ĐỊA CHỈ], SDT AS [SĐT], NHANVIEN.TenTaiKhoan AS [TÀI KHOẢN], TAIKHOAN.PhanQuyen AS [PHÂN QUYỀN] 
+	SELECT MaNV, HoTen AS [HỌ TÊN], GioiTinh AS [GIỚI TÍNH], NgaySinh AS [NGÀY SINH], DiaChi AS [ĐỊA CHỈ], SDT AS [SĐT], NHANVIEN.TenTaiKhoan AS [TÀI KHOẢN]
 	FROM NHANVIEN left join TAIKHOAN on NHANVIEN.TenTaiKhoan = TAIKHOAN.TenTaiKhoan
 END
 GO
@@ -555,11 +555,13 @@ BEGIN
 END
 go
 
---- 33. --- Delete 1 nhân viên
+--- 33. --- Delete 1 nhân viên và xóa luôn tài khoản nhân viên
 CREATE PROC sp_delete_staff
 @SDT VARCHAR(20)
 AS
 BEGIN
+	DELETE FROM TAIKHOAN
+	WHERE TenTaiKhoan = (SELECT TenTaiKhoan FROM NHANVIEN WHERE SDT = @SDT)
 	DELETE FROM NHANVIEN
 	WHERE SDT = @SDT 
 END
@@ -639,9 +641,13 @@ END
 GO
 
 --- 40. --- Select tất cả hóa đơn
-CREATE PROC sp_select_all_receipts
+ALTER PROC sp_select_all_receipts
 AS
 BEGIN
+	UPDATE HOADON
+	SET TinhTrang = N'Quá hạn'
+	WHERE TinhTrang <> N'Thu hồi' AND  GETDATE() > NgayTra 
+
 	SELECT MaHD, DG.MaDG, MAHD + 10000000 AS [MÃ MƯỢN/TRẢ], DG.SDT AS [SĐT], NgayMuon AS [NGÀY MƯỢN], NgayTra AS [NGÀY TRẢ],
 		TongSL AS [SL SÁCH], TinhTrang AS [TÌNH TRẠNG], ChiPhi AS [CHI PHÍ]
 	
@@ -712,11 +718,41 @@ CREATE PROC sp_update_receipt
 @TinhTrang nvarchar(20), @ChiPhi int
 AS
 BEGIN
+	
+	IF (@TinhTrang = N'Thu hồi')
+	BEGIN
+		UPDATE SACH
+		SET TonTai = TonTai + (SELECT SL FROM CTHD 
+							WHERE CTHD.MaHD = @MaHD AND SACH.MaSach = CTHD.MaSach),
+			DaMuon = DaMuon - (SELECT SL FROM CTHD 
+							WHERE CTHD.MaHD = @MaHD AND SACH.MaSach = CTHD.MaSach)
+		WHERE MaSach = (SELECT MaSach FROM CTHD 
+							WHERE CTHD.MaHD = @MaHD AND SACH.MaSach = CTHD.MaSach)
+	END
+
 	UPDATE HOADON
 	SET MaDG = @MaDG, NgayMuon = @NgayMuon, NgayTra = @NgayTra, TongSL = @TongSL,
 		TinhTrang = @TinhTrang, ChiPhi = @ChiPhi
 	WHERE MaHD = @MaHD
 END
+
+--- 47. --- Delete hóa đơn
+CREATE PROC sp_delete_receipt 
+@MaHD int, @TinhTrang nvarchar(20)
+AS
+BEGIN
+	IF (@TinhTrang = N'Thu hồi')
+	BEGIN
+		DELETE FROM CTHD
+		WHERE MaHD = @MaHD
+
+		DELETE FROM HOADON WHERE MaHD = @MaHD
+		PRINT N'Đã thu hồi. Xóa thành công'
+	END
+END
+GO
+
+
 
 
 alter database QLThuVien set enable_broker with rollback immediate;
@@ -748,5 +784,3 @@ ALTER TABLE TAIKHOAN WITH CHECK
 ADD constraint FK_TAIKHOAN_NHANVIEN FOREIGN KEY (TenTaiKhoan) REFERENCES NHANVIEN(TenTaiKhoan)
 GO
 
----- Chỉnh sửa Bảng CTHD
-ALTER TABLE CTHD ADD CheckMove varchar(5)

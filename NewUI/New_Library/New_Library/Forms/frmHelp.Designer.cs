@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlHelpMenu = new System.Windows.Forms.Panel();
-            this.pnlHelpChildForm = new System.Windows.Forms.Panel();
             this.btnInfoApp = new System.Windows.Forms.Button();
+            this.pnlHelpChildForm = new System.Windows.Forms.Panel();
             this.pnlHelpMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,14 +43,6 @@
             this.pnlHelpMenu.Name = "pnlHelpMenu";
             this.pnlHelpMenu.Size = new System.Drawing.Size(141, 537);
             this.pnlHelpMenu.TabIndex = 1;
-            // 
-            // pnlHelpChildForm
-            // 
-            this.pnlHelpChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlHelpChildForm.Location = new System.Drawing.Point(141, 0);
-            this.pnlHelpChildForm.Name = "pnlHelpChildForm";
-            this.pnlHelpChildForm.Size = new System.Drawing.Size(874, 537);
-            this.pnlHelpChildForm.TabIndex = 2;
             // 
             // btnInfoApp
             // 
@@ -72,14 +64,25 @@
             this.btnInfoApp.UseVisualStyleBackColor = true;
             this.btnInfoApp.Click += new System.EventHandler(this.btnInfoApp_Click);
             // 
+            // pnlHelpChildForm
+            // 
+            this.pnlHelpChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlHelpChildForm.Location = new System.Drawing.Point(141, 0);
+            this.pnlHelpChildForm.Name = "pnlHelpChildForm";
+            this.pnlHelpChildForm.Size = new System.Drawing.Size(874, 537);
+            this.pnlHelpChildForm.TabIndex = 2;
+            // 
             // frmHelp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1015, 537);
+            this.ControlBox = false;
             this.Controls.Add(this.pnlHelpChildForm);
             this.Controls.Add(this.pnlHelpMenu);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmHelp";
             this.Text = "TRỢ GIÚP";
             this.Load += new System.EventHandler(this.frmHelp_Load);

@@ -117,4 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>PHẦN MỀM HỖ TRỢ QUẢN LÍ THƯ VIỆN
+## Tính năng
+
+&gt; - SÁCH:
+&gt;   + Thêm tựa sách mới
+&gt;     + Xóa tựa sách
+&gt;     + Cập nhật thông tin tựa sách bất kì
+&gt;     + Cập nhật số lượng sách (tổng/đã mượn)
+&gt;
+&gt; - ĐỘC GIẢ:
+&gt;   + Thêm thành viên mới
+&gt;     + Xóa thành viên
+&gt;     + Cập nhật thông tin thành viên
+&gt;     + Coi xem sách thành viên này đã mượn, kiểm tra các sách tới hạn
+&gt;
+&gt; - NGƯỜI DÙNG:
+&gt;   + Thêm tài khoản nhân viên
+&gt;     + Ghi lại thông tin đăng nhập</value>
+  </data>
 </root>

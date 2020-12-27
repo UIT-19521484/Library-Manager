@@ -128,7 +128,7 @@ namespace New_Library.Forms.Book
             string cmd = @"Select TenSach, TacGia, NhaXuatBan, TenTL from SACH left join THELOAI on SACH.MaTL = THELOAI.MaTL where "
                         + "TenSach = N'" + txtBookName.Text + "' and "
                         + "TacGia = N'" + txtAuthorName.Text + "' and "
-                        + "NhaXuatBan = N'" + txtPublisherName.Text + "' and"
+                        + "NhaXuatBan = N'" + txtPublisherName.Text + "' and "
                         + "TenTL = N'" + cboGenre.Text + "'";
             if (DataConnection.GetDataTable(cmd).Rows.Count == 0)
             {
