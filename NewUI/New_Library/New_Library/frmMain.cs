@@ -142,6 +142,7 @@ namespace New_Library
 
         private void btnGenre_Click(object sender, EventArgs e)
         {
+            
             OpenChildForm(genre, sender);
         }
 

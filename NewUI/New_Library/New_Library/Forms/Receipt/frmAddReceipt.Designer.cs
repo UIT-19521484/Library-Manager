@@ -321,6 +321,7 @@ namespace New_Library.Forms.Receipt
             this.dgvBook.AllowUserToAddRows = false;
             this.dgvBook.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvBook.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBook.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBook.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -329,7 +330,7 @@ namespace New_Library.Forms.Receipt
             this.dgvBook.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -343,7 +344,7 @@ namespace New_Library.Forms.Receipt
             this.Chon});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F);
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.MistyRose;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
@@ -360,7 +361,7 @@ namespace New_Library.Forms.Receipt
             this.dgvBook.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F);
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.MistyRose;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Desktop;
@@ -395,7 +396,7 @@ namespace New_Library.Forms.Receipt
             this.TacGia.HeaderText = "TÁC GIẢ";
             this.TacGia.Name = "TacGia";
             this.TacGia.ReadOnly = true;
-            this.TacGia.Width = 153;
+            this.TacGia.Width = 101;
             // 
             // TheLoai
             // 
@@ -404,7 +405,7 @@ namespace New_Library.Forms.Receipt
             this.TheLoai.HeaderText = "THỂ LOẠI";
             this.TheLoai.Name = "TheLoai";
             this.TheLoai.ReadOnly = true;
-            this.TheLoai.Width = 168;
+            this.TheLoai.Width = 111;
             // 
             // NhaXuatBan
             // 
@@ -413,7 +414,7 @@ namespace New_Library.Forms.Receipt
             this.NhaXuatBan.HeaderText = "NHÀ XUẤT BẢN";
             this.NhaXuatBan.Name = "NhaXuatBan";
             this.NhaXuatBan.ReadOnly = true;
-            this.NhaXuatBan.Width = 248;
+            this.NhaXuatBan.Width = 158;
             // 
             // CoSan
             // 
@@ -424,7 +425,7 @@ namespace New_Library.Forms.Receipt
             this.CoSan.HeaderText = "CÓ SẴN";
             this.CoSan.Name = "CoSan";
             this.CoSan.ReadOnly = true;
-            this.CoSan.Width = 145;
+            this.CoSan.Width = 96;
             // 
             // Chon
             // 
@@ -432,6 +433,7 @@ namespace New_Library.Forms.Receipt
             this.Chon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Chon.HeaderText = "CHỌN";
             this.Chon.Name = "Chon";
+            this.Chon.Width = 62;
             // 
             // btnSearch
             // 
@@ -499,6 +501,7 @@ namespace New_Library.Forms.Receipt
             this.dgvDetail.AllowUserToAddRows = false;
             this.dgvDetail.AllowUserToDeleteRows = false;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDetail.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -507,7 +510,7 @@ namespace New_Library.Forms.Receipt
             this.dgvDetail.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F);
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -524,7 +527,7 @@ namespace New_Library.Forms.Receipt
             this.SoLuong});
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F);
             dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.MistyRose;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Desktop;
@@ -585,7 +588,7 @@ namespace New_Library.Forms.Receipt
             this.dataGridViewTextBoxColumn2.HeaderText = "TÁC GIẢ";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 153;
+            this.dataGridViewTextBoxColumn2.Width = 101;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -594,7 +597,7 @@ namespace New_Library.Forms.Receipt
             this.dataGridViewTextBoxColumn3.HeaderText = "THỂ LOẠI";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 168;
+            this.dataGridViewTextBoxColumn3.Width = 111;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -603,7 +606,7 @@ namespace New_Library.Forms.Receipt
             this.dataGridViewTextBoxColumn4.HeaderText = "NHÀ XUẤT BẢN";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 248;
+            this.dataGridViewTextBoxColumn4.Width = 158;
             // 
             // CoSanDetail
             // 
@@ -616,7 +619,7 @@ namespace New_Library.Forms.Receipt
             this.SoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.SoLuong.HeaderText = "SỐ LƯỢNG";
             this.SoLuong.Name = "SoLuong";
-            this.SoLuong.Width = 186;
+            this.SoLuong.Width = 121;
             // 
             // btnBack
             // 
@@ -711,7 +714,7 @@ namespace New_Library.Forms.Receipt
             this.Controls.Add(this.grpContactInfo);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.grpReceiptInfo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddReceipt";

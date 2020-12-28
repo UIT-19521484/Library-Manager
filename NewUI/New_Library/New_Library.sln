@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "New_Library", "New_Library\New_Library.csproj", "{F6C9D2A2-45E2-4766-8541-F32EBB1188C5}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "setup", "..\..\..\setup\setup.vdproj", "{AB1965D6-DBCF-47B0-BA0C-F750E4D4679F}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "setup", "setup\setup.vdproj", "{65C801B6-35EE-4ECE-A6A2-E3EC0F7BF493}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{F6C9D2A2-45E2-4766-8541-F32EBB1188C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6C9D2A2-45E2-4766-8541-F32EBB1188C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6C9D2A2-45E2-4766-8541-F32EBB1188C5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB1965D6-DBCF-47B0-BA0C-F750E4D4679F}.Debug|Any CPU.ActiveCfg = Debug
-		{AB1965D6-DBCF-47B0-BA0C-F750E4D4679F}.Release|Any CPU.ActiveCfg = Release
+		{65C801B6-35EE-4ECE-A6A2-E3EC0F7BF493}.Debug|Any CPU.ActiveCfg = Debug
+		{65C801B6-35EE-4ECE-A6A2-E3EC0F7BF493}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
