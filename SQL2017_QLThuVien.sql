@@ -1,7 +1,7 @@
-CREATE DATABASE QLThuVien
+CREATE DATABASE QLTV
 GO
 
-USE QLThuVien
+USE QLTV
 GO
 
 SET DATEFORMAT DMY
@@ -133,17 +133,14 @@ INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [Ma
 INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Kỹ năng sinh tồn - Phần 2', N'Robin', N'One Piece', 94, 5, 1)
 INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Nhà Giả Kim ', N'Paulo Coelho', N'', 200, 30, 3)
 INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Chuyện Con Mèo Dạy Hải Âu Bay (Tái Bản 2014)', N'Luis Sepulveda', N'', 200, 21, 3)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Cho Tôi Một Vé Đi Tuổi Thơ', N'Nguyễn Nhật Ánh', N'', 200, 18, 3)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bàn Có Năm Chỗ Ngồi', N'Nguyễn Nhật Ánh', N'', 200, 18, 3)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bồ Câu Không Đưa Thư', N'Nguyễn Nhật Ánh', N'', 200, 2, 3)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Đời Cơ Bản Là Buồn Cười', N'Lê Bích', N'', 200, 3, 3)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bong Bóng Lên Trời', N'Nguyễn Nhật Ánh', N'', 200, 4, 3)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Khi Lỗi Thuộc Về Những Vì Sao', N'John Green', N'', 200, 0, 3)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bức Xúc Không Làm Ta Vô Can', N'Đặng Hoàng Giang', N'', 200, 0, 3)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Cho Tôi Một Vé Đi Tuổi Thơ', N'Nguyễn Nhật Ánh', N'Tổng hợp', 200, 18, 3)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bàn Có Năm Chỗ Ngồi', N'Nguyễn Nhật Ánh', N'Tổng hợp', 200, 18, 3)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bồ Câu Không Đưa Thư', N'Nguyễn Nhật Ánh', N'Tổng hợp', 200, 2, 3)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Đời Cơ Bản Là Buồn Cười', N'Lê Bích', N'Tổng hợp', 200, 3, 3)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bong Bóng Lên Trời', N'Nguyễn Nhật Ánh', N'Tổng hợp', 200, 4, 3)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Khi Lỗi Thuộc Về Những Vì Sao', N'John Green', N'Tổng hợp', 200, 0, 3)
+INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bức Xúc Không Làm Ta Vô Can', N'Đặng Hoàng Giang', N'Tổng hợp', 200, 0, 3)
 
-Select SACH.TenSach, SACH.TacGia, SACH.NhaXuatBan, THELOAI.TenTL 
-from SACH left join THELOAI on SACH.MaTL = THELOAI.MaTL 
-where SACH.TenSach = N'Bức Xúc Không Làm Ta Vô Can' and SACH.TacGia = N'Đặng Hoàng Giang' and SACH.NhaXuatBan = N'' and THELOAI.TenTL = N'Văn học'
 
 INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách kỹ năng sống')
 INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách truyện ngắn - Bút ký')
@@ -173,9 +170,6 @@ INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('b', '1')
 
 go
 
-select *
-from SACH
-where MaSach = 1
 
 CREATE QUEUE SQLDependencyQueue;
 CREATE SERVICE SQLDependencyService ON QUEUE SQLDependencyQueue
@@ -281,7 +275,7 @@ BEGIN
 END
 GO
 
-drop proc sp_select_all_genres
+
 
 --EXEC sp_select_all_genres
 
@@ -308,10 +302,11 @@ GO
 --drop proc sp_select_all_staff
 
 --- 12.---Select tất cả Tên tài khoản + Phân quyền
-CREATE PROC sp_select_all_accounts
+ALTER PROC sp_select_all_accounts
 AS
 BEGIN
-	SELECT HoTen as [HỌ TÊN], TAIKHOAN.TenTaiKhoan AS [TÊN TÀI KHOẢN], PhanQuyen AS [PHÂN QUYỀN] FROM TAIKHOAN left join NHANVIEN on TAIKHOAN.TenTaiKhoan = NHANVIEN.TenTaiKhoan
+	SELECT TAIKHOAN.TenTaiKhoan AS [TÀI KHOẢN], PhanQuyen AS [PHÂN QUYỀN] 
+	FROM TAIKHOAN
 END
 GO
 
@@ -361,7 +356,7 @@ CREATE PROC sp_search_books
 AS
 BEGIN
 	DECLARE @temp NVARCHAR(200) = N'"*'+ @TuKhoa + '*"'
-	SELECT MaSach, SACH.TenSach AS [TÊN SÁCH], SACH.TacGia AS [TÁC GIẢ], THELOAI.TenTL AS [THỂ LOẠI], SACH.NhaXuatBan AS [NHÀ XUẤT BẢN], SACH.TonTai AS [CÓ SẴN], SACH.DaMuon AS [ĐÃ MƯỢN] 
+	SELECT MaSach, SACH.MaTL, SACH.TenSach AS [TÊN SÁCH], SACH.TacGia AS [TÁC GIẢ], THELOAI.TenTL AS [THỂ LOẠI], SACH.NhaXuatBan AS [NHÀ XUẤT BẢN], SACH.TonTai AS [CÓ SẴN], SACH.DaMuon AS [ĐÃ MƯỢN] 
 	FROM SACH, THELOAI
 	WHERE SACH.MaTL = THELOAI.MaTL 
 	AND ( CONTAINS(SACH.TenSach, @temp ) OR FREETEXT(SACH.TenSach, @TuKhoa) OR SACH.TenSach LIKE '%'+ @TuKhoa +'%' OR
@@ -493,7 +488,7 @@ BEGIN
 END
 go
 
-exec sp_select_reader @SDT = '0934957323', @Email = 'f@m.m'
+
 
 --- 29. --- Delete 1 độc giả
 CREATE PROC sp_delete_reader 
@@ -558,10 +553,11 @@ CREATE PROC sp_delete_staff
 @SDT VARCHAR(20)
 AS
 BEGIN
-	DELETE FROM TAIKHOAN
-	WHERE TenTaiKhoan = (SELECT TenTaiKhoan FROM NHANVIEN WHERE SDT = @SDT)
-	DELETE FROM NHANVIEN
-	WHERE SDT = @SDT 
+	DECLARE @TenTaiKhoan VARCHAR(50)
+	SELECT @TenTaiKhoan = TenTaiKhoan FROM NHANVIEN WHERE SDT = @SDT
+
+	DELETE FROM NHANVIEN WHERE SDT = @SDT 
+	DELETE FROM TAIKHOAN WHERE TenTaiKhoan = @TenTaiKhoan
 END
 go
 
@@ -570,8 +566,10 @@ CREATE PROC sp_insert_staff
 @HoTen NVARCHAR(100), @GioiTinh NVARCHAR(10), @NgaySinh DATE, @DiaChi NVARCHAR(200), @SDT VARCHAR(20), @TenTaiKhoan VARCHAR(100), @MatKhau VARCHAR(50)
 AS
 BEGIN
+
 	INSERT [dbo].[TAIKHOAN] (TenTaiKhoan, MatKhau) VALUES (@TenTaiKhoan, @MatKhau);
-	INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [TenTaiKhoan]) VALUES (@HoTen, @GioiTinh, @NgaySinh, @DiaChi, @SDT, @TenTaiKhoan)
+	INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [TenTaiKhoan]) VALUES (@HoTen, @GioiTinh, @NgaySinh, @DiaChi, @SDT, @TenTaiKhoan);
+
 END
 go
 
@@ -697,6 +695,7 @@ BEGIN
 	INSERT INTO HOADON (MaDG, NgayMuon, NgayTra, TinhTrang, TongSL, ChiPhi) 
 	VALUES (@MaDG, @NgayMuon, @NgayTra, N'Cho mượn', @TongSL, 0)
 END
+go
 
 --- 45. --- Insert CTHD sau khi insert HOADON
 CREATE PROC sp_insert_detail
@@ -709,6 +708,7 @@ BEGIN
 	SET TonTai = TonTai - @SoLuong, DaMuon = DaMuon + @SoLuong
 	WHERE MaSach = @MaSach
 END
+go
 
 --- 46. --- Update hóa đơn
 CREATE PROC sp_update_receipt 
@@ -733,6 +733,7 @@ BEGIN
 		TinhTrang = @TinhTrang, ChiPhi = @ChiPhi
 	WHERE MaHD = @MaHD
 END
+go
 
 --- 47. --- Delete hóa đơn
 CREATE PROC sp_delete_receipt 
@@ -753,7 +754,7 @@ GO
 
 
 
-alter database QLThuVien set enable_broker with rollback immediate;
+ALTER database QLTV set enable_broker with rollback immediate;
 
 SET ANSI_NULLS ON
 GO
@@ -772,16 +773,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-delete from NHANVIEN
-alter table NHANVIEN alter column TenTaiKhoan VARCHAR(100) not null
-alter table NHANVIEN add unique(TenTaiKhoan)
-
-ALTER TABLE NHANVIEN drop constraint FK_NHANVIEN_TAIKHOAN
-
-ALTER TABLE TAIKHOAN WITH CHECK
-ADD constraint FK_TAIKHOAN_NHANVIEN FOREIGN KEY (TenTaiKhoan) REFERENCES NHANVIEN(TenTaiKhoan)
-GO
 
 
-ALTER DATABASE QLThuVien SET  READ_WRITE 
+ALTER DATABASE QLTV SET  READ_WRITE 
 GO
