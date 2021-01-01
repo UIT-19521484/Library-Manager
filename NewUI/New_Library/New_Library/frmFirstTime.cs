@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace New_Library
@@ -35,7 +29,8 @@ namespace New_Library
             //@"Data Source=192.168.0.106,1433;Initial Catalog=QLThuVien;Persist Security Info=True;User ID=sa;Password=123456";
             string con = "";
 
-            con += @"Data Source=" + txtServerName.Text + ";Initial Catalog=QLThuVien;Persist Security Info=True;";
+            //con += @"Data Source=" + txtServerName.Text + ";Initial Catalog=QLThuVien;Persist Security Info=True;";
+            con += @"Data Source=" + txtServerName.Text + ";Initial Catalog=QLTV;Persist Security Info=True;";
             con += @"User ID=" + txtAccountName.Text + ";";
             con += @"Password=" + txtPassword.Text + ";";
 

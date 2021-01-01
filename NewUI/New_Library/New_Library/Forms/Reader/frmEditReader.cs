@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace New_Library.Forms.Reader
@@ -184,13 +179,13 @@ namespace New_Library.Forms.Reader
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật độc giả thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Cập nhật độc giả thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
             else
             {
-                MessageBox.Show("Đã tồn tại SĐT hoặc Email trên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Đã tồn tại SĐT hoặc Email trên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
     }
     }

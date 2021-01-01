@@ -3,10 +3,6 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
-using TableDependency.SqlClient;
-using TableDependency.SqlClient.Base;
-using TableDependency.SqlClient.Base.EventArgs;
-
 namespace New_Library.Forms
 {
     public partial class frmBook : Form
@@ -33,6 +29,7 @@ namespace New_Library.Forms
         {
             dgvBook.DataSource = DatabaseData.dtBook;
             dgvBook.Columns["MaSach"].Visible = false;
+            dgvBook.Columns["MaTL"].Visible = false;
         }
 
         public void LoadData_Genre()
@@ -271,8 +268,8 @@ namespace New_Library.Forms
                     btnUpdate.Enabled = false;
                     break;
                 default:
-                    btnDelete.Enabled = true;
                     btnUpdate.Enabled = true;
+                    btnDelete.Enabled = true;
                     break;
             }
         }
@@ -289,6 +286,7 @@ namespace New_Library.Forms
 
             this.dgvBook.DataSource = dt;
             dgvBook.Columns["MaSach"].Visible = false;
+            dgvBook.Columns["MaTL"].Visible = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -308,7 +306,8 @@ namespace New_Library.Forms
             {   
                 while (dgvBook.SelectedRows.Count != 0)
                 {
-                    string cmd = @"EXEC sp_delete_book @MaSach = " + dgvBook.SelectedRows[0].Cells["MaSach"].Value.ToString();
+                    //MessageBox.Show(dgvBook.SelectedRows[dgvBook.SelectedRows.Count - 1].Cells["MaSach"].Value.ToString());
+                    string cmd = @"EXEC sp_delete_book @MaSach = " + Convert.ToInt32(dgvBook.SelectedRows[0].Cells["MaSach"].Value);
                     if (DataConnection.ExecuteQuery(cmd))
                     {
                         //MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -338,9 +337,7 @@ namespace New_Library.Forms
             book.MaSach = (int)dgvBook.SelectedRows[0].Cells["MaSach"].Value;
             book.TenSach = (string)dgvBook.SelectedRows[0].Cells["TenSach"].Value;
             book.TacGia = (string)dgvBook.SelectedRows[0].Cells["TacGia"].Value;
-            book.MaTL = (int)(from DataRow dr in DatabaseData.dtGenre.Rows
-                              where dr["TÊN THỂ LOẠI"].ToString() == (string)dgvBook.SelectedRows[0].Cells["TheLoai"].Value
-                              select dr["MaTL"]).FirstOrDefault();
+            book.MaTL = (int)dgvBook.SelectedRows[0].Cells["MaTL"].Value;
             book.NhaXB = (string)dgvBook.SelectedRows[0].Cells["NhaXuatBan"].Value;
             book.TonTai = (int)dgvBook.SelectedRows[0].Cells["CoSan"].Value;
 

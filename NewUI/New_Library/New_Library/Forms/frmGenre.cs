@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TableDependency.SqlClient;
-using TableDependency.SqlClient.Base;
-using TableDependency.SqlClient.Base.EventArgs;
 
 namespace New_Library.Forms
 {
@@ -119,46 +110,42 @@ namespace New_Library.Forms
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
-        {                
-            DataTable dt = DataConnection.GetDataTable(@"EXEC sp_select_genre @TenTL = N'" + dgvGenre.SelectedRows + "'");
-
-            switch (dt.Rows.Count)
+        {
+            string msg = "Bạn thật sự muốn xóa những thể loại này?\n\n";
+            for (int i = 0; i < dgvGenre.SelectedRows.Count; i++)
             {
-                case 0:
-                    string msg = "Bạn thật sự muốn xóa những thể loại này?\n\n";
-                    for (int i = 0; i < dgvGenre.SelectedRows.Count; i++)
+                msg += (i + 1).ToString() + ". " + dgvGenre.SelectedRows[i].Cells["TenTL"].Value + "\n";
+                DataTable dt = DataConnection.GetDataTable(@"select * from SACH, THELOAI where SACH.MaTL = THELOAI.MaTL and THELOAI.MaTL = "
+                                                                   + Convert.ToInt32(dgvGenre.SelectedRows[i].Cells["MaTL"].Value));
+                if (dt.Rows.Count > 0)
+                {
+                    MessageBox.Show("Có sách đang thuộc thể loại này! Không thể xóa", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }    
+            }
+
+            DialogResult rs = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (rs == DialogResult.Yes)
+            {
+                while (dgvGenre.SelectedRows.Count != 0)
+                {
+                    string cmd = @"EXEC sp_delete_genre @TenTL = N'" + dgvGenre.SelectedRows[0].Cells["TenTL"].Value + "'";
+                    if (DataConnection.ExecuteQuery(cmd))
                     {
-                       
-                        msg += (i + 1).ToString() + ". " + dgvGenre.SelectedRows[i].Cells["TenTL"].Value + "\n";
-                       
+                        //MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-
-                    DialogResult rs = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (rs == DialogResult.Yes)
+                    else
                     {
-                        while (dgvGenre.SelectedRows.Count != 0)
-                        {
-                            string cmd = @"EXEC sp_delete_genre @TenTL = N'" + dgvGenre.SelectedRows[0].Cells["TenTL"].Value + "'";
-                            if (DataConnection.ExecuteQuery(cmd))
-                            {
-                                //MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Thất bại khi xoá" + dgvGenre.SelectedRows[0].Cells["TenTheLoai"].Value, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                        MessageBox.Show("Hoàn thành xóa dữ liệu thể loại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Thất bại khi xoá" + dgvGenre.SelectedRows[0].Cells["TenTheLoai"].Value, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                }
+                MessageBox.Show("Hoàn thành xóa dữ liệu thể loại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
-                    dgvGenre.Refresh();
+            dgvGenre.Refresh();
 
-                    GC.Collect();
-                    break;
-                default:
-                    MessageBox.Show("Có sách đang thuộc thể loại này!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    break;
-            }    
+            GC.Collect();
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

@@ -73,6 +73,17 @@ namespace New_Library.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public int FineOfBook {
+            get {
+                return ((int)(this["FineOfBook"]));
+            }
+            set {
+                this["FineOfBook"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ConnectionString {
             get {
@@ -80,17 +91,6 @@ namespace New_Library.Properties {
             }
             set {
                 this["ConnectionString"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public int FineOfBook {
-            get {
-                return ((int)(this["FineOfBook"]));
-            }
-            set {
-                this["FineOfBook"] = value;
             }
         }
     }

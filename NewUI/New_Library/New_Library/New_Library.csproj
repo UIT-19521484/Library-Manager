@@ -394,9 +394,7 @@
   <ItemGroup>
     <None Include="image\info_26px.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\Setting\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="image\update_24px.png" />
   </ItemGroup>

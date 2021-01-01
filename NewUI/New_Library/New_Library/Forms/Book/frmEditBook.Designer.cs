@@ -46,9 +46,10 @@
             this.lblBorrowed = new System.Windows.Forms.Label();
             this.grpAvailable = new System.Windows.Forms.GroupBox();
             this.txtAvailable = new System.Windows.Forms.TextBox();
-            this.errAddBook = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errEditBook = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.lblGenreError = new System.Windows.Forms.Label();
             this.grpBookInfo.SuspendLayout();
             this.grpGenre.SuspendLayout();
             this.grpPublisher.SuspendLayout();
@@ -56,11 +57,12 @@
             this.grpBookName.SuspendLayout();
             this.grpQuantity.SuspendLayout();
             this.grpAvailable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errAddBook)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errEditBook)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBookInfo
             // 
+            this.grpBookInfo.Controls.Add(this.lblGenreError);
             this.grpBookInfo.Controls.Add(this.lblPublisherNameError);
             this.grpBookInfo.Controls.Add(this.lblAuthorNameError);
             this.grpBookInfo.Controls.Add(this.lblBookNameError);
@@ -297,11 +299,11 @@
             this.txtAvailable.Validating += new System.ComponentModel.CancelEventHandler(this.txtAvailable_Validating);
             this.txtAvailable.Validated += new System.EventHandler(this.txtAvailable_Validated);
             // 
-            // errAddBook
+            // errEditBook
             // 
-            this.errAddBook.BlinkRate = 0;
-            this.errAddBook.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errAddBook.ContainerControl = this;
+            this.errEditBook.BlinkRate = 0;
+            this.errEditBook.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errEditBook.ContainerControl = this;
             // 
             // btnCancel
             // 
@@ -344,6 +346,17 @@
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
+            // lblGenreError
+            // 
+            this.lblGenreError.AutoSize = true;
+            this.lblGenreError.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGenreError.ForeColor = System.Drawing.Color.Red;
+            this.lblGenreError.Location = new System.Drawing.Point(10, 299);
+            this.lblGenreError.Name = "lblGenreError";
+            this.lblGenreError.Size = new System.Drawing.Size(66, 13);
+            this.lblGenreError.TabIndex = 76;
+            this.lblGenreError.Text = "Genre Error";
+            // 
             // frmEditBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,7 +375,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Load += new System.EventHandler(this.frmAddBook_Load);
+            this.Load += new System.EventHandler(this.frmEditBook_Load);
             this.grpBookInfo.ResumeLayout(false);
             this.grpBookInfo.PerformLayout();
             this.grpGenre.ResumeLayout(false);
@@ -376,7 +389,7 @@
             this.grpQuantity.PerformLayout();
             this.grpAvailable.ResumeLayout(false);
             this.grpAvailable.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errAddBook)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errEditBook)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -402,6 +415,7 @@
         private System.Windows.Forms.Label lblAuthorNameError;
         private System.Windows.Forms.Label lblBookNameError;
         private System.Windows.Forms.Label lblAvailableWarning;
-        private System.Windows.Forms.ErrorProvider errAddBook;
+        private System.Windows.Forms.ErrorProvider errEditBook;
+        private System.Windows.Forms.Label lblGenreError;
     }
 }

@@ -27,11 +27,12 @@ namespace New_Library
                 case TableDependency.SqlClient.Base.Enums.ChangeType.Insert:
                     DataRow row = dtBook.NewRow();
                     row["MaSach"] = e.Entity.MaSach;
+                    row["MaTL"] = e.Entity.MaTL;
                     row["TÊN SÁCH"] = e.Entity.TenSach;
                     row["TÁC GIẢ"] = e.Entity.TacGia;
                     row["THỂ LOẠI"] = (from DataRow dr in dtGenre.Rows
                                        where dr["MaTL"].ToString() == e.Entity.MaTL.ToString()
-                                       select dr["TÊN THỂ LOẠI"]).FirstOrDefault();
+                                       select dr["THỂ LOẠI"]).FirstOrDefault();
                     row["NHÀ XUẤT BẢN"] = e.Entity.NhaXB;
                     row["CÓ SẴN"] = e.Entity.TonTai;
                     row["ĐÃ MƯỢN"] = e.Entity.DaMuon;
@@ -49,16 +50,17 @@ namespace New_Library
                     if (row != null)
                     {
                         row["MaSach"] = e.Entity.MaSach;
+                        row["MaTL"] = e.Entity.MaTL;
                         row["TÊN SÁCH"] = e.Entity.TenSach;
                         row["TÁC GIẢ"] = e.Entity.TacGia;
                         row["THỂ LOẠI"] = (from DataRow dr in dtGenre.Rows
                                            where dr["MaTL"].ToString() == e.Entity.MaTL.ToString()
-                                           select dr["TÊN THỂ LOẠI"]).FirstOrDefault();
+                                           select dr["THỂ LOẠI"]).FirstOrDefault();
                         row["NHÀ XUẤT BẢN"] = e.Entity.NhaXB;
                         row["CÓ SẴN"] = e.Entity.TonTai;
                         row["ĐÃ MƯỢN"] = e.Entity.DaMuon;
                     }
-                    row.AcceptChanges();
+                    
                     break;
             }
 
@@ -72,22 +74,24 @@ namespace New_Library
                 case TableDependency.SqlClient.Base.Enums.ChangeType.Insert:
                     DataRow row = dtGenre.NewRow();
                     row["MaTL"] = e.Entity.MaTL;
-                    row["TÊN THỂ LOẠI"] = e.Entity.TenTL;
+                    row["THỂ LOẠI"] = e.Entity.TenTL;
                     dtGenre.Rows.Add(row);
                     break;
                 case TableDependency.SqlClient.Base.Enums.ChangeType.Delete:
                     row = dtGenre.Select("MaTL=" + e.Entity.MaTL).FirstOrDefault();
                     if (row != null)
                     {
-                        dtGenre.Rows.Remove(row);
+                        row.Delete();
                     }
                     break;
                 case TableDependency.SqlClient.Base.Enums.ChangeType.Update:
                     row = dtGenre.Select("MaTL=" + e.Entity.MaTL).FirstOrDefault();
                     if (row != null)
                     {
-                        row["TÊN THỂ LOẠI"] = e.Entity.TenTL;
+                        row["MaTL"] = e.Entity.MaTL;
+                        row["THỂ LOẠI"] = e.Entity.TenTL;
                     }
+                    row.AcceptChanges();
                     break;
             }
 
@@ -113,13 +117,14 @@ namespace New_Library
                     row = dtReader.Select("MaDG=" + e.Entity.MaDG).FirstOrDefault();
                     if (row != null)
                     {
-                        dtReader.Rows.Remove(row);
+                        row.Delete();
                     }
                     break;
                 case TableDependency.SqlClient.Base.Enums.ChangeType.Update:
                     row = dtReader.Select("MaDG=" + e.Entity.MaDG).FirstOrDefault();
                     if (row != null)
                     {
+                        row["MaDG"] = e.Entity.MaDG;
                         row["HỌ TÊN"] = e.Entity.HoTen;
                         row["GIỚI TÍNH"] = e.Entity.GioiTinh;
                         row["NGÀY SINH"] = e.Entity.NgaySinh.ToString();
@@ -142,15 +147,11 @@ namespace New_Library
                     row["MaNV"] = e.Entity.MaNV;
                     row["HỌ TÊN"] = e.Entity.HoTen;
                     row["GIỚI TÍNH"] = e.Entity.GioiTinh;
-                    row["NGÀY SINH"] = e.Entity.NgaySinh.ToString();
+                    row["NGÀY SINH"] = e.Entity.NgaySinh.ToShortDateString();
                     row["ĐỊA CHỈ"] = e.Entity.DiaChi;
                     row["SĐT"] = e.Entity.SDT;
                     row["TÀI KHOẢN"] = e.Entity.TenTaiKhoan;
-                    DataRow r = dtAccount.Select("[TÊN TÀI KHOẢN]='" + e.Entity.TenTaiKhoan + "'").FirstOrDefault();
-                    if (r != null)
-                    {
-                        r["HỌ TÊN"] = e.Entity.HoTen;
-                    }    
+                    
                     dtStaff.Rows.Add(row);
                     break;
                 case TableDependency.SqlClient.Base.Enums.ChangeType.Delete:
@@ -164,6 +165,7 @@ namespace New_Library
                     row = dtStaff.Select("MaNV=" + e.Entity.MaNV).FirstOrDefault();
                     if (row != null)
                     {
+                        row["MaNV"] = e.Entity.MaNV;
                         row["HỌ TÊN"] = e.Entity.HoTen;
                         row["GIỚI TÍNH"] = e.Entity.GioiTinh;
                         row["NGÀY SINH"] = e.Entity.NgaySinh.ToString();
@@ -171,7 +173,6 @@ namespace New_Library
                         row["SĐT"] = e.Entity.SDT;
                         row["TÀI KHOẢN"] = e.Entity.TenTaiKhoan;
                     }
-                    
                     break;
             }
 
@@ -184,35 +185,33 @@ namespace New_Library
             {
                 case TableDependency.SqlClient.Base.Enums.ChangeType.Insert:
                     DataRow row = dtAccount.NewRow();
-                    //row["HỌ TÊN"] = dtStaff.Select("[TÀI KHOẢN]='" + e.Entity.TenTaiKhoan + "'").FirstOrDefault().Field<string>("HỌ TÊN");
-                    row["TÊN TÀI KHOẢN"] = e.Entity.TenTaiKhoan;
+                    
+                    row["TÀI KHOẢN"] = e.Entity.TenTaiKhoan;
                     row["PHÂN QUYỀN"] = e.Entity.PhanQuyen;
 
-                    row["HỌ TÊN"] = (from DataRow drstaff in dtStaff.Rows
-                                       where drstaff["TÀI KHOẢN"].ToString() == e.Entity.TenTaiKhoan.ToString()
-                                       select drstaff["HỌ TÊN"]).FirstOrDefault();
+                    //row["HỌ TÊN"] = (from DataRow drstaff in dtStaff.Rows
+                    //                 where drstaff["TÀI KHOẢN"].ToString() == e.Entity.TenTaiKhoan.ToString()
+                    //                 select drstaff["HỌ TÊN"]).FirstOrDefault();
 
                     dtAccount.Rows.Add(row);
                     break;
                 case TableDependency.SqlClient.Base.Enums.ChangeType.Delete:
-                    row = dtAccount.Select("[TÊN TÀI KHOẢN]='" + e.Entity.TenTaiKhoan + "'").FirstOrDefault();
+                    row = dtAccount.Select("[TÀI KHOẢN]='" + e.Entity.TenTaiKhoan + "'").FirstOrDefault();
                     if (row != null)
                     {
                         dtAccount.Rows.Remove(row);
                     }
                     break;
                 case TableDependency.SqlClient.Base.Enums.ChangeType.Update:
-                    row = dtAccount.Select("[TÊN TÀI KHOẢN]='" + e.EntityOldValues.TenTaiKhoan + "'").FirstOrDefault();
+                    row = dtAccount.Select("[TÀI KHOẢN]='" + e.EntityOldValues.TenTaiKhoan + "'").FirstOrDefault();
                     if (row != null)
                     {
-                        row["TÊN TÀI KHOẢN"] = e.Entity.TenTaiKhoan;
+                        row["TÀI KHOẢN"] = e.Entity.TenTaiKhoan;
                         row["PHÂN QUYỀN"] = e.Entity.PhanQuyen;
                     }
-                    DataRow dr = dtStaff.Select("[HỌ TÊN]='" + row["HỌ TÊN"].ToString() + "'").FirstOrDefault();
-                    if (dr != null)
-                    {
-                        dr["TÀI KHOẢN"] = e.Entity.TenTaiKhoan;  
-                    }    
+                    //row["HỌ TÊN"] = (from DataRow drstaff in dtStaff.Rows
+                    //                 where drstaff["TÀI KHOẢN"].ToString() == e.Entity.TenTaiKhoan.ToString()
+                    //                 select drstaff["HỌ TÊN"]).FirstOrDefault();
                     break;
             }
 
@@ -267,9 +266,6 @@ namespace New_Library
                     break;
             }
         }
-
-       
-
         #endregion
 
         #region Map model to table
@@ -382,7 +378,6 @@ namespace New_Library
             deReceipt.OnChanged += dbReceiptChanged;
             deReceipt.Start();
 
-            
         }
 
         public static void Dispose()
@@ -392,8 +387,7 @@ namespace New_Library
             deReader.Stop();
             deStaff.Stop();
             deAccount.Stop();
-            deReceipt.Stop();
-            
+            deReceipt.Stop();    
         }
     }
 }

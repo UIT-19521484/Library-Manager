@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace New_Library.Forms.Management.Account
@@ -232,6 +229,7 @@ namespace New_Library.Forms.Management.Account
                     MessageBox.Show("Đã tồn tại số điện thoại trên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -34,11 +34,11 @@ namespace New_Library.Forms.Receipt
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpReceiptInfo = new System.Windows.Forms.GroupBox();
             this.grpReaderPhone = new System.Windows.Forms.GroupBox();
             this.cboReaderPhone = new System.Windows.Forms.ComboBox();
@@ -55,30 +55,30 @@ namespace New_Library.Forms.Receipt
             this.dtpBorrowDate = new System.Windows.Forms.DateTimePicker();
             this.grpBookInfo = new System.Windows.Forms.GroupBox();
             this.dgvBook = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.TenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TheLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NhaXuatBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CoSan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Chon = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.grpContactInfo = new System.Windows.Forms.GroupBox();
             this.lblErrAddReceipt = new System.Windows.Forms.Label();
             this.dgvDetail = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.MaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CoSanDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnMove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.errAddReceipt = new System.Windows.Forms.ErrorProvider(this.components);
+            this.TenSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TacGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TheLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NhaXuatBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CoSan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Chon = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.MaSach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NhaXuatBanCT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CoSanDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpReceiptInfo.SuspendLayout();
             this.grpReaderPhone.SuspendLayout();
             this.grpFine.SuspendLayout();
@@ -311,7 +311,7 @@ namespace New_Library.Forms.Receipt
             this.grpBookInfo.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpBookInfo.Location = new System.Drawing.Point(270, 10);
             this.grpBookInfo.Name = "grpBookInfo";
-            this.grpBookInfo.Size = new System.Drawing.Size(905, 309);
+            this.grpBookInfo.Size = new System.Drawing.Size(1050, 309);
             this.grpBookInfo.TabIndex = 70;
             this.grpBookInfo.TabStop = false;
             this.grpBookInfo.Text = "Thông tin Sách";
@@ -378,62 +378,8 @@ namespace New_Library.Forms.Receipt
             this.dgvBook.ShowCellToolTips = false;
             this.dgvBook.ShowEditingIcon = false;
             this.dgvBook.ShowRowErrors = false;
-            this.dgvBook.Size = new System.Drawing.Size(899, 223);
+            this.dgvBook.Size = new System.Drawing.Size(1044, 223);
             this.dgvBook.TabIndex = 4;
-            // 
-            // TenSach
-            // 
-            this.TenSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenSach.DataPropertyName = "TÊN SÁCH";
-            this.TenSach.HeaderText = "TÊN SÁCH";
-            this.TenSach.Name = "TenSach";
-            this.TenSach.ReadOnly = true;
-            // 
-            // TacGia
-            // 
-            this.TacGia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TacGia.DataPropertyName = "TÁC GIẢ";
-            this.TacGia.HeaderText = "TÁC GIẢ";
-            this.TacGia.Name = "TacGia";
-            this.TacGia.ReadOnly = true;
-            this.TacGia.Width = 101;
-            // 
-            // TheLoai
-            // 
-            this.TheLoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TheLoai.DataPropertyName = "THỂ LOẠI";
-            this.TheLoai.HeaderText = "THỂ LOẠI";
-            this.TheLoai.Name = "TheLoai";
-            this.TheLoai.ReadOnly = true;
-            this.TheLoai.Width = 111;
-            // 
-            // NhaXuatBan
-            // 
-            this.NhaXuatBan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.NhaXuatBan.DataPropertyName = "NHÀ XUẤT BẢN";
-            this.NhaXuatBan.HeaderText = "NHÀ XUẤT BẢN";
-            this.NhaXuatBan.Name = "NhaXuatBan";
-            this.NhaXuatBan.ReadOnly = true;
-            this.NhaXuatBan.Width = 158;
-            // 
-            // CoSan
-            // 
-            this.CoSan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.CoSan.DataPropertyName = "CÓ SẴN";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.CoSan.DefaultCellStyle = dataGridViewCellStyle3;
-            this.CoSan.HeaderText = "CÓ SẴN";
-            this.CoSan.Name = "CoSan";
-            this.CoSan.ReadOnly = true;
-            this.CoSan.Width = 96;
-            // 
-            // Chon
-            // 
-            this.Chon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Chon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Chon.HeaderText = "CHỌN";
-            this.Chon.Name = "Chon";
-            this.Chon.Width = 62;
             // 
             // btnSearch
             // 
@@ -443,7 +389,7 @@ namespace New_Library.Forms.Receipt
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Image = global::New_Library.Properties.Resources.right_24px;
-            this.btnSearch.Location = new System.Drawing.Point(769, 42);
+            this.btnSearch.Location = new System.Drawing.Point(914, 42);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(37, 27);
             this.btnSearch.TabIndex = 3;
@@ -458,7 +404,7 @@ namespace New_Library.Forms.Receipt
             this.txtSearch.Font = new System.Drawing.Font("Verdana", 12F);
             this.txtSearch.Location = new System.Drawing.Point(149, 42);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(604, 27);
+            this.txtSearch.Size = new System.Drawing.Size(749, 27);
             this.txtSearch.TabIndex = 2;
             // 
             // lblSearch
@@ -480,7 +426,7 @@ namespace New_Library.Forms.Receipt
             this.grpContactInfo.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpContactInfo.Location = new System.Drawing.Point(270, 357);
             this.grpContactInfo.Name = "grpContactInfo";
-            this.grpContactInfo.Size = new System.Drawing.Size(851, 260);
+            this.grpContactInfo.Size = new System.Drawing.Size(951, 260);
             this.grpContactInfo.TabIndex = 69;
             this.grpContactInfo.TabStop = false;
             this.grpContactInfo.Text = "Chi tiết phiếu";
@@ -522,7 +468,7 @@ namespace New_Library.Forms.Receipt
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
+            this.NhaXuatBanCT,
             this.CoSanDetail,
             this.SoLuong});
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -544,7 +490,7 @@ namespace New_Library.Forms.Receipt
             this.dgvDetail.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("MS Reference Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F);
             dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.MistyRose;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.Desktop;
@@ -561,11 +507,143 @@ namespace New_Library.Forms.Receipt
             this.dgvDetail.ShowCellToolTips = false;
             this.dgvDetail.ShowEditingIcon = false;
             this.dgvDetail.ShowRowErrors = false;
-            this.dgvDetail.Size = new System.Drawing.Size(845, 218);
+            this.dgvDetail.Size = new System.Drawing.Size(945, 218);
             this.dgvDetail.TabIndex = 6;
             this.dgvDetail.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetail_CellEndEdit);
             this.dgvDetail.Validating += new System.ComponentModel.CancelEventHandler(this.dgvDetail_Validating);
             this.dgvDetail.Validated += new System.EventHandler(this.dgvDetail_Validated);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Image = global::New_Library.Properties.Resources.double_up_24px;
+            this.btnBack.Location = new System.Drawing.Point(817, 325);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(36, 40);
+            this.btnBack.TabIndex = 72;
+            this.btnBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnMove
+            // 
+            this.btnMove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMove.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnMove.FlatAppearance.BorderSize = 0;
+            this.btnMove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMove.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMove.Image = global::New_Library.Properties.Resources.double_down_24px;
+            this.btnMove.Location = new System.Drawing.Point(746, 325);
+            this.btnMove.Name = "btnMove";
+            this.btnMove.Size = new System.Drawing.Size(36, 40);
+            this.btnMove.TabIndex = 5;
+            this.btnMove.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMove.UseVisualStyleBackColor = false;
+            this.btnMove.Click += new System.EventHandler(this.btnMove_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGreen;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAdd.Image = global::New_Library.Properties.Resources.add1;
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd.Location = new System.Drawing.Point(1233, 463);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(87, 36);
+            this.btnAdd.TabIndex = 7;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.Red;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkRed;
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCancel.Image = global::New_Library.Properties.Resources.delete;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.Location = new System.Drawing.Point(1233, 511);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(87, 36);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "Hủy";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // errAddReceipt
+            // 
+            this.errAddReceipt.BlinkRate = 0;
+            this.errAddReceipt.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errAddReceipt.ContainerControl = this;
+            // 
+            // TenSach
+            // 
+            this.TenSach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenSach.DataPropertyName = "TÊN SÁCH";
+            this.TenSach.HeaderText = "TÊN SÁCH";
+            this.TenSach.Name = "TenSach";
+            this.TenSach.ReadOnly = true;
+            // 
+            // TacGia
+            // 
+            this.TacGia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TacGia.DataPropertyName = "TÁC GIẢ";
+            this.TacGia.HeaderText = "TÁC GIẢ";
+            this.TacGia.Name = "TacGia";
+            this.TacGia.ReadOnly = true;
+            this.TacGia.Width = 101;
+            // 
+            // TheLoai
+            // 
+            this.TheLoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TheLoai.DataPropertyName = "THỂ LOẠI";
+            this.TheLoai.HeaderText = "THỂ LOẠI";
+            this.TheLoai.Name = "TheLoai";
+            this.TheLoai.ReadOnly = true;
+            this.TheLoai.Width = 111;
+            // 
+            // NhaXuatBan
+            // 
+            this.NhaXuatBan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.NhaXuatBan.DataPropertyName = "NHÀ XUẤT BẢN";
+            this.NhaXuatBan.HeaderText = "NXB";
+            this.NhaXuatBan.Name = "NhaXuatBan";
+            this.NhaXuatBan.Width = 67;
+            // 
+            // CoSan
+            // 
+            this.CoSan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.CoSan.DataPropertyName = "CÓ SẴN";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.CoSan.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CoSan.HeaderText = "CÓ SẴN";
+            this.CoSan.Name = "CoSan";
+            this.CoSan.ReadOnly = true;
+            this.CoSan.Width = 96;
+            // 
+            // Chon
+            // 
+            this.Chon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Chon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Chon.HeaderText = "CHỌN";
+            this.Chon.Name = "Chon";
+            this.Chon.Width = 62;
             // 
             // MaSach
             // 
@@ -599,14 +677,13 @@ namespace New_Library.Forms.Receipt
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Width = 111;
             // 
-            // dataGridViewTextBoxColumn4
+            // NhaXuatBanCT
             // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "NHÀ XUẤT BẢN";
-            this.dataGridViewTextBoxColumn4.HeaderText = "NHÀ XUẤT BẢN";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 158;
+            this.NhaXuatBanCT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.NhaXuatBanCT.DataPropertyName = "NHÀ XUẤT BẢN";
+            this.NhaXuatBanCT.HeaderText = "NXB";
+            this.NhaXuatBanCT.Name = "NhaXuatBanCT";
+            this.NhaXuatBanCT.Width = 67;
             // 
             // CoSanDetail
             // 
@@ -621,92 +698,13 @@ namespace New_Library.Forms.Receipt
             this.SoLuong.Name = "SoLuong";
             this.SoLuong.Width = 121;
             // 
-            // btnBack
-            // 
-            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Image = global::New_Library.Properties.Resources.double_up_24px;
-            this.btnBack.Location = new System.Drawing.Point(699, 325);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(36, 40);
-            this.btnBack.TabIndex = 72;
-            this.btnBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // btnMove
-            // 
-            this.btnMove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMove.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnMove.FlatAppearance.BorderSize = 0;
-            this.btnMove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMove.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMove.Image = global::New_Library.Properties.Resources.double_down_24px;
-            this.btnMove.Location = new System.Drawing.Point(628, 325);
-            this.btnMove.Name = "btnMove";
-            this.btnMove.Size = new System.Drawing.Size(36, 40);
-            this.btnMove.TabIndex = 5;
-            this.btnMove.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMove.UseVisualStyleBackColor = false;
-            this.btnMove.Click += new System.EventHandler(this.btnMove_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGreen;
-            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAdd.Image = global::New_Library.Properties.Resources.add1;
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.Location = new System.Drawing.Point(1127, 459);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(87, 36);
-            this.btnAdd.TabIndex = 7;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.Red;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkRed;
-            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCancel.Image = global::New_Library.Properties.Resources.delete;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.Location = new System.Drawing.Point(1127, 507);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(87, 36);
-            this.btnCancel.TabIndex = 8;
-            this.btnCancel.Text = "Hủy";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // errAddReceipt
-            // 
-            this.errAddReceipt.BlinkRate = 0;
-            this.errAddReceipt.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errAddReceipt.ContainerControl = this;
-            // 
             // frmAddReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1223, 628);
+            this.ClientSize = new System.Drawing.Size(1341, 628);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnMove);
             this.Controls.Add(this.grpBookInfo);
@@ -766,21 +764,21 @@ namespace New_Library.Forms.Receipt
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvBook;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvDetail;
         private System.Windows.Forms.Label lblUnit;
+        private System.Windows.Forms.ErrorProvider errAddReceipt;
+        private System.Windows.Forms.Label lblErrAddReceipt;
+        private System.Windows.Forms.GroupBox grpReaderPhone;
+        private System.Windows.Forms.ComboBox cboReaderPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn TacGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn TheLoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn NhaXuatBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn CoSan;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Chon;
-        private System.Windows.Forms.ErrorProvider errAddReceipt;
-        private System.Windows.Forms.Label lblErrAddReceipt;
-        private System.Windows.Forms.GroupBox grpReaderPhone;
-        private System.Windows.Forms.ComboBox cboReaderPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NhaXuatBanCT;
         private System.Windows.Forms.DataGridViewTextBoxColumn CoSanDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
     }

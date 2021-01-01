@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using TableDependency.SqlClient;
-using TableDependency.SqlClient.Base;
-using TableDependency.SqlClient.Base.EventArgs;
 
 namespace New_Library
 {
@@ -92,7 +84,7 @@ namespace New_Library
         public class Receipt
         {
             private int maHD;
-            //private int maMT;
+            
             private int maDG;
             private DateTime ngayMuon;
             private DateTime ngayTra;
@@ -109,7 +101,7 @@ namespace New_Library
             public int TongSL { get => tongSL; set => tongSL = value; }
             public int ChiPhi { get => chiPhi; set => chiPhi = value; }
             public string SDT { get => sDT; set => sDT = value; }
-            //public int MaMT { get => maMT; set => maMT = value; }
+            
         }
 
         public class Detail

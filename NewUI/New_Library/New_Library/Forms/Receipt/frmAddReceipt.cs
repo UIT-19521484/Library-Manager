@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace New_Library.Forms.Receipt
@@ -39,6 +34,7 @@ namespace New_Library.Forms.Receipt
             dgvBook.DataSource = DatabaseData.dtBook;
             dgvBook.Columns["MaSach"].Visible = false;
             dgvBook.Columns["ĐÃ MƯỢN"].Visible = false;
+            dgvBook.Columns["MaTL"].Visible = false;
         }
 
         private void LoadData_ReaderPhone()
@@ -64,6 +60,8 @@ namespace New_Library.Forms.Receipt
 
             this.dgvBook.DataSource = dt;
             dgvBook.Columns["MaSach"].Visible = false;
+            dgvBook.Columns["ĐÃ MƯỢN"].Visible = false;
+            dgvBook.Columns["MaTL"].Visible = false;
         }
 
         private void btnMove_Click(object sender, EventArgs e)
@@ -112,6 +110,8 @@ namespace New_Library.Forms.Receipt
                 }
             }
             dgvDetail.Columns["MaSach"].Visible = false;
+            dgvBook.Columns["ĐÃ MƯỢN"].Visible = false;
+            dgvBook.Columns["MaTL"].Visible = false;
         }
 
         private void btnBack_Click(object sender, EventArgs e)

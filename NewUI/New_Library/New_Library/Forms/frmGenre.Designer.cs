@@ -212,8 +212,8 @@
             // TenTL
             // 
             this.TenTL.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenTL.DataPropertyName = "TÊN THỂ LOẠI";
-            this.TenTL.HeaderText = "TÊN THỂ LOẠI";
+            this.TenTL.DataPropertyName = "THỂ LOẠI";
+            this.TenTL.HeaderText = "THỂ LOẠI";
             this.TenTL.Name = "TenTL";
             this.TenTL.ReadOnly = true;
             // 

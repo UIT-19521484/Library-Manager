@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace New_Library.Forms
@@ -68,7 +61,7 @@ namespace New_Library.Forms
             string command = @"EXEC sp_search_staff @TuKhoa = N'" + txtSearch.Text + "'";
             DataTable dt = DataConnection.GetDataTable(command);
             this.dgvStaff.DataSource = dt;
-            dgvStaff.HeaderBgColor = ThemeColor.PrimaryColor;
+            
             dgvStaff.Columns["MaNV"].Visible = false;
         }
 
@@ -86,9 +79,9 @@ namespace New_Library.Forms
             {
                 while (dgvStaff.SelectedRows.Count != 0)
                 {
-                    string cmdDelAccount = @"delete from TAIKHOAN where TenTaiKhoan = '" + dgvStaff.SelectedRows[0].Cells["TaiKhoan"].Value.ToString() + "'";
+                    //string cmdDelAccount = @"delete from TAIKHOAN where TenTaiKhoan = '" + dgvStaff.SelectedRows[0].Cells["TaiKhoan"].Value.ToString() + "'";
                     string cmdDelStaff = @"EXEC sp_delete_staff @SDT = '" + dgvStaff.SelectedRows[0].Cells["SDT"].Value.ToString() + "'";
-                    if (DataConnection.ExecuteQuery(cmdDelStaff) && DataConnection.ExecuteQuery(cmdDelAccount))
+                    if (DataConnection.ExecuteQuery(cmdDelStaff) ) //&& DataConnection.ExecuteQuery(cmdDelAccount))
                     {
                         //MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -99,7 +92,6 @@ namespace New_Library.Forms
                 }
                 MessageBox.Show("Hoàn thành xóa dữ liệu nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
             dgvStaff.Refresh();
         }
 

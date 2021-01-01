@@ -14,10 +14,10 @@
     <Setting Name="LibraryPhoneNumber" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="ConnectionString" Type="System.String" Scope="User">
+    <Setting Name="FineOfBook" Type="System.Int32" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="FineOfBook" Type="System.Int32" Scope="User">
+    <Setting Name="ConnectionString" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

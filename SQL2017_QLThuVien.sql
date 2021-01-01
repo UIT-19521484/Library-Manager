@@ -263,8 +263,9 @@ GO
 CREATE PROC sp_select_all_books
 AS
 BEGIN
-	SELECT SACH.MaSach, SACH.TenSach AS [TÊN SÁCH], SACH.TacGia AS [TÁC GIẢ], THELOAI.TenTL AS [THỂ LOẠI], SACH.NhaXuatBan AS [NHÀ XUẤT BẢN], SACH.TonTai AS [CÓ SẴN], SACH.DaMuon AS [ĐÃ MƯỢN] 
-	FROM SACH LEFT JOIN THELOAI ON SACH.MaTL = THELOAI.MaTL 
+	SELECT SACH.MaSach, THELOAI.MaTL, SACH.TenSach AS [TÊN SÁCH], SACH.TacGia AS [TÁC GIẢ], 
+		   THELOAI.TenTL AS [THỂ LOẠI], SACH.NhaXuatBan AS [NHÀ XUẤT BẢN], SACH.TonTai AS [CÓ SẴN], SACH.DaMuon AS [ĐÃ MƯỢN] 
+	FROM SACH, THELOAI WHERE SACH.MaTL = THELOAI.MaTL 
 END
 GO
 
@@ -276,7 +277,7 @@ GO
 CREATE PROC sp_select_all_genres
 AS
 BEGIN
-	SELECT MaTL, TenTL AS [TÊN THỂ LOẠI] FROM THELOAI
+	SELECT MaTL, TenTL AS [THỂ LOẠI] FROM THELOAI
 END
 GO
 
@@ -412,9 +413,6 @@ GO
 --drop proc sp_insert_book
 
 --EXEC sp_insert_book @TenSach = 'A', @TacGia = 'B', @NhaXuatBan = 'C', @TenTL = 'D', @TonTai = 0, @DaMuon  = 0
-
-ALTER DATABASE QLThuVien SET  READ_WRITE 
-GO
 
 --- 22. --- Update 1 loại sách dựa theo mã sách
 CREATE PROC sp_update_book
@@ -784,3 +782,6 @@ ALTER TABLE TAIKHOAN WITH CHECK
 ADD constraint FK_TAIKHOAN_NHANVIEN FOREIGN KEY (TenTaiKhoan) REFERENCES NHANVIEN(TenTaiKhoan)
 GO
 
+
+ALTER DATABASE QLThuVien SET  READ_WRITE 
+GO

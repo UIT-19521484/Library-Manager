@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace New_Library.Forms
@@ -27,14 +23,12 @@ namespace New_Library.Forms
 
         private void frmAccount_Load(object sender, EventArgs e)
         {
-            
             LoadData_Account();
         }
 
         void LoadData_Account()
         {
             dgvAccount.DataSource = DatabaseData.dtAccount;
-            
         }
 
         private void dgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -67,7 +61,6 @@ namespace New_Library.Forms
             string command = @"EXEC sp_search_accounts @TuKhoa = N'" + txtSearch.Text + "'";
             DataTable dt = DataConnection.GetDataTable(command);
             this.dgvAccount.DataSource = dt;
-            dgvAccount.HeaderBgColor = ThemeColor.PrimaryColor;
         }
 
         private string CreateMD5(string passWord)

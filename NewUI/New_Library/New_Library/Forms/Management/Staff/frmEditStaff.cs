@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace New_Library.Forms.Management.Account
@@ -14,6 +9,8 @@ namespace New_Library.Forms.Management.Account
     {
         private int staffID;
         private string errMsg;
+
+        LibraryEntity.Staff selectedStaff;
 
         public frmEditStaff(LibraryEntity.Staff staff)
         {
@@ -35,6 +32,8 @@ namespace New_Library.Forms.Management.Account
             nudMonth.Value = staff.NgaySinh.Month;
             nudYear.Value = staff.NgaySinh.Year;
             staffID = staff.MaNV;
+
+            this.selectedStaff = staff;
         }
 
         private void nudMonth_ValueChanged(object sender, EventArgs e)
@@ -143,12 +142,19 @@ namespace New_Library.Forms.Management.Account
 
             DataTable dtPhone = DataConnection.GetDataTable(@"EXEC sp_select_staff @SDT = '" + txtPhoneNumber.Text + "'");
 
-            if (dtPhone.Rows.Count == 1)
+            if (dtPhone.Rows.Count >= 1)
+            {
+                if (this.selectedStaff.SDT != txtPhoneNumber.Text)
+                    MessageBox.Show("Đã tồn tại số điện thoại trên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
             {
                 string date = dob.ToString("yyyy'-'MM'-'dd");
-                string command = @"EXEC sp_update_staff @MaNV = " + staffID
-                                                  +  ", @HoTen = N'" + txtStaffName.Text
-                                                  + "', @GioiTinh = N'" + cboSex.Text
+                                            
+               string command = @"EXEC sp_update_staff @MaNV = " + staffID
+                                                    + ", @HoTen = N'" + txtStaffName.Text
+                                                   + "', @GioiTinh = N'" + cboSex.Text
                                                   + "', @NgaySinh = N'" + date
                                                   + "', @DiaChi = N'" + txtAddress.Text
                                                   + "', @SDT = '" + txtPhoneNumber.Text + "'";
@@ -161,10 +167,6 @@ namespace New_Library.Forms.Management.Account
                 {
                     MessageBox.Show("Chỉnh sửa nhân viên thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Đã tồn tại số điện thoại trên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

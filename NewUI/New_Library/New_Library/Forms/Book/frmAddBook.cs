@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace New_Library.Forms.Book
@@ -125,7 +120,7 @@ namespace New_Library.Forms.Book
 
         private bool IsBookExist()
         {
-            string cmd = @"Select TenSach, TacGia, NhaXuatBan, TenTL from SACH left join THELOAI on SACH.MaTL = THELOAI.MaTL where "
+            string cmd = @"Select TenSach, TacGia, NhaXuatBan, TenTL from SACH, THELOAI where SACH.MaTL = THELOAI.MaTL and "
                         + "TenSach = N'" + txtBookName.Text + "' and "
                         + "TacGia = N'" + txtAuthorName.Text + "' and "
                         + "NhaXuatBan = N'" + txtPublisherName.Text + "' and "

@@ -37,9 +37,6 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.dgvAccount = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.TenTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhanQuyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.pnlEditAccount = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -60,6 +57,8 @@
             this.lblNewPasswordError = new System.Windows.Forms.Label();
             this.grpNewPassword = new System.Windows.Forms.GroupBox();
             this.txtNewPassword = new System.Windows.Forms.TextBox();
+            this.TenTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhanQuyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
             this.pnlEditAccount.SuspendLayout();
             this.grpPermission.SuspendLayout();
@@ -134,8 +133,7 @@
             this.dgvAccount.ColumnHeadersHeight = 32;
             this.dgvAccount.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TenTaiKhoan,
-            this.PhanQuyen,
-            this.HoTen});
+            this.PhanQuyen});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -172,31 +170,6 @@
             this.dgvAccount.TabStop = false;
             this.dgvAccount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccount_CellClick);
             this.dgvAccount.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvStaff_DataBindingComplete);
-            // 
-            // TenTaiKhoan
-            // 
-            this.TenTaiKhoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenTaiKhoan.DataPropertyName = "TÊN TÀI KHOẢN";
-            this.TenTaiKhoan.HeaderText = "TÊN TÀI KHOẢN";
-            this.TenTaiKhoan.Name = "TenTaiKhoan";
-            this.TenTaiKhoan.ReadOnly = true;
-            // 
-            // PhanQuyen
-            // 
-            this.PhanQuyen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.PhanQuyen.DataPropertyName = "PHÂN QUYỀN";
-            this.PhanQuyen.HeaderText = "PHÂN QUYỀN";
-            this.PhanQuyen.Name = "PhanQuyen";
-            this.PhanQuyen.ReadOnly = true;
-            this.PhanQuyen.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.PhanQuyen.Width = 157;
-            // 
-            // HoTen
-            // 
-            this.HoTen.DataPropertyName = "HỌ TÊN";
-            this.HoTen.HeaderText = "HỌ TÊN";
-            this.HoTen.Name = "HoTen";
-            this.HoTen.ReadOnly = true;
             // 
             // btnUpdate
             // 
@@ -523,6 +496,23 @@
             this.txtNewPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtNewPassword_Validating);
             this.txtNewPassword.Validated += new System.EventHandler(this.txtNewPassword_Validated);
             // 
+            // TenTaiKhoan
+            // 
+            this.TenTaiKhoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenTaiKhoan.DataPropertyName = "TÀI KHOẢN";
+            this.TenTaiKhoan.HeaderText = "TÀI KHOẢN";
+            this.TenTaiKhoan.Name = "TenTaiKhoan";
+            this.TenTaiKhoan.ReadOnly = true;
+            // 
+            // PhanQuyen
+            // 
+            this.PhanQuyen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PhanQuyen.DataPropertyName = "PHÂN QUYỀN";
+            this.PhanQuyen.HeaderText = "PHÂN QUYỀN";
+            this.PhanQuyen.Name = "PhanQuyen";
+            this.PhanQuyen.ReadOnly = true;
+            this.PhanQuyen.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // frmAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -593,6 +583,5 @@
         private System.Windows.Forms.TextBox txtNewPassword;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenTaiKhoan;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhanQuyen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
     }
 }
