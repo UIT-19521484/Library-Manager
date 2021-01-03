@@ -306,7 +306,6 @@ namespace New_Library.Forms
             {
                 while (dgvBook.SelectedRows.Count != 0)
                 {
-
                     //MessageBox.Show(dgvBook.SelectedRows[dgvBook.SelectedRows.Count - 1].Cells["MaSach"].Value.ToString());
                     string cmd = @"EXEC sp_delete_book @MaSach = " + Convert.ToInt32(dgvBook.SelectedRows[0].Cells["MaSach"].Value);
                     if (DataConnection.ExecuteQuery(cmd))

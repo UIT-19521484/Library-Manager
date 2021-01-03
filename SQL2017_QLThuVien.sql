@@ -1,11 +1,89 @@
+USE [master]
+GO
+
 CREATE DATABASE QLTV
 GO
 
-USE QLTV
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [QLTV].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [QLTV] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [QLTV] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [QLTV] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [QLTV] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [QLTV] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [QLTV] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [QLTV] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [QLTV] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [QLTV] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [QLTV] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [QLTV] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [QLTV] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [QLTV] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [QLTV] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [QLTV] SET  ENABLE_BROKER 
+GO
+ALTER DATABASE [QLTV] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [QLTV] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [QLTV] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [QLTV] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [QLTV] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [QLTV] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [QLTV] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [QLTV] SET RECOVERY FULL 
+GO
+ALTER DATABASE [QLTV] SET  MULTI_USER 
+GO
+ALTER DATABASE [QLTV] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [QLTV] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [QLTV] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [QLTV] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [QLTV] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [QLTV] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'QLTV', N'ON'
+GO
+ALTER DATABASE [QLTV] SET QUERY_STORE = OFF
+GO
+
+USE [QLTV]
 GO
 
 SET DATEFORMAT DMY
 GO
+
+/****** Object:  FullTextCatalog [ctl_qltv]    Script Date: Thứ Bảy 02.01.2021 00:18:45 ******/
+CREATE FULLTEXT CATALOG [ctl_qltv] WITH ACCENT_SENSITIVITY = OFF
+GO
+
 
 ------ TẠO BẢNG QUẢN LÝ TÀI KHOẢN
 CREATE TABLE TAIKHOAN
@@ -102,6 +180,58 @@ CREATE TABLE CTHD
 )
 GO
 
+/****** Object:  FullTextIndex     Script Date: Thứ Bảy 02.01.2021 00:18:45 ******/
+CREATE FULLTEXT INDEX ON [dbo].[DOCGIA](
+[DiaChi] LANGUAGE 'Vietnamese', 
+[Email] LANGUAGE 'Vietnamese', 
+[GioiTinh] LANGUAGE 'Vietnamese', 
+[HoTen] LANGUAGE 'Vietnamese')
+KEY INDEX [PK_DOCGIA]ON ([ctl_qltv], FILEGROUP [PRIMARY])
+WITH (CHANGE_TRACKING = AUTO, STOPLIST = SYSTEM)
+
+GO
+/****** Object:  FullTextIndex     Script Date: Thứ Bảy 02.01.2021 00:18:45 ******/
+CREATE FULLTEXT INDEX ON [dbo].[HOADON](
+[TinhTrang] LANGUAGE 'Vietnamese')
+KEY INDEX [PK_HOADON]ON ([ctl_qltv], FILEGROUP [PRIMARY])
+WITH (CHANGE_TRACKING = AUTO, STOPLIST = SYSTEM)
+
+GO
+/****** Object:  FullTextIndex     Script Date: Thứ Bảy 02.01.2021 00:18:45 ******/
+CREATE FULLTEXT INDEX ON [dbo].[NHANVIEN](
+[DiaChi] LANGUAGE 'Vietnamese', 
+[GioiTinh] LANGUAGE 'Vietnamese', 
+[HoTen] LANGUAGE 'Vietnamese', 
+[TenTaiKhoan] LANGUAGE 'Vietnamese')
+KEY INDEX [PK_NHANVIEN]ON ([ctl_qltv], FILEGROUP [PRIMARY])
+WITH (CHANGE_TRACKING = AUTO, STOPLIST = SYSTEM)
+
+GO
+/****** Object:  FullTextIndex     Script Date: Thứ Bảy 02.01.2021 00:18:45 ******/
+CREATE FULLTEXT INDEX ON [dbo].[SACH](
+[NhaXuatBan] LANGUAGE 'Vietnamese', 
+[TacGia] LANGUAGE 'Vietnamese', 
+[TenSach] LANGUAGE 'Vietnamese')
+KEY INDEX [PK_SACH]ON ([ctl_qltv], FILEGROUP [PRIMARY])
+WITH (CHANGE_TRACKING = AUTO, STOPLIST = SYSTEM)
+
+GO
+/****** Object:  FullTextIndex     Script Date: Thứ Bảy 02.01.2021 00:18:45 ******/
+CREATE FULLTEXT INDEX ON [dbo].[TAIKHOAN](
+[PhanQuyen] LANGUAGE 'Vietnamese', 
+[TenTaiKhoan] LANGUAGE 'Vietnamese')
+KEY INDEX [PK_TAIKHOAN]ON ([ctl_qltv], FILEGROUP [PRIMARY])
+WITH (CHANGE_TRACKING = AUTO, STOPLIST = SYSTEM)
+
+GO
+/****** Object:  FullTextIndex     Script Date: Thứ Bảy 02.01.2021 00:18:45 ******/
+CREATE FULLTEXT INDEX ON [dbo].[THELOAI](
+[TenTL] LANGUAGE 'Vietnamese')
+KEY INDEX [PK_THELOAI]ON ([ctl_qltv], FILEGROUP [PRIMARY])
+WITH (CHANGE_TRACKING = AUTO, STOPLIST = SYSTEM)
+
+GO
+
 ALTER TABLE CTHD ADD constraint PK_CTHD PRIMARY KEY (MaHD, MaSach)
 GO
 
@@ -149,25 +279,22 @@ INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách văn hóa - xã hội')
 INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách thiếu nhi')
 INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách truyện tranh')
 INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách lịch sử Việt Nam')
-INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách Hentai')
 INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách du lịch')
 INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách nấu ăn')
 INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách kỹ thuật công nghệ')
 INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách tin học')
 
-INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Nguyễn Văn Dũng', N'Nam', CAST(0x0000881000000000 AS DateTime), N'Hà Nội', N'012106172360')
-INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Nguyễn Hồng Phương', N'Nữ', CAST(0x0000884600000000 AS DateTime), N'Quảng Ngãi', N'01206172360 ')
-INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Nguyễn Vân', N'Nữ', CAST(0x00008C6300000000 AS DateTime), N'Hà Nội', N'01206172360 ')
-INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Trần Phúc Thuận', N'Nam', CAST(0x000088CD00000000 AS DateTime), N'Đồng Nai', N'0123456789  ')
-INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Thới Lục', N'Nam', CAST(0x0000874100000000 AS DateTime), N'TP HCM', N'01206172323 ')
+INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Nguyễn Văn Dũng', N'Nam', CAST(0x0000881000000000 AS DateTime), N'Hà Nội', N'0341042360')
+INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Nguyễn Hồng Phương', N'Nữ', CAST(0x0000884600000000 AS DateTime), N'Quảng Ngãi', N'0560617236')
+INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Nguyễn Vân', N'Nữ', CAST(0x00008C6300000000 AS DateTime), N'Hà Nội', N'0763272360')
+INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Trần Phúc Thuận', N'Nam', CAST(0x000088CD00000000 AS DateTime), N'Đồng Nai', N'0356345679')
+INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Thới Lục', N'Nam', CAST(0x0000874100000000 AS DateTime), N'TP HCM', N'0906172323')
 
-INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (N'Châu Tinh Trì', N'Nam', CAST(0x0000A61200000000 AS DateTime), N'Quảng Châu - Trung Quốc', N'0123548521  ', N'chautinhtinh@gmail.com')
-INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (N'Nguyễn Thị Bé', N'Nữ', CAST(0x000088E300000000 AS DateTime), N'Đà Nẵng', N'0166555555  ', N'bexinhxinh@yahoo.com')
-INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (N'Trần Hạo Nam', N'Nam', CAST(0x0000806800000000 AS DateTime), N'Hải Phòng', N'0120000000  ', N'nguoitronggiangho@gmail.com')
+INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (N'Châu Tinh Trì', N'Nam', CAST(0x0000A61200000000 AS DateTime), N'Quảng Châu - Trung Quốc', N'0703161313', N'chautinhtinh@gmail.com')
+INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (N'Nguyễn Thị Bé', N'Nữ', CAST(0x000088E300000000 AS DateTime), N'Đà Nẵng', N'0316555555', N'bexinhxinh@yahoo.com')
+INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (N'Trần Hạo Nam', N'Nam', CAST(0x0000806800000000 AS DateTime), N'Hải Phòng', N'0920000000', N'nguoitronggiangho@gmail.com')
 
-INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('a', '1')
-INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('b', '1')
-
+INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('admin', 'C4CA4238A0B923820DCC509A6F75849B')
 go
 
 
@@ -239,7 +366,6 @@ BEGIN
 END
 GO
 
-
 --- 7. ---Count tất cả Thể loại
 CREATE PROC sp_count_all_genres
 AS
@@ -247,9 +373,6 @@ BEGIN
 	SELECT COUNT(*) FROM THELOAI
 END
 GO
-
-
-
 
 ----------- SP_SELECT --------------
 
@@ -263,10 +386,6 @@ BEGIN
 END
 GO
 
---drop proc sp_select_all_books
-
---EXEC sp_select_all_books
-
 --- 9. ---Select tất cả Thể loại
 CREATE PROC sp_select_all_genres
 AS
@@ -275,9 +394,6 @@ BEGIN
 END
 GO
 
-
-
---EXEC sp_select_all_genres
 
 --- 10. ---Select tất cả Độc giả
 CREATE PROC sp_select_all_readers
@@ -299,7 +415,6 @@ BEGIN
 END
 GO
 
---drop proc sp_select_all_staff
 
 --- 12.---Select tất cả Tên tài khoản + Phân quyền
 ALTER PROC sp_select_all_accounts
@@ -310,7 +425,6 @@ BEGIN
 END
 GO
 
---drop proc sp_select_all_accounts
 
 --- 13.---Select Tên tài khoản
 CREATE PROC sp_select_all_account_name
@@ -367,7 +481,6 @@ BEGIN
 END
 GO
 
---drop proc sp_search_books
 
 --- 19. --- Select 1 loại sách dựa tên Tên sách, Tác giả, Tên Thể loại, Nhà xuất bản
 CREATE PROC sp_select_book
@@ -379,7 +492,7 @@ BEGIN
 END
 GO
 
---exec sp_select_book @TenSach = 'A', @TacGia = 'B', @NhaXuatBan = 'C'
+
 
 --- 20. --- Delete 1 loại sách
 CREATE PROC sp_delete_book
@@ -391,7 +504,6 @@ BEGIN
 END
 GO
 
---drop proc sp_delete_book
 
 --- 21. --- Insert 1 loại sách
 CREATE PROC sp_insert_book
@@ -404,10 +516,6 @@ BEGIN
 	INSERT INTO SACH(TenSach, TacGia, NhaXuatBan, TonTai, MaTL) VALUES (@TenSach, @TacGia, @NhaXuatBan, @TonTai, @MaTL)
 END
 GO
-
---drop proc sp_insert_book
-
---EXEC sp_insert_book @TenSach = 'A', @TacGia = 'B', @NhaXuatBan = 'C', @TenTL = 'D', @TonTai = 0, @DaMuon  = 0
 
 --- 22. --- Update 1 loại sách dựa theo mã sách
 CREATE PROC sp_update_book
@@ -487,7 +595,6 @@ BEGIN
 	WHERE SDT = @SDT OR Email = @Email
 END
 go
-
 
 
 --- 29. --- Delete 1 độc giả
@@ -573,7 +680,6 @@ BEGIN
 END
 go
 
---drop proc sp_insert_staff
 
 --- 35. --- Update 1 nhân viên
 CREATE PROC sp_update_staff
@@ -586,7 +692,6 @@ BEGIN
 END
 go
 
---drop proc sp_update_staff
 
 ---- 36. --- Search Tài khoản
 CREATE PROC sp_search_accounts
@@ -601,7 +706,6 @@ BEGIN
 END
 GO
 
---drop proc sp_search_accounts
 
 --- 37. ---- Select 1 tài khoản 
 CREATE PROC sp_select_account
@@ -752,8 +856,6 @@ END
 GO
 
 
-
-
 ALTER database QLTV set enable_broker with rollback immediate;
 
 SET ANSI_NULLS ON
@@ -772,7 +874,6 @@ SET ARITHABORT ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-
 
 
 ALTER DATABASE QLTV SET  READ_WRITE 
