@@ -294,7 +294,7 @@ INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]
 INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (N'Nguyễn Thị Bé', N'Nữ', CAST(0x000088E300000000 AS DateTime), N'Đà Nẵng', N'0316555555', N'bexinhxinh@yahoo.com')
 INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (N'Trần Hạo Nam', N'Nam', CAST(0x0000806800000000 AS DateTime), N'Hải Phòng', N'0920000000', N'nguoitronggiangho@gmail.com')
 
-INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('admin', 'C4CA4238A0B923820DCC509A6F75849B')
+INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau], [PhanQuyen]) VALUES ('admin', 'C4CA4238A0B923820DCC509A6F75849B', 'Admin')
 go
 
 
