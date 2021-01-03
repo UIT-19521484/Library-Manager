@@ -15,20 +15,23 @@
 ## Tính năng
 
 > - SÁCH:
->	  + Thêm tựa sách mới
->	  + Xóa tựa sách
->	  + Cập nhật thông tin tựa sách bất kì
->	  + Cập nhật số lượng sách (tổng/đã mượn)
->
+> 	  + Thêm tựa sách mới
+> 	  + Xóa tựa sách
+> 	  + Cập nhật thông tin tựa sách bất kì
+> 	
 > - ĐỘC GIẢ:
->	  + Thêm thành viên mới
->	  + Xóa thành viên
->	  + Cập nhật thông tin thành viên
->	  + Coi xem sách thành viên này đã mượn, kiểm tra các sách tới hạn
->
-> - NGƯỜI DÙNG:
->	  + Thêm tài khoản nhân viên
->	  + Ghi lại thông tin đăng nhập
+> 	  + Thêm thành viên mới
+> 	  + Xóa thành viên
+> 	  + Cập nhật thông tin thành viên
+> - QUẢN LÍ:
+> 	  + Thêm tài khoản nhân viên
+> 	  + Xóa tài khoản nhân viên
+> 	  + Chỉnh sửa tên đăng nhập và mật khẩu của nhân viên
+> - NHÂN VIÊN:
+>     - Thêm lượt mượn sách
+>       - Thay đổi thông tin lượt mượn sách
+> - MƯỢN/TRẢ SÁCH:
+>     - Tính số tiền phạt khi quá hạn trả sách
 
 ***Tính năng có thể thay đổi và cập nhật thêm trong tương lai.***
 
