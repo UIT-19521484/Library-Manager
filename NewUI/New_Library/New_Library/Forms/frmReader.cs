@@ -72,7 +72,7 @@ namespace New_Library.Forms
 
                     if (!DataConnection.ExecuteQuery(command))
                     {
-                        MessageBox.Show("Thất bại khi xoá " + dgvReader.SelectedRows[0].Cells["HoTen"].Value, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
                 MessageBox.Show("Hoàn thành xóa dữ liệu người đọc", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

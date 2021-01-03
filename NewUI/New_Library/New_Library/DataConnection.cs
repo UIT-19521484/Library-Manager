@@ -93,7 +93,7 @@ namespace New_Library
             catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show(e.Message);
+                MessageBox.Show("Đối tượng đang được sử dụng. Không thể xóa", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 //MessageBox.Show("Không thể thực thi lệnh này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }

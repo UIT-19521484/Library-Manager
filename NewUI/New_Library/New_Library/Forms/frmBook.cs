@@ -303,9 +303,10 @@ namespace New_Library.Forms
 
             DialogResult rs = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (rs == DialogResult.Yes)
-            {   
+            {
                 while (dgvBook.SelectedRows.Count != 0)
                 {
+
                     //MessageBox.Show(dgvBook.SelectedRows[dgvBook.SelectedRows.Count - 1].Cells["MaSach"].Value.ToString());
                     string cmd = @"EXEC sp_delete_book @MaSach = " + Convert.ToInt32(dgvBook.SelectedRows[0].Cells["MaSach"].Value);
                     if (DataConnection.ExecuteQuery(cmd))
@@ -314,7 +315,7 @@ namespace New_Library.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Thất bại khi xoá" + dgvBook.SelectedRows[0].Cells["TenSach"].Value, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
                 MessageBox.Show("Hoàn thành xóa dữ liệu sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
