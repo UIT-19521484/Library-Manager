@@ -256,6 +256,18 @@ ALTER TABLE CTHD WITH CHECK
 ADD constraint FK_CTHD_SACH FOREIGN KEY (MaSach) REFERENCES SACH(MaSach)
 GO
 
+INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách kỹ năng sống')
+INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách truyện ngắn - Bút ký')
+INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Văn học')
+INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách văn hóa - xã hội')
+INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách thiếu nhi')
+INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách truyện tranh')
+INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách lịch sử Việt Nam')
+INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách du lịch')
+INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách nấu ăn')
+INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách kỹ thuật công nghệ')
+INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách tin học')
+
 INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Hướng dẫn nấu các món ăn Đông Á', N'Trần Hoàng Lân', N'KiMoChi', 481, 19, 10)
 INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Hướng dẫn nấu các món ăn Tây', N'Trần Hoàng Lân', N'KiMoChi', 392, 10, 10)
 INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Kỹ năng sinh tồn - Phần 1', N'Zoro', N'One Piece', 293, 5, 1)
@@ -271,18 +283,13 @@ INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [Ma
 INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Khi Lỗi Thuộc Về Những Vì Sao', N'John Green', N'Tổng hợp', 200, 0, 3)
 INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bức Xúc Không Làm Ta Vô Can', N'Đặng Hoàng Giang', N'Tổng hợp', 200, 0, 3)
 
-
-INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách kỹ năng sống')
-INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách truyện ngắn - Bút ký')
-INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Văn học')
-INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách văn hóa - xã hội')
-INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách thiếu nhi')
-INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách truyện tranh')
-INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách lịch sử Việt Nam')
-INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách du lịch')
-INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách nấu ăn')
-INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách kỹ thuật công nghệ')
-INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách tin học')
+INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau], [PhanQuyen]) VALUES ('admin', 'C4CA4238A0B923820DCC509A6F75849B', 'Admin')
+INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('nvd', 'c4ca4238a0b923820dcc509a6f75849b')
+INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('nv', 'c4ca4238a0b923820dcc509a6f75849b')
+INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('tpt', 'c4ca4238a0b923820dcc509a6f75849b')
+INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('tl', 'c4ca4238a0b923820dcc509a6f75849b')
+INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('nhp', 'c4ca4238a0b923820dcc509a6f75849b')
+go
 
 INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Nguyễn Văn Dũng', N'Nam', CAST(0x0000881000000000 AS DateTime), N'Hà Nội', N'0341042360')
 INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUES (N'Nguyễn Hồng Phương', N'Nữ', CAST(0x0000884600000000 AS DateTime), N'Quảng Ngãi', N'0560617236')
@@ -293,10 +300,6 @@ INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT]) VALUE
 INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (N'Châu Tinh Trì', N'Nam', CAST(0x0000A61200000000 AS DateTime), N'Quảng Châu - Trung Quốc', N'0703161313', N'chautinhtinh@gmail.com')
 INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (N'Nguyễn Thị Bé', N'Nữ', CAST(0x000088E300000000 AS DateTime), N'Đà Nẵng', N'0316555555', N'bexinhxinh@yahoo.com')
 INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (N'Trần Hạo Nam', N'Nam', CAST(0x0000806800000000 AS DateTime), N'Hải Phòng', N'0920000000', N'nguoitronggiangho@gmail.com')
-
-INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau], [PhanQuyen]) VALUES ('admin', 'C4CA4238A0B923820DCC509A6F75849B', 'Admin')
-go
-
 
 CREATE QUEUE SQLDependencyQueue;
 CREATE SERVICE SQLDependencyService ON QUEUE SQLDependencyQueue
@@ -310,6 +313,7 @@ CREATE SERVICE ContactChangeNotifications
   ON QUEUE ContactChangeMessages  
 ([http://schemas.microsoft.com/SQL/Notifications/PostQueryNotification]); */
 
+go
 ------ FORM MAIN
 ------------- SP_COUNT ----------
 
@@ -417,7 +421,7 @@ GO
 
 
 --- 12.---Select tất cả Tên tài khoản + Phân quyền
-ALTER PROC sp_select_all_accounts
+CREATE PROC sp_select_all_accounts
 AS
 BEGIN
 	SELECT TAIKHOAN.TenTaiKhoan AS [TÀI KHOẢN], PhanQuyen AS [PHÂN QUYỀN] 
