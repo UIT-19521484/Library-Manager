@@ -25,9 +25,8 @@
 >	  + Xóa thành viên
 >	  + Cập nhật thông tin thành viên
 >	  + Coi xem sách thành viên này đã mượn, kiểm tra các sách tới hạn
->
-> - NGƯỜI DÙNG:
->	  + Thêm tài khoản nhân viên
+>- NGƯỜI DÙNG:
+> 	  + Thêm tài khoản nhân viên
 >	  + Ghi lại thông tin đăng nhập
 
 ***Tính năng có thể thay đổi và cập nhật thêm trong tương lai.***
@@ -36,9 +35,6 @@
 
 > - **Hoàng Lê Trung Hậu** (19521484)
 >
-> - **Nguyễn Trọng Phúc** (19522041)
+> - ~~**Nguyễn Trọng Phúc** (19522041)~~
 >
 > - **Văn Quốc Huy** (19520607)
-
-## Mockup UI
->- https://lucid.app/invitations/accept/05e68ef9-1f24-4755-8628-6063170d17df
