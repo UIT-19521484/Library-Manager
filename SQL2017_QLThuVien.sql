@@ -162,7 +162,7 @@ CREATE TABLE HOADON
 	MaDG INT NOT NULL,										--- Bắt buộc phải tạo độc giả trước (KHÓA NGOẠI)
 	NgayMuon DATE DEFAULT GETDATE(),						--- Ngày mượn sách
 	NgayTra DATE DEFAULT GETDATE(),							--- Ngày trả sách phải lớn hơn ngày mượn
- 	TinhTrang NVARCHAR(50) DEFAULT 'Cho Mượn',		--- 'Cho Mượn' hoặc 'Thu hồi'
+ 	TinhTrang NVARCHAR(50) DEFAULT 'Cho mượn',		--- 'Cho Mượn' hoặc 'Thu hồi'
 	TongSL INT DEFAULT 0,									--- Tổng số lượng sách mượn
 	ChiPhi INT DEFAULT 0 									--- Chi phí sau khi 'Thu hồi' nếu getdate() > ngày trả thì tính phí
 )
@@ -256,22 +256,6 @@ ALTER TABLE CTHD WITH CHECK
 ADD constraint FK_CTHD_SACH FOREIGN KEY (MaSach) REFERENCES SACH(MaSach)
 GO
 
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Hướng dẫn nấu các món ăn Đông Á', N'Trần Hoàng Lân', N'KiMoChi', 481, 19, 10)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Hướng dẫn nấu các món ăn Tây', N'Trần Hoàng Lân', N'KiMoChi', 392, 10, 10)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Kỹ năng sinh tồn - Phần 1', N'Zoro', N'One Piece', 293, 5, 1)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Kỹ năng sinh tồn - Phần 3', N'Robin', N'One Piece', 192, 6, 1)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Kỹ năng sinh tồn - Phần 2', N'Robin', N'One Piece', 94, 5, 1)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Nhà Giả Kim ', N'Paulo Coelho', N'', 200, 30, 3)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Chuyện Con Mèo Dạy Hải Âu Bay (Tái Bản 2014)', N'Luis Sepulveda', N'', 200, 21, 3)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Cho Tôi Một Vé Đi Tuổi Thơ', N'Nguyễn Nhật Ánh', N'Tổng hợp', 200, 18, 3)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bàn Có Năm Chỗ Ngồi', N'Nguyễn Nhật Ánh', N'Tổng hợp', 200, 18, 3)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bồ Câu Không Đưa Thư', N'Nguyễn Nhật Ánh', N'Tổng hợp', 200, 2, 3)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Đời Cơ Bản Là Buồn Cười', N'Lê Bích', N'Tổng hợp', 200, 3, 3)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bong Bóng Lên Trời', N'Nguyễn Nhật Ánh', N'Tổng hợp', 200, 4, 3)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Khi Lỗi Thuộc Về Những Vì Sao', N'John Green', N'Tổng hợp', 200, 0, 3)
-INSERT INTO [dbo].[SACH] ([TenSach],[TacGia],[NhaXuatBan],[TonTai],[DaMuon], [MaTL]) VALUES (N'Bức Xúc Không Làm Ta Vô Can', N'Đặng Hoàng Giang', N'Tổng hợp', 200, 0, 3)
-
-
 INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách kỹ năng sống')
 INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Sách truyện ngắn - Bút ký')
 INSERT [dbo].[THELOAI] ([TenTL]) VALUES (N'Văn học')
@@ -294,7 +278,19 @@ INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]
 INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (N'Nguyễn Thị Bé', N'Nữ', CAST(0x000088E300000000 AS DateTime), N'Đà Nẵng', N'0316555555', N'bexinhxinh@yahoo.com')
 INSERT [dbo].[DOCGIA] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [Email]) VALUES (N'Trần Hạo Nam', N'Nam', CAST(0x0000806800000000 AS DateTime), N'Hải Phòng', N'0920000000', N'nguoitronggiangho@gmail.com')
 
-INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('admin', 'C4CA4238A0B923820DCC509A6F75849B')
+INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau], [PhanQuyen]) VALUES ('admin', 'c4ca4238a0b923820dcc509a6f75849b', 'Admin')
+INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('nvd', 'c4ca4238a0b923820dcc509a6f75849b')
+INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('nv', 'c4ca4238a0b923820dcc509a6f75849b')
+INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('tpt', 'c4ca4238a0b923820dcc509a6f75849b')
+INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('tl', 'c4ca4238a0b923820dcc509a6f75849b')
+INSERT INTO [dbo].[TAIKHOAN] ([TenTaiKhoan], [MatKhau]) VALUES ('nhp', 'c4ca4238a0b923820dcc509a6f75849b')
+go
+
+INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [TenTaiKhoan]) VALUES (N'Nguyễn Văn Dũng', N'Nam', CAST(0x0000881000000000 AS DateTime), N'Hà Nội', N'012106172360', N'nvd')
+INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [TenTaiKhoan]) VALUES (N'Nguyễn Hồng Phương', N'Nữ', CAST(0x0000884600000000 AS DateTime), N'Quảng Ngãi', N'01206172360', N'nhp')
+INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [TenTaiKhoan]) VALUES (N'Nguyễn Vân', N'Nữ', CAST(0x00008C6300000000 AS DateTime), N'Hà Nội', N'01206172360', N'nv')
+INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [TenTaiKhoan]) VALUES (N'Trần Phúc Thuận', N'Nam', CAST(0x000088CD00000000 AS DateTime), N'Đồng Nai', N'0123456789', N'tpt')
+INSERT [dbo].[NHANVIEN] ([HoTen], [GioiTinh], [NgaySinh], [DiaChi], [SDT], [TenTaiKhoan]) VALUES (N'Thới Lục', N'Nam', CAST(0x0000874100000000 AS DateTime), N'TP HCM', N'01206172323', N'tl')
 go
 
 
@@ -309,6 +305,7 @@ CREATE SERVICE SQLDependencyService ON QUEUE SQLDependencyQueue
 CREATE SERVICE ContactChangeNotifications  
   ON QUEUE ContactChangeMessages  
 ([http://schemas.microsoft.com/SQL/Notifications/PostQueryNotification]); */
+GO
 
 ------ FORM MAIN
 ------------- SP_COUNT ----------
@@ -417,7 +414,7 @@ GO
 
 
 --- 12.---Select tất cả Tên tài khoản + Phân quyền
-ALTER PROC sp_select_all_accounts
+CREATE PROC sp_select_all_accounts
 AS
 BEGIN
 	SELECT TAIKHOAN.TenTaiKhoan AS [TÀI KHOẢN], PhanQuyen AS [PHÂN QUYỀN] 
@@ -874,7 +871,6 @@ SET ARITHABORT ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-
 
 ALTER DATABASE QLTV SET  READ_WRITE 
 GO
